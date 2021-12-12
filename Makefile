@@ -1,5 +1,5 @@
 CXX=clang++
-CXXFLAGS=-std=c++20
+CXXFLAGS=-std=c++2a
 
 SRCDIR=.
 SRCS:= $(shell find $(SRCDIR) -name "*.cpp")

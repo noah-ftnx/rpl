@@ -39,6 +39,7 @@ bool sol(vector<int> vec, const int sum);
 void test(int k, vector<int> v, std::string sv, bool result) {
   cout << setw(2)<< k << ": "<<sv<<": " << res(sol(v, k), result) << endl;
 }
+
 void run_tests() {
   test(k1, v1, " v1", false);
   test(k1, v2, " v2", false);

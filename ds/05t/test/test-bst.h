@@ -1,58 +1,57 @@
 #ifndef RPL_DS_05T_TEST_TEST_BST_H_
 #define RPL_DS_05T_TEST_TEST_BST_H_
 
-template <class T>
+#include <iostream>
+using namespace std;
+
 class Node {
  public:
-  T data {};
-  Node<T>* left {};
-  Node<T>* right {};
+  int data {};
+  Node* left {};
+  Node* right {};
 
-  explicit Node(T data) : data{data} {}
+  explicit Node(int data) : data{data} {}
 
   ~Node() { clear(); }
 
   void clear() {
-    if(left) {
-      delete left;
-      left=nullptr;
-    }
-    if (right) {
-      delete right;
-      right=nullptr;
-    }
+    if(left) { delete left; left=nullptr; }
+    if (right) { delete right; right=nullptr; }
   }
 };
 
-template <class T>
 class Tree {
  private:
-  Node<T>* root {};
+  Node* root {};
  public:
 
   explicit Tree() = default;
+  explicit Tree(Node* root) : root{root} {}
+  ~Tree() { delete root; }
+  void print_bst_level();
 
-  explicit Tree(T root_value) {
-    root = new Node<T>(root_value);
-  }
-
-  explicit Tree(Node<T>* root) : root{root} {}
-
-  ~Tree() {
-    delete root;
-  }
-
-  void print_bfs() { // print before
-    queue<Node<T>*> q;
-    q.push(root);
-    while(!q.empty()) {
-      auto node = q.front(); q.pop();
-      cout << node->data << " ";
-      if (node->left) q.push(node->left);
-      if (node->right) q.push(node->right);
-    }
-    cout << endl;
+  void init_input1() {
+    root = new Node(10);
+    root->left=new Node(5);
+    root->right=new Node(25);
+    root->right->left=new Node(20);
+    root->right->right=new Node(30);
+    root->left->right=new Node(7);
+    root->left->left=new Node(3);
   }
 };
+
+void run_tests() {
+  auto t = Tree();
+  t.init_input1();
+
+  cout << "VERIFY MANUALLY:\n";
+  t.print_bst_level();
+
+  cout << "\nCorrect output:\n";
+  cout<< "10\n";
+  cout<< "5 25\n";
+  cout<< "3 7 20 30\n";
+}
 
 #endif  // RPL_DS_05T_TEST_TEST_BST_H_

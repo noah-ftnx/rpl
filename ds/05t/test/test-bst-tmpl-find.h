@@ -2,6 +2,8 @@
 #define RPL_DS_05T_TEST_TEST_BST_H_
 
 #include <iostream>
+#include <vector>
+#include <string>
 #include "../../../.check/check.h"
 using namespace std;
 
@@ -11,6 +13,7 @@ class Node {
   T data {};
   Node* left {};
   Node* right {};
+  Node* parent {};
 
   explicit Node(T data) : data{data} {}
 
@@ -29,6 +32,10 @@ class Tree {
  public:
 
   explicit Tree() = default;
+
+  explicit Tree(T data) {
+    root = new Node(data);
+  }
   explicit Tree(Node<T>* root) : root{root} {}
   ~Tree() { delete root; }
   void print_bst_level();
@@ -42,6 +49,7 @@ class Tree {
     root->left->right=new Node(7);
     root->left->left=new Node(3);
   }
+
 
   bool _find(Node<T>* node, T element);
   bool find(T element);

@@ -1,4 +1,4 @@
-#include "test/test-bst-tmpl.h"
+#include "test/test-bst-tmpl-find.h"
 using namespace std;
 
 // class Tree;

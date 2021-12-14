@@ -34,7 +34,6 @@ bool has_cycles(Graph g) {
 
   for (int i=0; i<g.size; i++) {
     if (!visited[i] && _dfs_has_cycles(g, visited, i, -1)) return true;
-  }
 
   return false;
 }

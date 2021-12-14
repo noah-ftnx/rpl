@@ -3,6 +3,7 @@
 #include <string>
 #include <sstream>
 #include <iostream>
+#include <cassert>
 using namespace std;
 
 template <class T>

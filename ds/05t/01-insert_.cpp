@@ -1,7 +1,6 @@
 #include <vector>
 #include <queue>
 #include <string>
-#include <sstream>
 #include <iostream>
 #include <cassert>
 using namespace std;
@@ -79,15 +78,15 @@ class Tree {
   string __get_bfs() {
     queue<Node<T>*> q;
     q.push(root);
-    stringstream ss;
+    string r;
     while (!q.empty()) {
-      auto node = q.front();
+      auto n=q.front();
       q.pop();
-      ss << node->data << " ";
-      if (node->left) q.push(node->left);
-      if (node->right) q.push(node->right);
+      r+= std::to_string(n->data) + " ";
+      if (n->left) q.push(n->left);
+      if (n->right) q.push(n->right);
     }
-    return ss.str();
+    return r;
   }
   /////////////
 };
@@ -97,6 +96,7 @@ class Tree {
 // -----------------------------------------------------------------------------
 // -----------------------------------------------------------------------------
 // -----------------------------------------------------------------------------
+
 
 
 

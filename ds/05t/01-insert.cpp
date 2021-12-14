@@ -1,6 +1,22 @@
+#include <queue>
+
 class Tree {
 
-  string __get_bfs(); // for verification
+  ///////////// for verification
+  string __get_bfs() {
+    queue<Node<T>*> q;
+    q.push(root);
+    string r;
+    while (!q.empty()) {
+      auto n=q.front();
+      q.pop();
+      r+= std::to_string(n->data) + " ";
+      if (n->left) q.push(n->left);
+      if (n->right) q.push(n->right);
+    }
+    return r;
+  }
+  /////////////
 };
 
 

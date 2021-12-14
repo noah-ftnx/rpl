@@ -1,20 +1,6 @@
 class Tree {
 
-  ///////////// for verification
-  string __get_bfs() {
-    queue<Node<T>*> q;
-    q.push(root);
-    stringstream ss;
-    while (!q.empty()) {
-      auto node = q.front();
-      q.pop();
-      ss << node->data << " ";
-      if (node->left) q.push(node->left);
-      if (node->right) q.push(node->right);
-    }
-    return ss.str();
-  }
-  /////////////
+  string __get_bfs(); // for verification
 };
 
 
@@ -29,6 +15,20 @@ vector<string> correct_bfs {
     "1 2 4 5 8 9 10 11 ",
     "1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 ",
 };
+
+string Tree::__get_bfs() {
+  queue<Node<T>*> q;
+  q.push(root);
+  stringstream ss;
+  while (!q.empty()) {
+    auto node = q.front();
+    q.pop();
+    ss << node->data << " ";
+    if (node->left) q.push(node->left);
+    if (node->right) q.push(node->right);
+  }
+  return ss.str();
+}
 
 void run_tests() {
   auto tree = Tree<int>(1);

@@ -17,7 +17,6 @@ void Tree::print_bst_level() {
    }
    cout << endl;
   }
-
 }
 
 int main () { run_tests(); }

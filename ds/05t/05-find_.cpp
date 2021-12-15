@@ -24,7 +24,6 @@ bool Tree<T>::find(T element) {
 template<class T>
 bool Tree<T>::find_iterative(T element) {
   auto node = root;
-
   while (node) {
     if (element == node->data) return true;
     if (element > node->data)  node=node->right;

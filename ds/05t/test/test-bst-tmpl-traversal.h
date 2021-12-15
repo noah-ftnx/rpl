@@ -50,7 +50,7 @@ class Tree {
     root->left->left=new Node(3);
   }
 
-  void add(const vector<T>& data, const string& path) {
+  void add_nonbst(const vector<T>& data, const string& path) {
     if(data.size() != (path.size())) { cout << "ERR\n"; exit(-1); }
 
     Node<T>* node = root;
@@ -77,16 +77,45 @@ class Tree {
     }
   }
 
+  void insert(vector<T> vec) { for (auto v: vec) insert(v); }
+
+  void _insert(T data, Node<T>* node) {
+    if (data > node->data)  { // insert: Right
+      if (!node->right) {
+        node->right = new Node(data);
+        node->right->parent=node;
+      }
+      else _insert(data, node->right);
+    } else { // insert: Left
+      if (!node->left) {
+        node->left = new Node(data);
+        node->left->parent=node;
+      }
+      else _insert(data, node->left);
+    }
+  }
+
+  void insert(T data) {
+    if (root == nullptr) { root = new Node(data); }
+    else {
+      _insert(data, root);
+    }
+  }
+
+
   void _print_preorder(Node<T>* node);
   void print_preorder();
   void _print_inorder(Node<T>* node);
   void print_inorder();
   void _print_postorder(Node<T>* node);
   void print_postorder();
+
+  T min();
+  T max();
 };
 
 void run_tests() {
-  auto tree = Tree<int>(1);
+  auto tree = Tree<int>(1); // not a BST
   tree.add( { 2, 4}, { 'L', 'L' });
   tree.add( { 2, 5}, { 'L', 'R' });
   tree.add( { 3}, { 'R' });
@@ -102,6 +131,11 @@ void run_tests() {
   cout << "POST ORDER: ";
   tree.print_postorder();
   cout << "   CORRECT: 4 5 2 3 1\n\n";
+
+
+  cout << "min: " << tree.min() << endl;
+  cout << "max: " << tree.max() << endl;
+
 }
 
 #endif  // RPL_DS_05T_TEST_TEST_BST_H_

@@ -37,7 +37,7 @@ class Tree {
   }
 };
 
-void run_tests() {
+void run_tests_trv() {
   auto t = Tree();
   t.root = new Node(10);
   t.root->left=new Node(5);

@@ -1,5 +1,6 @@
-#include "test/test-bst.h"
 #include <queue>
+
+#include "test/test-bst-lvl.h"
 using namespace std;
 
 void Tree::print_bst_level() {

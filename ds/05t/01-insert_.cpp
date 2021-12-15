@@ -47,7 +47,7 @@ class Tree {
     delete root;
   }
 
-  void add(const vector<T>& data, const string& path) {
+  void add_nonbst(const vector<T>& data, const string& path) {
     if(data.size() != (path.size())) { cout << "ERR\n"; exit(-1); }
 
     Node<T>* node = root;

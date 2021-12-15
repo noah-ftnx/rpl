@@ -1,4 +1,4 @@
-#include "test/test-bst.h"
+#include "test/test-bst-lvl.h"
 
 void Tree::print_bst_level() {
 }

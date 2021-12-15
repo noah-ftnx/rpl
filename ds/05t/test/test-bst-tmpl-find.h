@@ -40,20 +40,43 @@ class Tree {
   ~Tree() { delete root; }
   void print_bst_level();
 
-  void init_input1() {
-    root = new Node(10);
-    root->left=new Node(5);
-    root->right=new Node(25);
-    root->right->left=new Node(20);
-    root->right->right=new Node(30);
-    root->left->right=new Node(7);
-    root->left->left=new Node(3);
+
+  void insert(vector<T> vec) { for (auto v: vec) insert(v); }
+
+  void _insert(T data, Node<T>* node) {
+    if (data > node->data)  { // insert: Right
+      if (!node->right) {
+        node->right = new Node(data);
+        node->right->parent=node;
+      }
+      else _insert(data, node->right);
+    } else { // insert: Left
+      if (!node->left) {
+        node->left = new Node(data);
+        node->left->parent=node;
+      }
+      else _insert(data, node->left);
+    }
   }
 
+  void insert(T data) {
+    if (root == nullptr) { root = new Node(data); }
+    else {
+      _insert(data, root);
+    }
+  }
 
+  void init_input1() {
+    insert({10, 5, 25, 20, 30, 7, 3});
+  }
+
+  // FIND
   bool _find(Node<T>* node, T element);
   bool find(T element);
   bool find_iterative(T element);
+
+  T min();
+  T max();
 };
 
 void run_find_test() {
@@ -67,6 +90,9 @@ void run_find_test() {
   query=21;
   check_bool("find:recv: " + std::to_string(query), tree->find(query), false);
   check_bool("find:iter: " + std::to_string(query), tree->find_iterative(query), false);
+
+ check_result("min: ", tree->min(), 3);
+ check_result("max: ", tree->max(), 30);
 }
 
 #endif  // RPL_DS_05T_TEST_TEST_BST_H_

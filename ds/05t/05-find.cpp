@@ -1,4 +1,4 @@
-#include "test/test-bst-tmpl-find.h"
+#include "test/bst-tmpl-find.h"
 
 // Tree (template)
 // bool _find(Node<T>* node, T element);

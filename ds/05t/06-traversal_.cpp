@@ -1,4 +1,4 @@
-#include "test/test-bst-tmpl-traversal.h"
+#include "test/bst-tmpl-traversal.h"
 
 template <class T>
 void Tree<T>::_print_inorder(Node<T>* node) {

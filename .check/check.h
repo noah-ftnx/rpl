@@ -4,13 +4,13 @@
 #include <string>
 using namespace std;
 
-void check_bool(string msg, bool result, bool correct_result) {
-  cout << msg << ": " << boolalpha << result << (result != correct_result? " (WRONG)":"") << endl;
+void check_bool(string msg, bool result, bool correct) {
+  cout << msg << ": " << boolalpha << result << (result != correct? " (WRONG)":"") << endl;
 }
 
 template <class T>
-void check_result(string msg, T result, T correct_result) {
-  cout << msg << ": " << result << (result != correct_result? " (WRONG)":"") << endl;
+void check_result(string msg, T result, T correct) {
+  cout << msg << ": " << result << (result != correct? " (WRONG)":"") << endl;
 }
 
 #endif  // RPL_CHECK_CHECK_H_

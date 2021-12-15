@@ -1,4 +1,4 @@
-#include "test/test-bst-tmpl-traversal.h"
+#include "test/bst-tmpl-traversal.h"
 
 // void _print_inorder(Node<T>* node);
 // void print_inorder();

@@ -77,32 +77,6 @@ class Tree {
     }
   }
 
-  void insert(vector<T> vec) { for (auto v: vec) insert(v); }
-
-  void _insert(T data, Node<T>* node) {
-    if (data > node->data)  { // insert: Right
-      if (!node->right) {
-        node->right = new Node(data);
-        node->right->parent=node;
-      }
-      else _insert(data, node->right);
-    } else { // insert: Left
-      if (!node->left) {
-        node->left = new Node(data);
-        node->left->parent=node;
-      }
-      else _insert(data, node->left);
-    }
-  }
-
-  void insert(T data) {
-    if (root == nullptr) { root = new Node(data); }
-    else {
-      _insert(data, root);
-    }
-  }
-
-
   void _print_preorder(Node<T>* node);
   void print_preorder();
   void _print_inorder(Node<T>* node);

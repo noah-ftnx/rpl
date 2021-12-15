@@ -80,5 +80,4 @@ Node<T>* Tree<T>::successor_with_parent(Node<T>* node) {
   }
 }
 
-
 int main() { run_tests(); return 0; }

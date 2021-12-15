@@ -69,43 +69,18 @@ class Tree {
     }
   };
 
-  Node<T>* get_element(T element) {
-    auto node = root;
-    while (node) {
-      if (element == node->data) return node;
-      if (element > node->data)  node=node->right;
-      else node=node->left;
-    }
-    return nullptr;
-  }
-
-  optional<T> successor(T element);
-  optional<T> predecessor(T element);
-  Node<T>* successor_with_parent(Node<T>* node);
+  Node<T>* _successor_recv(Node<T>* node, T data);
+  Node<T>* successor_recv(T element);
 };
 
 void run_tests() {
   auto tree = Tree<int>();
   tree.init_input1();
 
-  check_optional("successor of 45", tree.successor(45), make_optional(50));
-  check_optional("successor of 70", tree.successor(70), make_optional(73));
-  check_optional("successor of 73", tree.successor(73), {});
+  check_result("recv successor of 45", tree.successor_recv(45)->data, 50);
+  check_result("recv successor of 70", tree.successor_recv(70)->data, 73);
+  check_result("recv successor of 73", (void*)tree.successor_recv(73), (void*)nullptr);
   cout << endl;
-
-  // successor with parent
-  auto node = tree.get_element(45);
-  check_result("successor_with_parent of 45", tree.successor_with_parent(node)->data, 50);
-  node = tree.get_element(73);
-  check_result("successor_with_parent of 73", (void *)tree.successor_with_parent(node), (void*) nullptr);
-  cout << endl;
-
-  // predecessor
-  check_optional("predecessor of 45", tree.predecessor(45), make_optional(35));
-  check_optional("predecessor of 70", tree.predecessor(70), make_optional(60));
-  check_optional("predecessor of 15", tree.predecessor(15), {});
-  cout << endl;
-
 }
 
 #endif  // RPL_DS_05T_TEST_TEST_BST_H_

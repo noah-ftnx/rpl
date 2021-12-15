@@ -1,5 +1,6 @@
 #include "test/bst-tmpl-succpred-recv.h"
 
+// TEMPLATE:
 // Node<T>* _successor_recv(Node<T>* node, T data);
 // Node<T>* successor_recv(T data);
 

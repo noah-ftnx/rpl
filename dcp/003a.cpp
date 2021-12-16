@@ -3,6 +3,6 @@
 // string serialize();
 // Tree* deserialize(const string& str);
 
-int main() { run_tests(); return 0; }
+int main() { test_perfect(); return 0; }
 
 

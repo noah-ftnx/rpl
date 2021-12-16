@@ -1,25 +1,24 @@
 #include <string>
 #include <queue>
-#include <istream>
 #include <sstream>
 
 #include "test/003.h"
 
 string Tree::serialize() {
-  stringstream ss;
+  string res;
   queue<Node*> q;
   q.push(root);
   while (!q.empty()) {
     auto n = q.front(); q.pop();
-    ss << n->data << endl;
+    res+=to_string(n->data) + "\n";
     if(n->left) {
       q.push(n->left);
-      // if it has a left node, it must have a right node too
-      assert(n->right); q.push(n->right);
+      assert(n->right); // it must also have a right node too
+      q.push(n->right);
     }
-
   }
-  return ss.str();
+  res.pop_back(); // TRICKY: so eof works
+  return res;
 }
 
 Tree* Tree::deserialize(const string& str) {
@@ -29,10 +28,9 @@ Tree* Tree::deserialize(const string& str) {
   getline(iss, line);
   Tree* t = new Tree();
   t->root = new Node(stoi(line));
-  queue<Node*> q ({t->root}); // q.push(n)
+  queue<Node*> q ({t->root});
   while (!iss.eof()) {
     getline(iss, line);
-    if(line.empty()) break;
 
     auto n = q.front(); q.pop();
     n->left=new Node(stoi(line));
@@ -46,6 +44,6 @@ Tree* Tree::deserialize(const string& str) {
   return t;
 }
 
-int main() { run_tests(); return 0; }
+int main() { test_perfect(); return 0; }
 
 

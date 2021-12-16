@@ -24,7 +24,7 @@ struct Tree {
     root->left=new Node(10);
     root->right=new Node(31);
     root->left->left=new Node(5);
-    root->left->right=new Node(7);
+    root->left->right=new Node(15);
     root->right->left=new Node(25);
     root->right->right=new Node(100);
   }
@@ -42,6 +42,10 @@ struct Tree {
     root->right=new Node(31);
     root->left->left=new Node(5);
     root->left->right=new Node(15);
+  }
+
+  void input_bst() {
+    input_full1(); // it's BST
   }
 
   string __get_bfs() {
@@ -88,6 +92,12 @@ void test_full() {
   Tree *t2 = new Tree();
   t2->input_full2();
   test_tree(t2);
+}
+
+void test_bst() {
+  Tree *t = new Tree();
+  t->input_bst();
+  test_tree(t);
 }
 
 #endif  // RPL_DCP_TEST_003_H_

@@ -44,6 +44,17 @@ struct Tree {
     root->left->right=new Node(15);
   }
 
+  void input_nonbst() {
+    root=new Node(5);
+    root->left=new Node(100);
+    root->left->left=new Node(50);
+    root->left->left->left=new Node(25);
+    root->right=new Node(34);
+    root->right->left=new Node(3);
+    root->right->right=new Node(10);
+    root->right->right->left=new Node(500);
+  }
+
   void input_bst() {
     input_full1(); // it's BST
   }
@@ -97,6 +108,12 @@ void test_full() {
 void test_bst() {
   Tree *t = new Tree();
   t->input_bst();
+  test_tree(t);
+}
+
+void test_nonbst() {
+  Tree *t = new Tree();
+  t->input_nonbst();
   test_tree(t);
 }
 

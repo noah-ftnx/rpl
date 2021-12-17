@@ -10,7 +10,7 @@ void check_bool(string msg, bool result, bool correct) {
 
 template <class T>
 void check_result(string msg, T result, T correct) {
-  cout << msg << ": " << result << (result != correct? " (WRONG)":"") << endl;
+  cout << msg << ": " << to_string(result) << (result != correct? " (WRONG)":"") << endl;
 }
 
 #endif  // RPL_CHECK_CHECK_H_

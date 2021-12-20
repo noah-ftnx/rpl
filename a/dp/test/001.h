@@ -4,7 +4,7 @@
 #include <iostream>
 
 
-int prototype(int);
+uint64_t prototype(int);
 using fptr = decltype(prototype);
 
 void check(string msg, fptr function, int n, int correct) {

@@ -1,9 +1,9 @@
-#include "test/input-mst.h"
-
-#include <iostream>
 #include <queue>
 #include <vector>
 using namespace std;
+
+#include "test/input-mst.h"
+// DEFINED: Edge: int src, tgt, w;
 
 struct EdgeCmp {
   bool operator()(const Edge& a, const Edge& b) {
@@ -22,6 +22,7 @@ int cfind(vector<int>& st, int u) {
   }
   return x;
 }
+
 void wunion(vector<int>& st, int u, int v) {
   if (st[u] < st[v]) { // u parent
     st[u]+=st[v];
@@ -32,7 +33,7 @@ void wunion(vector<int>& st, int u, int v) {
   }
 }
 
-void MST(vector<Edge> edges, int V) {
+vector<Edge> MST(vector<Edge> edges, int V) {
   vector<Edge> mst(V-1);
   vector<int> st(V, -1);
   priority_queue<Edge, vector<Edge>, EdgeCmp> pq;
@@ -50,26 +51,8 @@ void MST(vector<Edge> edges, int V) {
     }
   }
 
-  for (auto e: mst) {
-    cout << "(" << e.src << "," << e.tgt << "): " << e.w << endl;
-  }
+  return mst;
 }
-///////////////////////////////////////
 
-
-int main () {
-  cout << "MST: undirected graph:\n";
-  vector<Edge> edges(input_kruskal());
-
-  MST(edges, V);
-
-  cout << endl;
-
-  cout << "Correct output:\n"
-       << "(1,6) 5\n"
-       << "(3,4) 8\n"
-       << "(2,7) 10\n"
-       << "(2,3) 12\n"
-       << "(4,5) 16\n"
-       << "(5,6) 20\n";
-}
+#include "test/03.h"
+int main() { run_tests(); return 0; }

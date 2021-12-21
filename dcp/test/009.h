@@ -2,27 +2,25 @@
 #define RPL_DCP_TEST_009_H_
 
 #include <iostream>
+#include <string>
 
-void check(string msg, vector<int> v, int correct) {
-  int r = sum_of_non_adjacent(v);
-  cout << msg << ": " << r << (v!=correct? " (WRONG)": "")  << endl;
+int prototype(const vector<int>& v);
+using fptr = decltype(prototype);
+
+void check(string msg, fptr function, vector<int> v, int correct) {
+  int r = function(v);
+  cout << msg << ": " << r << (r!=correct? " (WRONG)": "")  << endl;
 }
 
-void run_tests() {
-  vector<int> v0 {};
-  vector<int> v1 {1};
-  vector<int> v2 {101, 50};
-  vector<int> v3 {2,4,6,2,5};
-  vector<int> v4 {5,1,1,5};
-  vector<int> v5 {5, 11, 1, 1, 1, 1, 300, 3};
-
-  cout << "v0: " << sum_bu(v0) << endl;
-  cout << "v1: " << sum_bu(v1) << endl;
-  cout << "v2: " << sum_bu(v2) << endl;
-  cout << "v3: " << sum_bu(v3) << endl;
-  cout << "v4: " << sum_bu(v4) << endl;
-  cout << "v5: " << sum_bu(v5) << endl;
-
+void run_tests(string msg, fptr function) {
+  cout << msg << ":\n";
+  check("0", function, {}, 0);
+  check("1", function, {5}, 5);
+  check("2", function, {101, 50}, 101);
+  check("3", function, {2, 4, 6, 2, 5}, 13);
+  check("4", function, {5, 1, 1, 5}, 10);
+  check("5", function, {5, 11, 1, 1, 1, 1, 300, 3}, 312);
+  cout << endl;
 }
 
 #endif  // RPL_DCP_TEST_009_H_

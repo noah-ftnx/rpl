@@ -2,6 +2,7 @@
 #define RPL_A_DP_TEST_003_H_
 
 #include <iostream>
+using namespace std;
 
 int prototype(const vector<int>& vec);
 using fptr = decltype(prototype);

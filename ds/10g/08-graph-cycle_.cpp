@@ -34,40 +34,11 @@ bool has_cycles(Graph g) {
 
   for (int i=0; i<g.size; i++) {
     if (!visited[i] && _dfs_has_cycles(g, visited, i, -1)) return true;
+  }
 
   return false;
 }
 
-Graph input_cyclic() {
-  auto g = Graph(5);
-  g.addEdge(1, 0);
-  g.addEdge(0, 2);
-  g.addEdge(2, 1);
-  g.addEdge(0, 3);
-  g.addEdge(3, 4);
-  return g;
-}
 
-Graph input_acyclic() {
-  auto g = Graph(3);
-  g.addEdge(0, 1);
-  g.addEdge(1, 2);
-  return g;
-}
-
-
-void test_cycles() {
-  cout << "Cycles in a Graph (non-directed)" << endl;
-  auto gCyclic=input_cyclic();
-  bool gc=has_cycles(gCyclic);
-  cout << "Graph: Cyclic: has_cycles " << gc << (!gc?" (WRONG)": "")  << endl;
-
-  auto gAcyclic=input_acyclic();
-  bool ga=has_cycles(gAcyclic);
-  cout << "Graph: Acyclic: has_cycles " << ga << (ga?" (WRONG)": "")  << endl;
-}
-
-int main() {
-  test_cycles();
-  return 0;
-}
+#include "test/08.h"
+int main() { run_tests(); return 0; }

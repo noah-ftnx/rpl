@@ -3,7 +3,6 @@
 
 #include <iostream>
 
-
 uint64_t prototype(int);
 using fptr = decltype(prototype);
 

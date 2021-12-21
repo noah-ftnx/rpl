@@ -1,10 +1,10 @@
 #include <vector>
 using namespace std;
 
-// int count_bf(int n);
-// int count_td(int n);
-// int count_bu(int n);
-// int sol(int n);;
+// uint64_t count_bf(int n);
+// uint64_t count_td(int n);
+// uint64_t count_bu(int n);
+// uint64_t sol(int n);;
 
 #include "test/001.h"
 

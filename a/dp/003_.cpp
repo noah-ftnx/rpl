@@ -34,7 +34,7 @@ int max_subarr_td(const vector<int>& vec) {
 
 int max_subarr_bu(const vector<int>& vec) {
   vector<int> i_max(vec.size(), 0);
-  // fill res
+  // fill i_max
   i_max[0]=vec[0];
   for (int i=1; i<vec.size(); i++) {
     i_max[i] = max(vec[i], vec[i] + i_max[i-1]);

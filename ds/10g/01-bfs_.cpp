@@ -1,24 +1,13 @@
-#include "test/input-traversal.h"
-
 #include <list>
 #include <vector>
-#include <iostream>
 #include <queue>
+#include <iostream>
 using namespace std;
 
-void BFS(const vector<list<Edge>>& G, int src);
+#include "test/input-traversal.h"
 
-int main () {
-  const int src = 3;
-  cout << "BFS (src:" << src << ") undirected graph:\n";
-  vector<list<Edge>> G(input_graph_undirected());
-  BFS(G, src);
+// DEFINED: struct Edge: int id, int weight
 
-  cout << endl;
-  cout << "3 2 4 1 7 5 6   <- correct traversal (src:3)\n";
-}
-
-// SLV
 void BFS(const vector<list<Edge>>& G, int src) {
   vector<bool> visit_sched(G.size(), false);
   queue<int> q;
@@ -36,3 +25,6 @@ void BFS(const vector<list<Edge>>& G, int src) {
     }
   }
 }
+
+#include "test/01.h"
+int main () { run_tests(); return 0; }

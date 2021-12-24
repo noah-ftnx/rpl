@@ -44,8 +44,9 @@ struct Tree {
 
         node->data = succ->data;
 
-        // recv call. won't go deep as the successor won't have a left child
-        // (min of right subtree)
+        // NOTE: this else block will only enter once.
+        // that is because the successor is guaranteed to have <2 children (either 0 or 1),
+        // as it can never have a left child (it's the min of the right subtree)
         node->right=_delete_node(node->data, node->right);
         to_del = nullptr; // delete above.
       }

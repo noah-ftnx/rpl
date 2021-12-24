@@ -16,9 +16,9 @@ template <class T>
 struct Tree {
 
   Node<T>* root {};
+  void add(const vector<T>& data, const string& path); // given
 
   Tree(T value) { root = new Node<T>(value); }
-
 
   void _query_successors(deque<int>& query, deque<int>& answer,
                            vector<Node<T>*> inorder, Node<T>* node) {
@@ -39,7 +39,6 @@ struct Tree {
     _query_successors(query, answer, inorder, node->right);
   }
 
-  void add(const vector<T>& data, const string& path); // given
 
   void query_successors(deque<int>& query, deque<int>& answer) {
     vector<Node<T>*> inorder;

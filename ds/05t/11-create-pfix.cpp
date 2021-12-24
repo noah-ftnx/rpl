@@ -9,5 +9,5 @@ class Tree {
 
 
 
-#include "test/10-cpfix.h"
+#include "test/11-cpfix.h"
 int main() { run_tests(); return 0; }

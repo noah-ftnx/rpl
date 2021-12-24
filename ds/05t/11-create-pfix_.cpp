@@ -16,7 +16,7 @@ class Tree {
   Node* root = {};
 
  public:
-  const Tree& operator=(const Tree&) = delete; // TODO CHECK THIS..
+  const Tree& operator=(const Tree&) = delete;
   Tree(const Tree&) = delete;
   Tree() = delete;
 
@@ -43,5 +43,5 @@ class Tree {
 
 
 
-#include "test/10-cpfix.h"
+#include "test/11-cpfix.h"
 int main() { run_tests(); return 0; }

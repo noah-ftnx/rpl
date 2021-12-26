@@ -6,6 +6,7 @@
 #include <string>
 #include <sstream>
 #include <vector>
+
 using namespace std;
 
 int k1=7;
@@ -40,7 +41,7 @@ void test(int k, vector<int> v, std::string sv, bool result) {
   cout << setw(2)<< k << ": "<<sv<<": " << res(sol(v, k), result) << endl;
 }
 
-void run_tests_trv() {
+void run_tests() {
   test(k1, v1, " v1", false);
   test(k1, v2, " v2", false);
   test(k1, v3, " v3", false);

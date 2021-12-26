@@ -1,6 +1,5 @@
-#include "test/test-001.h"
-
 #include <unordered_set>
+#include <vector>
 using namespace std;
 
 bool sol(vector<int> vec, const int sum) {
@@ -17,4 +16,5 @@ bool sol(vector<int> vec, const int sum) {
   return false;
 }
 
+#include "test/001.h"
 int main() { run_tests(); return 0; }

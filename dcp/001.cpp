@@ -1,8 +1,7 @@
 
-#include "test/test-001.h"
+bool sol(vector<int> vec, const int sum);
 
-bool sol(vector<int> vec, const int sum) {
 
-}
 
+#include "test/001.h"
 int main() { run_tests(); return 0; }

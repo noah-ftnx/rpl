@@ -1,8 +1,7 @@
 #include <string>
 #include <queue>
 #include <sstream>
-
-#include "test/003.h"
+using namespace std;
 
 string Tree::serialize() {
   string res;
@@ -44,6 +43,7 @@ Tree* Tree::deserialize(const string& str) {
   return t;
 }
 
+#include "test/003.h"
 int main() { test_perfect(); return 0; }
 
 

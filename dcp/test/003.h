@@ -2,8 +2,8 @@
 #define RPL_DCP_TEST_003_H_
 
 #include <utility>
-
 #include <iostream>
+#include <queue>
 
 using namespace std;
 

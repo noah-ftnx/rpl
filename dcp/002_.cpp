@@ -1,4 +1,3 @@
-#include "test/test-002.h"
 #include <iostream>
 #include <vector>
 using namespace std;
@@ -43,4 +42,6 @@ vector<int> sol2(vector<int>& vec) { // w/o division
   return res;
 }
 
+
+#include "test/002.h"
 int main() { run_tests(); return 0; }

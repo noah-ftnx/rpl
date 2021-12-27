@@ -1,9 +1,9 @@
-#include <sstream>
 #include <deque>
+#include <queue>  // header-dep
+#include <sstream>
 #include <string>
 
-#include <queue> // header-dep
-#include "test/003.h"
+#include "test/003-test.h"
 
 string _serialize(Node* node) {
   if (node == nullptr) return "\n";

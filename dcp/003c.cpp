@@ -4,5 +4,5 @@ Tree* Tree::deserialize(const string& str);
 
 
 
-#include "test/003.h"
+#include "test/003-test.h"
 int main() { test_bst(); return 0; }

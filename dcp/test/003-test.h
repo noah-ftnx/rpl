@@ -34,20 +34,29 @@ void Tree::input_full2() {
 }
 
 
-void Tree::input_nonbst() {
-  root=new Node("005");
-  root->left=new Node("100");
+void Tree::input_bst() {
+  root=new Node("300");
+  root->left=new Node("150");
   root->left->left=new Node("050");
   root->left->left->left=new Node("025");
-  root->right=new Node("034");
-  root->right->left=new Node("003");
-  root->right->right=new Node("010");
-  root->right->right->left=new Node("500");
+  root->right=new Node("500");
+  root->right->left=new Node("400");
+  root->right->right=new Node("600");
+  root->right->right->left=new Node("550");
 }
 
-void Tree::input_bst() {
-  input_full1(); // it's BST
+void Tree::input_nonbst() {
+  root=new Node("a");
+  root->left=new Node("z");
+  root->left->left=new Node("c");
+  root->left->left->left=new Node("d");
+  root->right=new Node("w");
+  root->right->left=new Node("m");
+  root->right->right=new Node("l");
+  root->right->right->left=new Node("f");
 }
+
+
 
 string Tree::__get_bfs() {
   queue<Node*> q;

@@ -1,64 +1,68 @@
-#include <queue>
+// TREE: FULL
+#include <string>
 #include <sstream>
+#include <queue>
+using namespace std;
 
-#include "test/003-test.h"
+#include "test/003-base.h"
 
 string Tree::serialize() {
-  if(!root) return "";
-  queue<Node*> q({root});
+  if (root==nullptr) return "";
+  queue<Node*> q;
+  q.push(root);
   string res;
   while (!q.empty()) {
     auto node = q.front(); q.pop();
-    if (!node->left) { // is leaf
+    if (node->left == nullptr) {  // leaf
       res+="1\n";
     } else {
       res+="0\n";
       q.push(node->left);
       q.push(node->right);
     }
-    res+=to_string(node->data) + "\n";
+    res+=node->val + "\n";
   }
 
-  res.pop_back(); // eof works!
+  res.pop_back(); // for eof to work
   return res;
 }
 
 Tree* Tree::deserialize(const string& str) {
-  if (str.empty()) return nullptr;
+  if (str.size() == 0) return nullptr;
+
   istringstream iss(str);
-
-  auto parse_node = [&] (Node*& node, bool& leaf) {
+  auto get_node = [&iss](Node*& node, bool& leaf) {
     string line;
-    getline(iss, line); // line1: is leaf
-    leaf = (line=="1");
-
-    getline(iss, line); // line2: node
-    node = new Node(stoi(line));
+    getline(iss, line);
+    leaf=(line=="1");
+    getline(iss, line);
+    node = new Node(line);
   };
 
-  bool is_leaf;
+  bool leaf;
   Node* nn;
-  parse_node(nn, is_leaf);
+  get_node(nn, leaf);
+  auto tree = new Tree(nn);
+  if (leaf) return tree;
 
-  Tree* t = new Tree();
-  t->root = nn;
-  if(is_leaf) return t;
-
-  queue<Node*> q ({nn});
+  queue<Node*> q({tree->root});
   while(!iss.eof()) {
-    auto node = q.front(); q.pop();
+    auto parent = q.front(); q.pop();
+    // left
+    get_node(nn, leaf);
+    parent->left = nn;
+    if (!leaf) { q.push(nn); }
 
-    parse_node(nn, is_leaf); // left child
-    node->left=nn;
-    if(!is_leaf) q.push(node->left);
-
-    parse_node(nn, is_leaf); // right child
-    node->right=nn;
-    if(!is_leaf) q.push(node->right);
+    // right
+    get_node(nn, leaf);
+    parent->right = nn;
+    if (!leaf) { q.push(nn); }
   }
 
-  return t;
+  return tree;
 }
 
 
+
+#include "test/003-test.h"
 int main() { test_full(); return 0; }

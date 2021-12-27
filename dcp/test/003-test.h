@@ -89,7 +89,7 @@ void test_full() {
   Tree *t1 = new Tree();
   t1->input_full1();
   test_tree(t1);
-  cout << "\nFULL1:\n";
+  cout << "\nFULL2:\n";
   Tree *t2 = new Tree();
   t2->input_full2();
   test_tree(t2);

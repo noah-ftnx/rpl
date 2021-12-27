@@ -1,4 +1,5 @@
-
+#include <string>
+using namespace std;
 string Tree::serialize();
 Tree* Tree::deserialize(const string& str);
 

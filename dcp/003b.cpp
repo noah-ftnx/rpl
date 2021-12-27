@@ -1,3 +1,7 @@
+// TREE: FULL
+// INCLUDES
+
+#include "test/003-base.h"
 
 string Tree::serialize();
 Tree* Tree::deserialize(const string& str);

@@ -56,8 +56,6 @@ void Tree::input_nonbst() {
   root->right->right->left=new Node("f");
 }
 
-
-
 string Tree::__get_bfs() {
   queue<Node*> q;
   q.push(root);
@@ -71,6 +69,7 @@ string Tree::__get_bfs() {
   }
   return r;
 }
+
 void DCP_TEST() {
   cout << "RUNNING DCP TEST: ";
   auto node = new Tree(new Node("root", new Node("left", new Node("left.left")), new Node("right")));
@@ -81,10 +80,12 @@ void DCP_TEST() {
 void test_tree(Tree*& t) {
   if (t==nullptr) {cout << "<null tree>\n"; return; }
   string r1 = t->__get_bfs();
+  cout << "  Orig: " << r1 << endl;
   string str(t->serialize());
+
   Tree* td = Tree::deserialize(str);
   string r2 = td->__get_bfs();
-  cout << "Tree: " << r2 << (r1.compare(r2)?" (WRONG)":"") << endl;
+  cout << "Parsed: " << r2 << (r1.compare(r2)?" (WRONG)":"") << endl;
 }
 
 void test_perfect() {

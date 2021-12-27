@@ -39,8 +39,7 @@ Tree* Tree::deserialize(const string& str) {
     node = new Node(line);
   };
 
-  bool leaf;
-  Node* nn;
+  bool leaf; Node* nn;
   get_node(nn, leaf);
   auto tree = new Tree(nn);
   if (leaf) return tree;
@@ -48,13 +47,11 @@ Tree* Tree::deserialize(const string& str) {
   queue<Node*> q({tree->root});
   while(!iss.eof()) {
     auto parent = q.front(); q.pop();
-    // left
-    get_node(nn, leaf);
+    get_node(nn, leaf);  // left
     parent->left = nn;
     if (!leaf) { q.push(nn); }
 
-    // right
-    get_node(nn, leaf);
+    get_node(nn, leaf);  // right
     parent->right = nn;
     if (!leaf) { q.push(nn); }
   }

@@ -27,8 +27,8 @@ struct Trie {
    auto node = root;
    for (int i=0; i<s.size(); i++) {
      char c = s[i];
-     if (!node->has(c)) return s;
      if (node->leaf) return s.substr(0, i+1); // found
+     if (!node->has(c)) return s;
      node=node->get(c);
    }
    return s; // exists, but not a word

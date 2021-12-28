@@ -37,5 +37,5 @@ struct Trie {
 
 
 
-#include "test/05.h"
+#include "test/07.h"
 int main() { run_tests(); return 0; }

@@ -5,5 +5,5 @@ bool suffix_exists(string suffix);
 
 
 
-#include "test/06.h"
+#include "test/05.h"
 int main() { run_tests(); return 0; }

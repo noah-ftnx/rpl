@@ -1,31 +1,27 @@
-#ifndef RPL_DS_08_TEST_04_H_
-#define RPL_DS_08_TEST_04_H_
+#ifndef RPL_DS_08_TEST_05_H_
+#define RPL_DS_08_TEST_05_H_
 
 #include <iostream>
-#include <vector>
-void run_tests() {
-  cout << __func__ << endl;
-  auto trie = Trie();
-
-  vector<string> input { "xyz","xyzeA","a","bc" };
-
-  for (auto word: input) {
-    cout << word << " ";
-    trie.insert(word);
-  }
-  cout << "| input.\n";
-
-
-  vector<string> test{ "", "x", "xyz" };
-  vector<string> correct{ "", "x", "xyz" };
-  for (int i=0; i<test.size(); i++) {
-    auto t = test[i];
-    auto c = correct[i];
-    cout << "test: " << t  << ": ";
-    string r = trie.minimal_prefix(t);
-    cout << r  << (r!=c? " (WRONG)":"")<< endl;
-  }
+void test(Trie& trie, string suffix, bool correct) {
+  bool result = trie.suffix_exists(suffix);
+  cout << "suffix: " << suffix
+       << (result? ": exists": "")
+       << (result!=correct?" (WRONG)":"") << endl;
 }
 
+void run_tests() {
+  auto trie = Trie();
+  trie.insert("problem");
 
-#endif  // RPL_DS_08_TEST_04_H_
+  // test(trie, "", false); // empty allowed?
+  test(trie, "y", false);
+  test(trie, "p", false);
+  test(trie, "m", true);
+  test(trie, "em", true);
+  test(trie, "lem", true);
+  test(trie, "bem", false);
+  test(trie, "problem", true);
+  test(trie, "fproblem", false);
+}
+
+#endif  // RPL_DS_08_TEST_05_H_

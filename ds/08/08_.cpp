@@ -29,7 +29,7 @@ struct Trie {
 unordered_set<string> find_substr(Trie& trie, string str) {
   auto node = trie.root;
   unordered_set<string> result;
-  for (int i=0; i<str.size(); i++) {
+  for (int i=0; i<str.size(); i++) { // O(SL)
     const char c = str[i];
     if (node->has(c)) { // a substring might start here
       auto node_inner = node;
@@ -48,7 +48,7 @@ unordered_set<string> find_substr(Trie& trie, string str) {
 
 unordered_set<string> list_substrs(const string& str, const vector<string>& queries) {
   auto trie = Trie();
-  for (auto query: queries) { trie.insert(query); }
+  for (auto query: queries) { trie.insert(query); } // O(QL)
   return find_substr(trie, str);
 }
 

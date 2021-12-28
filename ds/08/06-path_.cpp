@@ -18,6 +18,10 @@ struct Trie {
     for (int i=0; i<path.size(); i++) {
       const char c = path[i];
       if (c == '/') { // and of dir
+        if (i==0) { // to show only paths that start with /
+          if (!node->has(c)) node->put(c);
+          node=node->get(c);
+        }
         node->dir=true;
       } else {
         if (!node->has(c)) node->put(c);
@@ -29,8 +33,9 @@ struct Trie {
 
   bool has_path(string path) {
     auto node = root;
-    for (auto c: path) {
-      if (c == '/') {
+    for (int i=0; i<path.size(); i++) {
+      const char c = path[i];
+      if (c == '/' && i!=0) {
        if (!node->dir)  return false;
       } else {
         if (!node->has(c)) return false;

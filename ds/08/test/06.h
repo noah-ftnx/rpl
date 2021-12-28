@@ -37,9 +37,9 @@ void test2() {
   string path {"/user/noah/home"};
   vector<pair<string,bool>> tests {
       {"/", true},
-      {"user", true},
-      {"user/noah", true},
-      {"user/noah/home/", true},
+      {"user", false},
+      {"user/noah", false},
+      {"user/noah/home/", false},
       {"/user", true},
       {"/user/noah", true},
       {"/user/noah/home/", true},

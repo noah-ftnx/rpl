@@ -11,5 +11,5 @@ struct TST {
 
 
 
-#include "test/12.h"
+#include "test/11.h"
 int main() { run_tests(); return 0; }

@@ -14,7 +14,7 @@ struct Node {
 struct Tree {
   Node* root {};
 
-  pair<Node*, int> _deepest_node_using_height(Node* node, int height) {
+  pair<Node*, int> _deepest_node_using_height(Node* node, int height) { // extra implementation
     if (node->leaf()) return make_pair(node, height);
 
     pair<Node*, int> dleft, dright;
@@ -28,6 +28,7 @@ struct Tree {
     return (dleft.second > dright.second? dleft:dright);
   }
 
+  // extra implementation
   Node* deepest_node_using_height() { return root?_deepest_node_using_height(root, 0).first: nullptr; }
 
 

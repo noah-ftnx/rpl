@@ -11,7 +11,7 @@ int longest_substring(string s, int k) {
   map<char, int> mp;
   deque<char> unq;
 
-  int local=0;
+  int result=0;
   for (int i=0; i<s.size(); i++) {
     char c = s[i];
     if (mp.contains(c)) { // existing char: update count
@@ -19,7 +19,7 @@ int longest_substring(string s, int k) {
     } else { // insert new  char
       // last k unique characters
       if (unq.size()==k) { // move window
-        local-=mp[unq.front()];
+        result-=mp[unq.front()];
         mp.erase(unq.front());
         unq.pop_front();
       }
@@ -27,10 +27,10 @@ int longest_substring(string s, int k) {
       unq.push_back(c);
       mp[c]=1;
     }
-    local++;
+    result++;
   }
 
-  return local;
+  return result;
 }
 
 

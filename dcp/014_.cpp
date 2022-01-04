@@ -1,7 +1,5 @@
 #include <cstdlib>
 
-#include <iostream>
-using namespace std;
 double monte_carlo(int N) {
   double pi;
   int points=0, points_in_circle=0;

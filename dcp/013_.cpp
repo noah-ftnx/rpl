@@ -2,17 +2,18 @@
 #include <string>
 #include <utility>
 #include <map>
-#include <deque>
+#include <queue>
 using namespace std;
 
 int longest_substring(string s, int k) {
   if (s.empty() || k == 0) return 0;
   if (k >=s.size()) return s.size();
   map<char, int> mp;
-  deque<char> unq;
+  queue<char> unq;
 
   int result=0;
   for (int i=0; i<s.size(); i++) {
+    result++;
     char c = s[i];
     if (mp.contains(c)) { // existing char: update count
       mp[i]++;
@@ -21,13 +22,12 @@ int longest_substring(string s, int k) {
       if (unq.size()==k) { // move window
         result-=mp[unq.front()];
         mp.erase(unq.front());
-        unq.pop_front();
+        unq.pop();
       }
       // push character
-      unq.push_back(c);
+      unq.push(c);
       mp[c]=1;
     }
-    result++;
   }
 
   return result;

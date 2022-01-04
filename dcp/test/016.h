@@ -31,7 +31,7 @@ void run_tests() {
   test("get", log, 1, 110);
   test("get", log, 2, 103);
   test("get", log, 3, 102);
-  test("get", log, 4, INT_MIN);
+  // test("get", log, 4, INT_MIN); cant be > N
   test("get", log, -1, INT_MIN);
 }
 

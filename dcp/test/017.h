@@ -25,6 +25,7 @@ void run_tests() {
   test("dir\n\tsubdir1\n\t\tfile1.ext\n\t\tsubsubdir1\n\tsubdir2\n\t\tsubsubdir2\n\t\t\tfile2.ext", 32);
   test("dir\n\tsubdir1\n\t\tfile1.ext\n\t\tsubsubdir1\n\tsubdir2\n\t\tsubsubdir2\n\t\t\tanotherfolder", 21);
   test("dir\n\tsubdir1\n\t\tsubsubdir1\n\tsubdir2\n\t\tsubsubdir2\n\t\t\tanotherfolder", 0);
+  test("file.txt", 8); // TRICKY
 
   if (_wrong) cout << "\n\nERRORS FOUND.\n";
 }

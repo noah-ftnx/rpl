@@ -8,6 +8,7 @@ void _nqueens(vector<vector<int>>& solutions, vector<int>& board,
               unordered_set<int> ndiag,
               const int& N,
               int r) {
+
   if (r == N) {  // reached a solution
     solutions.push_back(board);
     return;
@@ -45,4 +46,8 @@ vector<vector<int>> n_queensBT(int N) {
 }
 
 #include "test/018-bonus.h"
-int main() { run_tests(); return 0; }
+int main() {
+  // TODO BF
+  run_tests("BT", n_queensBT);
+  return 0;
+}

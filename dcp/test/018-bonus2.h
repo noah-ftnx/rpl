@@ -6,18 +6,18 @@
 #include <iostream>
 
 void test(vector<pair<string, string>> flights, string starting, vector<string> correct) {
-  auto itirenary = get_itirenary(flights, starting);
+  auto itinerary = get_itinerary(flights, starting);
 
-  cout << "itirenary: ";
-  if (itirenary.size()==0) { cout << "<empty>\n"; return; }
+  cout << "itinerary: ";
+  if (itinerary.size()==0) { cout << "<empty>\n"; return; }
   else {
-    auto last_flight = itirenary.back(); itirenary.pop_back();
-    for (auto flight: itirenary) cout << flight << " -> ";
+    auto last_flight = itinerary.back(); itinerary.pop_back();
+    for (auto flight: itinerary) cout << flight << " -> ";
     cout << last_flight;
-    itirenary.push_back(last_flight);
+    itinerary.push_back(last_flight);
   }
 
-  cout << (itirenary != correct? " (WRONG)":"") << endl;
+  cout << (itinerary != correct? " (WRONG)":"") << endl;
 }
 
 void test1() {

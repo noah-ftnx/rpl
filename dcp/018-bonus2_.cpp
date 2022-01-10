@@ -3,37 +3,34 @@
 #include <string>
 using namespace std;
 
-vector<string> _get_itirenary(vector<pair<string, string>>& flights,
-                             vector<string>& itirenary) {
+vector<string> _get_itinerary(vector<pair<string, string>>& flights,
+                             vector<string>& itinerary) {
 
-  if (flights.empty()) {
-    return itirenary;
-  }
+  if (flights.empty()) { return itinerary; }
 
-  string last_location=itirenary.back();
+  string last_location=itinerary.back();
 
-  int i = 0;
   for (int i=0; i<flights.size(); i++) {
     auto pair = flights[i];
 
-    itirenary.push_back(pair.second); // try
-    if (pair.first == last_location) { // continue building solutoin
-      flights.erase(flights.begin()+i);
-      return _get_itirenary(flights, itirenary);
+    itinerary.push_back(pair.second); // try
+    if (pair.first == last_location) { // continue building solution
+      flights.erase(flights.begin()+i); // consume flight
+      return _get_itinerary(flights, itinerary);
     }
-    itirenary.pop_back(); // backtrack
+    itinerary.pop_back(); // backtrack
   }
 
   return {};  // nothing found
 }
 
 
-vector<string> get_itirenary(vector<pair<string, string>>& flights, string starting) {
+vector<string> get_itinerary(vector<pair<string, string>>& flights, string starting) {
   if (starting.empty() || flights.empty()) return {};
-  vector<string> itirenary({starting});
-  _get_itirenary(flights, itirenary);
+  vector<string> itinerary({starting});
+  _get_itinerary(flights, itinerary);
 
-  if (flights.empty()) return itirenary;
+  if (flights.empty()) return itinerary;
 
   return {};
 }

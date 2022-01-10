@@ -1,5 +1,5 @@
 
-vector<string> get_itirenary(vector<pair<string, string>>& flights, string starting);
+vector<string> get_itinerary(vector<pair<string, string>>& flights, string starting);
 
 
 

@@ -8,7 +8,7 @@ using fptr = decltype(prototype);
 
 
 // https://oeis.org/A000170
-vector<int> _correct_results {1, 1, 0, 0, 2, 10, 4, 40, 92, 352,  724, 2680, 14200 }; // , 73712, 365596 (gets slow)
+vector<int> _correct_results {1, 1, 0, 0, 2, 10, 4, 40, 92, 352,  724 }; // 2680, 14200, 73712, 365596 (gets slow)
 
 void test(fptr function, int N, int correct) {
   int solutions = function(N);

@@ -1,7 +1,6 @@
 #include <vector>
 using namespace std;
 
-
 bool is_valid(const vector<int>& board) {
   // last queen
   int queen_row=board.size()-1;

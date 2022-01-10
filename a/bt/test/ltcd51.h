@@ -1,5 +1,5 @@
-#ifndef RPL_DCP_TEST_018_BONUS_H_
-#define RPL_DCP_TEST_018_BONUS_H_
+#ifndef RPL_LTCD_51_H_
+#define RPL_LTCD_51_H_
 
 #include <iostream>
 
@@ -83,4 +83,4 @@ void run_tests(string msg, fptr function) {
   }
 }
 
-#endif  // RPL_DCP_TEST_018_BONUS_H_
+#endif  // RPL_LTCD_51_H_

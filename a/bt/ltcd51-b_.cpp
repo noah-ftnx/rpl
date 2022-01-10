@@ -45,7 +45,7 @@ vector<vector<int>> n_queensBT(int N) {
   return solutions;
 }
 
-#include "test/018-bonus.h"
+#include "test/ltcd51.h"
 int main() {
   // TODO BF
   run_tests("BT", n_queensBT);

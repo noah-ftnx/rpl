@@ -49,7 +49,7 @@ vector<vector<int>> n_queensBT(int N) {
 
 
 
-#include "test/018-bonus.h"
+#include "test/ltcd51.h"
 int main() {
   run_tests("BF", n_queensBT);
   // run_tests("BT", count_td);

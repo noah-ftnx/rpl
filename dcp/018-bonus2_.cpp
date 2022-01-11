@@ -3,10 +3,10 @@
 #include <string>
 using namespace std;
 
-vector<string> _get_itinerary(vector<pair<string, string>>& flights,
+void _get_itinerary(vector<pair<string, string>>& flights,
                              vector<string>& itinerary) {
 
-  if (flights.empty()) { return itinerary; }
+  if (flights.empty()) { return; }
 
   string last_location=itinerary.back();
 
@@ -16,12 +16,13 @@ vector<string> _get_itinerary(vector<pair<string, string>>& flights,
     itinerary.push_back(pair.second); // try
     if (pair.first == last_location) { // continue building solution
       flights.erase(flights.begin()+i); // consume flight
-      return _get_itinerary(flights, itinerary);
+      _get_itinerary(flights, itinerary);
+      return;
     }
     itinerary.pop_back(); // backtrack
   }
 
-  return {};  // nothing found
+  itinerary.clear();  // no solution
 }
 
 

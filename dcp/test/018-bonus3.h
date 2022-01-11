@@ -18,15 +18,16 @@ void print_grid(int grid[N][N]) {
 
 void run_tests() {
   // 0 means unassigned cells
-  int grid[N][N] = {{3, 0, 6, 5, 0, 8, 4, 0, 0},
-                    {5, 2, 0, 0, 0, 0, 0, 0, 0},
-                    {0, 8, 7, 0, 0, 0, 0, 3, 1},
-                    {0, 0, 3, 0, 1, 0, 0, 8, 0},
-                    {9, 0, 0, 8, 6, 3, 0, 0, 5},
-                    {0, 5, 0, 0, 9, 0, 6, 0, 0},
-                    {1, 3, 0, 0, 0, 0, 2, 5, 0},
-                    {0, 0, 0, 0, 0, 0, 0, 7, 4},
-                    {0, 0, 5, 2, 0, 6, 3, 0, 0}};
+  int grid[N][N] =
+      {{3, 0, 6, 5, 0, 8, 4, 0, 0},
+       {5, 2, 0, 0, 0, 0, 0, 0, 0},
+       {0, 8, 7, 0, 0, 0, 0, 3, 1},
+       {0, 0, 3, 0, 1, 0, 0, 8, 0},
+       {9, 0, 0, 8, 6, 3, 0, 0, 5},
+       {0, 5, 0, 0, 9, 0, 6, 0, 0},
+       {1, 3, 0, 0, 0, 0, 2, 5, 0},
+       {0, 0, 0, 0, 0, 0, 0, 7, 4},
+       {0, 0, 5, 2, 0, 6, 3, 0, 0}};
 
   int correct[N][N] = {
       {3, 1, 6, 5, 7, 8, 4, 9, 2 },
@@ -43,8 +44,8 @@ void run_tests() {
   if (solve_sudoku(grid) == true) {
     print_grid(grid);
     bool verified = true;
-    for (int i=0; correct && i<N; i++)
-      for (int j=0; correct && j<N; j++) verified = (grid[i][j]==correct[i][j]);
+    for (int i=0; verified && i<N; i++)
+      for (int j=0; verified && j<N; j++) verified = (grid[i][j]==correct[i][j]);
     if (!verified) cout << "\nWRONG RESULT\n";
     else cout << "\nCorrect.\n";
   }

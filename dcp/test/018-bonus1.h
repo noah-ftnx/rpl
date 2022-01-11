@@ -14,12 +14,13 @@ void test(fptr function, int N, int correct) {
   int solutions = function(N);
 
   cout << N << " Queens. Solutions: " << solutions
-      << (solutions != correct ? " (WRONG)": "") << endl;
+      << (solutions != correct ? " (WRONG)": "") << endl << flush;
 }
 
 
 void run_tests(string msg, fptr function) {
   cout << msg << endl;
+  // test(function, 4, 2);
   for (int i=0; i<_correct_results.size(); i++) test(function, i, _correct_results[i]);
 }
 

@@ -1,8 +1,7 @@
-#include <vector>
-using namespace std;
 
 int n_queensBT(int N);
 
+// using sets:
 // int n_queensST(int N);
 
 

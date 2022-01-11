@@ -1,6 +1,6 @@
 
 
-// solutions, permutations
+// return pair of: <solutions, permutations>
 pair<int, int> n_queensBF(int N);
 
 

@@ -10,7 +10,6 @@ void solve(const vector<int>& candidates, int target,
   }
   if (target <0) return; // backtrack
 
-  // TRICKY: if i starts always with 0, it will NOT be distinct
   for (int i=start; i<candidates.size(); i++) {
     if (target-candidates[i]>=0) {
       combination.push_back(candidates[i]);

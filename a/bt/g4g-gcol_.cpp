@@ -13,7 +13,7 @@ bool solve(const vector<vector<int>>& graph, const int& V, const int& m,
   };
   if (coloring.size()==V) return true; //solved
 
-  int cur_color = coloring[vertex]; // CHECK? exists?
+  int cur_color = coloring[vertex];
   auto neighbors = graph[vertex];
   for (int i=0; i<neighbors.size(); i++) {
     if (neighbors[i] == 1) { // exists

@@ -12,6 +12,8 @@ void run_tests() {
   test({{30, 75}, {0, 50}, {60, 150}}, 2);
   test({{5, 7}, {0, 9}, {5, 9}}, 3);
 
+  // This solution uses O(1) space: https://github.com/offamitkumar/Daily-Coding-Problem/blob/master/Solution/Day-021.cpp#L21
+  // It does not pass this test however:
   test({{0,1}, {0,2}, {0,3},  // 3 in this window
         {4,5}, {5,6}, {6,7}, // nothing overlaps
         {100,108}, {101,110}, {103,107}, {105,108}, // 4 overlaps

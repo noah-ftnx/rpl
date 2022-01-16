@@ -32,7 +32,7 @@ struct Trie {
       return;
     } else if (i==input.size()) { // last char
       if (node->word) result.back().push_back(cur_word);
-      else result.clear();
+      else result.clear(); // invalid end
       return;
     }
 
@@ -50,7 +50,6 @@ struct Trie {
     } else {
       _break_words(node->get(c), input, i+1, result, cur_word+c);
     }
-
   }
 
   void break_words(string input, vector<vector<string>>& result) {

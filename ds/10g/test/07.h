@@ -23,13 +23,13 @@ Graph input_acyclic() {
   return g;
 }
 
-void test_cycles() {
-  auto gCyclic = input_cyclic();
-  bool gc =has_cycles(gCyclic);
+void run_tests() {
+  auto gCyclic=input_cyclic();
+  bool gc=gCyclic.has_cycles();
   cout << "Graph: Cyclic: has_cycles " << gc << (!gc?" (WRONG)": "")  << endl;
 
-  auto gAcyclic= input_acyclic();
-  bool ga =has_cycles(gAcyclic);
+  auto gAcyclic=input_acyclic();
+  bool ga=gAcyclic.has_cycles();
   cout << "Graph: Acyclic: has_cycles " << ga << (ga?" (WRONG)": "")  << endl;
 }
 

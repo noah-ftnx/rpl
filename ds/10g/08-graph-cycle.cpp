@@ -1,11 +1,11 @@
 
 struct Graph {
-  Graph(int n);
+
+  Graph(int V);
   void addEdge(int src, int tgt);
+  bool has_cycles();
+
 };
-
-
-bool has_cycles(Graph g);
 
 
 

@@ -1,6 +1,6 @@
 #include <vector>
 #include <list>
-#include <iostream>
+#include <queue>
 using namespace std;
 
 struct Graph {
@@ -18,20 +18,32 @@ struct Graph {
 
   bool has_cycles() {
     vector<bool> visited(V, false);
-
-    queue<int> q;
-    for (int i=0; i<V; i++) {
-      q.push(i);
+    auto cycleBFS = [&, this](int vertex) -> bool {
+      struct VisitFrom { int id, par; };
+      queue<VisitFrom> q;
+      q.push({vertex, -1});
+      visited[vertex]=true;
 
       while(!q.empty()) {
-        auto vertex = q.front(); q.pop();
-        visited[vertex]=true;
+        auto vf = q.front(); q.pop();
 
+        for (int neighbor: AL[vf.id]) {
+          if (!visited[neighbor]) {
+            visited[neighbor]=true;
+            q.push({neighbor, vf.id});
+          } else {
+            if (vf.par != neighbor) return true;
+          }
+        }
       }
+      return false;
+    };
 
+    for (int i =0; i<V; i++) {
+      if (!visited[i] && cycleBFS(i)) return true;
     }
+    return false;
   }
-
 };
 
 

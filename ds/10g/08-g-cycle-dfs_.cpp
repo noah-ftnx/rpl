@@ -16,12 +16,12 @@ struct Graph {
     AL[tgt].push_back(src);
   }
 
-  bool _dfs_has_cycles(vector<bool>& visited, int u, int parent) {
+  bool cyclesDFS(vector<bool>& visited, int u, int parent) {
     visited[u]=true;
 
     for (auto n: AL[u]) {
       if (!visited[n])  {
-        if (_dfs_has_cycles(visited, n, u)) return true;
+        if (cyclesDFS(visited, n, u)) return true;
       } else if (n != parent) return true; // visited but was not visited from u
     }
     return false;
@@ -29,9 +29,8 @@ struct Graph {
 
   bool has_cycles() {
     static vector<bool> visited(V, false);
-
     for (int i=0; i<V; i++) {
-      if (!visited[i] && _dfs_has_cycles(visited, i, -1)) return true;
+      if (!visited[i] && cyclesDFS(visited, i, -1)) return true;
     }
 
     return false;

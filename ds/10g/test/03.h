@@ -3,6 +3,21 @@
 
 #include <iostream>
 
+vector<Edge> input_mst() {
+  return {
+      {1,2,25},
+      {1,6,5},
+      {2,3,12},
+      {2,7,10},
+      {3,4,8},
+      {4,5,16},
+      {4,7,14},
+      {5,6,20},
+      {5,7,18}
+  };
+}
+
+
 void run_tests () {
   cout << "MST: undirected graph:\n";
   vector<Edge> edges(input_mst());

@@ -1,9 +1,12 @@
-#include <queue>
-#include <vector>
-using namespace std;
 
-#include "test/input-mst.h"
-// DEFINED: Edge: int src, tgt, w;;
+const int V=7;
+const int E=9;
+
+struct Edge {
+  int src;
+  int tgt;
+  int w; // weight
+};
 
 vector<Edge> MST(vector<Edge> edges, int V);
 

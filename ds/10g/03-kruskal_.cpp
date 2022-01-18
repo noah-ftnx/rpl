@@ -2,8 +2,14 @@
 #include <vector>
 using namespace std;
 
-#include "test/input-mst.h"
-// DEFINED: Edge: int src, tgt, w;
+const int V=7;
+const int E=9;
+
+struct Edge {
+  int src;
+  int tgt;
+  int w; // weight
+};
 
 struct EdgeCmp {
   bool operator()(const Edge& a, const Edge& b) {
@@ -53,6 +59,8 @@ vector<Edge> MST(vector<Edge> edges, int V) {
 
   return mst;
 }
+
+
 
 #include "test/03.h"
 int main() { run_tests(); return 0; }

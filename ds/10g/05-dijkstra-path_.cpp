@@ -1,14 +1,13 @@
-#include "test/test-dij-path.h"
-
 #include <list>
 #include <queue>
 #include <vector>
 #include <climits>
 using namespace std;
 
-int main() {
-  test_path();
-}
+struct Edge {
+  int to;
+  int w;
+};
 
 struct EdgeCmp {
   bool operator()(const Edge& a, const Edge& b) {
@@ -50,3 +49,8 @@ deque<int> spt_path(vector<list<Edge>> G, int src, int target) {
 
   return path;
 }
+
+
+
+#include "test/test-dij-path.h"
+int main() { run_tests(); }

@@ -23,7 +23,7 @@ void print_result_path(int src, int tgt, deque<int> path) {
   cout << cresult[tgt] << endl;
 }
 
-void test_path() {
+void run_tests() {
   cout << "spt_path-dijkstra\n";
   const int src = 0;
   for (int tgt=0; tgt<V; tgt++) {

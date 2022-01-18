@@ -14,13 +14,12 @@ void print_result_spt(vector<int> dist) {
   }
 }
 
-vector<int> spt(vector<list<Edge>> G, int src);
-void test_spt() {
+
+void run_tests() {
   cout << "dijkstra: spt: priority-queue\n";
   auto dist = spt(input_adj_list(), 0);
   print_result_spt(dist);
 }
-
 
 
 #endif //REPL_DS_10G_TEST_DIJ_SBT_H_

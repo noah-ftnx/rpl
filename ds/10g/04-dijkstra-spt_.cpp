@@ -1,13 +1,13 @@
-#include "test/test-dij-sbt.h"
-
 #include <list>
 #include <vector>
 #include <climits>
 #include <queue>
+using namespace std;
 
-int main() {
-  test_spt();
-}
+struct Edge {
+  int to;
+  int w;
+};
 
 struct EdgeCmp {
   bool operator()(const Edge& a, const Edge& b) {
@@ -38,3 +38,8 @@ vector<int> spt(vector<list<Edge>> G, int src) {
 
   return dist;
 }
+
+
+
+#include "test/test-dij-sbt.h"
+int main() { run_tests(); }

@@ -1,17 +1,9 @@
 #ifndef DATA_STRUCTURES_10_GRAPH_6_DIJKSTRA_INPUT_H_
 #define DATA_STRUCTURES_10_GRAPH_6_DIJKSTRA_INPUT_H_
 
-#include <list>
 #include <iostream>
-#include <vector>
 #include <deque>
 #include <string>
-using namespace std;
-
-struct Edge {
-  int to;
-  int w;
-};
 
 const int V = 9;
 vector<list<Edge>> input_adj_list() {

@@ -8,5 +8,5 @@ vector<int> spt(vector<list<Edge>> G, int src);
 
 
 
-#include "test/test-dij-sbt.h"
+#include "test/test-dij-spt.h"
 int main() { run_tests(); }

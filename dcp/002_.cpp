@@ -15,7 +15,7 @@ vector<int> sol1(vector<int>& vec) { // w/ division
 }
 
 vector<int> sol2(vector<int>& vec) { // w/o division
-  vector<int> res(vec.size());
+  vector<int> res(vec.size(), 1);
 
   // 5, 2, 3, 4
   //
@@ -33,7 +33,6 @@ vector<int> sol2(vector<int>& vec) { // w/o division
   // 2  5  5  5
   // 3  3  2  2
   // 4  4  4  3
-  res[0]=tmp; // TRICKY
   for (int i=vec.size()-2; i>=0; i--) {
     tmp*=vec[i+1];
     res[i]*=tmp;

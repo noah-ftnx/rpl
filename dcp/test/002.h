@@ -26,7 +26,7 @@ void print_result(string msg, int input_id, const vector<int>& result) {
        << (out.compare(correct_output[input_id-1])!=0?" (WRONG)": "") << endl;
 }
 
-void run_tests_trv() {
+void run_tests() {
   vector<int> v1 {1, 2, 3, 4, 5};
   vector<int> v2 {3, 2, 1};
   vector<int> v3 {10, 3, 5, 6, 2};

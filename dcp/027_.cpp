@@ -46,12 +46,37 @@ bool match_parenthesis(string input) {
     return true;
   };
 
-
   for (auto c: input) {
     if (is_opening(c)) {
       st.push(c);
     } else if (is_closing(c)) {
       if (!match(st.top(), c)) return false;
+      st.pop();
+    } else {
+      // maybe ignore or die (depends on what we want..)
+    }
+  }
+
+  return st.empty();  // must be empty
+}
+
+#include <map>
+bool match_parenthesis_with_map(string input) {
+  Stack st;
+
+  auto is_opening = [](char c) { return c == '(' || c == '[' || c == '{'; };
+  auto is_closing = [](char c) { return c == ')' || c == ']' || c == '}'; };
+
+  map<char, char> mp;
+  mp.insert({')','('});
+  mp.insert({']','['});
+  mp.insert({'}','{'});
+
+  for (auto c: input) {
+    if (is_opening(c)) {
+      st.push(c);
+    } else if (mp.contains(c)) {
+      if (mp[c]!=st.top()) return false;
       st.pop();
     } else {
       // maybe ignore or die (depends on what we want..)

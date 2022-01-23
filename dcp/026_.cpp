@@ -1,61 +1,54 @@
 
 struct Node {
+  Node* next{};
   int data;
-  Node* next {};
-
-  Node(int data) : data{data} {}
+  Node(int d) : data{d} {}
 };
 
 struct List {
-  Node* head{};
-  Node* tail{};
+  Node *head{}, *tail{};
 
-  void insert(int i) {
-    Node* node = new Node(i);
-    if (head == nullptr) {
+  void insert(int d) {
+    auto node = new Node(d);
+    if (head==nullptr) {
       head=tail=node;
     } else {
       tail->next=node;
       tail=node;
     }
   }
-
 };
 
+// 1 -> 2 -> 3. k=0: del 3
 
+// 1 -> 2 -> 3. k=1: del 2
+
+// 1 -> 2 -> 3. k=2: del 1
 void delete_kth(List* list, int k) {
+  k++;
+  Node* f = list->head;
+  while(k--) { f = f->next; }
 
-  if (list->head==nullptr) return;
-
-  // advance the fast pointer
-  int fast_steps=k+1; // excluding init to head
-  Node* fast=list->head;
-  while (fast_steps-- > 0) {
-    fast=fast->next;
-  }
-
-  // move both pointers
-  Node* slow {};
-  while (fast != nullptr) {
-    fast=fast->next;
-    slow = slow==nullptr? list->head: slow->next;
+  Node* s {};
+  while (f) {
+    f=f->next;
+    s= s==nullptr?list->head:s->next;
   }
 
   Node* to_del;
-  if (slow == nullptr) { // delete the head
+  if (s == nullptr) { // del head
     to_del=list->head;
     list->head=list->head->next;
   } else {
-   to_del=slow->next;
-   if (slow->next==list->tail) {
-     slow->next=nullptr;
-     list->tail=slow;
-   } else {
-     slow->next=slow->next->next;
-   }
+    to_del=s->next;
+    if (to_del==list->tail) { // del tail
+      list->tail=s;
+      s->next=nullptr;
+    } else {
+      s->next=s->next->next;
+    }
   }
-
-  delete(to_del);
+  delete to_del;
 }
 
 

@@ -55,10 +55,8 @@ vector<string> justify(vector<string> words, int k) {
         }
       }
     }
-
     result.push_back(line);
   }
-
   return result;
 }
 

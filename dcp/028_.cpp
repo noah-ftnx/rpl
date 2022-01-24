@@ -8,31 +8,31 @@ vector<string> justify(vector<string> words, int k) {
   vector<int> br;
   vector<int> sums;
   for (int i=0; i<words.size(); i++) { // O(W)
-    int t = words[i].size()+1; // +1: for the space.
+    int t = words[i].size()+1; // +1: for the including space.
     if (sum+t <= k) {
       sum+=t;
     } else {
       sums.push_back(sum);
-      br.push_back(i-1); // break at i, inclusive
+      br.push_back(i); // break at i, exclusive
       sum=words[i].size(); // 1st word: no space
     }
   }
   // push the last sums+break
   sums.push_back(sum);
-  br.push_back(words.size()-1);
+  br.push_back(words.size()); // exclusive, so size is OK.
+
+  auto append_spaces = [](string& s, int spaces) {
+    for (int i=0; i<spaces; i++) s+=" ";
+  };
 
   vector<string> result;
   // 4 spaces: 2, by 2:
   for (int i=0; i<br.size(); i++) {
-    int from = i==0? 0 : br[i-1]+1;
+    int from = i==0? 0 : br[i-1];
     int to = br[i];
 
-    int spaces_to_fill = k-sums[i]; // 4
-    int words_num = to-from+1; // 2
-
-    auto append_spaces = [](string& s, int spaces) {
-      for (int i=0; i<spaces; i++) s+=" ";
-    };
+    int spaces_to_fill = k-sums[i];
+    int words_num = to-from;
 
     string line;
     if (words_num==1) { // all spaces to the right
@@ -44,10 +44,10 @@ vector<string> justify(vector<string> words, int k) {
       // 4, 1
       int even_spaces = spaces_to_fill/space_positions; // 4/2
       int extra_spaces = spaces_to_fill%space_positions;
-      for (int j=from; j<=to; j++) {
+      for (int j=from; j<to; j++) {
         line+=words[j];
 
-        if (j!=to) { // not the last word
+        if (j!=to-1) { // not the last word
           append_spaces(line, 1);  // single-space, that was already accounted-for in sums
           append_spaces(line, even_spaces);
           // tricky: compare with > 0

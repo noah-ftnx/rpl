@@ -1,6 +1,3 @@
-#include <vector>
-#include <string>
-using namespace std;
 
 // Greedy:
 vector<string> justify(vector<string> words, int k);

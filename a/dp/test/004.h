@@ -35,9 +35,9 @@ void run_tests(string msg, fptr function) {
   test(msg, function,
        "Isabel sat on the step", 10,
        {
-           {{"Isabel"}},
-           {{"sat"}, {"on"}},
-           {{"the"}, {"step"}}
+           {"Isabel"},
+           {"sat", "on"},
+           {"the", "step"}
        });
 }
 

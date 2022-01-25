@@ -48,8 +48,8 @@ vector<string> justify(vector<string> words, int k) {
         line+=words[j];
 
         if (j!=to-1) { // not the last word
-          append_spaces(line, 1);  // single-space, that was already accounted-for in sums
-          append_spaces(line, even_spaces);
+          // standard single space for each word, + the evenly spread spaces
+          append_spaces(line, 1+ even_spaces);
           // tricky: compare with > 0
           if (extra_spaces-- > 0) append_spaces(line, 1);
         }

@@ -1,7 +1,6 @@
 #include <vector>
 using namespace std;
 
-
 int overkill(vector<int> walls) {
   if (walls.size()<=2) return 0;
 
@@ -62,22 +61,28 @@ int overkill(vector<int> walls) {
   return result;
 }
 
+// 3 0 2
+// 1 2 3
+// 3 2 1
+// 3 1 0 4 0 6
 
-int capacity(vector<int> walls){
-  int max_wall=0, left=0, right=walls.size()-1, ans {};
-
-  while(left < right){
-    // take the lower, and then advance it accordingly
-    int idx = walls[left] <= walls[right] ? left++ : right--;
-    int lower_wall = walls[idx];
-
-    // max-level/height we have seen so far
-    max_wall = max(max_wall, lower_wall);
-
-    ans += (max_wall - lower_wall);
+int capacity(vector<int> walls) {
+  int left = 0, right = (int) walls.size() -1;
+  int result {};
+  int global_max =0, minLR;
+  while (left < right) {
+    if (walls[left] <= walls[right]) {
+      minLR=walls[left++];
+    } else {
+      minLR=walls[right--];
+    }
+    global_max = max(global_max, minLR);
+    result+=global_max-minLR;
   }
-  return ans;
+
+  return result;
 }
+
 
 
 #include "test/030.h"

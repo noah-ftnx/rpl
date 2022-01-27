@@ -15,12 +15,6 @@ struct Graph {
 
   Graph(int V, int E) : V{V}, E{E} {
     edges.resize(E);
-
-    // struct Graph* graph = new Graph;
-    // graph->V = V;
-    // graph->E = E;
-    // graph->edge = new Edge[E];
-
   }
 
   deque<int> BellmanFord(int src, int tgt) {
@@ -32,7 +26,7 @@ struct Graph {
       for (auto edge: edges) {
         if (
             dist[edge.src] != INT_MAX && // no need to check on this case
-            dist[edge.dest] > dist[edge.src] + edge.weight) {
+                dist[edge.dest] > dist[edge.src] + edge.weight) {
           dist[edge.dest] = dist[edge.src] + edge.weight;
           parent[edge.dest]=edge.src;
         }

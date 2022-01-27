@@ -68,7 +68,7 @@ int string_distanceBU(string a, string b) {
 
 
 
-int string_distanceOPT_SlightlyDifferent() {
+int string_distanceOPT_v2(string from, string to) {
   vector<int> prev(to.size()+1);
   vector<int> cur(to.size()+1);
   for (int a=0; a<=from.size(); a++) { // Set
@@ -84,7 +84,6 @@ int string_distanceOPT_SlightlyDifferent() {
         cur[b]=min(cur[b], repl);
       }
     }
-    for (auto c: cur) cout << c << " "; cout << endl;
     swap(cur, prev);
   }
   return prev[to.size()]; // due to the last swap..

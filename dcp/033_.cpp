@@ -24,7 +24,7 @@ class Processor {
   }
 
   double median() {
-    if ((left.size()+right.size()) % 2 ==0) {  // TRICKY parenthesis
+    if ((left.size()+right.size()) % 2 ==0) {
       return ((double)left.top()+right.top())/2.0;
     } else {
       return left.top();

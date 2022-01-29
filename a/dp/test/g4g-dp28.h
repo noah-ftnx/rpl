@@ -4,7 +4,6 @@
 #include <iostream>
 #include <iomanip>
 
-// not the full solution. returns only min score
 int prototype(string word);
 using fptr = decltype(prototype);
 

@@ -1,8 +1,3 @@
-// TODO
-// word, i, j
-// until i<j:
-//     if i,j matches: 0+ R(i+1, j-1)
-//                         if i,j not matches: 1+ min (R(i+1, j),  R(i, j-1));
 #include <string>
 #include <vector>
 using namespace std;

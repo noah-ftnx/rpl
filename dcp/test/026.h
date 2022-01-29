@@ -36,4 +36,5 @@ void run_tests() {
   test(input1(), 1, "1 3 ");
   test(input1(), 2, "2 3 ");
 }
+
 #endif  // RPL_DCP_TEST_026_H_

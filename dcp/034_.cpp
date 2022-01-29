@@ -10,22 +10,22 @@ bool is_pallidrome(const string& word) {
 }
 
 
-string min_palidromeBF(string word) {
+string min_palindromeBF(string word) {
   if (is_pallidrome(word)) return word; // base case: found it, stop searching
 
   const int sz=word.size();
   const int last=sz-1;
   if (word[0]==word[last]) {  // match: isolate and recur:
     // aBFDa: a + MIDDLE + a
-    return word[0] + min_palidromeBF(word.substr(1, sz-2)) + word[last];
+    return word[0] + min_palindromeBF(word.substr(1, sz-2)) + word[last];
   } else {
     // 2 cases:
     // 2.1 add to the right
     // ab: a + "b" + a
-    string AL = word[0] + min_palidromeBF(word.substr(1, sz-1)) + word[0];
+    string AL = word[0] + min_palindromeBF(word.substr(1, sz-1)) + word[0];
     // 2.2 add to the left
     // ba: a + "b" + a
-    string AR = word[last] + min_palidromeBF(word.substr(0, sz-1)) + word[last];
+    string AR = word[last] + min_palindromeBF(word.substr(0, sz-1)) + word[last];
 
     if (AL.size() == AR.size()) {
       // return lexicographically first
@@ -43,7 +43,7 @@ string min_palidromeBF(string word) {
 
 
 #include <unordered_map>
-string min_palidromeMMZ(string word) {
+string min_palindromeMMZ(string word) {
   static unordered_map<string, string> mmz;
 
   if (mmz.contains(word)) return mmz[word];
@@ -55,15 +55,15 @@ string min_palidromeMMZ(string word) {
   string result;
   if (word[0]==word[last]) {  // match: isolate and recur:
     // aBFDa: a + MIDDLE + a
-    result = word[0] + min_palidromeBF(word.substr(1, sz-2)) + word[last];
+    result = word[0] + min_palindromeBF(word.substr(1, sz-2)) + word[last];
   } else {
     // 2 cases:
     // 2.1 add to the right
     // ab: a + "b" + a
-    string AL = word[0] + min_palidromeBF(word.substr(1, sz-1)) + word[0];
+    string AL = word[0] + min_palindromeBF(word.substr(1, sz-1)) + word[0];
     // 2.2 add to the left
     // ba: a + "b" + a
-    string AR = word[last] + min_palidromeBF(word.substr(0, sz-1)) + word[last];
+    string AR = word[last] + min_palindromeBF(word.substr(0, sz-1)) + word[last];
 
     if (AL.size() == AR.size()) {
       // return lexicographically first
@@ -83,7 +83,7 @@ string min_palidromeMMZ(string word) {
 
 
 #include "test/034.h"
-string min_palidromeBU(string word) { // O(N^3)
+string min_palindromeBU(string word) { // O(N^3)
   vector<vector<string>> table(word.size()+1, vector<string>(word.size()+1));
 
 
@@ -138,9 +138,9 @@ string min_palidromeBU(string word) { // O(N^3)
 
 
 int main() {
-  run_tests("BF", min_palidromeBF);
-  run_tests("MMZ", min_palidromeMMZ);
-  run_tests("BU", min_palidromeBU);
+  run_tests("BF", min_palindromeBF);
+  run_tests("MMZ", min_palindromeMMZ);
+  run_tests("BU", min_palindromeBU);
 
   print_errors();
   return 0;

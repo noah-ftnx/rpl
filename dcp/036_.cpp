@@ -18,7 +18,6 @@ int predecessor(Node* root) {
     node=node->right;
   }
 
-
   // no way to have another right node
   // we moved at the right-most node
   if (!node->left) { // it's a leaf node

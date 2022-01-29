@@ -83,18 +83,19 @@ string min_palindromeMMZ(string word) {
 
 
 #include "test/034.h"
-string min_palindromeBU(string word) { // O(N^3)
-  vector<vector<string>> table(word.size()+1, vector<string>(word.size()+1));
+string min_palindromeBU(string word) {
+  const int N=word.size();
+  vector<vector<string>> table(N+1, vector<string>(N+1));
 
 
-  // row 0: empty strings: 0 char palindrome
-  // tab[0][i]: "" (already set)
-  // row 1: 1 char palindrome
-  for (int i=0; i<word.size(); i++) {
-    table[i][1] = word[i];
-  }
+  // palindromes of:
+  // row 0: empty strings. palindromes of sz 0
+  // row1: palindromes of sz 1
+  for (int i=0; i<N; i++) table[i][1] = word[i];
 
-  // j: palindrome words of size j
+  // i: from where the string starts
+  // j: how many characters the palindrome has
+  // j[0-1]: already set
   // we need: the next i (row), and the previous j
   // so the fill order is like this
   // 1 4 6
@@ -102,9 +103,17 @@ string min_palindromeBU(string word) { // O(N^3)
   // 3
   // words of size 0, 1 already in place
   // now find each word from size >=2
-  for (int j=2; j<=word.size(); j++) {
+  for (int j=2; j<=N; j++) {
     // test substrings from 0 to size-j of size j
-    for (int i=0; i<=word.size()-j; i++) {
+
+    // sliding window:
+    // build palindromes of j chars: e.g. j=3, N=4
+    // 0 - 2
+    //   1 - 3
+    //     2 - 4
+    // for each: we need the next i of prev col, or prev-prev col
+    // col (j) is shifted by 1 to the left
+    for (int i=0; i<=N-j; i++) {
       string term = word.substr(i, j); // j is size: i+j-i=i
       const char first = term[0];
       const char last = term[j-1];
@@ -113,7 +122,7 @@ string min_palindromeBU(string word) { // O(N^3)
         result=first+table[i+1][j-2]+last;
       } else {
         string AL = first+table[i+1][j-1]+first;
-        string AR = last+table[i][j-1]+last; // CHECK j-2?
+        string AR = last+table[i][j-1]+last;
 
         // shortest or lexicographically first
         if (AL.size() == AR.size()) {

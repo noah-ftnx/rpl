@@ -83,7 +83,7 @@ int n_queensST(int N) {
   return _n_queensST(N, board, cols, ndiag, pdiag);
 }
 
-#include "test/018-bonus1.h"
+#include "test/038.h"
 int main() {
   run_tests("BF", n_queensBT);
   run_tests("ST", n_queensST);

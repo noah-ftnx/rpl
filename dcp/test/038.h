@@ -1,5 +1,5 @@
-#ifndef RPL_DCP_TEST_018_BONUS1_H_
-#define RPL_DCP_TEST_018_BONUS1_H_
+#ifndef RPL_DCP_TEST_038_H_
+#define RPL_DCP_TEST_038_H_
 
 #include <iostream>
 
@@ -24,4 +24,4 @@ void run_tests(string msg, fptr function) {
   for (int i=0; i<_correct_results.size(); i++) test(function, i, _correct_results[i]);
 }
 
-#endif  // RPL_DCP_TEST_018_BONUS1_H_
+#endif  // RPL_DCP_TEST_038_H_

@@ -16,6 +16,7 @@ void test(vector<int> input, int correct) {
 void run_tests() {
   test({2, 4, 1, 3, 5}, 3);
   test({5, 4, 3, 2, 1}, 10);
+  test({3, 2, 1}, 3);
   test({1, 2, 3 ,4 ,5}, 0);
 }
 

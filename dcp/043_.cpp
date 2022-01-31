@@ -1,17 +1,21 @@
 
+#include <exception>
+using namespace std;
+
 struct Node {
   Node* next {};
   int val;
   Node(int val) : val{val} {}
 };
 
-#include <cassert>
 using namespace std;
 
 class Stack {
  private:
   Node* top {};
   Node* mx_top {};
+
+  void check_not_empty() { if (top == nullptr) throw "empty stack"; }
 
  public:
 
@@ -31,9 +35,9 @@ class Stack {
     }
   }
 
-
   int pop() {
-    assert(top!=nullptr);
+    check_not_empty();
+
     auto old = top;
     top=top->next;
     int res = old->val;
@@ -48,7 +52,8 @@ class Stack {
   }
 
   int max() {
-    assert(top!=nullptr);
+    check_not_empty();
+
     return mx_top->val;
   }
 };

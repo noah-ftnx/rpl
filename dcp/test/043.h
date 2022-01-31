@@ -64,6 +64,11 @@ void test2() {
   }
   cout << "last max: " << s->max() << " Correct" << endl;
   s->pop();
+  try {
+    s->pop(); // throws exception
+  } catch (char const* msg) {
+   cout << "exception caught: "  << msg << endl;
+  }
   s->push(1);
   bool w2 = s->max() != 1;
   _wrong|=w2;

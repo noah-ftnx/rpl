@@ -2,14 +2,18 @@
 #define RPL_A_SRT_TEST_MSORT_H_
 
 #include <iostream>
+#include <iomanip>
 
 void test(vector<int> input, vector<int> correct) {
   merge_sort(input); // inplace sorting
   bool wrong = correct != input;
 
-  for (auto v: input) cout << v << " ";
-  cout << endl; for (auto v: correct) cout << v << " ";
+  for (auto v: input) cout << setw(3) << v << " ";
+  cout << endl; for (auto v: correct) cout << setw(3) << v << " ";
   cout << (wrong? " (WRONG)": "") << endl;
+  // if (wrong) {
+  //   cout << endl; for (auto v: correct) cout << setw(3) << v << " ";
+  // }
 }
 
 void run_tests() {

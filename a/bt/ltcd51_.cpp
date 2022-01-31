@@ -28,6 +28,7 @@ void _n_queensBT(const int N,
                  vector<vector<int>>& solutions) {
   if (N == board.size()) {
     solutions.push_back(board);
+    return;
   }
 
   for (int col=0; col<N; col++) { // check columns

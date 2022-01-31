@@ -1,5 +1,5 @@
-#ifndef RPL_DCP_TEST_018_BONUS2_H_
-#define RPL_DCP_TEST_018_BONUS2_H_
+#ifndef RPL_DCP_TEST_041_H_
+#define RPL_DCP_TEST_041_H_
 
 #include <iostream>
 
@@ -7,7 +7,7 @@ void test(vector<pair<string, string>> flights, string starting, vector<string> 
   auto itinerary = get_itinerary(flights, starting);
 
   cout << "itinerary: ";
-  if (itinerary.size()==0) { cout << "<empty>\n"; return; }
+  if (itinerary.size()==0) { cout << "<empty> "; }
   else {
     auto last_flight = itinerary.back(); itinerary.pop_back();
     for (auto flight: itinerary) cout << flight << " -> ";
@@ -56,7 +56,6 @@ void test3() {
   test(flights, starting, correct);
 }
 
-
 void test4() {
   string starting = "YUL";
   vector<pair<string, string>> flights {
@@ -100,8 +99,8 @@ void run_tests() {
   test3();
   test4();
   test5();
-  test6();
+  test6(); // BUG
 }
 
 
-#endif  // RPL_DCP_TEST_018_BONUS2_H_
+#endif  // RPL_DCP_TEST_041_H_

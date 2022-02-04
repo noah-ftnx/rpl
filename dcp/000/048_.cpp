@@ -9,7 +9,6 @@ struct Node {
   Node(char d) : data{d} {};
 };
 
-
 Node* build_tree(deque<char>& preorder, vector<char> inorder,
                  int L=0, int R=-1) {
   if(R==-1) R=inorder.size()-1;

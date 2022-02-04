@@ -19,8 +19,8 @@ void run_tests(string method, fptr function) {
   check("2", function, {2, 3, -5}, 5);
   check("3", function, {3, 5, -4}, 8);
   check("4", function, {5, -4, 8, -10, -2, 4, -3, 2, 7, -8, 3, -5, 3 }, 10);
-  // vector<int> vbig (10000, 1);
-  // check(msg, function, vbig);
+  check("4", function, {34, -50, 42, 14, -5, 86}, 137);
+  check("4", function, {-5, -1, -8, -9}, 0);
   cout << endl;
 }
 

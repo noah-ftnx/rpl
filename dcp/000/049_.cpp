@@ -3,7 +3,7 @@
 using namespace std;
 
 int max_at(vector<int> input, int i) {
-  if (i==0) return input[0]; // base case
+  if (i==0) return max(0, input[0]); // base case
   return max(input[i], input[i]+max_at(input, i-1));
 }
 
@@ -46,20 +46,14 @@ int max_sumBU(const vector<int>& input) {
   return mx;
 }
 
-int max_sumOPT(const vector<int>& input) {
-  if (input.empty()) return 0;
-
-  const int N = input.size();
-  int lmx=max(0, input[0]);
-  int gmx=max(0, lmx);
-
-  for (int i=1; i<N; i++) {
-    lmx =max(input[i], input[i]+lmx);
-    gmx=max(gmx, lmx);
+int max_sumOPT(const vector<int>& vec) {
+  int global=0, local = 0;
+  for (int i=0; i<vec.size(); i++) {
+    local = max(vec[i], vec[i] + local);
+    global = max(global, local);
   }
-  return gmx;
+  return global;
 }
-
 
 
 

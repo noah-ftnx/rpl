@@ -1,4 +1,3 @@
-
 #define DIGIT 0
 #define PLUS 1
 #define MINUS 2

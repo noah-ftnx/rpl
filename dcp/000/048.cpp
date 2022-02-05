@@ -1,5 +1,5 @@
 
-Node* build_tree(deque<char>& preorder, vector<char> inorder);
+Node* build_tree( preorder,  inorder);
 
 
 

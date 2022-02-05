@@ -5,7 +5,6 @@
 #define MUL 3
 #define DIV 4
 
-
 struct Node {
   Node *left{}, *right{};
   char data;
@@ -22,10 +21,9 @@ int get_operation(char c) {
   }
 }
 
-
 #include <climits>
 double evaluate_tree(Node* node) {
-  if (node==nullptr) return INT_MIN;
+  if (node==nullptr) return INT_MIN;  // covers null tree or wrong equations
 
   int op = get_operation(node->data);
   if (op == DIGIT) return (double) node->data-'0';

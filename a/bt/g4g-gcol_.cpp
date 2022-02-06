@@ -1,47 +1,46 @@
+#include <iostream>
+
 #include <vector>
 using namespace std;
 
-bool solve(const vector<vector<int>>& graph, const int& V, const int& m,
-           int vertex, vector<int>& coloring) {
+bool solve(const vector<vector<int>>& graph, const int& k,
+           vector<int>& coloring, int start) {
+  const int V = (int) graph.size();
+
   // check if color neighbors are colored with [color]
   auto is_valid = [&](int vertex, int color) -> bool {
     auto neighbors = graph[vertex];
-    for (int i=0; i<neighbors.size(); i++) {
-      if (neighbors[i] != 0 && i < coloring.size() && color == coloring[i]) return false;
+    for (int i=0; i<V; i++) {
+      if (neighbors[i] == 1 && i < coloring.size() && color == coloring[i]) return false;
     }
     return true;
   };
-  if (coloring.size()==V) return true; //solved
 
-  int cur_color = coloring[vertex];
-  auto neighbors = graph[vertex];
-  for (int i=0; i<neighbors.size(); i++) {
-    if (neighbors[i] == 1) { // exists
-      if (i < coloring.size()) { // color was assigned to neighbor
-        if (coloring[i] == cur_color) return false; // backtrack
-      } else { // attempt to color it
-        for (int color=1; color<=m; color++) {
-          if (is_valid(i, color)) {
+  if (coloring.size()==V) return true; // solved
 
-            coloring.push_back(color); // try solution
+  // int cur_color = coloring[vertex];
+  // auto neighbors = graph[start];
+  for (int i=start; i<V; i++) {
+    for (int color = 1; color<=k; color++) {
+      if (is_valid(i, color)) {
+        coloring.push_back(color);  // tentatively assign
 
-            if (solve(graph, V, m, i, coloring)) return true;
+        if (solve(graph, k, coloring, i + 1)) return true;
 
-            coloring.pop_back(); // undo
-          }
-        }
+        coloring.pop_back();  // undo
       }
     }
   }
+
   return false;
 }
 
-bool color_graph(vector<vector<int>> graph, int m, vector<int>& coloring) {
-  if (graph.empty() || m==0) return false;
-  const int V = graph.size();
-  coloring.push_back(1);  // color first node
-  return solve(graph, V, m, 0, coloring);
+bool color_graph(vector<vector<int>> graph, int k, vector<int>& coloring) {
+  if (graph.empty() || k==0) return false;
+  return solve(graph, k, coloring, 0);
 }
+
+
 
 #include "test/g4g-gcol.h"
 int main() { run_tests(); return 0; }

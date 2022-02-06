@@ -6,14 +6,14 @@ using namespace std;
 
 class Shortener {
  private:
-  unordered_map<string, string> to_short; 	// url to short
+  unordered_map<string, string> to_code; 	// url to shortened code
   unordered_map<string, string> to_url; 	// short to url
 
   string gen_short(string url) {
     string res;
     while(res.size() < 6) {
       int r = rand();
-      if (r%2 == 0) { // use char
+      if (r%2 == 0) { // use letter
         r=rand()%('z'-'a');
         r+='a';
       } else { // use digit
@@ -37,10 +37,10 @@ class Shortener {
  public:
   string shorten(string url) {
     if (url.empty()) return "";
-    else if (to_short.contains(url)) return to_short[url];
+    else if (to_code.contains(url)) return to_code[url];
 
     string code = gen_unique_short(url);
-    to_short[url]=code;
+    to_code[url]=code;
     to_url[code]=url;
 
     return code;

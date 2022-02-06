@@ -1,56 +1,53 @@
-#include <climits>
 #include <unordered_map>
+#include <climits>
 using namespace std;
 
 struct Node {
-  int key, data;
-  Node *next{}, *prev{};
-  Node(int key, int data): key{key}, data{data} {}
+  int key, value;
+  Node *prev{}, *next{};
+  Node(int k, int v) : key{k}, value{v} {}
 };
 
 struct List {
   Node *head{}, *tail{};
 
-  Node* insert(int key, int data) {  // insert after head
-    auto n = new Node(key, data);
+  Node* insert(int k, int v) {
+    Node* nn = new Node(k, v);
     if (head==nullptr) {
-      head=tail=n;
-    } else {
-      n->next=head;
-      head->prev=n;
-      head=n;
+      head=tail=nn;
+    } else { // insert at MRU position (front)
+      nn->next=head;
+      head->prev=nn;
+      head=nn;
     }
-    return n;
+    return nn;
   }
 
   void remove(Node* ptr) {
-    if (ptr==nullptr) return;
+    if (ptr == nullptr) return;
 
-    if (ptr==head) { // first node
-      if (ptr==tail) { // also, last node
-        head=tail=nullptr;
-      } else {
+    if (ptr == head) {
+      if (ptr == tail) head=tail=nullptr;
+      else {
         head=head->next;
         head->prev=nullptr;
       }
     } else { // a b c
       ptr->prev->next=ptr->next;
-      if (ptr == tail) {
-        tail=tail->prev;
+      if (ptr==tail) { // a b
+        tail=ptr->prev;
       } else {
         ptr->next->prev=ptr->prev;
       }
     }
-
     delete ptr;
   }
 
-  int removeLRU() { // returns key
-    if (!tail) return INT_MIN;
+  int removeLRU() {
+    if (tail==nullptr) return INT_MIN;
 
-    int lru_key=tail->key;
+    int lru_key = tail->key;
     remove(tail);
-
     return lru_key;
   }
 };
@@ -66,31 +63,31 @@ class LRU {
     mp.insert({k, nn});
   }
 
-  void remove_key(int k) {
+  void remove_item(int k) {
     if (mp.contains(k)) {
-      auto old_node = mp[k];
-      // remove from anywhere
+      auto node_to_del = mp[k];
+      list.remove(node_to_del);
       mp.erase(k);
-      list.remove(old_node);
     }
   }
 
   void evictLRU() {
-    auto lru_key = list.removeLRU();
-    mp.erase(lru_key);
+    auto del_key = list.removeLRU();
+    mp.erase(del_key);
   }
 
  public:
-  LRU(int n): N{n} {}
+  LRU(int n) : N{n} {}
 
-  int size() { return (int) mp.size(); }
+  int size() { return mp.size(); }
 
   void set(int k, int v) {
     if (mp.contains(k)) {
-      // will remove and reinsert:
-      // for value updates and make it MRU item
-      remove_key(k);
-    } else if (mp.size() == N) {
+      // remove it for 2 reasons
+      // 1. update the value if it has changed
+      // 2. make it recent
+      remove_item(k);
+    } else if (static_cast<int>(mp.size())==N) {
       evictLRU();
     }
 
@@ -98,15 +95,12 @@ class LRU {
   }
 
   int get(int k) {
-    int res = INT_MIN;
-    if (mp.contains(k)) {
-      res = mp[k]->data;
+    if (!mp.contains(k)) return INT_MIN;
 
-      // make item as MRU
-      remove_key(k);
-      insert_item(k, res);
-    }
-
+    int res = mp[k]->value;
+    // make it MRU
+    remove_item(k);
+    insert_item(k, res);
     return res;
   }
 };

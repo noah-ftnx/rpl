@@ -145,7 +145,7 @@ string min_palindromeBU(string word) {
   return table[0][word.size()];
 }
 
-
+#include "test/034.h"
 int main() {
   run_tests("BF", min_palindromeBF);
   run_tests("MMZ", min_palindromeMMZ);

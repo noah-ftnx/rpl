@@ -17,9 +17,7 @@ void test(fptr function, string s, string correct) {
       (wrong? " (WRONG)":"") << endl;
 }
 
-
 #include <sstream>
-
 void pretty_tabulation(string word, const vector<vector<string>>& table) {
   vector<string> pallidromes;
   vector<stringstream> lines(word.size()+1);

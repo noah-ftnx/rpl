@@ -1,5 +1,3 @@
-#include <vector>
-using namespace std;
 
 bool subset_sumBF(vector<int> input, int k);
 

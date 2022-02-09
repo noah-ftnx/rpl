@@ -7,19 +7,13 @@ double pow(int x, int y) {
   }
 
   double res=1;
-  while (exponent--) {
-    res*=base;
-  }
+  while (exponent--) res*=base;
   return res;
 }
 
-
-#include <cmath>
 double pow_fast(int x, int y) {
   double base = x; int exponent=y;
-  // 3^6: 6^2?
-  // a^b = (a^2)^(b/2) if even..
-  // a^b = a * (a^2)^((b-1)/2)
+
   if (y <0) {
     base=1/x;
     exponent=-y; // make it positive
@@ -34,6 +28,7 @@ double pow_fast(int x, int y) {
       exponent = exponent >> 1; // divide exponent
       // exponent /= 2;
     } else {
+      // will run just once
       res*=base;
       base*=base;
       // base*=base*base; // WRONG

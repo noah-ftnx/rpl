@@ -13,7 +13,7 @@ using ChecksumChunk = unordered_map<string, int>;
 
 // path -> ChecksumChunk
 using FileChecksumChunk = unordered_map<string, ChecksumChunk>;
-// path -> ChunkChecksum
+// path -> vector of all Chunk Checksums (in order)
 using FileChecksumVec = unordered_map<string, vector<string>>;
 
 // 4096

@@ -44,9 +44,8 @@ bool subset_sumBU(vector<int> input, int k) {
 
   // k=0: reached target k
   for (int i=0; i<(int)input.size(); i++) dp[i][0]=true;
-
   // i=0: then first element must match k
-  dp[0][input[0]]=true;
+  if (input[0] <=k) dp[0][input[0]]=true;
 
   for (int i=1; i<(int) input.size(); i++) {
     for (int target=1; target<=k; target++) {
@@ -66,7 +65,7 @@ bool subset_sumOPT(vector<int> input, int k) {
   vector<bool> prev(k+1, false);
 
   cur[0]=true;
-  cur[input[0]]=true;
+  if (input[0] <=k) cur[input[0]]=true;
 
   for (int i=1; i<(int) input.size(); i++) {
     swap(cur, prev);
@@ -82,8 +81,6 @@ bool subset_sumOPT(vector<int> input, int k) {
   }
   return cur[k];
 }
-
-
 
 
 

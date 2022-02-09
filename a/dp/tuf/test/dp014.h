@@ -7,7 +7,6 @@
 bool prototype(vector<int> input, int k);
 using fptr = decltype(prototype);
 
-
 bool _wrong{};
 void test(fptr function, vector<int> input, int k, bool correct) {
   bool result = function(input, k);
@@ -15,7 +14,7 @@ void test(fptr function, vector<int> input, int k, bool correct) {
   _wrong|=wrong;
   string s;
   for (auto i: input) s+=to_string(i) + " ";
-  s.pop_back();
+  if (!e.empty()) s.pop_back();
   cout << setw(10) << s << ": " << boolalpha << result <<
       (wrong? " (WRONG)":"") << endl;
 }

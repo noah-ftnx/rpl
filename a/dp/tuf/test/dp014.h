@@ -14,7 +14,7 @@ void test(fptr function, vector<int> input, int k, bool correct) {
   _wrong|=wrong;
   string s;
   for (auto i: input) s+=to_string(i) + " ";
-  if (!e.empty()) s.pop_back();
+  if (!s.empty()) s.pop_back();
   cout << setw(10) << s << ": " << boolalpha << result <<
       (wrong? " (WRONG)":"") << endl;
 }

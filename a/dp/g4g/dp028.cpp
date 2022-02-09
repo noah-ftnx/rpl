@@ -9,7 +9,7 @@ int min_additionsOPT(string word);
 
 
 
-#include "test/g4g-dp28.h"
+#include "test/028.h"
 int main() {
   run_tests("BF", min_additionsBF);
   run_tests("MMZ", min_additionsMMZ);

@@ -3,8 +3,6 @@
 #include <algorithm>
 using namespace std;
 
-bool _apply_heuristic = false;
-
 void solve(vector<vector<int>>& grid, int& visit_num,
            int& cnt,int row, int col) {
   const int N = (int) grid.size();
@@ -32,6 +30,15 @@ void solve(vector<vector<int>>& grid, int& visit_num,
     return res;
   };
 
+
+  if (visit_num==N*N) { // found a solution
+    cnt++;
+    return;
+  }
+
+  auto moves = get_valid_moves(row, col);
+
+#ifdef _WARNSDORFFS_HEURISTIC
   auto apply_warnsdorffs_heuristic = [&](vector<pair<int, int>>& moves) {
     sort(moves.begin(), moves.end(),
          [&](pair<int, int> a, pair<int, int> b){
@@ -43,16 +50,10 @@ void solve(vector<vector<int>>& grid, int& visit_num,
          });
   };
 
-
-  if (visit_num==N*N) { // found a solution
-    cnt++;
-    return;
-  }
-
-  auto moves = get_valid_moves(row, col);
   if (_apply_heuristic && moves.size() > 1) {
     apply_warnsdorffs_heuristic(moves);
   }
+#endif
 
   for (auto move: moves) {
     int x=move.first, y=move.second;

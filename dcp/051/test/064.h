@@ -13,7 +13,7 @@ void experiment() {
   auto stop = high_resolution_clock::now();
   cout << ": " << result << " time: " <<  duration_cast<seconds>(stop-start).count() << endl;
 
-  _apply_heuristic=true;
+  // _apply_heuristic=true;
   cout << "Heuristic Tour: 5: " << &flush;
   start = high_resolution_clock::now();
   result = knights_tour(5);

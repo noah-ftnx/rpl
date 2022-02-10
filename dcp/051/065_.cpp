@@ -29,7 +29,7 @@ string clockwise_spiral(vector<vector<int>> vec) {
 
     L++; // advance level
 
-    if (L+1 > N/2 || L+1 > M/2) break;
+    if (L == N/2 || L == M/2) break;
   }
 
   return res;

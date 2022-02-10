@@ -9,7 +9,11 @@
 bool _wrong {};
 
 void test(T input, T correct) {
-
+  T result = CALL();
+  bool wrong = result!=correct;
+  _wrong|=wrong;
+  cout << n << "x" << m << ": " << result
+       << (!wrong? " (WRONG)": "") << endl;
 }
 
 void run_tests() {
@@ -52,6 +56,10 @@ void print_errors() {
   if (_wrong) cout << "\nWRONG RESULTS.\n";
 }
 
+void print_report() {
+  cout << endl <<  (_wrong? "WRONG RESULTS." : "Correct (all tests)") << endl;
+}
+
 // C++
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -63,6 +71,7 @@ int main() {
   run_tests("OPT", fOPT);
 
   // print_errors();
+  // print_report();
   return 0;
 }
 

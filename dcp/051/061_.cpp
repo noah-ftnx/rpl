@@ -39,6 +39,26 @@ double pow_fast(int x, int y) {
   return res*base;
 }
 
+double pow_fast_simplified(int x, int y) {
+  if (y==0) return 1;
+
+  double base=x; long exponent=y;
+  if (y<0) {
+    base=1/x;
+    exponent=-y;
+  }
+
+  double res=1;
+  while (exponent > 1) {
+    if (exponent%2) res*=base; // odd exponent: take out a 'y'
+
+    base*=base; // square the base
+    exponent=exponent >> 1; // half the exponent (floor division)
+  }
+
+  return res*base;
+}
+
 
 
 #include "test/061.h"

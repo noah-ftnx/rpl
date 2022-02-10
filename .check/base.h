@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <iomanip>
+using namespace std;
 
 bool _wrong {};
 

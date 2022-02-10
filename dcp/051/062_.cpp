@@ -1,7 +1,14 @@
 #include <vector>
 using namespace std;
 
-int paths_num(int N, int M) {
+int paths_numBF(int N, int M) {
+  if (N==0 || M==0) return 0; // invalid array
+  if (N==1 || M==1) return 1; // 1D arrays have only 1 solution
+
+  return paths_numBF(N-1, M) + paths_numBF(N, M-1);
+}
+
+int paths_numBU(int N, int M) {
   if (N ==0 || M==0) return 0;
 
   vector<vector<int>> grid (N, vector<int>(M, 0));
@@ -41,7 +48,8 @@ int paths_numOPT(int N, int M) {
 
 #include "test/062.h"
 int main() {
-  run_tests("BU", paths_num);
+  run_tests("BF", paths_numBF);
+  run_tests("BU", paths_numBU);
   run_tests("OPT", paths_numOPT);
   return 0;
 }

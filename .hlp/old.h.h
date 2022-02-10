@@ -3,14 +3,17 @@
 // HEADER
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
-#include "base.h"
+#include <iostream>
+#include <iomanip>
+
+bool _wrong {};
 
 void test(T input, T correct) {
   T result = CALL();
   bool wrong = result!=correct;
   _wrong|=wrong;
   cout << n << "x" << m << ": " << result
-       << (wrong? " (WRONG)": "") << endl;
+       << (!wrong? " (WRONG)": "") << endl;
 }
 
 void run_tests() {
@@ -28,12 +31,13 @@ int main() { run_tests(); return 0; }
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // HEADER
 ///////////////////////////////////////////////////////////////////////////////////////////////////
-
-#include "base.h"
+#include <iostream>
+#include <iomanip>
 
 int prototype(T param0);
 using fptr = decltype(prototype);
 
+bool _wrong{};
 void test(fptr function, string s, T correct) {
   // T result = function(s);
   bool wrong = result !=correct;
@@ -48,6 +52,13 @@ void run_tests(string msg, fptr function) {
   cout << endl;
 }
 
+void print_errors() {
+  if (_wrong) cout << "\nWRONG RESULTS.\n";
+}
+
+void print_report() {
+  cout << endl <<  (_wrong? "WRONG RESULTS." : "Correct (all tests)") << endl;
+}
 
 // C++
 ///////////////////////////////////////////////////////////////////////////////////////////////////

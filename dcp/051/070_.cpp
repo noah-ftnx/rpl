@@ -2,9 +2,9 @@
 int sum_of_digits(int num) {
   int sum {};
 
+  // 118: 8 -> 110 -> 11
+  // 19 -> 10 -> 1
   while(num) {
-    // 118: 8 -> 110 -> 11
-    // 19 -> 10 -> 1
     int md =num%10;
     sum+=md;
     num-=md;
@@ -16,7 +16,6 @@ int sum_of_digits(int num) {
 int perfect_nth(int n) {
   int i=-1;
   while(n) {
-    // 19
     if (sum_of_digits(++i) == 10) n--;
   }
   return i;

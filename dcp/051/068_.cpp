@@ -22,10 +22,6 @@ int bishop_attacksBF(vector<pair<int,int>> bishops, const int M) {
 int bishop_attacks(vector<pair<int,int>> bishops, const int M) {
   const int N = (int) bishops.size();
 
-  auto is_attacking = [&] (pair<int, int> b1, pair<int, int> b2) {
-    return abs(b1.first-b2.first) == abs(b1.second-b2.second);
-  };
-
   // diagonal -> sum
   unordered_map<int, int> mp_pdiag, mp_ndiag;
 
@@ -33,7 +29,6 @@ int bishop_attacks(vector<pair<int,int>> bishops, const int M) {
     if (mp.contains(diag_id)) mp[diag_id]+=1;
     else mp.insert({diag_id, 1});
   };
-
 
   for (auto bishop: bishops) {
     int row=bishop.first, col=bishop.second;

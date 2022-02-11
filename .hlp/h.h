@@ -9,7 +9,7 @@ void test(T input, T correct) {
   T result = CALL();
   bool wrong = result!=correct;
   _wrong|=wrong;
-  cout << n << "x" << m << ": " << result
+  cout << "MSG: "<< result
        << (wrong? " (WRONG)": "") << endl;
 }
 

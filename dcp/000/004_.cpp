@@ -1,9 +1,5 @@
-#include <iostream>
 #include <vector>
 using namespace std;
-
-#include "../.check/check.h"
-#include "test/004.h"
 
 int find_first_missing(vector<int>& vec) {
   if (vec.empty()) return -1;
@@ -24,6 +20,7 @@ int find_first_missing(vector<int>& vec) {
   return vec.size()+1;
 }
 
+#include "test/004.h"
 
 int main() {
   vector<vector<int>> tc {}; // WRITE TEST CASES

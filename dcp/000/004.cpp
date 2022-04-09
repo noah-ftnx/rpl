@@ -1,13 +1,9 @@
 
-#include "../.check/check.h"
+int find_first_missing(vector<int>& vec);
+
 #include "test/004.h"
-
-// int find_first_missing(vector<int>& vec);
-
-
 int main() {
-  // WRITE TEST CASES
-  vector<vector<int>> tc {};
+  vector<vector<int>> tc {};  // WRITE TEST CASES
   run_tests(tc);
   return 0;
 }

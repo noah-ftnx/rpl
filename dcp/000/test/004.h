@@ -1,6 +1,9 @@
 #ifndef RPL_DCP_TEST_004_H_
 #define RPL_DCP_TEST_004_H_
 
+#include <iostream>
+#include "../../../.check/check.h"
+
 int find_first_missing(vector<int>& vec);
 
 void run_tests() {

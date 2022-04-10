@@ -1,6 +1,9 @@
 #ifndef RPL_DCP_TEST_008_H_
 #define RPL_DCP_TEST_008_H_
 
+#include <string>
+#include <iostream>
+
 Node* tree0() {
   return nullptr;
 }
@@ -23,6 +26,12 @@ Node* tree3() {
   return root;
 }
 
+/*
+ *        0
+ *     1     0
+ *         1   0
+ *       1  1
+ */
 Node* tree4() {
   Node* root= new Node(0);
   root->left=new Node(1);

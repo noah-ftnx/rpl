@@ -2,12 +2,20 @@
 #define RPL_DCP_TEST_007_H_
 
 #include <iostream>
+#include <iomanip>
 
 int decodings(string str);
 
+bool _wrong=false;
 void check(string input, int correct) {
-  int res = decodings(input);
-  cout << input << ": " << res << (res!=correct?" (WRONG)":"") << endl;
+  int result = decodings(input);
+  bool wrong = result !=correct;
+  _wrong|=wrong;
+  cout << setw(7) << input << ": " << setw(4) << result << (wrong?" (WRONG)":"") << endl;
+}
+
+void print_errors() {
+  if (_wrong) cout << "\nWRONG RESULTS.\n";
 }
 
 void run_tests() {
@@ -18,6 +26,7 @@ void run_tests() {
   check("26", 2);
   check("27", 1);
   check("1010", 1);
+  check("1020", 1);
 
   check("111", 3);
 
@@ -30,6 +39,10 @@ void run_tests() {
   check("22222", 5);
 
   check("1234", 3);
+
+  print_errors();
 }
+
+
 
 #endif  // RPL_DCP_TEST_007_H_

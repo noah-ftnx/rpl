@@ -1,11 +1,7 @@
-// INCLUDES
+
+int decodings(string str);
+
+
 
 #include "test/007.h"
-
-// int decodings(string str);
-
-int main() {
-  // TEST CASES
-  run_tests();
-  return 0;
-}
+int main() { run_tests(); return 0; }

@@ -22,17 +22,18 @@ int BF(string str, int i) {
 }
 
 int decodings(string str) {
-  const int N=(int) str.size();
-  if (N==0) return 0;
+  if (str.empty()) return 0;
 
-  int result = 1;
+  int res = 1;
+  const int N = (int) str.size();
   for (int i=N-2; i>=0; i--) {
-    if (str[i+1] != '0' &&
-        str[i] == '1' ||
-        (str[i]=='2' && str[i+1]>='1' && str[i+1] <='6'))
-      result++;
+    const char cc = str[i];
+    const char nc = str[i+1];
+    if ((cc=='1' && nc != '0') ||
+        (cc=='2' && nc >= '1' && nc <='6')) res ++;
   }
-  return result;
+
+  return res;
 }
 
 

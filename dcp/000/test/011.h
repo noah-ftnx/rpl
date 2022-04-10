@@ -6,23 +6,23 @@
 
 void run_tests() {
   auto trie = Trie();
-  trie.insert("abcd1");
-  trie.insert("abcdef2");
-  trie.insert("abcaa3");
-  trie.insert("abaa4");
-  trie.insert("abaathisthat5");
-  trie.insert("ab6");
-  trie.insert("ac7");
-  trie.insert("acdd8");
-  trie.insert("acdbdb9");
+  trie.insert("abcdz");
+  trie.insert("abcdefo");
+  trie.insert("abcaam");
+  trie.insert("abaax");
+  trie.insert("abaathisthate");
+  trie.insert("abl");
+  trie.insert("ace");
+  trie.insert("acddi");
+  trie.insert("acdbdbi");
 
   set<string> correct;
-  correct.insert("abaathisthat5");
-  correct.insert("abaa4");
-  correct.insert("ab6");
-  correct.insert("abcaa3");
-  correct.insert("abcdef2");
-  correct.insert("abcd1");
+  correct.insert("abaathisthate");
+  correct.insert("abaax");
+  correct.insert("abl");
+  correct.insert("abcaam");
+  correct.insert("abcdefo");
+  correct.insert("abcdz");
 
   vector<string> r1;
   trie.autocomplete("ab", r1);

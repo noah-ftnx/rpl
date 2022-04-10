@@ -1,10 +1,13 @@
 #include <unordered_map>
 #include <vector>
+#include <vector>
 #include <string>
 using namespace std;
 
+
 struct Node {
   unordered_map<char, Node*> child {};
+
   bool leaf {};
   bool has(char c) { return child.contains(c); }
   void put(char c) { child.insert(make_pair(c, new Node())); }
@@ -13,6 +16,7 @@ struct Node {
 
 struct Trie {
   Node* root = new Node();
+
 
   void insert(string s) {
     auto node = root;

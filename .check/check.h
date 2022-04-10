@@ -2,7 +2,7 @@
 #define RPL_CHECK_CHECK_H_
 
 #include <string>
-using namespace std;
+#include <climits>
 
 void check_bool(string msg, bool result, bool correct) {
   cout << msg << ": " << boolalpha << result << (result != correct? " (WRONG)":"") << endl;

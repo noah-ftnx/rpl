@@ -8,51 +8,33 @@ struct Node {
 
   Node(int data) : data{data} {}
 
-  bool leaf() { return left == nullptr && right == nullptr; }
+  bool is_leaf() { return left == nullptr && right == nullptr; }
 };
 
 struct Tree {
   Node* root {};
 
-  pair<Node*, int> _deepest_node_using_height(Node* node, int height) { // extra implementation
-    if (node->leaf()) return make_pair(node, height);
+  pair<int, Node*> _recv(Node* node, int depth) {
+    if (node == nullptr) return {-1, nullptr};
 
-    pair<Node*, int> dleft, dright;
-    if (node->left) {
-      dleft = _deepest_node_using_height(node->left, height+1);
-    }
-    if (node->right) {
-      dright = _deepest_node_using_height(node->right, height+1);
-    }
-
-    return (dleft.second > dright.second? dleft:dright);
-  }
-
-  // extra implementation
-  Node* deepest_node_using_height() { return root?_deepest_node_using_height(root, 0).first: nullptr; }
-
-
-  pair<Node*, int> _deepest_node_using_depth(Node* node) {
-    if (node->leaf()) return make_pair(node, 1);
-
-    pair<Node*, int> dleft, dright;
-    if(node->left) {
-      dleft = _deepest_node_using_depth(node->left);
-      dleft.second++;
-    }
-    if (node->right) {
-      dright = _deepest_node_using_depth(node->right);
-      dright.second++;
-    }
-
-    if (node->right == nullptr) return dleft;
-    else if (node->left == nullptr) return dright;
+    if (node->is_leaf()) return { depth, node };
     else {
-      return dleft.second > dright.second? dleft:dright;
+      auto leftST = _recv(node->left, depth+1) ;
+      auto rightST = _recv(node->right, depth+1);
+
+      if (leftST.first > rightST.first) {
+        return {leftST.first, leftST.second};
+      } else {
+        return {rightST.first, rightST.second};
+      }
     }
   }
 
-  Node* deepest_node() { return root?_deepest_node_using_depth(root).first: nullptr; }
+  Node* deepest_node() {
+    auto res = _recv(root, 0);
+    return res.second;
+  }
+
 };
 
 

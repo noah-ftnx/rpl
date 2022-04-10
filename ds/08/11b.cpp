@@ -1,4 +1,11 @@
-// INCLUDES
+
+struct Node {
+  Node* left {};
+  Node* right {};
+  int data {};
+
+  Node(int data) : data{data} {}
+};
 
 struct Tree {
   Node* deepest_node();

@@ -23,9 +23,9 @@ struct Tree {
       auto rightST = _recv(node->right, depth+1);
 
       if (leftST.first > rightST.first) {
-        return {leftST.first, leftST.second};
+        return leftST;
       } else {
-        return {rightST.first, rightST.second};
+        return rightST;
       }
     }
   }

@@ -38,17 +38,4 @@ void test_function(string msg, fptr function) {
 }
 
 
-void run_tests() {
-  test_function("BF", count_bf);
-  test_function("TD", count_td);
-  test_function("BU", count_bu);
-  test_function("sol", sol);
-
-  if (_wrong) { cout << "ERRORS FOUND.\n"; }
-}
-
-
-
-
-
 #endif  // RPL_DCP_TEST_012_H_

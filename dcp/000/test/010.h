@@ -2,6 +2,8 @@
 #define INC_070__CPP_DCP_000_TEST_010_H_
 
 #include <iostream>
+using namespace std;
+
 void add(int a, int b) {
   cout << a << " + " << b << " = " << (a+b) << endl;
 }

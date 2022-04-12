@@ -1,12 +1,9 @@
 #include <utility>
 using namespace std;
 
-struct Node {
-  int value;
-  Node* left;
-  Node* right;
-  Node(int v) : value{v} {}
-};
+// Node:
+// int value
+// left, right
 
 
 int count_unival(Node* node);

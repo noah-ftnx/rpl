@@ -2,9 +2,7 @@
 #include <unistd.h>
 using namespace std;
 
-void add(int a, int b) {
-  cout << a << " + " << b << " = " << (a+b) << endl;
-}
+void add(int a, int b);
 
 void schedule_way1(void* func, uint64_t ms) {
   usleep(ms*1e3);
@@ -30,9 +28,7 @@ void schedule_way4(fptr1 function, uint64_t ms) {
   function(10, 5);
 }
 
-int main() {
-  schedule_way1((void*)add, 500);
-  schedule_way2(add, 500);
-  schedule_way3(add, 500);
-  schedule_way4(add, 500);
-}
+
+
+#include "test/010.h"
+int main() { run_tests(); }

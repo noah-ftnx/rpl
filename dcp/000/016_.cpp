@@ -1,41 +1,30 @@
 #include <climits>
+using namespace std;
 
 class Log {
  private:
-  int *data {};
   const int N;
-  int last_element {-1};
-  bool filled {};
+  int *array;
+  int last_idx=-1;
 
  public:
   Log(int N) : N{N} {
-    data = new int[N];
+    array = new int[N];
   }
 
-  // last: -1
-  // 3:
-  // 0, 1, 2
-  // last: 0
   void record(int order_id) {
-    last_element++; // 1
-    if (last_element == N) { // reset to 0. will override logs.
-      filled=true;
-      last_element = 0;
-    }
-    data[last_element] = order_id;
+    last_idx++;
+    if (last_idx == N) last_idx=0; // start over or init
+    
+    array[last_idx]=order_id;
   }
 
-  int get_last(int i) { // i can be <= N
-    if (i <= 0 || i > N) return INT_MIN; // so no zero indexing
-    if (last_element < 0) return INT_MIN; //empty array
-    // return the last from the end..
-    int idx = last_element-(i-1);
-    if (idx < 0) {
-      if (!filled) return INT_MIN;
-      idx+=N;
-    }
+  int get_last(int i) {
+    if (last_idx<0 || i<=0) return INT_MIN;
+    int idx = last_idx-i+1;
+    if (idx < 0) idx+=N;
 
-    return data[idx];
+    return array[idx];
   }
 };
 

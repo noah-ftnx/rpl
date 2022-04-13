@@ -1,24 +1,18 @@
 #include <cstdlib>
 
+#include <random>
 double monte_carlo(int N) {
-  double pi;
-  int points=0, points_in_circle=0;
+  int circle_points=0;
 
   for (int i=0; i<N; i++) {
-    // random point in square: values are from 0 to 1
-    double x = (double) (rand()%(N+1))/N;
-    double y = (double) (rand()%(N+1))/N;
-    points++;
-
-    double dist = x*x + y*y;
-    if (dist < 1) points_in_circle++;
-
-    pi = 4.0 * points_in_circle / points;
+    double x = ((rand()%N)+1.0)/ (double)N;
+    double y = ((rand()%N)+1.0)/ (double)N;
+    // R=1:
+    if (x*x + y*y < 1) circle_points++;
   }
 
-  return pi;
+  return 4*((double)circle_points/N);
 }
-
 
 
 #include "test/014.h"

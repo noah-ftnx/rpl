@@ -7,7 +7,7 @@
 void test(string s, int k, int correct) {
   int result = longest_substring(s, k);
 
-  cout << setw(10) << s  << ": unq: " << setw(3) << k << ":   " << result << (result!=correct? " (WRONG)":"") << endl;
+  cout << setw(10) << s  << ": k: " << setw(3) << k << ":   " << result << (result!=correct? " (WRONG)":"") << endl;
 }
 void run_tests() {
   cout << "longest substring:\n";

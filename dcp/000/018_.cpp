@@ -15,40 +15,41 @@
 #include <deque>
 using namespace std;
 
-using namespace std;
 vector<int> largest_subarray(vector<int> arr, int k) {
-
-  // sliding window of max k indices.
-  // we keep indices (and not values):
-  // - we can still access the values from arr
-  // - we don't have to keep all k indices:
-  //    + unusable ones can be removed (smaller values before current ones)
-  //    + we can remove the indices that move out of the window
-  deque<int> dq;
-  // fill deque
-  for (int i=0; i<k; i++) {
-    // remove unusable indices: ones that reference smaller values. those will never be chosen.
-    while(!dq.empty() && arr[i] >= arr[dq.front()]) dq.pop_front();
-
-    dq.push_back(i);
-  }
-
+  const int N = (int) arr.size();
+  /* sliding window of max k indices.
+   we keep indices (and not values):
+   - we can still access the values from arr
+   - we don't have to keep all k indices: we can remove:
+      + expired indices (moved out of window)
+      + unusable indices (smaller values before current ones)
+   */
+  deque<int> window;
   vector<int> result;
-  for (int i=k; i<arr.size(); i++) {
-    result.push_back(arr[dq.front()]);
+  for (int i=0; i<N; i++) {
 
-    // remove indices that will move out of the sliding window
-    while(!dq.empty() && dq.front() <= i-k) dq.pop_front();
+    // remove expired indices (from left)
+    while (!window.empty() && window.front()+k <= i) {
+      window.pop_front();
+    }
 
-    // remove unusable indices
-    while(!dq.empty() && arr[i] >= arr[dq[0]]) dq.pop_front();
-    dq.push_back(i);
+    // remove smaller numbers (from right)
+    while(!window.empty() && arr[i] >= arr[window.back()]) {
+      window.pop_back();
+    }
+
+    // add index (at right)
+    window.push_back(i);
+
+    if (i>=k-1) { // max is at left
+      result.push_back(arr[window.front()]);
+    }
+
   }
-  // last result
-  result.push_back(arr[dq.front()]);
 
   return result;
 }
+
 
 
 

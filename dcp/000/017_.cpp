@@ -2,7 +2,66 @@
 #include <vector>
 using namespace std;
 
+
+
+#include <string>
+#include <stack>
+#include <sstream>
+using namespace std;
 int longest_path(string fsys) {
+  if (fsys.empty()) return 0;
+
+  string line;
+  istringstream iss(fsys);
+
+  struct LineInfo {
+    int depth;
+    bool is_file;
+    int len;
+  };
+
+  auto parse_line = [](string line) -> LineInfo {
+    int depth=0;
+    bool is_file=false;
+    int len=0;
+    for (auto c: line) {
+      if (c=='\t') depth++;
+      else  {
+        len++;
+        if (c=='.') is_file=true;
+      }
+    }
+    return {depth, is_file, len};
+  };
+
+  int cur_len=0;
+  int mx_path=0; // updated only on files
+  stack<LineInfo> folders;
+
+  while(!iss.eof()) {
+    getline(iss, line);
+    auto li=parse_line(line);
+
+    if (li.is_file) {
+      // lidepth: is for '/' ..
+      // aa/bb/cc/file.txt
+      mx_path = max(mx_path, cur_len+li.depth+li.len);
+    } else { // directory..
+      // pop folders of less or same level
+      while(!folders.empty() &&  li.depth <= folders.top().depth) {
+        auto pli = folders.top(); folders.pop();
+        cur_len-=pli.len;
+      }
+      folders.push(li);
+      cur_len+=li.len;
+    }
+  }
+
+  return mx_path;
+}
+
+
+int longest_path_more_complex(string fsys) {
   if (fsys.empty()) return 0;
 
   int res;
@@ -57,7 +116,6 @@ int longest_path(string fsys) {
       folder=false;
     }
   }
-
   return res;
 }
 

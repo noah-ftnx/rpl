@@ -36,8 +36,16 @@ vector<string> get_itinerary(vector<pair<string, string>>& flights, string start
   return itinerary;
 }
 
+#include "test/018-bonus2.h"
+int main() {
+  run_tests();
+  return 0;
+}
+
+
+//// MORE COMPLEX CODE (maybe incorrect too..)
 void _get_itinerary(vector<pair<string, string>>& flights,
-                             vector<string>& itinerary) {
+                    vector<string>& itinerary) {
 
   if (flights.empty()) { return; }
 
@@ -67,10 +75,4 @@ vector<string> complex_get_itinerary(vector<pair<string, string>>& flights, stri
   if (flights.empty()) return itinerary;
 
   return {};
-}
-
-#include "test/018-bonus2.h"
-int main() {
-  run_tests();
-  return 0;
 }

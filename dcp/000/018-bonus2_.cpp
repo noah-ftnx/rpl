@@ -3,6 +3,39 @@
 #include <string>
 using namespace std;
 
+bool solve(vector<pair<string, string>> flights,
+           vector<string>& itinerary) {
+  if (flights.empty()) return true;
+
+  for (auto it=flights.begin(); it!=flights.end(); ) {
+    auto p = (*it);
+    if (itinerary.back() == p.first) {
+      // try a solution
+      itinerary.push_back(p.second);
+      it = flights.erase(it);
+
+      if(solve(flights, itinerary)) return true;
+
+      // backtrack
+      it = flights.insert(it, p);
+      itinerary.pop_back();
+    }
+    it++;
+  }
+
+  return false;
+}
+
+vector<string> get_itinerary(vector<pair<string, string>>& flights, string starting) {
+  if (flights.empty() || starting.empty()) return {};
+
+  vector<string> itinerary;
+  itinerary.push_back(starting);
+  if (!solve(flights, itinerary)) return {};
+
+  return itinerary;
+}
+
 void _get_itinerary(vector<pair<string, string>>& flights,
                              vector<string>& itinerary) {
 
@@ -26,7 +59,7 @@ void _get_itinerary(vector<pair<string, string>>& flights,
 }
 
 
-vector<string> get_itinerary(vector<pair<string, string>>& flights, string starting) {
+vector<string> complex_get_itinerary(vector<pair<string, string>>& flights, string starting) {
   if (starting.empty() || flights.empty()) return {};
   vector<string> itinerary({starting});
   _get_itinerary(flights, itinerary);

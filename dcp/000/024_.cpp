@@ -14,10 +14,7 @@ class Node {
     return false;
   }
 
-  bool lock_mechanism_blocked() {
-    if (child_locks>0) return true;
-    return any_parent_locked();
-  }
+
 
  public:
 
@@ -26,18 +23,17 @@ class Node {
   bool is_locked() { return locked; }
 
   bool lock() {
-    if (!lock_mechanism_blocked()) {
-      locked=true;
+    if (any_parent_locked()) return false;
+    else if (child_locks>0) return false;
 
-      auto node=parent;
-      while (node) {
-        node->child_locks++;
-        node=node->parent;
-      }
+    locked=true;
 
-      return true;
+    auto node=parent;
+    while (node) {
+      node->child_locks++;
+      node=node->parent;
     }
-    return false;
+    return true;
   }
 
   bool unlock() {

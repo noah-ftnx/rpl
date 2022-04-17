@@ -4,6 +4,7 @@
 #include "input-spt.h"
 
 deque<int> spt_path(vector<list<Edge>> G, int src, int target);
+
 void print_result_path(int src, int tgt, deque<int> path) {
   static vector<string> cresult {
       "0",

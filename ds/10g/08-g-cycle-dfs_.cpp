@@ -20,9 +20,12 @@ struct Graph {
     visited[u]=true;
 
     for (auto n: AL[u]) {
-      if (!visited[n])  {
+      if (visited[n]) {
+        // it's not from where we just came from
+        if (n != parent) return true;
+      } else {
         if (cyclesDFS(visited, n, u)) return true;
-      } else if (n != parent) return true; // visited but was not visited from u
+      }
     }
     return false;
   }

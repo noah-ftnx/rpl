@@ -91,6 +91,46 @@ int string_distanceOPT_v2(string from, string to) {
 
 
 int string_distanceOPT(string a, string b) {
+  const int A = (int) a.size();
+  const int B = (int) b.size();
+
+  vector<int> row_below(B+1, 0);
+  vector<int> row(B+1, 0);
+  for (int j= woB-1; j>=0; j--) { // additions empty A word
+    row[j]=B-j;
+  }
+
+  for (int i=A-1; i>=0; i--) {
+
+    swap(row, row_below);
+    row[B]=A-i;
+
+    for (int j=B-1; j>=0; j--) {
+      int min_cost;
+      // we have a cost of 1 when chars don't match
+      int replace_cost = (int) a[i]!=b[j];
+      // consume on both ends
+      int update_cost = replace_cost + row_below[j+1];
+
+      // delete a char: advance only from a
+      int del_cost = 1+row_below[j];
+
+      // add a char
+      int add_cost = 1+row[j+1];
+
+      min_cost=min(update_cost, del_cost);
+      min_cost=min(min_cost, add_cost);
+
+      row[j]=min_cost;
+    }
+  }
+
+  return row[0];
+}
+
+
+#ifdef WAY2
+int string_distanceOPT(string a, string b) {
   // two rows
   vector<int> cost_prev(b.size()+1);
   vector<int> cost_cur(b.size()+1);
@@ -122,6 +162,7 @@ int string_distanceOPT(string a, string b) {
   // because they swapped.
   return cost_cur[b.size()];
 }
+#endif
 
 
 #include "test/031.h"

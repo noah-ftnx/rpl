@@ -70,6 +70,63 @@ string longest_palidromeBU(string input) {
 }
 
 
+string longest_palindrome(string input) {
+  const int K = (int) input.size();
+  if (K <= 1) return input;
+
+  auto expand = [&] (int l, int r) -> pair<int, int> {
+    pair<int, int> res {-1, -1};
+    while(l>=0 && r<K && input[l]==input[r]) {
+      res = {l, r};
+      l--; r++;
+    }
+    return res;
+  };
+
+  auto biggest_at_i = [&] (int i) -> pair<int, int> {
+    pair<int, int> res {i, i};
+    auto p1=expand(i, i+1);
+    auto p2=expand(i-1, i+1);
+
+    int sz1 = p1.second-p1.first;
+    int sz2 = p2.second-p2.first;
+
+    if (sz1 > sz2) res=p1;
+    // else means: p2 is bigger or equal
+    // plus: p2 is not invalid
+    else if (p2.first!=-1) res=p2;
+
+    return res;
+  };
+
+  // find biggest palindrome at each index
+  int mx = -1;
+  pair<int, int> mx_pair {-1, -1};
+  for (int i=0; i<K; i++) {
+    auto p = biggest_at_i(i);
+    int len = p.second-p.first;
+    if (len>mx) {
+      mx=len;
+      mx_pair=p;
+    }
+  }
+
+  return input.substr(mx_pair.first, mx_pair.second-mx_pair.first+1);
+}
+
+
+#include "test/046.h"
+int main() {
+  run_tests("BF", longest_palidromeBF);
+  run_tests("BU", longest_palidromeBU);
+  run_tests("middle-expansion", longest_palindrome);
+
+  print_errors();
+  return 0;
+}
+
+
+#ifdef COMPLEX
 pair<int, int> middle_expansion(string input, int l, int r) {
   const int N = input.size();
   while (l >=0 && r < N && input[l] == input[r]) {
@@ -109,14 +166,4 @@ string longest_palindrome(string input) {
   int r = mid+half;
   return input.substr(l, r-l+1);
 }
-
-
-#include "test/046.h"
-int main() {
-  run_tests("BF", longest_palidromeBF);
-  run_tests("BU", longest_palidromeBU);
-  run_tests("middle-expansion", longest_palindrome);
-
-  print_errors();
-  return 0;
-}
+#endif

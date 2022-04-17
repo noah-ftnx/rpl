@@ -59,10 +59,11 @@ void run_tests() {
 
 
   check("r.isLocked", r->is_locked(), false);
-  check("r.unlock", r->unlock(), true);
+  check("r.unlock", r->unlock(), false);
+
+
   check("r.lock", r->lock(), true);
   check("r.isLocked", r->is_locked(), true);
-  cout << endl;
 
   check("l.lock", l->lock(), true, "\t\t(tricky case. must be able to lock)");
   check("root.lock", root->lock(), false);

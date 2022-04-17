@@ -1,7 +1,7 @@
 
 
 class Node {
- private:
+ public:
   bool locked {};
   int child_locks {};
 
@@ -41,16 +41,15 @@ class Node {
   }
 
   bool unlock() {
-    if (!lock_mechanism_blocked()) {
-      locked=false;
-      auto node=parent;
-      while (node) {
-        node->child_locks--;
-        node=node->parent;
-      }
-      return true;
+    if (!locked)  return false;
+
+    locked=false;
+    auto node=parent;
+    while (node) {
+      node->child_locks--;
+      node=node->parent;
     }
-    return false;
+    return true;
   }
 
 };

@@ -5,11 +5,6 @@
 #include <list>
 using namespace std;
 
-struct Edge {
-  int id {};
-  int weight {};
-};
-
 bool _isDirected=false;
 
 void addEdge(vector<list<Edge>> &G, int from, int to, int weight) {

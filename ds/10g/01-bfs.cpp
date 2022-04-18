@@ -1,10 +1,17 @@
-// INCLUDES HERE:
+#include <list>
+#include <vector>
+#include <queue>
+#include <iostream>
+using namespace std;
 
-#include "test/input-traversal.h"
+struct Edge {
+  int id {};
+  int weight {};
+};
 
-// DEFINED: struct Edge: int id, int weight
+void BFS(const vector<list<Edge>>& G, int src);
 
-// void BFS(const vector<list<Edge>>& G, int src);
+
 
 #include "test/01.h"
 int main () { run_tests(); return 0; }

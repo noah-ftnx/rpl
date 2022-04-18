@@ -1,6 +1,8 @@
 #ifndef RPL_DS_10G_TEST_01_H_
 #define RPL_DS_10G_TEST_01_H_
 
+#include "input-traversal.h"
+
 void BFS(const vector<list<Edge>>& G, int src);
 
 void run_tests() {

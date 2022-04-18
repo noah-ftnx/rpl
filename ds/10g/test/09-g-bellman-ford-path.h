@@ -48,7 +48,7 @@ void test(Graph* graph, int src, int tgt, deque<int> correct) {
   auto result = graph->BellmanFord(src, tgt);
   cout << "PATH: ";
   for (auto cost: result) cout << setw(3) << cost << " ";
-  cout << (correct!=result? " (WRONG)": "") << endl;
+  cout << (correct!=result? " (WRONG)": "Correct") << endl;
 
 }
 

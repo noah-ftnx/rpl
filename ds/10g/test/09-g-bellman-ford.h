@@ -50,7 +50,7 @@ void test(Graph* graph, int src, vector<int> correct) {
   for (int i=0; i<result.size(); i++) cout << setw(3) <<  i << " "; cout << endl;
   cout << "COST: ";
   for (auto cost: result) cout << setw(3) << cost << " ";
-  cout << (correct!=result? " (WRONG)": "") << endl;
+  cout << (correct!=result? " (WRONG)": "Correct.") << endl;
 
 }
 

@@ -13,7 +13,7 @@ void test(string nodes, list<pair<int, int>> edges, int correct) {
   cout << "MSG: "<< result << (wrong? " (WRONG)": "") << endl;
 }
 
-void run_tests() tart
+void run_tests() {
 
   test("ABACA", {{0, 1}, {0, 2}, {2, 3}, {3, 4}}, 3);
   test("A", {{0, 0}}, -1);

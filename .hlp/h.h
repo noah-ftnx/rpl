@@ -52,7 +52,7 @@ void run_tests(string msg, fptr function) {
 // C++
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
-#include "test/004.h"
+#include "test/075.h"
 int main() {
   run_tests("BF", fBF);
   run_tests("MMZ", fMMZ);

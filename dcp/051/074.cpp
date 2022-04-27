@@ -1,5 +1,5 @@
 
-int solve(int N, int X);
+int print_all_subsequences(vector<int> input, int K);
 
 
 

@@ -5,9 +5,8 @@ using namespace std;
 void solve(vector<int>& input, vector<vector<int>> &res,
            vector<int> &cur, int target, int idx) {
 
-  // base case: target == 0 add to sol. ret.
-  if (target==0) {
-    res.push_back(cur); // O(K)
+  if (target==0) {  // base case: (no need to consume input)
+    res.push_back(cur); // an extra O(K)
     return;
   }
 
@@ -15,7 +14,7 @@ void solve(vector<int>& input, vector<vector<int>> &res,
 
     if (i>idx && input[i]==input[i-1]) continue;
 
-    if (target-input[i] <0) break;
+    if (target-input[i] <0) break; // OPT
 
     cur.push_back(input[i]);
     solve(input, res, cur, target-input[i], i+1);
@@ -29,8 +28,7 @@ vector<vector<int>> combinationSum(vector<int>& candidates, int target) {
 
   sort(candidates.begin(), candidates.end());
 
-  vector<vector<int>> res;
-  vector<int> cur;
+  vector<vector<int>> res; vector<int> cur;
   solve(candidates, res, cur, target, 0);
 
   return res;

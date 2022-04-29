@@ -8,7 +8,8 @@ void solve(const vector<int>& nums, int start,
 
   powerset.push_back(subset);
   for (int i=start; i<nums.size(); i++) {
-    if (i>0 && nums[i-1]==nums[i]) continue;
+    if (i>start && nums[i-1]==nums[i]) continue;
+
     subset.push_back(nums[i]);
     solve(nums, i+1, powerset, subset);
     subset.pop_back(); // backtrack

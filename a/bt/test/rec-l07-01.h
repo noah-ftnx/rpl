@@ -10,18 +10,14 @@ void test(vector<int> candidates, int k, vector<vector<int>> correct) {
   for (auto i : candidates) cout << i << " ";
   cout << endl;
 
-  auto result = any_subsequence(candidates, k);
+  auto result = enumerate_subsequences(candidates, k);
   cout << "Result:\n";
-  bool wrong = true; // assumption
-  for (auto any: correct) {
-    if (any==result) {
-      for (int i: any) cout << i << " ";
-      cout << endl;
-      wrong=false;
-      break;
-    }
+  for (auto vec : result) {
+    for (int i : vec) cout << i << " ";
+    cout << endl;
   }
 
+  bool wrong = result!=correct;
   _wrong|=wrong;
 
   cout << (wrong? "WRONG!" : "Correct.") << endl << endl;

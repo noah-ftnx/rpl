@@ -1,4 +1,5 @@
 
+// coloring: is an empty vector
 bool color_graph(vector<vector<int>> graph, int m, vector<int>& coloring);
 
 

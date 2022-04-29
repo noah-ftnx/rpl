@@ -5,16 +5,16 @@
 using namespace std;
 
 void solve(vector<int>& nums, vector<vector<int>>& res,
-           vector<int> cur, int idx) {
+           vector<int> cur, int start) {
   int N = (int) nums.size();
 
   // no base base
   res.push_back(cur); // all are unique: O(N)
 
-  for (int i=idx; i<N; i++) {
+  for (int i=start; i<N; i++) {
 
-    // skip: don't consider the same number in the same sol (cur) idx
-    if (i> idx && nums[i]==nums[i-1]) continue;
+    // skip: don't consider the same number in the same sol (cur) start
+    if (i> start && nums[i]==nums[i-1]) continue;
 
     // case 1: pick an element
     cur.push_back(nums[i]);

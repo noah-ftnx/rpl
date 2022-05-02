@@ -29,10 +29,14 @@ int main() { run_tests(); return 0; }
 // HEADER
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
-#include "base.h"
+#include <iostream>
+#include <iomanip>
+// #include "base.h"
 
 int prototype(T param0);
 using fptr = decltype(prototype);
+
+bool _wrong {};
 
 void test(fptr function, string s, T correct) {
   // T result = function(s);
@@ -48,6 +52,11 @@ void run_tests(string msg, fptr function) {
   cout << endl;
 }
 
+void print_errors() {
+  if (_wrong) cout << "\nWRONG RESULTS.\n";
+  else cout << "\nCorrect: all results.\n";
+}
+
 
 // C++
 ///////////////////////////////////////////////////////////////////////////////////////////////////
@@ -59,7 +68,7 @@ int main() {
   run_tests("BU", fBU);
   run_tests("OPT", fOPT);
 
-  // print_errors();
+  print_errors();
   // print_report();
   return 0;
 }

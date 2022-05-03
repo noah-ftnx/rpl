@@ -113,9 +113,6 @@ int robOPT(vector<int>& nums) {
   if (nums.empty()) return 0;
   if (nums.size() == 1) return nums[0];
 
-  // vector<int> v1=nums, v2=nums;
-  // v1.erase(v1.begin());
-  // v2.pop_back();
   int firstElement = nums[0];
   nums.erase(nums.begin());
   int woFirst=OPT(nums);

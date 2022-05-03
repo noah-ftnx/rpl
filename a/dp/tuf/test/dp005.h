@@ -3,6 +3,7 @@
 
 #include <string>
 #include <iostream>
+#include <iomanip>
 
 bool _wrong;
 void print_errors() {
@@ -13,9 +14,14 @@ void print_errors() {
 int prototype(vector<int> &nums);
 using fptr = decltype(prototype);
 
-void check(fptr function, string msg, vector<int> input, int correct) {
-  int res = function(input);
-  cout << msg << ": " << res << (res!=correct? " (WRONG)": "") << endl;
+void check(fptr function, string msg, vector<int> in, int correct) {
+  int result = function(in);
+
+  bool wrong = result !=correct;
+  _wrong|=wrong;
+  string s1;
+  for (int i: in) s1+= to_string(i) + " ";
+  cout << setw(20) << s1 << " Result: " << setw(4) << result << (wrong? " (WRONG)":"") << endl;
 }
 
 void run_tests(string msg, fptr function) {

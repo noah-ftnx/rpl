@@ -42,7 +42,7 @@ int maximumNonAdjacentSumBU(vector<int> &nums){
 
   const int N = (int) nums.size();
   for (int i=1; i<N; i++) {
-    int left= i-2>=0? nums[i]+ tab[i-2] : 0;
+    int left= i-2>=0? nums[i]+ tab[i-2] : nums[i]; // TRICKY
     int right=tab[i-1];
     tab[i]=max(left, right);
   }

@@ -2,11 +2,9 @@
 using namespace std;
 
 int BF(vector<int>& nums, int i) {
-
   // base cases:
   if (i==0) return nums[0];
   else if (i<0) return 0; // OOB
-
 
   // case 1: rob this house
   int left=nums[i]+BF(nums, i-2);
@@ -80,8 +78,6 @@ int BU(vector<int>& nums) {
   return tab[N-1];
 }
 
-
-
 int robBU(vector<int>& nums) {
   if (nums.empty()) return 0;
   if (nums.size()==1) return nums[0];
@@ -117,11 +113,21 @@ int robOPT(vector<int>& nums) {
   if (nums.empty()) return 0;
   if (nums.size() == 1) return nums[0];
 
-  vector<int> v1=nums, v2=nums;
-  v1.erase(v1.begin());
-  v2.pop_back();
+  // vector<int> v1=nums, v2=nums;
+  // v1.erase(v1.begin());
+  // v2.pop_back();
+  int firstElement = nums[0];
+  nums.erase(nums.begin());
+  int woFirst=OPT(nums);
 
-  return max(OPT(v2), OPT(v1));
+  nums.insert(nums.begin(), firstElement);
+  int lastElement=nums.back();
+  nums.pop_back();
+  int woLast=OPT(nums);
+
+  nums.push_back(lastElement);
+
+  return max(woFirst, woLast);
 }
 
 

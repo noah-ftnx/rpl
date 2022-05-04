@@ -98,7 +98,7 @@ int mazeObstaclesOPT(int n, int m, vector<vector<int>> &mat) {
 
 
 
-#include "test/009.h"
+#include "test/dp009.h"
 int main() {
   run_tests("BF", mazeObstaclesBF);
   run_tests("MMZ", mazeObstaclesMMZ);

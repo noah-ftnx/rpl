@@ -9,7 +9,7 @@ int uniquePathsOPT(int m, int n);
 
 
 
-#include "test/008.h"
+#include "test/dp008.h"
 int main() {
   run_tests("BF", uniquePathsBF);
   // run_tests("MMZ", uniquePathsMMZ);

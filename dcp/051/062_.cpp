@@ -8,6 +8,25 @@ int paths_numBF(int N, int M) {
   return paths_numBF(N-1, M) + paths_numBF(N, M-1);
 }
 
+
+int BF(int i, int j) {
+  // base case:
+  if (i==0 && j==0) return 1; // valid way
+  else if (i<0 || j<0) return 0;  // out of bounds
+
+  // we are from bottom-right, so we move opposite
+  int top = BF(i-1, j);
+  int left = BF(i, j-1);
+
+  return top+left;
+}
+
+
+int uniquePaths(int m, int n) {
+  return BF(m-1, n-1);
+}
+
+
 int paths_numBU(int N, int M) {
   if (N ==0 || M==0) return 0;
 

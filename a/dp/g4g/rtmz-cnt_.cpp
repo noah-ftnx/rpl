@@ -197,7 +197,6 @@ int solve_mazeDP_ALT(vector<vector<int>> maze) {
     }
   }
 
-
   // print_maze(maze);
 
   return maze[N-1][N-1];
@@ -211,8 +210,8 @@ int main() {
   run_tests("MMZ", solve_mazeMMZ);
   run_tests("BU", solve_mazeBU);
   run_tests("OPT", solve_mazeOPT);
-  run_tests("IN PLACE", solve_mazeIN_PLACE);
-  run_tests("DP ALT", solve_mazeDP_ALT);
+  run_tests("IN PLACE", solve_mazeIN_PLACE);  // if allowed to modify input arr
+  run_tests("DP ALT", solve_mazeDP_ALT);      // complicated DP
 
   print_errors();
   return 0;

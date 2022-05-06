@@ -71,6 +71,33 @@ int minimumPathSumBU(vector<vector<int>>& triangle, int n){
 
 
 
+int minimumPathSumOPT(vector<vector<int>>& triangle, int n){
+  if (triangle.empty()) return 0;
+  vector<int> prev(n, -1);
+  vector<int> cur(n, -1);
+
+  // cannot go out of bounds:
+  // j axis: it is always valid
+  // i axis: we finish on last valid row
+
+  // base case: last row
+  cur=triangle[n-1];
+
+  for (int i=n-2; i>=0; i--){
+    swap(cur, prev);
+    for (int j=0; j<i+1; j++) {
+      int cost = triangle[i][j];
+      int down = cost + prev[j];
+      int downRight = cost + prev[j+1];
+      cur[j]=min(down, downRight);
+    }
+  }
+  return cur[0];
+}
+
+
+
+
 
 
 #include "test/dp011.h"
@@ -78,7 +105,7 @@ int main() {
   run_tests("BF", minimumPathSumBF);
   run_tests("MMZ", minimumPathSumMMZ);
   run_tests("BU", minimumPathSumBU);
-  // run_tests("OPT", minSumPathOPT);
+  run_tests("OPT", minimumPathSumOPT);
 
   print_errors();
   return 0;

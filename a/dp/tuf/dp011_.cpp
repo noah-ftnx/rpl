@@ -97,9 +97,6 @@ int minimumPathSumOPT(vector<vector<int>>& triangle, int n){
 
 
 
-
-
-
 #include "test/dp011.h"
 int main() {
   run_tests("BF", minimumPathSumBF);

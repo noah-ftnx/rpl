@@ -16,6 +16,6 @@ int main() {
   run_tests("BU", subset_sumBU);
   run_tests("OPT", subset_sumOPT);
 
-  print_errors();
+  print_report();
   return 0;
 }

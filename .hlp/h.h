@@ -52,7 +52,7 @@ void run_tests(string msg, fptr function) {
   cout << endl;
 }
 
-void print_errors() {
+void print_report() {
   if (_wrong) cout << "\nWRONG RESULTS.\n";
   else cout << "\nCorrect: all results.\n";
 }

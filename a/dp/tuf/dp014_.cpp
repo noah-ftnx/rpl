@@ -1,84 +1,106 @@
 #include <vector>
 using namespace std;
 
-bool BF(vector<int> input, int i, int k) {
-  if (k==0) return true;
-  else if (i==0) return k==input[0];
+bool BF(int idx, int k, vector<int> &arr) {
+  // base cases:
+  if (k==0) return true; // solved
+  else if (idx==0) return arr[0]==k; // last element: solves or not
 
-  bool res;
-  const int val = input[i];
-  if (k>=val) res=BF(input, i-1, k-val);
-  if (!res) res=BF(input, i-1, k);
+  // case 1: pick
+  bool pick=(k>=arr[idx]) && BF(idx-1, k-arr[idx], arr);
 
-  return res;
+  // case 2: not pick
+  bool notPick = BF(idx-1, k, arr);
+
+  return pick | notPick; // bitwise or: also works!
 }
 
-bool subset_sumBF(vector<int> input, int k) {
-  if (input.empty()) return k==0;
-  return BF(input, (int) input.size()-1, k);
+bool subsetSumToKBF(int n, int k, vector<int> &arr) {
+  if (n==0 || k<0) return false;
+  return BF(n-1, k, arr);
 }
 
-bool TD(vector<int> input, int i, int k, vector<vector<int>>& mmz) {
-  if (k==0) return true;
-  else if (i==0) return k==input[0];
-  else if(mmz[i][k]!=-1) return (bool) mmz[i][k];
 
-  bool res;
-  const int val = input[i];
-  if (k>=val) res=TD(input, i-1, k-val, mmz);
-  if (!res) res=TD(input, i-1, k, mmz);
 
-  mmz[i][k]=res;
-  return res;
+bool MMZ(int idx, int k, vector<int> &arr, vector<vector<int8_t>> &dp) {
+  // base cases:
+  if (k==0) return true; // solved
+  else if (idx==0) return arr[0]==k; // last element: solves or not
+  else if (dp[idx][k]!=-1) return dp[idx][k];
+
+  // case 1: pick
+  bool pick=(k>=arr[idx]) && MMZ(idx-1, k-arr[idx], arr, dp);
+
+  // case 2: not pick
+  bool notPick = MMZ(idx-1, k, arr, dp);
+
+  return dp[idx][k]=(pick || notPick);
 }
 
-bool subset_sumTD(vector<int> input, int k) {
-  if (input.empty()) return k==0;
-  vector<vector<int>> mmz(input.size(), vector<int>(k+1, -1));
-  return TD(input, (int) input.size()-1, k, mmz);
+bool subsetSumToKMMZ(int n, int k, vector<int> &arr) {
+  if (n==0 || k<0) return false;
+  vector<vector<int8_t>> dp(n, vector<int8_t>(k+1, -1));
+  return MMZ(n-1, k, arr, dp);
 }
 
-bool subset_sumBU(vector<int> input, int k) {
-  if (input.empty()) return k==0;
-  vector<vector<bool>> dp(input.size(), vector<bool>(k+1, false));
 
-  // k=0: reached target k
-  for (int i=0; i<(int)input.size(); i++) dp[i][0]=true;
-  // i=0: then first element must match k
-  if (input[0] <=k) dp[0][input[0]]=true;
 
-  for (int i=1; i<(int) input.size(); i++) {
-    for (int target=1; target<=k; target++) {
-      bool res;
-      const int val = input[i];
-      if (target>=val) res=dp[i-1][target-val];
-      if (!res) res=dp[i-1][target];
-      dp[i][target]=res;
+bool subsetSumToKBU(int n, int k, vector<int> &arr) {
+  if (n==0 || k<0) return false;
+  vector<vector<bool>> dp(n, vector<bool>(k+1, false));
+
+  // base cases
+  // can happen at any idx so we do a loop:
+  for (int i=0; i<n; i++) dp[i][0]=true; // solved
+  // We could do this: (simpler..)
+  // for (int j=0; j<=k; j++) dp[0][j]=(arr[0]==j); // last element
+  // or simplify just to this:
+  dp[0][arr[0]]=true; // only the matching value can be true
+  // example: it's when we have JUST ONE element, then that element must match:
+  // arr: {3}, then dp will have:
+  // - indices:    0,     1,     2,    3
+  // - values: false, false, false, true
+
+  // explore states:
+  for (int idx=1; idx<n; idx++) {
+    for (int j=1; j<=k; j++) {
+      // case 1: pick
+      bool pick=(j>=arr[idx]) && dp[idx-1][j-arr[idx]];
+
+      // case 2: not pick
+      bool notPick = dp[idx-1][j];
+
+      dp[idx][j]=(pick || notPick);
     }
   }
-  return dp[input.size()-1][k];
+  return dp[n-1][k];
 }
 
-bool subset_sumOPT(vector<int> input, int k) {
-  if (input.empty()) return k==0;
+
+
+bool subsetSumToKOPT(int n, int k, vector<int> &arr) {
+  if (n==0 || k<0) return false;
+
+  vector<bool> prev;
   vector<bool> cur(k+1, false);
-  vector<bool> prev(k+1, false);
 
-  cur[0]=true;
-  if (input[0] <=k) cur[input[0]]=true;
+  cur[arr[0]]=true; // base case: last element
 
-  for (int i=1; i<(int) input.size(); i++) {
-    swap(cur, prev);
+  // explore states:
+  for (int idx=1; idx<n; idx++) {
+    prev=cur;
+    cur[0]=true;  // base case: solved (k became zero)
+    for (int j=1; j<=k; j++) {
+      // case 1: pick
+      bool pick=(j>=arr[idx]) && prev[j-arr[idx]];
 
-    cur[0]=true;
-    for (int target=1; target<=k; target++) {
-      bool res;
-      const int val = input[i];
-      if (target>=val) res=prev[target-val];
-      if (!res) res=prev[target];
-      cur[target]=res;
+      // case 2: not pick
+      bool notPick = prev[j];
+
+      cur[j]=(pick || notPick);
     }
   }
+
   return cur[k];
 }
 
@@ -86,10 +108,10 @@ bool subset_sumOPT(vector<int> input, int k) {
 
 #include "test/dp014.h"
 int main() {
-  run_tests("BF", subset_sumBF);
-  run_tests("MMZ", subset_sumTD);
-  run_tests("BU", subset_sumBU);
-  run_tests("OPT", subset_sumOPT);
+  run_tests("BF", subsetSumToKBF);
+  run_tests("MMZ", subsetSumToKMMZ);
+  run_tests("BU", subsetSumToKBU);
+  run_tests("OPT", subsetSumToKOPT);
 
   print_report();
   return 0;

@@ -4,12 +4,12 @@
 #include <iostream>
 #include <iomanip>
 
-bool prototype(vector<int> input, int k);
+bool prototype(int n, int k, vector<int> &arr);
 using fptr = decltype(prototype);
 
 bool _wrong{};
 void test(fptr function, vector<int> input, int k, bool correct) {
-  bool result = function(input, k);
+  bool result = function((int) input.size(), k, input);
   bool wrong = result !=correct;
   _wrong|=wrong;
   string s;

@@ -1,20 +1,20 @@
 
-bool subset_sumBF(vector<int> input, int k);
+bool subsetSumToKBF(int n, int k, vector<int> &arr);
 
-bool subset_sumTD(vector<int> input, int k);
+bool subsetSumToKMMZ(int n, int k, vector<int> &arr);
 
-bool subset_sumBU(vector<int> input, int k);
+bool subsetSumToKBU(int n, int k, vector<int> &arr);
 
-bool subset_sumOPT(vector<int> input, int k);
+bool subsetSumToKOPT(int n, int k, vector<int> &arr);
 
 
 
 #include "test/dp014.h"
 int main() {
-  run_tests("BF", subset_sumBF);
-  run_tests("MMZ", subset_sumTD);
-  run_tests("BU", subset_sumBU);
-  run_tests("OPT", subset_sumOPT);
+  run_tests("BF", subsetSumToKBF);
+  run_tests("MMZ", subsetSumToKMMZ);
+  run_tests("BU", subsetSumToKBU);
+  run_tests("OPT", subsetSumToKOPT);
 
   print_report();
   return 0;

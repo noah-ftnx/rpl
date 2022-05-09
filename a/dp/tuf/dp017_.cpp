@@ -1,12 +1,15 @@
 #include <vector>
+#include <cmath>
 using namespace std;
 
 int BF(int idx, int k, vector<int> &num) {
   if (idx==0) {
-    return k==0 || k==num[0];
+    if (k==0 && num[0]==0) return 2; // TRICKY case:  can pick or skip '0' on idx 0
+    // all other cases
+    return (int) (k==0 || k==num[0]);
   }
 
-  int take= k-num[idx]>=0? BF(idx-1, k-num[idx], num) : 0;
+  int take=(k-num[idx]>=0)? BF(idx-1, k-num[idx], num) : 0;
   int notTake=BF(idx-1, k, num);
 
   return take + notTake;
@@ -21,7 +24,10 @@ int findWaysBF(vector<int> &num, int tar) {
 
 int MMZ(int idx, int k, vector<int> &num, vector<vector<int>> &dp) {
   if (idx==0) {
-    return k==0 || k==num[0];
+   // 0, 0, 10
+   if (k==0 && num[0]==0) return 2; // TRICKY: can pick or skip
+
+   return k==0 || k==num[0];
   } else if (dp[idx][k]!=-1) return dp[idx][k];
 
   int take= k-num[idx]>=0? MMZ(idx-1, k-num[idx], num, dp) : 0;
@@ -56,7 +62,13 @@ int findWaysBU(vector<int> &num, int tar) {
     }
   }
 
-  return dp[N-1][tar];
+  int zeros{};
+  for (int i=0; i<N; i++) if (num[i]==0) zeros++;
+  int res = dp[N-1][tar];
+  if (zeros>0) {
+    res*=pow(2, zeros);
+  }
+  return res;
 }
 
 
@@ -75,12 +87,20 @@ int findWaysOPT(vector<int> &num, int tar) {
   for (int idx=1; idx<N; idx++) {
     prev=cur;
     for (int k=1; k<=tar; k++) {
-      int take= k-num[idx]>=0? prev[k-num[idx]]:0;
+      int take=k-num[idx]>=0? prev[k-num[idx]]:0;
       int notTake=prev[k];
       cur[k]=take + notTake;
     }
   }
-  return cur[tar];
+
+  int zeros{};
+  for (int i=0; i<N; i++) if (num[i]==0) zeros++;
+  int res = cur[tar];
+  if (zeros>0) {
+    res*=pow(2, zeros);
+  }
+
+  return res;
 }
 
 

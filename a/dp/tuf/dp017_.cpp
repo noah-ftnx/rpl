@@ -50,25 +50,25 @@ int findWaysBU(vector<int> &num, int tar) {
   vector<vector<int>> dp(num.size(), vector<int>(tar+1, 0));
   const int N = (int) num.size();
 
-  // base cases:
-  for (int i=0; i<N; i++) dp[i][0]=1; // reached target
+  // base cases
+  // order matters here (this is added before the other case
   if (num[0]<=tar) dp[0][num[0]]=1; // last element matches
 
+  // the other case is NOT a loop now (and we start inner loop from 0)
+  for (int i=0; i<N; i++) dp[i][0]=1; // case 1: reached target
+  // case 2:
+  if (num[0]==0) dp[0][0]=2;
+  else if (num[0] <= tar) dp[0][num[0]]=1;
+
   for (int idx=1; idx<N; idx++) {
-    for (int k=1; k<=tar; k++) {
+    for (int k=0; k<=tar; k++) {
       int take= k-num[idx]>=0? dp[idx-1][k-num[idx]]:0;
       int notTake=dp[idx-1][k];
       dp[idx][k]=take + notTake;
     }
   }
 
-  int zeros{};
-  for (int i=0; i<N; i++) if (num[i]==0) zeros++;
-  int res = dp[N-1][tar];
-  if (zeros>0) {
-    res*=pow(2, zeros);
-  }
-  return res;
+  return dp[N-1][tar];
 }
 
 
@@ -81,26 +81,22 @@ int findWaysOPT(vector<int> &num, int tar) {
   const int N = (int) num.size();
 
   // base cases:
-  cur[0]=prev[0]=1; // reached the target
-  if (num[0]<=tar) cur[num[0]]=1; // last element matches
+  // order matters (this one above)
+  if (num[0]<=tar) cur[num[0]]= 1; // last element matches
+
+  cur[0]=prev[0]= num[0]==0? 2:1; // processing index 0
+  // plus we start the inner loop from 0
 
   for (int idx=1; idx<N; idx++) {
     prev=cur;
-    for (int k=1; k<=tar; k++) {
+    for (int k=0; k<=tar; k++) {
       int take=k-num[idx]>=0? prev[k-num[idx]]:0;
       int notTake=prev[k];
       cur[k]=take + notTake;
     }
   }
 
-  int zeros{};
-  for (int i=0; i<N; i++) if (num[i]==0) zeros++;
-  int res = cur[tar];
-  if (zeros>0) {
-    res*=pow(2, zeros);
-  }
-
-  return res;
+  return cur[tar];
 }
 
 

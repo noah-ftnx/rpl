@@ -111,7 +111,6 @@ int countPartitionsOPT(int n, int d, vector<int> &arr) {
 
 
 
-
 #include "test/dp018.h"
 int main() {
   run_tests("BF", countPartitionsBF);

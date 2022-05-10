@@ -24,7 +24,6 @@ int knapsackBF(vector<int> weight, vector<int> value, int n, int maxWeight) {
 
 
 
-
 int MMZ(int idx, int capacity,
         vector<int> weight, vector<int> value, vector<vector<int>> &dp) {
   if (idx==0) { // all items considered

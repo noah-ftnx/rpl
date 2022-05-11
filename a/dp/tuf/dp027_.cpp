@@ -40,10 +40,33 @@ int lcstrBU(string s, string t) {
 
 
 
+int lcstrOPT(string s, string t) {
+  const int S = (int) s.size();
+  const int T = (int) t.size();
+
+  vector<int> prev, cur(T+1, 0);
+  int mx=0;
+  for (int i=1; i<=S; i++) {
+    prev=cur;
+    for (int j=1; j<=T; j++) {
+      if (s[i-1]==t[j-1]) {// matches
+        cur[j]=1+prev[j-1];
+        mx=max(mx, cur[j]);
+      } else { // doesnt match
+        cur[j]=0;
+      }
+    }
+  }
+  return mx;
+}
+
+
+
 #include "test/dp027.h"
 int main() {
   run_tests("NaiveBF", lcstrNaiveBF);
   run_tests("BU", lcstrBU);
+  run_tests("OPT", lcstrOPT);
 
   print_report();
   return 0;

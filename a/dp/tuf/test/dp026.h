@@ -53,6 +53,7 @@ void run_tests(string msg, fptr function) {
   test(function, "acd", "ced", "cd");
   test(function, "adebe", "dcadb", "adb");
   test(function, "abcde", "bdgek", "bde");
+  test(function, "xabc", "abcyyy", "abc");
 
   cout << endl;
 }

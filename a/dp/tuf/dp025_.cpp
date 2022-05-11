@@ -63,7 +63,7 @@ int lcsBU(string s, string t) {
 
   for (int idxS=1; idxS<=S; idxS++) {
     for (int idxT=1; idxT<=T; idxT++) {
-      if (s[idxS]==t[idxT]) {  // matching
+      if (s[idxS-1]==t[idxT-1]) {  // matching
         dp[idxS][idxT] = 1+dp[idxS-1][idxT-1];
       } else {  // not matching
         int adv1=dp[idxS-1][idxT];
@@ -89,7 +89,7 @@ int lcsOPT(string s, string t) {
   for (int idxS=1; idxS<=S; idxS++) {
     prev=cur;
     for (int idxT=1; idxT<=T; idxT++) {
-      if (s[idxS]==t[idxT]) {  // matching
+      if (s[idxS-1]==t[idxT-1]) {  // matching
         cur[idxT] = 1+prev[idxT-1];
       } else {  // not matching
         int adv1=prev[idxT];

@@ -26,6 +26,14 @@ void run_tests(string msg, fptr function) {
   test(function,{1, 11}, 10);
   test(function,{7, 1, 5, 3, 6, 4}, 5);
 
+  test(function, {9, 11, 8, 5, 7, 10}, 5);
+  test(function, {}, 0);
+  test(function, {10}, 0);
+  test(function, {10, 11}, 1);
+  test(function, {11, 10}, 0);
+  test(function, {11, 10, 9, 8, 10}, 2);
+  test(function, {9, 11, 8, 5, 4, 7, 10}, 6);
+
 
   cout << endl;
 }

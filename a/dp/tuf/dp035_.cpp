@@ -1,11 +1,12 @@
 #include <vector>
-#include <climits>
 using namespace std;
 
 int maximumProfitOPT(vector<int> &prices) {
+  const int P = (int) prices.size();
+  if (P<2) return 0;
   int profit=0;
   int mn=prices[0];
-  for (int i=1; i<prices.size(); i++) {
+  for (int i=1; i<P; i++) {
     profit=max(profit, prices[i]-mn);
     mn=min(mn, prices[i]);
   }

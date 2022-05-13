@@ -111,7 +111,6 @@ int main() {
   run_tests("MMZ", minDistanceMMZ);
   run_tests("BU", minDistanceBU);
   run_tests("OPT", minDistanceOPT);
-  // run_tests("OPT2", numDistinctOPT2);
 
   print_report();
   return 0;

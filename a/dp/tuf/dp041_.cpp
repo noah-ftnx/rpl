@@ -124,6 +124,27 @@ int lengthOfLISOPT2(vector<int>& nums) {
 
 
 
+int lengthOfLISBF_DP2(vector<int>& nums) {
+    const int N = (int) nums.size();
+    vector<int> dp (N, 1); // min: just the num itself
+
+    if (nums.empty()) return 0;
+
+    int mx=1;
+    for (int i=0; i<N; i++) {  // each num
+        // check each prev num
+        for (int j=0; j<i; j++) {
+            if (nums[j] < nums[i]) {
+                dp[i]= max(dp[i], 1+dp[j]);
+                mx=max(mx, dp[i]);
+            }
+        }
+    }
+    return mx;
+}
+
+
+
 #include "test/dp041.h"
 int main() {
     run_tests("BF", lengthOfLISBF);
@@ -131,6 +152,7 @@ int main() {
     run_tests("BU", lengthOfLISBU);
     run_tests("OPT", lengthOfLISOPT);
     run_tests("OPT2", lengthOfLISOPT2);
+    run_tests("DP2", lengthOfLISBF_DP2);
 
     print_report();
     return 0;

@@ -1,7 +1,8 @@
 #include <string>
 #include <vector>
 using namespace std;
-#include <iostream>
+
+void print_arrays(int, vector<int>&, vector<int> &, vector<int>&);
 
 string BF(int idx, int last_idx, vector<int>& nums) {
     const int N = (int) nums.size();
@@ -21,15 +22,6 @@ string printLISBF(vector<int>& nums) {
     return BF(N, N+1, nums);
 }
 
-
-void print_arrays(int N, vector<int>& nums,
-                  vector<int> &dp, vector<int> &par) {
-    cout << "  ";
-    for (int i=0; i<N; i++) cout << nums[i] << " "; cout << endl;
-    cout << "  ";
-    for (int i=0; i<N; i++) cout << dp[i] << " "; cout << endl;
-    for (int i=0; i<=N; i++) cout << par[i] << " "; cout << endl;
-}
 
 string printLISDP(vector<int>& nums) {
     const int N = (int) nums.size();
@@ -55,7 +47,7 @@ string printLISDP(vector<int>& nums) {
         }
     }
 
-    print_arrays(N, nums, dp, par);
+    // print_arrays(N, nums, dp, par);
 
     string res;
     while (lastPar!=0) {
@@ -64,7 +56,6 @@ string printLISDP(vector<int>& nums) {
     }
     return res;
 }
-
 
 
 

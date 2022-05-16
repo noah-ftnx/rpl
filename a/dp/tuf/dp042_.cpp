@@ -23,39 +23,40 @@ string printLISBF(vector<int>& nums) {
 }
 
 
+
 string printLISDP(vector<int>& nums) {
-    const int N = (int) nums.size();
-    vector<int> dp (N, 1); // min: just the num itself
+  if (nums.empty()) return "";
+  const int N = (int) nums.size();
+  vector<int> dp(N, 1); // min: just a num itself
+  vector<int> par(N, -1); // everyone is a parent of itself
 
-    // everyone's parent is zero
-    vector<int> par(N+1, 0); // 1 based
-
-    if (nums.empty()) return "";
-    int lastPar=1;
-    for (int i=0; i<N; i++) {  // each num
-        // check each prev num
-        for (int j=0; j<i; j++) {
-            if (nums[j] < nums[i]) {
-                if (1+dp[j] > dp[i]) { // new max
-                    dp[i]=1+dp[j];
-                    // bigger sequence from this number
-                    par[i+1]=j+1;
-                    lastPar=i+1;
-                }
-
-            }
-        }
+  int lastPar=0, mx=1;
+  for (int i=0; i<N; i++) {
+    // look at previous nums and find bigger subsequences for dp[i]
+    for (int prev=0; prev<i; prev++) {
+      // increasing
+      if (nums[i] > nums[prev] // increasing
+          && 1+dp[prev] > dp[i]) { // + bigger subsequence
+        dp[i]=1+dp[prev];
+        par[i]=prev;
+      }
     }
 
-    // print_arrays(N, nums, dp, par);
-
-    string res;
-    while (lastPar!=0) {
-        res = to_string(nums[lastPar-1]) + " " + res;
-        lastPar=par[lastPar];
+    if (dp[i]>mx) { // new max (biggest subsequence)
+      mx=dp[i];
+      lastPar=i;
     }
-    return res;
+  }
+
+  // build result
+  string res;
+  while(lastPar!=-1) {
+    res = to_string(nums[lastPar]) + " " + res;
+    lastPar=par[lastPar];
+  }
+  return res;
 }
+
 
 
 

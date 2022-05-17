@@ -27,9 +27,8 @@ void run_tests(string msg, fptr function) {
   // test(function, {}, 0, -1);
 
   test(function, {3,1,5,8}, 167);
-  // test(function, {10}, -1);
-  // test(function, {10, 20}, 0);
-  // test(function, {1, 4, 3, 2}, 18);
+  test(function, {1,5}, 10);
+  test(function, {5,2,3,4}, 115);
 
   cout << endl;
 }

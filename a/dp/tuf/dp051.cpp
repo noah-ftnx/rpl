@@ -11,7 +11,7 @@ int maxCoinsBU(vector<int>& nums);
 int main() {
   run_tests("BF", maxCoinsBF);
   // run_tests("MMZ", maxCoinsMMZ);
-  // run_tests("OPT", maxCoinsBU);
+  // run_tests("BU", maxCoinsBU);
   // run_tests("OPT", maxCoinsBU);
 
   print_report();

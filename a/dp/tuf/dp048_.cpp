@@ -1,9 +1,6 @@
 #include <vector>
 using namespace std;
 
-#include <vector>
-using namespace std;
-
 int BF(int i, int j, vector<int> &arr) {
   // a single vector: no operations
   if (i==j) return 0;

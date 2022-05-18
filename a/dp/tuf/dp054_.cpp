@@ -18,7 +18,7 @@ int BF(int i, int x, vector<int> &num) {
   return mx;
 }
 
-int minimumElementsBF(vector<int> &num, int x) {
+int maxSumAfterPartitioningBF(vector<int> &num, int x) {
   return BF(0, x, num);
 }
 
@@ -42,7 +42,8 @@ int MMZ(int i, int x, vector<int> &num, vector<int> &dp) {
   return dp[i]=mx;
 }
 
-int minimumElementsMMZ(vector<int> &num, int x) {
+
+int maxSumAfterPartitioningMMZ(vector<int> &num, int x) {
   const int N = (int) num.size();
   vector<int> dp(N+1, -1);
   return MMZ(0, x, num, dp);
@@ -50,7 +51,7 @@ int minimumElementsMMZ(vector<int> &num, int x) {
 
 
 
-int minimumElementsBU(vector<int> &num, int x) {
+int maxSumAfterPartitioningBU(vector<int> &num, int x) {
   const int N = (int) num.size();
   vector<int> dp(N+1, 0);
 
@@ -75,10 +76,10 @@ int minimumElementsBU(vector<int> &num, int x) {
 
 #include "test/dp054.h"
 int main() {
-  run_tests("BF", minimumElementsBF);
-  run_tests("MMZ", minimumElementsMMZ);
-  run_tests("BU", minimumElementsBU);
-  // run_tests("OPT", minimumElementsBU);
+  run_tests("BF", maxSumAfterPartitioningBF);
+  run_tests("MMZ", maxSumAfterPartitioningMMZ);
+  run_tests("BU", maxSumAfterPartitioningBU);
+  // run_tests("OPT", maxSumAfterPartitioningOPT);
 
   print_report();
   return 0;

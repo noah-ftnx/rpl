@@ -5,6 +5,8 @@ int maxCoinsMMZ(vector<int>& nums);
 
 int maxCoinsBU(vector<int>& nums);
 
+int maxCoinsOPT(vector<int>& nums);
+
 
 
 #include "test/dp051.h"

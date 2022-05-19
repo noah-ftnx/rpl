@@ -20,7 +20,6 @@ void setZeroesBF(vector<vector<int>>& matrix) {
 
 
 void setZeroesV2(vector<vector<int>>& matrix) {
-  auto cpy=matrix;
   const int n = matrix.size();
   const int m = matrix[0].size();
   // mark the rows and columns that have 0
@@ -48,35 +47,35 @@ void setZeroesV3(vector<vector<int>>& matrix) {
   const int n = matrix.size();
   const int m = matrix[0].size();
 
-  // whether 1st row, col have zeros
-  bool col0=false, row0=false;
+  bool zeroCol0=false;
 
-  // mark 1st row/col, and set flags row0, col0
+  // mark headers
   for (int i=0; i<n; i++) {
-    for (int j=0; j<n; j++) {
+    for (int j=0; j<m; j++) {
       if (matrix[i][j]==0) {
-        matrix[0][j]=0; // mark row
-        matrix[i][0]=0; // mark col
+        // must zero the 1st col only when a 0 is found on it
+        // (as there might be just zeros on 1st row)
+        if (j==0) zeroCol0=true;
 
-        if (i==0) row0=true; // zero on 1st row
-        if (j==0) col0=true; // zero on 1st col
+        // mark j and i headers
+        matrix[i][0]=0; // mark column header
+        matrix[0][j]=0; // mark row header
       }
     }
   }
 
-  // update zeros in rest of array (in reverse)
-  // start from the end, not to propagate wrong zeros:
-  // we do all cols except the 0th. then the 0th if col0.
-  // then we move to the above row
   for (int i=n-1; i>=0; i--) {
-    for (int j=m-1; j>=0; j--) {
-      if ((i==0 && row0) ||  // first row and has to be zeroed
-          (j==0 && col0) || // first col and has to be zeroed
-          // other rows and are marked
-          matrix[0][j]==0 || matrix[i][0]==0) matrix[i][j]=0;
+    for (int j=m-1; j>=1; j--) {
+      // either header is zero
+      if (matrix[0][j]==0||matrix[i][0]==0)
+        matrix[i][j]=0;
     }
+    // there was a zero in the 1st row:
+    // only then zero it out
+    if (zeroCol0) matrix[i][0]=0;
   }
 }
+
 
 
 

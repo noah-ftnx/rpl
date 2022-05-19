@@ -1,3 +1,6 @@
+#include <vector>
+using namespace std;
+
 void setZeroes(vector<vector<int>>& matrix) {
   auto cpy=matrix;
   const int n = matrix.size();

@@ -7,7 +7,7 @@ void setZeroesV3(vector<vector<int>>& matrix);
 
 
 
-#include "test/01-01.h"
+#include "test/01.h"
 int main() {
   run_tests("BF", setZeroesBF);
   // run_tests("V2", setZeroesV2);

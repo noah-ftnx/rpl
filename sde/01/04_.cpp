@@ -34,11 +34,32 @@ int maxSubArray2(vector<int>& nums) {
 
 
 
+int BF(int i, int j, vector<int>& nums) {
+  if (i>j) return -1e5;
+  if (i==j) return nums[i]; // just the num itself
+
+  int mid=(i+j)/2;
+  int cres=nums[mid];
+  int lres=BF(i, mid-1, nums); // just left
+  int rres=BF(mid+1, j, nums); // just right
+
+  // 3 results: all combined, or just left/right
+  return max(cres+lres+rres, max(lres, rres));
+}
+
+int maxSubArrayDivideAndConquer(vector<int>& nums) { // BUGGY
+  if (nums.empty()) return -1;
+
+  const int N = nums.size();
+  return BF(0, N-1, nums);
+}
+
+
+
 #include "test/04.h"
 int main() {
   run_tests("BF", maxSubArrayBF);
   run_tests("Sol2", maxSubArray2);
-  // run_tests("BF2", maxSubArray2);
 
   print_report();
   return 0;

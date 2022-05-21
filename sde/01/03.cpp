@@ -1,5 +1,5 @@
 
-void nextPermutation(vector<int>& nums) ;
+void nextPermutation(vector<int>& nums);
 
 
 

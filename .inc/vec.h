@@ -35,14 +35,21 @@ string to_string(vector<vector<T>> vec, bool sameLine=true, int width=1) {
     string s;// = "{";
     // string s
 
+    bool firstLine=true;
     for (auto row: vec) {
+      if (!sameLine) {
+        stringstream ss;
+        ss << setw(width) << (firstLine?" {":" ");
+        s+=ss.str();
+      }
+      firstLine=false;
       s += to_string(row, width) + ","+SEP;
     }
 
     s.pop_back();
     s.pop_back();
 
-    // s+="}";
+    if (!sameLine) s+="}";
     return s;
   }
 }

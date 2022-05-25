@@ -23,11 +23,27 @@ void merge(vector<int>& nums1, int m, vector<int>& nums2, int n) {
 }
 
 
+void mergeGAP(vector<int>& nums1, int m, vector<int>& nums2, int n) {
+  for (int i=m, j=0; i<m+n; i++, j++) { // copy elements
+    nums1[i]=nums2[j];
+  }
+
+  int gap = (m+n)/2;
+  while (gap>0) { // until gap becomes 0
+    int i=0, j=gap;
+    for (int i=0, j=gap; j<m+n; i++, j++) {
+      if (nums1[j]<nums1[i]) swap(nums1[i],nums1[j]);
+    }
+    gap=gap/2;
+  }
+}
+
+
 #include "test/03.h"
 int main() {
   run_tests("Sol", merge);
+  run_tests("GAP", mergeGAP);
 
   print_report();
   return 0;
 }
-

@@ -15,7 +15,7 @@ using std::endl;
 using std::setw;
 using std::string;
 
-void test(fptr function, int x, int y) {
+void test(fptr function, double x, int y) {
 
   double result = function(x, y);
   double correct = std::pow(x, y);
@@ -44,6 +44,9 @@ void run_tests(string msg, fptr function) {
 
   test(function, 3, 33);
   test(function, 3, 32);
+
+  test(function, 1.72777, 7);
+
   cout << endl;
 
   cout << endl <<  (_wrong?"WRONG RESULTS.": "Correct results.") << endl;

@@ -1,19 +1,17 @@
 int majorityElement(vector<int>& nums) {
-  if (nums.empty()) return -1;
+  const int N = (int) nums.size();
 
-  const int N = nums.size();;
-  int cnt=0, pick;
+  int limit = N/2;
+  int cnt=0;
+  int num=INT_MIN;
 
   for (int i=0; i<N; i++) {
     if (cnt==0) {
-      pick=nums[i];
+      num=nums[i];
     }
 
-    if (pick==nums[i]) {
-      cnt++;
-    } else {
-      cnt--;
-    }
+    if (nums[i]==num) cnt++;
+    else cnt--;
   }
-  return pick;
+  return num;
 }

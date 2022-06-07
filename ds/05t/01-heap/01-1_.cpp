@@ -1,6 +1,16 @@
 #include <vector>
 using namespace std;
 
+int left(int size, int idx) {
+  int ch = (2*idx)+1;
+  return ch<size? ch : -1;
+}
+
+int right(int size, int idx) {
+  int ch = (2*idx)+2;
+  return ch<size? ch : -1;
+}
+
 int parent(int idx) {
   return idx==0? -1: (idx-1)/2;
 }
@@ -17,17 +27,6 @@ void percolate_up(vector<int> &vec, int idx) {
   }
 }
 
-
-int left(int size, int idx) {
-  int ch = (2*idx)+1;
-  return ch<size? ch : -1;
-}
-
-int right(int size, int idx) {
-  int ch = (2*idx)+2;
-  return ch<size? ch : -1;
-}
-
 void percolate_down(vector<int> &vec, int idx) {
   while (true) {
     int L = left(vec.size(), idx);
@@ -41,13 +40,11 @@ void percolate_down(vector<int> &vec, int idx) {
     int minChild=L; // assumption
     if (R!=-1 && vec[R] < vec[L]) minChild=R;
 
-    /// LEFTHERE...
     if (vec[idx] > vec[minChild]) {
       swap(vec[idx], vec[minChild]);
       idx=minChild;
     } else break; // already created a heap
   }
-
 }
 
 void insert(vector<int> &vec, int val) {

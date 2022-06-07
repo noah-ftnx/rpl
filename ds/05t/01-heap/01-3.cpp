@@ -21,9 +21,9 @@ int MinHeap::top();
 void MinHeap::pop();
 
 
-#include "test/01-2.h"
+#include "test/01-3.h"
 int main() {
-  run_tests("heapify");
+  run_tests("heapsort");
 
   print_report();
   return 0;

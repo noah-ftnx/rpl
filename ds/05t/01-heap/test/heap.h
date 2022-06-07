@@ -11,6 +11,7 @@ class MinHeap {
   ~MinHeap();
 
   void heapsort();
+  void heapify();
 
   int size() { return vec.size(); }
 

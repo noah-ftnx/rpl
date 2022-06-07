@@ -11,24 +11,27 @@ void test(const vector<int> vec, vector<int> correct) {
 
   // s=ss.str();
   // ss.str("");
-  cout << setw(40) << to_string(vec, 1);
+  cout << setw(30) << to_string(vec, 2);
 
   auto heap = MinHeap(vec);
   // function(n, m);
 
   cout << "  ->  ";
-  cout << setw(40) << to_string(heap.get_vector(), 1);
+  cout << setw(30) << to_string(heap.get_vector(), 3);
 
   bool wrong = heap.get_vector() != correct;
   _wrong|=wrong;
 
-  cout << "\t"  <<  (wrong? " (WRONG)": " correct") << endl;
+  cout  <<  (wrong? " (WRONG)": " correct") << endl;
 }
 
 void run_tests(string msg) {
   cout << msg  << ":\n";
-  test({9, 25, 3, 10, 6, 4, 15, 2, 8, 40,24}, { 2, 6, 3, 8, 9, 4, 15, 10, 25, 40, 24} );
   test({25, 3, 10, 15, 2, 40}, {2, 3, 10, 15, 25, 40});
+
+  test({3}, {3});
+  test({3, 10}, {3, 10});
+  test({10, 3}, {3, 10});
 
   cout << endl;
 }

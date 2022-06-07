@@ -4,26 +4,64 @@ using namespace std;
 
 #include "test/heap.h"
 
+
 /*
  * @param input unsorted array
  */
 MinHeap::MinHeap(const vector<int>& input) {
   for (auto i: input) vec.push_back(i);
 
-  heapify();
+  heapsort();
 }
 
 MinHeap::~MinHeap() {
   vec.clear();
 }
 
-void MinHeap::heapify() { // floyd heapify:
+void MinHeap::heapsort() { // floyd heapify:
   for (int i= vec.size()/2; i>=0; i--) { // O(N) to create the heap
     percolate_down(i);
   }
+  // then pop from the heap and put to result
+  vector<int> res;
+  while (size()) {
+    res.push_back(top());
+    pop();
+  }
+
+  vec=res; // assign sorted array
 }
 
-int MinHeap::left(int idx) {
+// METHODS ARE MISSING
+// Implement all required in order to support the below:
+// then check on the names w/ the .h
+
+void MinHeap::push(int v) {
+  // increase and push element to last pos
+  // then percolade it up
+
+  int idx=size();
+  vec.resize(idx+1);
+  vec[idx]=v;
+  percolate_up(idx);
+}
+
+int MinHeap::top() { return vec[0]; }
+
+void MinHeap::pop() {
+  // remove the top:
+  // copy last element to top, decrease size.
+  // percolate top down
+
+  int last = vec[size()-1];
+  vec.resize(size()-1);
+
+  vec[0]=last;
+  percolate_down(0);
+}
+
+
+int MinHeap::left (int idx) {
   int ch = (2*idx)+1;
   return ch>=size()? -1 : ch;
 }
@@ -32,6 +70,11 @@ int MinHeap::right(int idx) {
   int ch = (2*idx)+2;
   return ch>=size()? -1 : ch;
 }
+
+int MinHeap::parent(int idx) {
+  return idx==0? -1 : (idx-1)/2;
+}
+
 
 void MinHeap::percolate_down(int idx) {
   // while idx is bigger than any of each child
@@ -57,9 +100,18 @@ void MinHeap::percolate_down(int idx) {
   }
 }
 
-#include "test/01-2.h"
+void MinHeap::percolate_up(int idx) {
+  while (parent(idx)>=0) {
+    if (vec[idx] < vec[parent(idx)]) {
+      swap(vec[idx], vec[parent(idx)]);
+      idx=parent(idx);
+    } else break;
+  }
+}
+
+#include "test/01-3.h"
 int main() {
-  run_tests("heapify");
+  run_tests("heapsort");
 
   print_report();
   return 0;

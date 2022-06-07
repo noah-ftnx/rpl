@@ -4,34 +4,32 @@
 #include "../../../../.inc/base.h"
 #include "../../../../.inc/vec.h"
 
-void test(const vector<int> vec, vector<int> correct) {
-  // string s;
-  // stringstream ss;
-  // for (auto i: vec) ss << setw(3) << to_string(i) << " ";
 
-  // s=ss.str();
-  // ss.str("");
-  cout << setw(30) << to_string(vec, 2);
+void prototype(vector<int> &vec);
+using fptr = decltype(prototype);
 
-  auto heap = MinHeap(vec);
-  // function(n, m);
+void test(fptr fun, const vector<int> input, vector<int> correct) {
+  cout << setw(30) << to_string(input, 2);
+
+ auto vec = input;  // copy
+ fun(vec);
 
   cout << "  ->  ";
-  cout << setw(30) << to_string(heap.get_vector(), 3);
+  cout << setw(30) << to_string(vec, 3);
 
-  bool wrong = heap.get_vector() != correct;
+  bool wrong = vec != correct;
   _wrong|=wrong;
 
   cout  <<  (wrong? " (WRONG)": " correct") << endl;
 }
 
-void run_tests(string msg) {
+void run_tests(fptr fun, string msg) {
   cout << msg  << ":\n";
-  test({25, 3, 10, 15, 2, 40}, {2, 3, 10, 15, 25, 40});
+  test(fun, {25, 3, 10, 15, 2, 40}, {2, 3, 10, 15, 25, 40});
 
-  test({3}, {3});
-  test({3, 10}, {3, 10});
-  test({10, 3}, {3, 10});
+  test(fun, {3}, {3});
+  test(fun, {3, 10}, {3, 10});
+  test(fun, {10, 3}, {3, 10});
 
   cout << endl;
 }

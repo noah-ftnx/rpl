@@ -1,29 +1,12 @@
-// INCLUDES here
 
-#include "test/heap.h"
+void heapsort(vector<int> &vec);
 
-
-/*
- * @param input unsorted array
- */
-MinHeap::MinHeap(const vector<int>& input);
-
-MinHeap::~MinHeap();
-
-void MinHeap::heapsort();
-
-// (METHODS ARE MISSING)
-// Implement any required methods to support the methods below:
-// (then check on the names w/ the .h)
-
-void MinHeap::push(int v);
-int MinHeap::top();
-void MinHeap::pop();
 
 
 #include "test/01-3.h"
 int main() {
-  run_tests("heapsort");
+  run_tests(heapify, "heapify");
+  run_tests(heapify, "heapifyInPlace");
 
   print_report();
   return 0;

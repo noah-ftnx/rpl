@@ -1,9 +1,8 @@
 // INCLUDES here
-#include <vector>
+#include<vector>
 using namespace std;
 
 #include "test/heap.h"
-
 
 
 /*
@@ -11,85 +10,104 @@ using namespace std;
  */
 MinHeap::MinHeap(const vector<int>& input) {
   for (auto i: input) vec.push_back(i);
-  FloydHeapify();
+
+  heapsort();
 }
 
 MinHeap::~MinHeap() {
   vec.clear();
 }
 
-void MinHeap::FloydHeapify() { // TC is: O(n). It's NOT O(nlogn)
-  // TRICKY could be from sz, BUT on leaf nodes it does nothing
-  // and on a binary tree there are sz/2 non-leaf nodes. so ignore those.
-  for (int i=(size()/2)-1; i>=0; --i) {
+void MinHeap::heapsort() { // floyd heapify:
+  for (int i= vec.size()/2; i>=0; i--) { // O(N) to create the heap
     percolate_down(i);
   }
+  // then pop from the heap and put to result
+  vector<int> res;
+  while (size()) {
+    res.push_back(top());
+    pop();
+  }
+
+  vec=res; // assign sorted array
 }
 
-int MinHeap::left(int node) {
-  int p = (node*2) +1;
-  return p >= size() ? -1 : p;
-}
+// METHODS ARE MISSING
+// Implement all required in order to support the below:
+// then check on the names w/ the .h
 
-int MinHeap::right(int node) {
-  int p = (node*2) +2;
-  return p >= size() ? -1 : p;
-}
-
-int MinHeap::parent(int node) {
-  return node==0? -1 : (node-1)/2;
-}
-
-// O(logn) for 1 item
 void MinHeap::push(int v) {
-  int idx = size();
-  vec.resize(idx+1);
+  // increase and push element to last pos
+  // then percolade it up
 
-  vec[idx] = v;
+  int idx=size();
+  vec.resize(idx+1);
+  vec[idx]=v;
   percolate_up(idx);
 }
 
 int MinHeap::top() { return vec[0]; }
 
-void MinHeap::pop () {
-  // get last value and remove it
-  int last_val = vec[size()-1];
-  vec.resize(size()-1);
-  vec[0] = last_val;
+void MinHeap::pop() {
+  // remove the top:
+  // copy last element to top, decrease size.
+  // percolate top down
 
+  int last = vec[size()-1];
+  vec.resize(size()-1);
+
+  vec[0]=last;
   percolate_down(0);
 }
 
+
+int MinHeap::left (int idx) {
+  int ch = (2*idx)+1;
+  return ch>=size()? -1 : ch;
+}
+
+int MinHeap::right(int idx) {
+  int ch = (2*idx)+2;
+  return ch>=size()? -1 : ch;
+}
+
+int MinHeap::parent(int idx) {
+  return idx==0? -1 : (idx-1)/2;
+}
+
+
 void MinHeap::percolate_down(int idx) {
+  // while idx is bigger than any of each child
+  // swap with the smallest one
+  // stop when not bigger than any of them
+
   while (true) {
-    // assuming to continue on the left child (cidx)
-    int cidx{left(idx)}, ridx{right(idx)};
+    int L = left(idx);
+    int R = right(idx);
 
-    // NOTE there can't be a right node if left is empty (heap is a complete tree)
-    if (cidx == -1) break;  // deleting a leaf.
+    // if no left child, there can't be a right child
+    // heaps are complete trees
+    if (L==-1) break;
 
-    // will try on the right child
-    if (ridx != -1 && vec[ridx] < vec[cidx]) cidx = ridx;
+    // find min child
+    int minChild=L; // assumption
+    if (R>=0 && vec[R] < vec[L]) minChild=R;
 
-    if (vec[idx] < vec[cidx]) {  // arr is now heap
-      break;
-    } else {  // continue on the smallest child
-      swap(vec[idx], vec[cidx]);
-      idx = cidx;
-    }
+    if (vec[minChild] < vec[idx]) {
+      swap(vec[minChild], vec[idx]);
+      idx=minChild;
+    } else break; // from this point and below it's already a heap
   }
 }
 
 void MinHeap::percolate_up(int idx) {
-  int pidx;
-  while ((pidx=parent(idx)) != -1) {
-    if (vec[pidx] > vec[idx]) {
-      swap(vec[pidx], vec[idx]);
-    }
-    idx=pidx; // move up
+  while (parent(idx)>=0) {
+    if (vec[idx] < vec[parent(idx)]) {
+      swap(vec[idx], vec[parent(idx)]);
+      idx=parent(idx);
+    } else break;
   }
 }
-
 
 #include "test/01.h"
 int main() {

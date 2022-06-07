@@ -23,8 +23,8 @@ class MinHeap {
   void pop();
   int top();
 
-  void percolade_up(int i);
-  void percolade_down(int i);
+  void percolate_up(int i);
+  void percolate_down(int i);
 
   vector<int>& get_vector() { return vec; }
 };

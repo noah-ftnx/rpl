@@ -22,7 +22,7 @@ void MinHeap::FloydHeapify() { // TC is: O(n). It's NOT O(nlogn)
   // TRICKY could be from sz, BUT on leaf nodes it does nothing
   // and on a binary tree there are sz/2 non-leaf nodes. so ignore those.
   for (int i=(size()/2)-1; i>=0; --i) {
-    percolade_down(i);
+    percolate_down(i);
   }
 }
 
@@ -46,7 +46,7 @@ void MinHeap::push(int v) {
   vec.resize(idx+1);
 
   vec[idx] = v;
-  percolade_up(idx);
+  percolate_up(idx);
 }
 
 int MinHeap::top() { return vec[0]; }
@@ -57,10 +57,10 @@ void MinHeap::pop () {
   vec.resize(size()-1);
   vec[0] = last_val;
 
-  percolade_down(0);
+  percolate_down(0);
 }
 
-void MinHeap::percolade_down(int idx) {
+void MinHeap::percolate_down(int idx) {
   while (true) {
     // assuming to continue on the left child (cidx)
     int cidx{left(idx)}, ridx{right(idx)};
@@ -80,7 +80,7 @@ void MinHeap::percolade_down(int idx) {
   }
 }
 
-void MinHeap::percolade_up(int idx) {
+void MinHeap::percolate_up(int idx) {
   int pidx;
   while ((pidx=parent(idx)) != -1) {
     if (vec[pidx] > vec[idx]) {

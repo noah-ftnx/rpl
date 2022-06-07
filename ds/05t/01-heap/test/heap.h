@@ -10,7 +10,7 @@ class MinHeap {
   MinHeap(const vector<int>& input);
   ~MinHeap();
 
-  void FloydHeapify();
+  void heapsort();
 
   int size() { return vec.size(); }
 

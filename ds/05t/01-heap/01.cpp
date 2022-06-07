@@ -11,7 +11,7 @@ MinHeap::MinHeap(const vector<int>& input) {
 MinHeap::~MinHeap() {
 }
 
-void MinHeap::FloydHeapify();
+void MinHeap::heapsort();
 
 // METHODS ARE MISSING
 // Implement all required in order to support the below:

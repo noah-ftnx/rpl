@@ -4,22 +4,22 @@
 #include "../../../../.inc/base.h"
 #include "../../../../.inc/vec.h"
 
-void test(const vector<int> vec, vector<int> correct) {
+void test(vector<int> input, vector<int> correct) {
   // string s;
   // stringstream ss;
   // for (auto i: vec) ss << setw(3) << to_string(i) << " ";
 
   // s=ss.str();
   // ss.str("");
-  cout << setw(40) << to_string(vec, 1);
+  cout << setw(40) << to_string(input, 1);
 
-  auto heap = MinHeap(vec);
-  // function(n, m);
+  auto vec = input; // creating a copy
+  heapify(vec); // in place
 
   cout << "  ->  ";
-  cout << setw(40) << to_string(heap.get_vector(), 1);
+  cout << setw(40) << to_string(vec, 1);
 
-  bool wrong = heap.get_vector() != correct;
+  bool wrong = vec != correct;
   _wrong|=wrong;
 
   cout << "\t"  <<  (wrong? " (WRONG)": " correct") << endl;

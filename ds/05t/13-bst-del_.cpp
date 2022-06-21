@@ -13,9 +13,7 @@ struct Node {
 struct Tree {
   Node* root;
 
-  Tree(int n) {
-    root = new Node(n);
-  }
+  Tree(int n);
 
   void add(const vector<int>& data, const string& path); // given
   string to_string(); // given

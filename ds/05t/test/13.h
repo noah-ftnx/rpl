@@ -2,6 +2,8 @@
 #define RPL_DS_05T_TEST_13_H_
 
 #include <iostream>
+#include <iomanip>
+
 void Tree::add(const vector<int>& data, const string& path) {
   if(data.size() != (path.size())) { cout << "ERR\n"; exit(-1); }
 
@@ -35,9 +37,14 @@ string _to_string(Node* node) {
 string Tree::to_string() { return _to_string(root); }
 
 
+Tree::Tree(int n) {
+  root = new Node(n);
+}
+
+
 void check(Tree* tree, string msg, string correct) {
   string res = tree->to_string();
-  cout << res << " \t\t " << msg <<(res!=correct? "\t\t (WRONG)":"")  << endl;
+  cout << setw(40) << res << " \t " << msg <<(res!=correct? "\t\t (WRONG)":"")  << endl;
 }
 
 void run_tests() {
@@ -47,6 +54,7 @@ void run_tests() {
   tree->add({60, 58}, "RL");
   tree->add({60, 70, 73, 75}, "RRRR");
 
+  cout << setw(40) << "TREE (inorder)"<< " \t " << "STATE\n";
   check(tree, "initial", ".15.16.20.35.36.45.50.58.60.70.73.75.");
 
   tree->delete_node(90);

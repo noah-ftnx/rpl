@@ -2,6 +2,8 @@
 struct Node; // TODO
 
 struct Tree {
+  Node *root; // taken care by ctor
+  Tree(int n); // given
 
   void delete_node(int tgt); // TODO
 

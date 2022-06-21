@@ -29,6 +29,7 @@ class Tree {
         auto lhs = st.top(); st.pop();
         node->left=lhs;
         node->right=rhs;
+
         // up navigation
         node->left->parent=node;
         node->right->parent=node;

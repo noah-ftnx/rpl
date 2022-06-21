@@ -1,5 +1,4 @@
 class BSTIteratorBF {
-
  int i=-1;
  vector<int> inorder;
 
@@ -13,7 +12,8 @@ class BSTIteratorBF {
 
 public:
  BSTIterator(TreeNode* root) {
-   dfs(root); // fill the inorder (in O(N) time and space)
+   // fill the inorder (in O(N) time and space)
+   dfs(root);
  }
 
  int next() {
@@ -23,75 +23,149 @@ public:
 
  bool hasNext() {
    // must not be the last element
-   return i<inorder.size()-1;
+   return i < ((int)inorder.size()-1); // overflow prot
  }
 };
 
 
+#include <queue>
+#include <vector>
+using namespace std;
 
-
-
-
-
-/**
- * Definition for a binary tree node.
- * struct TreeNode {
- *     int val;
- *     TreeNode *left;
- *     TreeNode *right;
- *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
- *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
- *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
- * };
- */
-class BSTIterator {
-  int curVal;
+class BSTIteratorComplex {
   TreeNode* root;
+  TreeNode* it;
+  queue<TreeNode*> backlinks;
+
+  bool toggleThreading(TreeNode* top) {
+    // set or unset threading
+    // when setting:
+    // - return the left of top (node to follow next)
+    // when usetting:
+    // push in backlinks
+    // - return null (signal to go right)
+
+    auto node=top->left;
+
+    while(node->right && node->right != top) node=node->right;
+
+    if (node->right == top) { // unset
+      backlinks.push(node->right);
+      node->right=nullptr;
+      return false;
+    } else { // set
+      node->right=top;
+      return true;
+    }
+  }
+
+  // populate (max H) backlinks
+  void generateBacklinks() {
+    auto node=root;
+    while (node) {
+      if (node->left) {
+        auto goLeft = toggleThreading(node);
+        if (goLeft) {
+          node=node->left;
+        } else {
+          // visit: do noth..
+          node=node->right;
+        }
+      } else {
+        // visit: do noth..
+        node=node->right;
+      }
+    }
+  }
+
  public:
   BSTIterator(TreeNode* root) {
     this->root=root;
-    curVal=INT_MIN;
-    // apply threading to the tree:
-    // visit the whole tree and creating threading:
-    // if thread exists: leave it and go right
-    // else create it
-    // each time going to left, create a thread
+    generateBacklinks();
+    // move to min node
+    it = root;
+    while (it->left) it=it->left;
 
-    // IF i'm NOT allowed to modify the tree
-    // still create threading: but push those threads in an array
-    // utilize them with the same order
-    // ALGO: recursive:
-    // do inorder: vLVR
-    // v: will be: before going left: append to vector of threads (separate method)
-    // V: actually nothing from this one..
+    /*
+    CTOR:
+    do a threaded traversal:
+    - on unsetting: push backlinks to a vector
+    then:
+    - add a ptr to the leftmost node (smallest element)
 
-    // THEN: init:
-    // place pointer to the leftmost item
-    // and then can iterate as normal:
-    // if we run out of left pointers: put out of the vector and continue..
+    - next:
+      - check if not null
+      - return cur val, and advance ptr
 
-    // when it has right:
-    // we find the min: go leftmost. each time??
+    - advancing(): if right is null: pop from vec
+        - so go to right (if not null) else pop from vec
+        - then go to the LEFTMOST node!
 
-    // HOW ABOUT LOOPS THOUGH?
-    // - have a map: when we push something out of the vector: we push it on the map
-    // so we dont visit again left!
+    - has next:
+      - if not null && (has right or q not empty)
 
-    // has next?
+    */
+
+  }
+
+  void advanceIterator() {
+    if (it->right)  { // there is a right subtree already
+      it=it->right;
+      // can have a smaller val
+      while(it->left) it=it->left;
+    } else { // pop an element from queue
+      it = backlinks.empty() ? nullptr : backlinks.front();
+      backlinks.pop();
+      // NOTE: we should NOT go back left again!
+      // since we are utilizing a backlink
+      // it means we are done with the subtree that is left of the backlink itself
+    }
   }
 
   int next() {
+    if (it==nullptr) return INT_MIN;
 
+    int res = it->val;
+    advanceIterator();
+    return res;
   }
 
   bool hasNext() {
-    return root && root->right;
+    // we are AT the next node
+    // so the right is actually next of next
+    return it;  // if it exists we are not done
   }
 };
 
-/**
- * Your BSTIterator object will be instantiated and called as such:
- * BSTIterator* obj = new BSTIterator(root);
- * int param_1 = obj->next();
- * bool param_2 = obj->hasNext();
- */
+
+
+#include <stack>
+using namespace std;
+
+class BSTIteratorStack {
+  stack<TreeNode*> st;
+
+  void appendNodeAndLefts(TreeNode* node) {
+    while(node) {
+      st.push(node);
+      node=node->left;
+    }
+  }
+ public:
+  BSTIterator(TreeNode* root) {
+    if (root) appendNodeAndLefts(root);
+  }
+
+  int next() {
+    if (st.empty()) return INT_MIN;
+
+    auto node = st.top(); st.pop();
+    int res = node->val;
+    if (node->right) appendNodeAndLefts(node->right);
+    return res;
+  }
+
+  bool hasNext() {
+    return !st.empty();
+  }
+};

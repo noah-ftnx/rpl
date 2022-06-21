@@ -1,6 +1,8 @@
 #ifndef RPL_DS_05T_TEST_TEST_BST_H_
 #define RPL_DS_05T_TEST_TEST_BST_H_
 
+#include <optional>
+#include <stack>
 #include <iostream>
 #include <vector>
 #include <string>

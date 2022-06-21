@@ -1,5 +1,3 @@
-#include <optional>
-#include <stack>
 #include "test/bst-tmpl-succpred-recv.h"
 
 template <class T>

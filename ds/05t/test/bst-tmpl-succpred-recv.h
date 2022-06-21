@@ -4,9 +4,10 @@
 #include <iostream>
 #include <vector>
 #include <string>
+using namespace std;
+
 #include "../../../.inc/check.h"
 #include "../../../.inc/check-opt.h"
-using namespace std;
 
 template <class T>
 class Node {

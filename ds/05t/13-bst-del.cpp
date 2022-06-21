@@ -1,5 +1,7 @@
+#include "test/13-pre.h"
 
 struct Node; // TODO
+  // member: int: data
 
 struct Tree {
   Node *root; // taken care by ctor

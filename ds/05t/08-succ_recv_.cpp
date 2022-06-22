@@ -29,4 +29,34 @@ Node<T>* Tree<T>::successor_recv(T data) {
   return _successor_recv(root, data);
 }
 
+
+#ifdef SOLUTION_OPT
+template <class T>
+Node<T>* Tree<T>::successor_recvOPT(T data) {
+  auto node = root;
+  Node<T>* successor{};
+  while(node) {
+    if (data > node->data) {
+      node=node->right;
+    } else if (data < node->data) { // going to smaller nodes
+      successor = node; // candidate
+      node=node->left;
+    } else { // found the node
+      break;
+    }
+  }
+
+  // if there's a right subtree:
+  // it's the smallest node in that right subtree
+  if (node && node->right) {
+    node=node->right;
+    while(node->left) node=node->left;
+    successor=node;
+  }
+
+  return successor;
+}
+#endif
+
+
 int main() { run_tests(); return 0; }

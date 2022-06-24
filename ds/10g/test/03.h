@@ -24,7 +24,7 @@ void run_tests () {
 
   auto mst = MST(edges, V);
   for (auto e: mst) {
-    cout << "(" << e.src << "," << e.tgt << "): " << e.w << endl;
+    cout << "(" << e.from << "," << e.to << "): " << e.w << endl;
   }
 
   cout << endl;

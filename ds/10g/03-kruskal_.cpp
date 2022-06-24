@@ -6,8 +6,8 @@ const int V=7;
 const int E=9;
 
 struct Edge {
-  int src;
-  int tgt;
+  int from;
+  int to;
   int w; // weight
 };
 
@@ -48,8 +48,8 @@ vector<Edge> MST(vector<Edge> edges, int V) {
   int found_edges=0;
   while(!pq.empty() && found_edges < V-1) {
     auto min = pq.top(); pq.pop(); // logn
-    int spar = cfind(st, min.src);
-    int tpar = cfind(st, min.tgt);
+    int spar = cfind(st, min.from);
+    int tpar = cfind(st, min.to);
     if (spar != tpar) { // no cycle
       mst[found_edges]=min;
       wunion(st, spar, tpar);

@@ -3,8 +3,8 @@ const int V=7;
 const int E=9;
 
 struct Edge {
-  int src;
-  int tgt;
+  int from;
+  int to;
   int w; // weight
 };
 

@@ -4,6 +4,12 @@
 #include <string>
 #include <sstream>
 
+string pretty_num(int num) {
+  if (num >= INT_MAX) return "++";
+  else if (num == INT_MIN) return "--";
+  else return to_string(num);
+}
+
 /**
  * @param width iomanip width
  */
@@ -11,9 +17,9 @@ string to_string(vector<int> vec, int width=1) {
   if (vec.empty()) return "{}";
   else {
     string s = "{";
-    for (auto v: vec) {
+    for (auto num: vec) {
       stringstream ss;
-      ss << setw(width) << v;
+      ss << setw(width) << pretty_num(num);
       s+= ss.str() + ", ";
     }
     s.pop_back();
@@ -33,7 +39,6 @@ string to_string(vector<vector<T>> vec, bool sameLine=true, int width=1) {
   else {
     string SEP = sameLine? " " : "\n";
     string s;// = "{";
-    // string s
 
     bool firstLine=true;
     for (auto row: vec) {
@@ -53,6 +58,12 @@ string to_string(vector<vector<T>> vec, bool sameLine=true, int width=1) {
     return s;
   }
 }
+
+
+string to_string_pretty(vector<vector<int>> vec, bool sameLine=true, int width=4) {
+  return to_string(vec, false, 3);
+}
+
 
 
 #endif  // INC_070__CPP_CHECK_VEC_H_

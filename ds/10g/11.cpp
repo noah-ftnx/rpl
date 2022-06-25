@@ -46,8 +46,7 @@ struct Item {
   vector<vector<int>> matrix; // reducted matrix
   Item(int idx, int level, int cost, vector<vector<int>> matrix) :
     idx{idx}, level{level}, cost{cost}, matrix{matrix}
-  {
-  }
+  { }
 };
 struct ItemCmp {
   bool operator()(Item &a, Item &b) {

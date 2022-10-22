@@ -3,24 +3,26 @@
 
 #include <string>
 #include <sstream>
+#include <iostream>
 #include <climits>
+
+#include "to_string.h"
 
 void check_bool(string msg, bool result, bool correct) {
   cout << msg << ": " << boolalpha << result << (result != correct? " (WRONG)":"") << endl;
 }
 
 
-string to_string(void* ptr) {
-  stringstream ss;
-  ss << "0x" << std::hex << reinterpret_cast<uintptr_t>(ptr);
-
-  return ss.str();
-}
-
 
 template <class T>
 void check_result(string msg, T result, T correct) {
   cout << msg << ": " << to_string(result) << (result != correct? " (WRONG)":"") << endl;
+}
+
+// different classes
+template <class A, class B>
+void check_result(A input, B result, B correct) {
+    cout << to_string(input) << ":\t"  << to_string(result) << (result != correct? " (WRONG)":"") << endl;
 }
 
 bool check_intPrettyMin(string msg, int result, int correct) {

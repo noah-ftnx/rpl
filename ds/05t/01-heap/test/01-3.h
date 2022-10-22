@@ -2,7 +2,7 @@
 #define _H_
 
 #include "../../../../.inc/base.h"
-#include "../../../../.inc/vec.h"
+#include "../../../../.inc/to_string.h"
 
 
 void prototype(vector<int> &vec);

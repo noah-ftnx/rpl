@@ -2,7 +2,7 @@
 #define _H_
 
 #include "../../../.inc/base.h"
-#include "../../../.inc/vec.h"
+#include "../../../.inc/to_string.h"
 
 long long prototype(vector<int> arr, int n);
 using fptr = decltype(prototype);

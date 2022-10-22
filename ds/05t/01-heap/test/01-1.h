@@ -2,7 +2,7 @@
 #define _H_
 
 #include "../../../../.inc/base.h"
-#include "../../../../.inc/vec.h"
+#include "../../../../.inc/to_string.h"
 
 void test(vector<int> input, int insertVal, int correctPopVal, vector<int> correctOp1, vector<int> correctOp2) {
   cout << "1. Insert: " << insertVal << endl;

@@ -1,10 +1,8 @@
-
 #include <set>  // multiset
 #include <map>  // multimap
 // equivalent for unordered variants
 
-
-#include "test/base.h"
+#include "../test/base.h"
 
 void demo_multimaps() {
     cout << "########\nDEMO: multimap\n"<< endl;

@@ -1,26 +1,27 @@
 #include <unordered_map>
 using namespace std;
 
-struct FromTo {
-  int from; int to;
-  FromTo(int from, int to) : from(from), to(to) {}
+struct Foo {
+  int field1; int field2;
+  Foo(int p1, int p2) : field1(p1), field2(p2) {}
 
-  bool operator==(const FromTo& other) const {
-    return from == other.from && to==other.to;
+  bool operator==(const Foo& other) const {
+    return field1 == other.field1 && field2==other.field2;
   }
 };
 
-struct FromToHash {
-  size_t operator()(const FromTo& a) const {
-    size_t hashFrom = std::hash<int>()(a.from);
-    size_t hashTo = std::hash<int>()(a.to) << 1;
-    return hashFrom ^ hashTo;
+struct FooHash {
+  size_t operator()(const Foo& a) const {
+    size_t hash1 = std::hash<int>()(a.field1);
+    size_t hash2 = std::hash<int>()(a.field2) << 1;
+    return hash1 ^ hash2;
   }
 };
 
 int main() {
-  unordered_map<FromTo, int, FromToHash> mp;
-
+  // Declare a map: Foo -> Int
+  unordered_map<Foo, int, FooHash> mp;
+  // Add an item
   mp.insert({{10, 5}, 10});
 
   return 0;

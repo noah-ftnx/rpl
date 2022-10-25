@@ -9,8 +9,10 @@ struct PairHash {
 };
 
 int main() {
-  unordered_set<pair<int, int>, PairHash> mp;
-  mp.insert(make_pair(10, 5));
+  // Declare set: (for pair of ints)
+  unordered_set<pair<int, int>, PairHash> st;
+  // Add an item
+  st.insert(make_pair(10, 5));
 
   return 0;
 }

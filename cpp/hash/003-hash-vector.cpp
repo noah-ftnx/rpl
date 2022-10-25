@@ -13,8 +13,10 @@ struct VectorHash {
 };
 
 int main() {
-  unordered_set<vector<int>, VectorHash> mp;
-  mp.insert({10, 5, 5});
+  // Declare a set for vector of ints
+  unordered_set<vector<int>, VectorHash> st;
+  // Add an item
+  st.insert({10, 5, 5});
 
   return 0;
 }

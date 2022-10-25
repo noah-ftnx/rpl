@@ -1,6 +1,7 @@
 #include <vector>
 #include <cmath>
 #include <unordered_set>
+#include <iostream>
 using namespace std;
 
 vector<int> solve(vector<float> X) {
@@ -16,11 +17,13 @@ vector<int> solve(vector<float> X) {
     int floorSum = isum;
     int ceilSum= round(fsum);
     int diff = ceilSum-floorSum; // MAX: will be N. MIN: 0
+    cout << "DIFF:" << diff << endl;
 
     // must ceil 'diff' amount of numbers
     // pick from fracs: NOTE: frac part should match
 
-    sort(fracs.begin(), fracs.end(), greater<int>());
+    // TRICKY: greater: float (not int!)
+    sort(fracs.begin(), fracs.end(), greater<float>());
 
     // the first `diff` numbers should be selected
     // we may have duplicates
@@ -33,10 +36,13 @@ vector<int> solve(vector<float> X) {
     vector<int> Y;
     for (int i=0; i<N; i++) {
         float fr=X[i]-floor(X[i]);
-        if (picks.count(fr)) {
+
+        // find the first occurrence of the fractional (if exists)
+        auto it = picks.find(fr);
+        if (it != picks.end()) {
             // round this number up
             Y.push_back(ceil(X[i]));
-            picks.erase(fr);
+            picks.erase(it);
         } else { // floor
             Y.push_back(floor(X[i]));
         }

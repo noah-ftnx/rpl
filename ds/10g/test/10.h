@@ -20,7 +20,9 @@ void run_tests() {
   for (auto node: result) res+= to_string(node) + " ";
   if (!res.empty()) res.pop_back();
 
-  bool wrong = (res != "5 4 2 3 1 0") && (res != "4 5 2 0 3 1");
+  bool wrong = (res != "5 4 2 3 1 0")
+          && (res != "4 5 2 0 3 1")
+          && (res != "4 0 1 5 2 3");
   cout << res << endl << (wrong? "WRONG":"Correct.") << endl;
 }
 

@@ -1,24 +1,38 @@
 class Solution {
- public:
-  // Function to detect cycle in a directed graph.
-  bool isCyclic(int V, vector<int> adj[]) {
-    // find indegrees
-    vector<int> indegree(V, 0);
-    for (int i=0; i<V; i++)
-      for (int nei: adj[i]) indegree[nei]++;
+public:
+    // Function to detect cycle in a directed graph.
+    bool isCyclic(int V, vector<int> adj[]) {
+        // Khan's Algorithm
 
-    queue<int> q;
-    for (int i=0; i<V; i++) if (indegree[i]==0) q.push(i);
+        // find indegree for each node
+        vector<int> indegree(V, 0);
+        for (int from=0; from<V; from++) {
+            for (int to: adj[from]) {
+                // edge: from -> to
+                // (an incoming edge for to)
+                indegree[to]++;
+            }
+        }
 
-    int cnt=0;
-    while(!q.empty()) {
-      int vertex = q.front();
-      q.pop(); cnt++; // total items in the queue must be |V|
+        // do BFS for all indegrees that are zero
+        queue<int> q;
+        for (int i=0; i<V; i++) {
+            if (indegree[i]==0) q.push(i);
+        }
 
-      for (int nei: adj[vertex]) {
-        if(--indegree[nei]==0) q.push(nei);
-      }
+        int visited=0;
+        while(!q.empty()) {
+            int node=q.front(); q.pop();
+            visited++;
+
+            for (int nei: adj[node]) {
+                // decrease indegree
+                // when it becomes zero: enqueue
+                if (--indegree[nei]==0) {
+                    q.push(nei);
+                }
+            }
+        }
+        return V!=visited;
     }
-    return cnt != V;
-  }
 };

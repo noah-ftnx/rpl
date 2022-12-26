@@ -16,6 +16,8 @@ class Solution {
       for (auto edges: adj[i]) {
         int to=edges[0];
         int weight=edges[1];
+        // WORKS: Probably: as it's not a local object
+        // eg not e=Edge(...); and then assign.
         pq.push({i, to, weight});
       }
     }

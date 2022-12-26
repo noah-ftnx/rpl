@@ -1,47 +1,51 @@
-#include <vector>
-#include <unordered_map>
-using namespace std;
-
 class Solution {
-  bool DFS(unordered_map<int, vector<int>> &AL,
-           vector<bool> &visited, vector<bool> &in_stack, int i) {
-    visited[i]=in_stack[i]=true;
 
-    for (int nei: AL[i]) {
-      if (!visited[nei]) {
-        if (DFS(AL, visited, in_stack, nei)) return true;
-      } else {
-        if (in_stack[nei]) return true; // back-edge
-      }
+
+    // in particular component: is there a cyclic course dependencie or not
+    bool cycleDFS(const vector<vector<int>> &AL,
+                  vector<bool> &visited, vector<bool> &in_stack, int node) {
+        // VISIT
+        visited[node]=true;
+        in_stack[node]=true;
+
+        // VISIT NEIGHBORS
+        for (int nei: AL[node]) {
+            if (visited[nei]) { // already visited: may have a cycle
+                if (in_stack[nei]) return true; // cycle detected (back-edge) 
+                // else: not a cycle
+            } else { // not visited
+                if (cycleDFS(AL, visited, in_stack, nei)) return true; // cycle
+            }
+        }
+
+        // deal w/ stack
+        in_stack[node]=false;
+        return false; // no cycles (in this cmp)
     }
 
-    in_stack[i]=false;
-    return false;
-  }
+public:
+    bool canFinish(int numCourses, vector<vector<int>>& prerequisites) {
+        // prereq:
+        // 0: restricted course
+        // 1: prereq
 
-  bool hasCycles(int N, unordered_map<int, vector<int>> &AL) {
-    vector<bool> visited(N, false);
-    vector<bool> in_stack(N, false);
+        // BUILD ADJACENCY LIST
+        vector<vector<int>> AL(numCourses, vector<int>());
+        for (auto pair: prerequisites) {
+            int rcourse=pair[0];
+            int prereq=pair[1];
 
-    for (auto pair: AL) {
-      int vertex = pair.first;
-      if (!visited[vertex] && DFS(AL, visited, in_stack, vertex)) return true;
+            // if we take prereq -> we are then allowed to take course
+            AL[prereq].push_back(rcourse);
+        }
+
+        // IF CYCLES: cannot finish
+        vector<bool> visited(numCourses, false); // taken course
+        for (int i=0; i<numCourses; i++) {
+            vector<bool> in_stack(numCourses, false);
+            if (cycleDFS(AL, visited, in_stack, i)) return false; // cycle -> CANNOT finish course
+        }
+
+        return true; // no cycles: can finish course
     }
-
-    return false;
-  }
-
- public:
-  bool canFinish(int numCourses, vector<vector<int>>& prerequisites) {
-
-    unordered_map<int, vector<int>> AL;
-    for (auto prereq: prerequisites) {
-      int vertex=prereq[0];
-      int neighbor=prereq[1];
-
-      AL[vertex].push_back(neighbor);
-    }
-
-    return !hasCycles(numCourses, AL);
-  }
 };

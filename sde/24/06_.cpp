@@ -62,6 +62,7 @@ class Solution {
         // only then we can take them
         sum+=mn.w;
         wunion(pfrom, pto);
+
         // could have store the spt here:
         // in a vector: using {mn.from, mn.to}
       }

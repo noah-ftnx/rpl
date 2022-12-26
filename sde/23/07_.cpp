@@ -20,7 +20,7 @@ public:
             if (indegree[i]==0) q.push(i);
         }
 
-        int visited=0;
+        int visited=0; // to verify for acyclic property
         while(!q.empty()) {
             int node=q.front(); q.pop();
             visited++;

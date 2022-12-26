@@ -1,6 +1,5 @@
 class Solution { // G4G
 public:
-    // Function to return Breadth First Traversal of given graph.
     vector<int> bfsOfGraph(int V, vector<int> adj[]) {
 
         if (V<=0) return {};

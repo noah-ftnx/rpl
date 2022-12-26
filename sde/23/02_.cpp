@@ -1,29 +1,24 @@
-class Solution { // no need for separate visited set
+class Solution {
+    void dfs(vector<int> adj[],
+             vector<bool> &visited, vector<int> &result, int node) {
+        // VISIT
+        visited[node]=true;
+        result.push_back(node);
 
-  Node* dfsCreateNodes(Node* node, unordered_map<Node*, Node*> &mp) {
-    // visit:
-    auto cpy = new Node(node->val);
-    mp[node]=cpy; // mapping from orig node to the cpy
-
-    for (auto nei: node->neighbors) {
-      if (mp.count(nei) == 0) {
-        dfsCreateNodes(nei, mp);
-      }
-
-      // push the newly created node in the adjacency list
-      cpy->neighbors.push_back(mp[nei]);
+        // VISIT NEIGHBORS
+        for (int nei: adj[node]) {
+            if (!visited[nei]) dfs(adj, visited, result, nei);
+        }
     }
 
-    return cpy;
-  }
+public:
+    // Function to return a list containing the DFS traversal of the graph.
+    vector<int> dfsOfGraph(int V, vector<int> adj[]) {
+        if (V<=0) return {};
 
- public:
-  Node* cloneGraph(Node* node) {
-    if (node==nullptr) return nullptr;
-
-    unordered_map<Node*, Node*> mp;
-    auto clone=dfsCreateNodes(node, mp);
-
-    return clone;
-  }
+        vector<bool> visited(V, false);
+        vector<int> result;
+        dfs(adj, visited, result, 0);
+        return result;
+    }
 };

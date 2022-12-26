@@ -1,27 +1,34 @@
 class Solution {
-  bool DFS(int V, vector<int> adj[], vector<bool> visited, int idx, int par) {
-    visited[idx]=true;
 
-    for (int nei: adj[idx]) {
-      if (!visited[nei]) {
-        // found a cycle recursively
-        if (DFS(V, adj, visited, nei, idx)) return true;
-      } else {
-        if (nei != par) return true; // CYCLE
-      }
-    }
-    return false;
-  }
+    // cycle in a particular component
+    bool cycleDFS(vector<int> adj[], vector<bool> &visited,
+                  int node, int from) {
+        // VISIT
+        visited[node]=true;
 
- public:
-  // Function to detect cycle in an undirected graph.
-  bool isCycle(int V, vector<int> adj[]) {
-    vector<bool> visited(V, false);
-
-    for (int i=0; i<V; i++) {
-      if (DFS(V, adj, visited, i, -1)) return true;
+        // VISIT NEIGH (detect cycles)
+        for (int nei: adj[node]) {
+            if (visited[nei]) { // already visited: may have a cycle
+                // not where we came from: nei visited from another path
+                if (nei != from) return true; // cycle (just discovered!)
+                // else: nei is where we just came from (undirected graph)
+            } else { // not visited: go deeper
+                if (cycleDFS(adj, visited, nei, node)) return true; // cycle
+            }
+        }
+        return false; // no cycle (int 'node' component)
     }
 
-    return false;
-  }
+public:
+    // Function to detect cycle in an undirected graph.
+    bool isCycle(int V, vector<int> adj[]) {
+        vector<bool> visited(V, false);
+
+        for (int i=0; i<V; i++) { // each component
+            if (!visited[i]) {
+                if (cycleDFS(adj, visited, i, -1)) return true;
+            }
+        }
+        return false; // no cycle (in any component)
+    }
 };

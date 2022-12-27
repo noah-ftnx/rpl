@@ -24,6 +24,23 @@ string to_string(vector<T> vec, int width=1) {
 }
 
 
+string to_string(vector<char> vec, int width=1) {
+    if (vec.empty()) return "{}";
+    else {
+        string s = "{";
+        for (auto ch: vec) {
+            stringstream ss;
+            ss << setw(width) << ch;
+            s+= ss.str() + ", ";
+        }
+        s.pop_back();
+        s.pop_back();
+        s+="}";
+        return s;
+    }
+}
+
+
 /**
  * 2D vector
  *

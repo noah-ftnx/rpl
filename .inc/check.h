@@ -13,7 +13,6 @@ void check_bool(string msg, bool result, bool correct) {
 }
 
 
-
 template <class T>
 void check_result(string msg, T result, T correct) {
   cout << msg << ": " << to_string(result) << (result != correct? " (WRONG)":"") << endl;

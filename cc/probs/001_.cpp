@@ -5,9 +5,10 @@ using namespace std;
 
 int solve(vector<char>& tasks, int n) {
     int cycle = 0;
+    const int time_to_finish = 1; // each instr needs 1 unit of time
     unordered_map<char, int> instr_issued;
     // AAABBB
-    //
+    //A__A__AB__B__B
     // A: 1
     // cycle: 3
     // penalty: 0
@@ -18,7 +19,7 @@ int solve(vector<char>& tasks, int n) {
         if (it != instr_issued.end()) {
             int last_cycle = it->second;
             // cycle where cooldown ends
-            int cooldown_ends = last_cycle + n;
+            int cooldown_ends = last_cycle + n + time_to_finish;
             if (cooldown_ends > cycle) {
                 penalty = cooldown_ends - cycle;
             }
@@ -31,7 +32,7 @@ int solve(vector<char>& tasks, int n) {
         instr_issued[task] = cycle;
 
         // increase cycle
-        cycle++;
+        cycle+=time_to_finish;
     }
     return cycle;
 }

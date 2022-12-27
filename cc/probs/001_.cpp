@@ -8,7 +8,7 @@ int solve(vector<char>& tasks, int n) {
     const int time_to_finish = 1; // each instr needs 1 unit of time
     unordered_map<char, int> instr_issued;
     // AAABBB
-    //A__A__AB__B__B
+    // A__A__AB__B__B
     // A: 1
     // cycle: 3
     // penalty: 0

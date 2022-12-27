@@ -3,7 +3,7 @@
 
 #include <iostream>
 
-void test(vector<vector<int>> graph, int m, vector<int> correct_a, bool correct_b) {
+void test(vector<vector<bool>> graph, int m, vector<int> correct_a, bool correct_b) {
   vector<int> result_a;
   bool result_b = color_graph(graph, m, result_a);
 
@@ -21,7 +21,7 @@ void test(vector<vector<int>> graph, int m, vector<int> correct_a, bool correct_
 }
 
 void test1() {
-  vector<vector<int>> graph =
+  vector<vector<bool>> graph =
       {{0, 1, 1, 1},
        {1, 0, 1, 0},
        {1, 1, 0, 1},
@@ -32,7 +32,7 @@ void test1() {
 }
 
 void test2() {
-  vector<vector<int>> graph =
+  vector<vector<bool>> graph =
       {{1, 1, 1, 1},
        {1, 1, 1, 1},
        {1, 1, 1, 1},

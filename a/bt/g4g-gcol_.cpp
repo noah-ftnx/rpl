@@ -1,8 +1,7 @@
-
 #include <vector>
 using namespace std;
 
-bool solve(vector<vector<int>> graph, int m, vector<int>& coloring, int vertex) {
+bool solve(vector<vector<bool>> graph, int m, vector<int>& coloring, int vertex) {
   const int N = (int) graph.size();
   auto isValid = [&] (int color) {
     for (int i=0; i<N; i++) {
@@ -26,7 +25,10 @@ bool solve(vector<vector<int>> graph, int m, vector<int>& coloring, int vertex) 
 }
 
 // coloring: is an empty vector
-bool color_graph(vector<vector<int>> graph, int m, vector<int>& coloring) {
+// return:
+// - a filled coloring vector (is passed by ref)
+// - bool indicated if G is m-colorable
+bool color_graph(vector<vector<bool>> graph, int m, vector<int>& coloring) {
   if (m<=0 || graph.empty()) return false;
   
   coloring.resize(graph.size(), 0);

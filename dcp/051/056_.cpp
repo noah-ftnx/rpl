@@ -1,7 +1,7 @@
 #include <vector>
 using namespace std;
 
-bool solve(vector<vector<int>> AM, int k, vector<int>& colors, int start) {
+bool solve(vector<vector<bool>> AM, int k, vector<int>& colors, int start) {
   auto is_valid = [&](int vertex, int color) -> bool {
     for (int i=0; i<AM[vertex].size(); i++) {
       if (AM[vertex][i]==1) { // neighbor exists
@@ -29,7 +29,7 @@ bool solve(vector<vector<int>> AM, int k, vector<int>& colors, int start) {
 }
 
 
-bool color_graph(vector<vector<int>> AM, int k) {  // 3
+bool color_graph(vector<vector<bool>> AM, int k) {  // 3
   if (AM.empty()) return false;
   vector<int> colors;
 

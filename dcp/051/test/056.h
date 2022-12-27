@@ -4,7 +4,7 @@
 #include <iostream>
 #include <iomanip>
 
-void test(vector<vector<int>> graph, int k, bool correct) {
+void test(vector<vector<bool>> graph, int k, bool correct) {
   vector<int> result_a;
   bool result = color_graph(graph, k);
 
@@ -17,7 +17,7 @@ void test(vector<vector<int>> graph, int k, bool correct) {
 }
 
 void test1() {
-  vector<vector<int>> graph =
+  vector<vector<bool>> graph =
       {{0, 1, 1, 1},
        {1, 0, 1, 0},
        {1, 1, 0, 1},
@@ -29,7 +29,7 @@ void test1() {
 
 
 void test2() {
-  vector<vector<int>> graph =
+  vector<vector<bool>> graph =
       {
           {0, 1, 1, 1},
           {1, 0, 1, 1},
@@ -43,7 +43,7 @@ void test2() {
 }
 
 void test3() {
-  vector<vector<int>> graph =
+  vector<vector<bool>> graph =
       {
           {0, 1, 1, 1},
           {1, 0, 1, 1},
@@ -58,7 +58,7 @@ void test3() {
 
 
 void test4() {
-  vector<vector<int>> graph =
+  vector<vector<bool>> graph =
       {{1, 1, 1, 1},
        {1, 1, 1, 1},
        {1, 1, 1, 1},

@@ -1,5 +1,7 @@
 
-bool color_graph(vector<vector<int>> AM, int k);
+// AM: Adjacency Matrix
+bool color_graph(vector<vector<bool>> AM, int k) {
+}
 
 
 

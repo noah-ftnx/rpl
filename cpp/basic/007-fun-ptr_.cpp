@@ -21,6 +21,7 @@ void demo() {
   cout << "r: " << r2 << endl;
 
   // Way 3:
+  // star is before: *fptr
   int (*fptr3)(float a, long c) = add;
   int r3=fptr3(10, 20);
   cout << "r: " << r3 << endl;

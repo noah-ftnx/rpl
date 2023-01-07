@@ -1,13 +1,19 @@
-int floorInBST(TreeNode<int> * root, int X) {
-  int res=-1;
-  while (root) {
-    if (root->val == X) return X;
-    else if (X > root-> val) {
-      res=root->val;
-      root=root->right;
-    } else {
-      root=root->left;
+int floorInBST(TreeNode<int> * root, int X)
+{
+    int candidate=INT_MAX;
+    while (root != nullptr) {
+        if (root->val == X) {
+            return X; // found exact value
+        } else if (X > root-> val) {
+            // key is greater than root
+            // as root is smaller, it is a candidate
+            candidate=root->val;
+            root=root->right;
+        } else {
+            // key is smaller than root
+            root=root->left;
+        }
     }
-  }
-  return res;
+    
+    return candidate;
 }

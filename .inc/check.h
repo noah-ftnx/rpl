@@ -20,8 +20,10 @@ void check_result(string msg, T result, T correct) {
 
 // different classes
 template <class A, class B>
-void check_result(A input, B result, B correct) {
-    cout << to_string(input) << ":\t"  << to_string(result) << (result != correct? " (WRONG)":"") << endl;
+bool check_result(A input, B result, B correct) {
+  bool is_wrong=result!=correct;
+  cout << to_string(input) << ":\t"  << to_string(result) << (is_wrong? " (WRONG)":"") << endl;
+  return !is_wrong;
 }
 
 bool check_intPrettyMin(string msg, int result, int correct) {

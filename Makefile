@@ -1,9 +1,12 @@
 CXX=clang++
-CXXFLAGS=-std=c++2a
+
 
 SRCDIR=.
 SRCS:= $(shell find $(SRCDIR) -name "*.cpp")
 OBJ= $(SRCS:%.cpp=%)
+
+INC=-I.
+CXXFLAGS=-std=c++2a $(INC)
 
 all: $(OBJ)
 

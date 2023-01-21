@@ -1,6 +1,14 @@
 #ifndef INC_070__CPP_TO_STRING_PRETTY_H
 #define INC_070__CPP_TO_STRING_PRETTY_H
 
+
+template<class T, class Y>
+string pretty_num(pair<T, Y> pair) {
+    string s1 = to_string(pair.first);
+    string s2 = to_string(pair.second);
+    return "{"+s1+", "+s2+"}";
+}   
+
 string pretty_num(float num) {
     string str = to_string(num);
     // remove trailing zeros:

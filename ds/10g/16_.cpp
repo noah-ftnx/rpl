@@ -8,17 +8,15 @@ void DFS(vector<vector<int>> &G, vector<bool> &visited,
     previsit[node]=cnt++;
 
     for (int nei: G[node]) {
-      if (!visited[nei]) DFS(G, visited, previsit, postvisit, nei, cnt);
+      if (!visited[nei])
+        DFS(G, visited, previsit, postvisit, nei, cnt);
     }
 
     postvisit[node]=cnt++;
 }
 
-// Graph is 2D vector (adj list).
-// nodes start from 0 until V-1
-// start the visit from this order: 0 until V-1
-// previsited, postvisited are empty
-void solve(vector<vector<int>> &G, vector<int> &previsit, vector<int> &postvisit) {
+void solve(vector<vector<int>> &G,
+  vector<int> &previsit, vector<int> &postvisit) {
   int V = G.size();
   vector<bool> visited(V, false);
   previsit.resize(V);

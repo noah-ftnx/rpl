@@ -74,7 +74,7 @@ void test(vector<vector<int>> &graph, vector<int> c_pre, vector<int> c_post) {
 
 
 
-int run_tests() {
+void run_tests() {
   vector<vector<int>> g1(_input_graph1()); //ex1
   test(g1, {0, 1, 5, 2, 6, 8}, {11, 4, 10, 3, 7, 9});
 

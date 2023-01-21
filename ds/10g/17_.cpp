@@ -40,7 +40,7 @@ void DFS(vector<vector<int>> &G,
         // in_stack means: (nei=target node)
         // - nei has started before
         // - nei is still going on (hasn't finished yet; ie in the stack)
-        else if (pre[nei] < pre[node] && pre[nei]==0) {
+        else if (pre[nei] < pre[node] && post[nei]==0) {
           back_edges.push_back(make_pair(node, nei));
         }
         // 4. CROSS-EDGES:

@@ -32,7 +32,7 @@ public:
         // BUILD ADJACENCY LIST
         vector<vector<int>> AL(numCourses, vector<int>());
         for (auto pair: prerequisites) {
-            int rcourse=pair[0];
+            int rcourse=pair[0];  // restricted course
             int prereq=pair[1];
 
             // if we take prereq -> we are then allowed to take course

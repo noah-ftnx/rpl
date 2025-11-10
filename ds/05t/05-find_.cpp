@@ -1,7 +1,7 @@
 #include <queue>
 
-#include "test/bst-tmpl-find.h"
 using namespace std;
+#include "test/bst-tmpl-find.h"
 
 template<class T>
 bool Tree<T>::_find(Node<T>* node, T element) {

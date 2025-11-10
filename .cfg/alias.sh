@@ -1,3 +1,4 @@
+#!/bin/bash
 alias g='git'
 alias gst='git status'
 alias gsw='git switch'

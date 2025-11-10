@@ -1,7 +1,8 @@
 { pkgs }: {
-	deps = [
-		pkgs.clang_12
-		pkgs.cmake
-		pkgs.gdb
-	];
+  deps = [
+    pkgs.vim
+    pkgs.clang_16
+    pkgs.cmake
+    pkgs.gdb
+  ];
 }

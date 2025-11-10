@@ -1,6 +1,5 @@
 #include <queue>
 
-using namespace std;
 #include "test/bst-tmpl-find.h"
 
 template<class T>

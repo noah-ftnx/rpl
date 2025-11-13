@@ -1,6 +1,6 @@
 #ifndef _BASE_
 #define _BASE_
 
-#include "../../../.check/base.h"
+#include "../../../.inc/base.h"
 
 #endif  // _BASE_

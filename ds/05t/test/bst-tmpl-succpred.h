@@ -4,8 +4,8 @@
 #include <iostream>
 #include <vector>
 #include <string>
-#include "../../../.check/check.h"
-#include "../../../.check/check-opt.h"
+#include "../../../.inc/check.h"
+#include "../../../.inc/check-opt.h"
 using namespace std;
 
 template <class T>

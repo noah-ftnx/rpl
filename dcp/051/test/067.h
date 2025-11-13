@@ -4,7 +4,7 @@
 #include <iostream>
 #include <iomanip>
 
-#include "../../../.check/check.h"
+#include "../../../.inc/check.h"
 
 bool _wrong {};
 

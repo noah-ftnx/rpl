@@ -4,7 +4,7 @@
 #include <iostream>
 #include <vector>
 #include <string>
-#include "../../../.check/check.h"
+#include "../../../.inc/check.h"
 using namespace std;
 
 template <class T>

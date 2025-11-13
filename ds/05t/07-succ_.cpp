@@ -1,5 +1,6 @@
 #include <optional>
 #include <stack>
+using namespace std;
 #include "test/bst-tmpl-succpred.h"
 
 

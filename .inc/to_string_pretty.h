@@ -7,7 +7,7 @@ string pretty_num(pair<T, Y> pair) {
     string s1 = to_string(pair.first);
     string s2 = to_string(pair.second);
     return "{"+s1+", "+s2+"}";
-}   
+}
 
 string pretty_num(float num) {
     string str = to_string(num);

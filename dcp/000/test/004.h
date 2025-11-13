@@ -2,7 +2,7 @@
 #define RPL_DCP_TEST_004_H_
 
 #include <iostream>
-#include "../../../.check/check.h"
+#include "../../../.inc/check.h"
 
 int find_first_missing(vector<int>& vec);
 

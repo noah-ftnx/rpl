@@ -1,5 +1,6 @@
 #include <deque>
 #include <vector>
+#include <string>
 using namespace std;
 
 template <class T>

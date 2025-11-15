@@ -4,8 +4,10 @@
 #include <iostream>
 #include <vector>
 #include <string>
-#include "../../../.inc/check.h"
+#include <assert.h>
 using namespace std;
+#include "../../../.inc/check.h"
+
 
 template <class T>
 class Node {

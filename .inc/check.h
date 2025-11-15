@@ -8,8 +8,6 @@
 
 #include "to_string.h"
 
-using namespace std;
-
 void check_bool(string msg, bool result, bool correct) {
   cout << msg << ": " << boolalpha << result << (result != correct? " (WRONG)":"") << endl;
 }

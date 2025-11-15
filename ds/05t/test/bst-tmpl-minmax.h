@@ -79,12 +79,8 @@ class Tree {
     }
   }
 
-  void _print_preorder(Node<T>* node);
-  void print_preorder();
-  void _print_inorder(Node<T>* node);
-  void print_inorder();
-  void _print_postorder(Node<T>* node);
-  void print_postorder();
+  T min();
+  T max();
 };
 
 void run_tests() {
@@ -93,17 +89,8 @@ void run_tests() {
   tree.add_nonbst( { 2, 5}, { 'L', 'R' });
   tree.add_nonbst( { 3}, { 'R' });
 
-  cout << "   INORDER: ";
-  tree.print_inorder();
-  cout << "   CORRECT: 4 2 5 1 3\n\n";
-
-  cout << " PRE ORDER: ";
-  tree.print_preorder();
-  cout << "   CORRECT: 1 2 4 5 3\n\n";
-
-  cout << "POST ORDER: ";
-  tree.print_postorder();
-  cout << "   CORRECT: 4 5 2 3 1\n\n";
+  cout << "min: " << tree.min() << endl;
+  cout << "max: " << tree.max() << endl;
 }
 
 #endif  // RPL_DS_05T_TEST_TEST_BST_H_

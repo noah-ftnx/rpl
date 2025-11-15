@@ -104,6 +104,8 @@ void run_tests() {
   cout << "POST ORDER: ";
   tree.print_postorder();
   cout << "   CORRECT: 4 5 2 3 1\n\n";
+
+  cout << "(confirm above; note: tree wasn't a bst)\n";
 }
 
 #endif  // RPL_DS_05T_TEST_TEST_BST_H_

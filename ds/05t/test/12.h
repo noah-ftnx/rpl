@@ -3,6 +3,7 @@
 
 #include <string>
 #include <iostream>
+#include <cassert>
 template <class T>
 void Tree<T>::add(const vector<T>& data, const string& path) {
   if(data.size() != (path.size())) { cout << "ERR\n"; exit(-1); }

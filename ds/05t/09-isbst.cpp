@@ -1,7 +1,8 @@
 #include "test/bst-09.h"
 
-// TEMPLATE:
-// bool _is_bst(Node<T>* node);0
+// Template:
+// Class name: Tree
+// bool _is_bst(Node<T>* node);
 // bool is_bst();
 
 int main() { run_tests(); return 0; }

@@ -10,7 +10,6 @@ struct Tree {
   Node<T>* root {};
   Tree(T value) { root = new Node<T>(value); }
 
-  Tree(T value);
   void add(const vector<T>& data, const string& path); // given
 
   void query_successors(deque<int>& query, deque<int>& answer);

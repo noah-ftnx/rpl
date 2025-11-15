@@ -4,8 +4,10 @@
 #include <iostream>
 #include <vector>
 #include <string>
-#include "../../../.inc/check.h"
+#include <cassert>
 using namespace std;
+#include "../../../.inc/check.h"
+
 
 template <class T>
 class Node {
@@ -90,9 +92,9 @@ class Tree {
 
 void run_tests() {
   auto tree = Tree<int>(1); // not a BST
-  tree.add( { 2, 4}, { 'L', 'L' });
-  tree.add( { 2, 5}, { 'L', 'R' });
-  tree.add( { 3}, { 'R' });
+  tree.add_nonbst( { 2, 4}, { 'L', 'L' });
+  tree.add_nonbst( { 2, 5}, { 'L', 'R' });
+  tree.add_nonbst( { 3}, { 'R' });
 
   cout << "   INORDER: ";
   tree.print_inorder();

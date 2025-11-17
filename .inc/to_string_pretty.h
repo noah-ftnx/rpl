@@ -1,6 +1,7 @@
 #ifndef INC_070__CPP_TO_STRING_PRETTY_H
 #define INC_070__CPP_TO_STRING_PRETTY_H
 
+#include <climits>
 
 template<class T, class Y>
 string pretty_num(pair<T, Y> pair) {

@@ -6,7 +6,7 @@ SRCS:= $(shell find $(SRCDIR) -name "*.cpp")
 OBJ= $(SRCS:%.cpp=%)
 
 INC=-I.
-CXXFLAGS=-std=c++2a -w $(INC) # warnings off
+CXXFLAGS=-std=c++2a -Werror=return-type $(INC)
 
 all: $(OBJ)
 

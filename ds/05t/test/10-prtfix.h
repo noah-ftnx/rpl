@@ -2,6 +2,8 @@
 #define RPL_DS_05T_TEST_10_CPFIX_H_
 
 #include <stack>
+#include <iostream>
+#include <iomanip>
 Tree::Tree(const string& postfix) {
   stack<Node*> st;
   for (auto c: postfix) {
@@ -17,13 +19,15 @@ Tree::Tree(const string& postfix) {
     }
     st.push(node);
   }
-  root = move(st.top());
+  root = std::move(st.top());
 }
 
 void check(string postfix, string result) {
   auto tree = Tree(postfix);
   string prt = tree.to_string();
-  cout << postfix << ": " << prt << (prt != result? " (WRONG)":"") << endl;
+  cout << left << setw(10) << postfix << setw(28) << prt;
+  if (prt != result) cout << "WRONG. Expected: " << result;
+  cout << endl;
 }
 
 void run_tests() {

@@ -1,8 +1,10 @@
 #include <string>
-#include <iostream>
 using namespace std;
 
-// struct Node;
+// CREATE:
+// struct Node
+// - with 'char' field to keep data. Make this a parameterized constructor
+// - include link to parent. Create constructor.
 
 class Tree {
  private:
@@ -11,7 +13,7 @@ class Tree {
  public:
   Tree(const string& postfix); // given
 
-  // delete copy op, default ctor, and copy ctor
+  // BONUS: delete: default ctor, copy ctor, and copy assignment.
 
   string to_string();
 };

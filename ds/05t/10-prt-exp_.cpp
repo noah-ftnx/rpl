@@ -1,5 +1,4 @@
 #include <string>
-#include <iostream>
 using namespace std;
 
 struct Node {
@@ -18,10 +17,11 @@ class Tree {
  public:
   Tree(const string& postfix); // given
 
-  // delete copy op, default ctor, and copy ctor
-  const Tree& operator=(const Tree&) = delete;
-  Tree(const Tree&) = delete;
+
+  // BONUS: delete: default ctor, copy ctor, and copy assignment.
   Tree() = delete;
+  Tree(const Tree&) = delete;
+  Tree& operator=(const Tree&) = delete;
 
   string _to_string(Node* node, bool is_root=false) {
     if (node == nullptr) return "";

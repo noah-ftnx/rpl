@@ -2,6 +2,7 @@
 #define RPL_DCP_051_TEST_053_H_
 
 #include <iostream>
+#include <vector>
 #include <iomanip>
 #include "../../../.inc/check.h"
 

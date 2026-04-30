@@ -1,14 +1,17 @@
 #include "test/bst-09.h"
 
 template <class T>
-bool Tree<T>::_is_bst(Node<T>* node) {
-  bool res = !node->left || (node->data > node->left->data && _is_bst(node->left));
-  if(!res) return false;
-  res = !node->right || (node->data < node->right->data && _is_bst(node->right));
-  return res;
+bool _bst(Node<T>* node, long low, long high) {
+  if (!node) return true;
+  if (node->data >= high || node->data <= low) return false;
+  bool L = _bst(node->left, low, node->data);
+  bool R = _bst(node->right, node->data, high);
+  return L && R;
 }
 
 template <class T>
-bool Tree<T>::is_bst() { return _is_bst(root); }
+bool Tree<T>::is_bst() {
+  return _bst(root, LLONG_MIN, LLONG_MAX);
+}
 
 int main() { run_tests(); return 0; }

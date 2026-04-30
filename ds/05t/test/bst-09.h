@@ -2,6 +2,7 @@
 #define RPL_DS_05T_TEST_TEST_BST_H_
 
 #include <iostream>
+#include <iomanip>
 #include <vector>
 #include <string>
 #include <assert.h>
@@ -111,27 +112,86 @@ class Tree {
     add( { 15, 6 }, { 'R', 'L' });
   }
 
+  void init_input4() {
+    root = new Node(10);
+    add( { 10 }, { 'L' });
+  }
+
+  void init_input5() {
+    root = new Node(10);
+    add( { 10 }, { 'R' });
+  }
+
+  void init_input6() {
+    root = new Node(20);
+    add( { 10, 5 }, { 'L', 'L' });
+    add( { 10, 15 }, { 'L', 'R' });
+    add( { 30, 25 }, { 'R', 'L' });
+    add( { 30, 35 }, { 'R', 'R' });
+  }
+
+  void init_input7() {
+    root = new Node(20);
+    add( { 10, 5 }, { 'L', 'L' });
+    add( { 10, 25 }, { 'L', 'R' });
+  }
+
+  void init_input8() {
+    root = new Node(INT_MIN);
+    add( { INT_MIN + 1 }, { 'R' });
+  }
+
+  void init_input9() {
+    root = new Node(INT_MAX);
+    add( { INT_MAX - 1 }, { 'L' });
+  }
+
   bool _is_bst(Node<T>* node);
   bool is_bst();
 };
 
 void check_bst(string msg, bool result, bool correct) {
-  cout << msg << ": " << boolalpha << result
+  cout << left << setw(28) << (msg + ":")
+       << setw(7) << (result ? "true" : "false")
        << (result == correct ? " (Correct)" : " (WRONG)") << endl;
 }
 
 void run_tests() {
   auto tree1 = Tree<int>();
   tree1.init_input1();
-  check_bst("bst:1", tree1.is_bst(), true);
+  check_bst("bst:1 valid insert", tree1.is_bst(), true);
 
   auto tree2 = Tree<int>();
   tree2.init_input2();
-  check_bst("bst:2", tree2.is_bst(), false);
+  check_bst("bst:2 invalid left/right", tree2.is_bst(), false);
 
   auto tree3 = Tree<int>();
   tree3.init_input3();
-  check_bst("bst:3", tree3.is_bst(), false);
+  check_bst("bst:3 ancestor bound", tree3.is_bst(), false);
+
+  auto tree4 = Tree<int>();
+  tree4.init_input4();
+  check_bst("bst:4 duplicate left", tree4.is_bst(), false);
+
+  auto tree5 = Tree<int>();
+  tree5.init_input5();
+  check_bst("bst:5 duplicate right", tree5.is_bst(), false);
+
+  auto tree6 = Tree<int>();
+  tree6.init_input6();
+  check_bst("bst:6 deeper valid", tree6.is_bst(), true);
+
+  auto tree7 = Tree<int>();
+  tree7.init_input7();
+  check_bst("bst:7 deeper invalid", tree7.is_bst(), false);
+
+  auto tree8 = Tree<int>();
+  tree8.init_input8();
+  check_bst("bst:8 INT_MIN", tree8.is_bst(), true);
+
+  auto tree9 = Tree<int>();
+  tree9.init_input9();
+  check_bst("bst:9 INT_MAX", tree9.is_bst(), true);
 
   cout << endl;
 }

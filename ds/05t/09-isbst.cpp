@@ -1,7 +1,10 @@
 #include "test/bst-09.h"
 
-// Template:
-// Class name: Tree
+// Use existing:
+// - template Tree class containing root
+// -template Node has: right, left, data
+// 
+// Implement:
 // bool _is_bst(Node<T>* node);
 // bool is_bst();
 

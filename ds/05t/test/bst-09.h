@@ -105,18 +105,33 @@ class Tree {
     add( { 2, 5, 11 }, { 'L', 'R', 'R' });
   }
 
+  void init_input3() {
+    root = new Node(10);
+    add( { 5 }, { 'L' });
+    add( { 15, 6 }, { 'R', 'L' });
+  }
+
   bool _is_bst(Node<T>* node);
   bool is_bst();
 };
 
+void check_bst(string msg, bool result, bool correct) {
+  cout << msg << ": " << boolalpha << result
+       << (result == correct ? " (Correct)" : " (WRONG)") << endl;
+}
+
 void run_tests() {
   auto tree1 = Tree<int>();
   tree1.init_input1();
-  check_bool("bst:1", tree1.is_bst(), true);
+  check_bst("bst:1", tree1.is_bst(), true);
 
   auto tree2 = Tree<int>();
   tree2.init_input2();
-  check_bool("bst:2", tree2.is_bst(), false);
+  check_bst("bst:2", tree2.is_bst(), false);
+
+  auto tree3 = Tree<int>();
+  tree3.init_input3();
+  check_bst("bst:3", tree3.is_bst(), false);
 
   cout << endl;
 }

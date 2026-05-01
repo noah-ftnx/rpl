@@ -81,8 +81,12 @@ void run_tests() {
   tree.init_input1();
 
   check_result("recv successor of 45", tree.successor_recv(45)->data, 50);
+  check_result("recv successor of 15", tree.successor_recv(15)->data, 20);
+  check_result("recv successor of 50", tree.successor_recv(50)->data, 60);
   check_result("recv successor of 70", tree.successor_recv(70)->data, 73);
   check_result("recv successor of 73", (void*)tree.successor_recv(73), (void*)nullptr);
+  check_result("recv successor of missing", (void*)tree.successor_recv(999), (void*)nullptr);
+  check_result("recv successor of 45 again", tree.successor_recv(45)->data, 50);
   cout << endl;
 }
 

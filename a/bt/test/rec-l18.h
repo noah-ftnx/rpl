@@ -8,13 +8,14 @@ bool _wrong = false;
 
 void test(int N, int K, string correct) {
 
-  cout << "N: " << setw(3) << N << " K: " << setw(3) << K;
   auto result = kth_permutation(N, K);
   bool wrong = result!=correct;
   _wrong|=wrong;
+  cout << (wrong ? "[FAIL] " : "[PASS] ");
+  cout << "N: " << setw(3) << N << " K: " << setw(3) << K;
 
   cout << ": " << setw(10) << result << " ";
-  cout << (wrong? "[FAIL]" : "[PASS]") << endl;
+  cout << endl;
 }
 
 void run_tests() {
@@ -33,9 +34,9 @@ void run_tests() {
   test(3, 3, "213");
 
   if (_wrong) {
-    cout << "\n[FAIL]\n";
+    cout << "[FAIL]\n";
   } else {
-    cout << "\n[PASS]: ALL results.\n";
+    cout << "[PASS]: ALL results.\n";
   }
 }
 

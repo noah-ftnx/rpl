@@ -1,3 +1,8 @@
+#include <vector>
+#include <string>
+
+using namespace std;
+
 class SolutionSol1 {
  public:
   bool isAnagram(string s, string t) {

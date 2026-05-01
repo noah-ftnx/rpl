@@ -96,7 +96,7 @@ int string_distanceOPT(string a, string b) {
 
   vector<int> row_below(B+1, 0);
   vector<int> row(B+1, 0);
-  for (int j= woB-1; j>=0; j--) { // additions empty A word
+  for (int j=B-1; j>=0; j--) { // additions empty A word
     row[j]=B-j;
   }
 

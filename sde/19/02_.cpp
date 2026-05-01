@@ -1,3 +1,4 @@
+#include <map>
 class Solution {
  public:
   TreeNode* build(vector<int>& preorder, vector<int>& inorder, int &i, int l, int r) {

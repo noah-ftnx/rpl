@@ -1,3 +1,9 @@
+#include <vector>
+#include <set>
+#include <algorithm>
+
+using namespace std;
+
 int findMaxConsecutiveOnes(vector<int>& nums) {
   if (nums.empty()) return 0;
 

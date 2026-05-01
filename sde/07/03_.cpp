@@ -1,3 +1,13 @@
+#include <vector>
+#include <string>
+#include <unordered_map>
+#include <unordered_set>
+#include <set>
+#include <map>
+#include <algorithm>
+
+using namespace std;
+
 vector<vector<int>> threeSumBad(vector<int>& nums) {
   auto getUniqueKey = [] (int a, int b, int c) {
     vector<int> v {a, b, c};

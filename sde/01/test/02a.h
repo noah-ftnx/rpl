@@ -17,7 +17,7 @@ void test(fptr function, int n, vector<int> correct) {
   for (auto v: res) cout<< to_string(v) <<" ";
   cout << endl;
 
-  cout  << "Input: " << n << setw(5) << (wrong? " [FAIL]": " [PASS]") << endl << endl;
+  cout  << (wrong ? "[FAIL] " : "[PASS] ") << "Input: "  << n  << endl << endl;
 }
 
 void print_report() {

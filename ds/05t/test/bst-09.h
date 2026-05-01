@@ -151,9 +151,9 @@ class Tree {
 };
 
 void check_bst(string msg, bool result, bool correct) {
-  cout << left << setw(28) << (msg + ":")
+  cout << (result == correct ? "[PASS] " : "[FAIL] ") << left  << setw(28) << (msg + ":")
        << setw(7) << (result ? "true" : "false")
-       << (result == correct ? " [PASS]" : " [FAIL]") << endl;
+        << endl;
 }
 
 void run_tests() {

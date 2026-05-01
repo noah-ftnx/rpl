@@ -23,7 +23,7 @@ void run_tests() {
   bool wrong = (res != "5 4 2 3 1 0")
           && (res != "4 5 2 0 3 1")
           && (res != "4 0 1 5 2 3");
-  cout << res << endl << (wrong? "[FAIL]":"[PASS]") << endl;
+  cout << res << endl << (wrong ? "[FAIL] " : "[PASS] ") << endl;
 }
 
 #endif  // INC_070__CPP_DS_10G_TEST_10_H_

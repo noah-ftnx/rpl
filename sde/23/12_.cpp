@@ -1,3 +1,7 @@
+#include <vector>
+
+using namespace std;
+
 class Solution {
   enum Color { unvisited, red, blue };
   bool bipartiteDFS(vector<vector<int>>& graph, vector<Color> &colors, int i, Color prevColor) {

@@ -9,18 +9,17 @@ void prototype(vector<int> &vec);
 using fptr = decltype(prototype);
 
 void test(fptr fun, const vector<int> input, vector<int> correct) {
-  cout << setw(30) << to_string(input, 2);
-
- auto vec = input;  // copy
- fun(vec);
-
-  cout << "  ->  ";
-  cout << setw(30) << to_string(vec, 3);
-
+  auto vec = input;  // copy
+  fun(vec);
   bool wrong = vec != correct;
   _wrong|=wrong;
 
-  cout  <<  (wrong? " [FAIL]": " [PASS]") << endl;
+  cout << (wrong ? "[FAIL] " : "[PASS] ");
+  cout << setw(30) << to_string(input, 2);
+  cout << "  ->  ";
+  cout << setw(30) << to_string(vec, 3);
+
+  cout << endl;
 }
 
 void run_tests(fptr fun, string msg) {

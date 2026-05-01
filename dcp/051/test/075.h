@@ -10,8 +10,7 @@ void test(fptr function, string msg, vector<int> input, int correct) {
   int result = function(input);
   bool wrong = result != correct;
   _wrong|=wrong;
-  cout << setw(10) << msg << ":  "  << result <<
-      (wrong? " [FAIL]":"") << endl;
+  cout << (wrong ? "[FAIL] " : "[PASS] ") << setw(10)  << msg << ":  "  << result  << endl;
 }
 
 void run_tests(string msg, fptr function) {

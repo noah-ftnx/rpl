@@ -1,3 +1,8 @@
+#include <string>
+#include <stack>
+
+using namespace std;
+
 class SolutionRabinKarb {
   long hash(const string& s, int l) {
     long val=0;

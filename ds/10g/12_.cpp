@@ -1,3 +1,7 @@
+#include <vector>
+
+using namespace std;
+
 class SolutionBT {
   bool checkDFS(int N, vector<vector<int>> AL, vector<bool> &visited, int cnt, int i) {
     visited[i]=true;
@@ -24,7 +28,7 @@ class SolutionBT {
 
     // try
     for (int i=1; i<=N; i++) {
-      vector<bool> visited(N, false);
+      vector<bool> visited(N+1, false);
       int cnt=0;
       if (checkDFS(N, AL, visited, 1, i)) return true;
     }
@@ -32,3 +36,16 @@ class SolutionBT {
     return false;
   }
 };
+
+#include ".inc/check.h"
+
+void run_test(string name, int N, vector<vector<int>> edges, bool correct) {
+  SolutionBT s;
+  check_bool(name, s.check(N, (int)edges.size(), edges), correct);
+}
+
+int main() {
+  run_test("path", 4, {{1, 2}, {2, 3}, {3, 4}}, true);
+  run_test("star", 4, {{1, 2}, {1, 3}, {1, 4}}, false);
+  return 0;
+}

@@ -45,7 +45,7 @@ Node* tree4() {
 
 void check(string msg, Node* root, int correct) {
   int res = count_unival(root);
-  cout << "unival:" << msg << ": " << res << (res!=correct?" [FAIL]":"") << endl;
+  cout << (res!=correct ? "[FAIL] " : "[PASS] ") << "unival:"  << msg << ": " << res  << endl;
 }
 
 void run_tests() {

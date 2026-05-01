@@ -13,8 +13,7 @@ void test(fptr function, int input, int correct) {
   auto result = function(input);
   bool wrong = result !=correct;
   _wrong|=wrong;
-  cout << setw(10) << input << ": MSG: "  << result <<
-      (wrong? " [FAIL]":"") << endl;
+  cout << (wrong ? "[FAIL] " : "[PASS] ") << setw(10)  << input << ": MSG: "  << result  << endl;
 }
 
 void run_tests(string msg, fptr function) {
@@ -31,8 +30,8 @@ void run_tests(string msg, fptr function) {
 }
 
 void print_errors() {
-  if (_wrong) cout << "\n[FAIL]\n";
-  else cout << "\n[PASS]: all results.\n";
+  if (_wrong) cout << "[FAIL]\n";
+  else cout << "[PASS]: all results.\n";
 }
 
 

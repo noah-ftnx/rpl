@@ -29,18 +29,19 @@ void print_permutations(const int N, const set<vector<int>>& permutations) {
 }
 
 void test(fptr function, int N, pair<int,int> correct) {
-  cout << N << " Queens. Solutions: " << flush;
   auto solution = function(N);
+  cout << (solution != correct ? "[FAIL] " : "[PASS] ");
+  cout << N << " Queens. Solutions: " << flush;
 
-  cout << setw(3) << solution.first
+  cout << setw(3)  << solution.first
        << " permutations: " << setw(5) << solution.second
-       << (solution != correct ? " [FAIL]": "") << endl << flush;
+        << endl << flush;
 }
 
 
 void run_tests(string msg, fptr function) {
   cout << msg << endl;
-  for (int i=0; i<_correct_results.size(); i++) test(function, i, _correct_results[i]);
+  for (int i=0; i<5; i++) test(function, i, _correct_results[i]);
 }
 
 #endif  // RPL_A_BT__TEST_N_QUEENS_BF_H_

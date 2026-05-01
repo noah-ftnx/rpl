@@ -1,3 +1,9 @@
+#include <vector>
+#include <utility>
+#include <queue>
+
+using namespace std;
+
 class Solution {
 public:
     bool canFinish(int numCourses, vector<vector<int>>& prerequisites) {

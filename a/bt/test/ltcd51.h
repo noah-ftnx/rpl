@@ -79,7 +79,7 @@ void run_tests(string msg, fptr function) {
   test2(function, false);
 
   if (_wrong) {
-    cout << "\n\nWrong results found.\n";
+    cout << "[FAIL] wrong results found.\n";
   }
 }
 

@@ -1,3 +1,8 @@
+#include <vector>
+#include <algorithm>
+
+using namespace std;
+
 class Solution {
 
   int DFS(int V, vector<int>adj[],
@@ -45,3 +50,26 @@ class Solution {
     return res;
   }
 };
+
+#include ".inc/check.h"
+
+void add_edge(vector<vector<int>>& adj, int u, int v) {
+  adj[u].push_back(v);
+  adj[v].push_back(u);
+}
+
+void run_test(string name, int V, vector<pair<int, int>> edges, vector<int> correct) {
+  vector<vector<int>> adj(V);
+  for (auto [u, v]: edges) add_edge(adj, u, v);
+
+  Solution s;
+  auto result = s.articulationPoints(V, adj.data());
+  check_result(name, result, correct);
+}
+
+int main() {
+  run_test("line", 3, {{0, 1}, {1, 2}}, {1});
+  run_test("star", 4, {{0, 1}, {0, 2}, {0, 3}}, {0});
+  run_test("cycle", 3, {{0, 1}, {1, 2}, {2, 0}}, {});
+  return 0;
+}

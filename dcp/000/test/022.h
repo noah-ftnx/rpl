@@ -14,7 +14,7 @@ void test(vector<string> dict, string input, vector<vector<string>> correct) {
 
   bool wrong = correct !=res;
   _wrong=wrong;
-  cout << (wrong? "[FAIL]": "[PASS]") << endl << endl;
+  cout << (wrong ? "[FAIL] " : "[PASS] ") << endl << endl;
 }
 
 void test1() {

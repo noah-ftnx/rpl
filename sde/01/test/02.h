@@ -19,7 +19,7 @@ void test(fptr function, int n, vector<vector<int>> correct) {
     cout << endl;
   }
 
-  cout  << "Input: " << n << setw(5) << (wrong? " [FAIL]": " [PASS]") << endl << endl;
+  cout  << (wrong ? "[FAIL] " : "[PASS] ") << "Input: "  << n  << endl << endl;
 }
 
 void print_report() {

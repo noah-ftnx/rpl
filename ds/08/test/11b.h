@@ -30,7 +30,7 @@ Tree* input2() {
 void test(Tree* tree, int correct) {
   Node* node = tree->deepest_node();
   int res = node!=nullptr? node->data:-9999;
-  cout << "deepest node: " << to_string(res) << (res!=correct? " [FAIL]":"") << endl;
+  cout << (res!=correct ? "[FAIL] " : "[PASS] ") << "deepest node: "  << to_string(res)  << endl;
 }
 
 void run_tests() {

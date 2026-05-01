@@ -1,3 +1,5 @@
+#include <vector>
+#include <map>
 class Solution {
  public:
 

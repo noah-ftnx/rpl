@@ -8,8 +8,8 @@ void test(vector<int> input, int correct) {
   int result = largest_product3_slower(input);
   bool wrong = result!=correct;
   _wrong|=wrong;
-  cout << "Largest product: " << result
-       << (wrong? " [FAIL]": "") << endl;
+  cout << (wrong ? "[FAIL] " : "[PASS] ") << "Largest product: "  << result
+        << endl;
 }
 
 void run_tests() {

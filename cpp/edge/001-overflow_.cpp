@@ -24,5 +24,5 @@ void negativeInUnsigned() {
 }
 
 int main () {
-  sizetCasting();
+  negativeInUnsigned();
 }

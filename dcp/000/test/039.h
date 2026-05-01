@@ -34,7 +34,7 @@ void run_tests() {
   vector<vector<vector<bool>>> result;
   GOL(live_cells, 2, result);
 
-  cout << "\n\n" << (result!=correct? "[FAIL].":"[PASS]") << endl;
+  cout << (result!=correct ? "[FAIL] " : "[PASS] ") << "\n\n"  << endl;
 }
 
 

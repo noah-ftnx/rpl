@@ -13,17 +13,18 @@ void test(fptr function, vector<int> vec, vector<int> correct) {
   string s;
 
   for (auto v: vec) s+=to_string(v) + " ";
-  cout << setw(20) << s << "   | Res: ";
-
   function(vec);
   bool wrong = correct!=vec;
   _wrong|=wrong;
+
+  cout << (wrong ? "[FAIL] " : "[PASS] ");
+  cout << setw(20) << s << "   | Res: ";
 
   s="";
   for (auto v: vec) s+=to_string(v) + " ";
   cout << setw(20) << s;
 
-  cout  << ": " << setw(5) << (wrong? " [FAIL]": " [PASS]") << endl;
+  cout << ": "  << endl;
 }
 
 void print_report() {

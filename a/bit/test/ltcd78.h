@@ -25,7 +25,7 @@ void run_tests() {
     cout << "},\n";
   }
 
-  cout << endl << (powerset != correct? "Wrong":"[PASS]") << " result\n";
+  cout << endl << (powerset != correct ? "[FAIL] " : "[PASS] ") << " result\n";
 }
 
 #endif  // RPL_A_BIT_TEST_LTCD78_BASE_H_

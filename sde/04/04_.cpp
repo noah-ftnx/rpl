@@ -1,3 +1,10 @@
+#include <vector>
+#include <unordered_map>
+#include <map>
+#include <algorithm>
+
+using namespace std;
+
 int maxLenBF(vector<int>&A, int n) {
   int mx {};
   for (int i=0; i<n; i++) {

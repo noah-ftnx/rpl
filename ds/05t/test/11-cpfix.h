@@ -20,7 +20,7 @@ string Tree::to_string() { return _to_string(root, root); }
 void check(string postfix, string result) {
   auto tree = Tree(postfix);
   string prt = tree.to_string();
-  cout << postfix << ": '" << prt << "' " << (prt != result? " [FAIL]":"") << endl;
+  cout << (prt != result ? "[FAIL] " : "[PASS] ") << postfix  << ": '" << prt << "' "  << endl;
 }
 
 void run_tests() {

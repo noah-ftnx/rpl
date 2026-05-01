@@ -1,3 +1,8 @@
+#include <vector>
+#include <algorithm>
+
+using namespace std;
+
 struct Node {
   Node *child[2];
   Node() {

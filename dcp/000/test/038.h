@@ -13,8 +13,8 @@ vector<int> _correct_results {1, 1, 0, 0, 2, 10, 4, 40, 92, 352,  724 }; // 2680
 void test(fptr function, int N, int correct) {
   int solutions = function(N);
 
-  cout << N << " Queens. Solutions: " << solutions
-      << (solutions != correct ? " [FAIL]": "") << endl << flush;
+  cout << (solutions != correct ? "[FAIL] " : "[PASS] ") << N  << " Queens. Solutions: " << solutions
+       << endl << flush;
 }
 
 

@@ -1,3 +1,10 @@
+#include <vector>
+#include <queue>
+#include <algorithm>
+#include <functional>
+
+using namespace std;
+
 class MedianFinder {
  public:
   vector<int> nums;

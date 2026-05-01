@@ -10,13 +10,13 @@ using fptr = decltype(prototype);
 void test(fptr function, vector<vector<int>> vec, vector<vector<int>> correct) {
 
   auto res=function(vec);
+  bool wrong = correct!=res;
+  _wrong|=wrong;
+  cout << (wrong ? "[FAIL] " : "[PASS] ");
   cout << setw(40) << to_string(vec) << " -> "; // BEF
   cout << setw(40) << to_string(res) << " "; // AFT
 
-  bool wrong = correct!=res;
-  _wrong|=wrong;
-
-  cout << ":\t " << (wrong? " [FAIL]": " [PASS]") << endl;
+  cout << ":\t "  << endl;
 }
 
 

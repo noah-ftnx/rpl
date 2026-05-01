@@ -1,5 +1,6 @@
 // TREE: PERFECT
 // INCLUDES
+#include <cassert>
 #include <string>
 #include <queue>
 #include <sstream>

@@ -1,3 +1,9 @@
+#include <vector>
+#include <set>
+#include <cstddef>
+
+using namespace std;
+
 class SolutionMorris {
  public:
   TreeNode* getRightmostNode(TreeNode* top) {

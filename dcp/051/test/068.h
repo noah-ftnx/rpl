@@ -7,8 +7,8 @@ void test(vector<pair<int, int>> bishops, int M, int correct) {
   int result = bishop_attacks(bishops, M);
   bool wrong = result!=correct;
   _wrong|=wrong;
-  cout << "attacks: " << result
-       << (wrong? " [FAIL]": "") << endl;
+  cout << (wrong ? "[FAIL] " : "[PASS] ") << "attacks: "  << result
+        << endl;
 }
 
 void run_tests() {

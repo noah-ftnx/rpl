@@ -16,10 +16,10 @@ void test(fptr function, double  x, int y) {
   bool wrong = (abs(res-correct)>=1);
   _wrong|=wrong;
 
-   cout << setw(13) << x << " "
+   cout << (wrong ? "[FAIL] " : "[PASS] ") << setw(13)  << x << " "
         << setw(13) << y <<  ": "
        << setw(15) << res << " : C: "
-        << (wrong? " [FAIL]": " [PASS]") << endl;
+         << endl;
 
 }
 

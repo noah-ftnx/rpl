@@ -1,3 +1,10 @@
+#include <vector>
+#include <utility>
+#include <queue>
+#include <set>
+
+using namespace std;
+
 class SolutionDFS {
   void DFS(vector<vector<char>>& grid, int i, int j, int N, int M) {
     grid[i][j]='2'; // mark as visited

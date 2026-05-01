@@ -27,8 +27,8 @@ List* input1() {
 void test(List* l, int k, string correct) {
   delete_kth(l, k);
   auto result = list_to_string(l);
-  cout << "k=" << k << ": " << result
-       << (result!=correct? " [FAIL]":"") << endl;
+  cout << (result!=correct ? "[FAIL] " : "[PASS] ") << "k="  << k << ": " << result
+        << endl;
 }
 
 void run_tests() {

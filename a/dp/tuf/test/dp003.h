@@ -13,10 +13,11 @@ void test(fptr function, int in1, vector<int> in2, int correct) {
   auto result = function(in1, in2);
   bool wrong = result !=correct;
   _wrong|=wrong;
+  cout << (wrong ? "[FAIL] " : "[PASS] ");
   cout << setw(3) << in1 << ": ";
   string s1;
   for (int i: in2) s1+= to_string(i) + " ";
-  cout << setw(20) << s1 << " Cost: " << setw(2) << result << (wrong? " [FAIL]":"") << endl;
+  cout << setw(20)  << s1 << " Cost: " << setw(2) << result  << endl;
 }
 
 void run_tests(string msg, fptr function) {
@@ -30,8 +31,8 @@ void run_tests(string msg, fptr function) {
 }
 
 void print_errors() {
-  if (_wrong) cout << "\n[FAIL]\n";
-  else cout << "\n[PASS]: all results.\n";
+  if (_wrong) cout << "[FAIL]\n";
+  else cout << "[PASS]: all results.\n";
 }
 
 

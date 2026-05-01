@@ -33,10 +33,11 @@ void run_tests() {
 
   string tmp="";
   for (auto w: result) {
+  cout << (tmp!=correct ? "[FAIL] " : "[PASS] ");
     cout << w  << " ";
     tmp+=w + " ";
   }
-  cout << "| result." << (tmp!=correct? " [FAIL]":"") << endl;
+  cout << "| result."  << endl;
 
 
 }

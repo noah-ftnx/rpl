@@ -48,9 +48,10 @@ void test(Graph* graph, int src, vector<int> correct) {
   auto result = graph->BellmanFord(src);
   cout << "NODE: ";
   for (int i=0; i<result.size(); i++) cout << setw(3) <<  i << " "; cout << endl;
+  cout << (correct!=result ? "[FAIL] " : "[PASS] ");
   cout << "COST: ";
   for (auto cost: result) cout << setw(3) << cost << " ";
-  cout << (correct!=result? " [FAIL]": "[PASS]") << endl;
+  cout << endl;
 
 }
 

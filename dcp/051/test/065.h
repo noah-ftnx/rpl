@@ -8,7 +8,7 @@ void test(vector<vector<int>> input, string correct) {
   result.pop_back();
   bool wrong = result!=correct;
   _wrong|=wrong;
-  cout << "Spiral: " << result << ". " << (wrong? " [FAIL]": "[PASS]") << endl;
+  cout << (wrong ? "[FAIL] " : "[PASS] ") << "Spiral: "  << result << ". "  << endl;
 }
 
 void run_tests() {

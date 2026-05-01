@@ -1,3 +1,9 @@
+#include <vector>
+#include <unordered_map>
+#include <map>
+
+using namespace std;
+
 vector<int> twoSum(vector<int>& nums, int target) {
   unordered_map<int, int> mp;
 

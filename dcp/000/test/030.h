@@ -8,14 +8,15 @@ bool _wrong {};
 
 void test(vector<int> input, int correct) {
   int result = capacity(input);
+  bool wrong = result!=correct;
+  _wrong|=wrong;
 
+  cout << (wrong ? "[FAIL] " : "[PASS] ");
   cout << "input:";
   string str;
   for (auto i: input)  str+= " " + to_string(i);
   cout << setw(20) << str << ": capacity: " << setw(2) << result;
-  bool wrong = result!=correct;
-  _wrong|=wrong;
-  cout << (wrong? " [FAIL]": " [PASS]") << endl;
+  cout << endl;
 }
 
 void run_tests() {
@@ -49,7 +50,7 @@ void run_tests() {
 
   // test({}, 1);
 
-  if (_wrong) cout << "\n[FAIL]\n";
+  if (_wrong) cout << "[FAIL]\n";
 }
 
 #endif  // RPL_DCP_TEST_030_H_

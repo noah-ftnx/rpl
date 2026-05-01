@@ -8,9 +8,10 @@ void test(string input, int correct) {
   int result = count_anagram_reorderings(input);
   string label = input.empty() ? "\"\"" : input;
 
-  cout << left << setw(8) << (label + ":")
+  cout << (result == correct ? "[PASS] " : "[FAIL] ")
+       << left << setw(8) << (label + ":")
        << setw(4) << result
-       << (result == correct ? " [PASS]" : " ([FAIL] Expected: " + to_string(correct) + ")")
+       << (result == correct ? "" : " Expected: " + to_string(correct))
        << endl;
 }
 

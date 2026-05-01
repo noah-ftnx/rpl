@@ -1,7 +1,8 @@
 #ifndef INC_070__CPP_TO_STRING_SET_H
 #define INC_070__CPP_TO_STRING_SET_H
 
-#if __has_include ("<set>")
+#if __has_include(<set>)
+#include <set>
 template <class T>
 string to_string(multiset<T> &mm) {
     stringstream ss;
@@ -18,7 +19,8 @@ string to_string(multiset<T> &mm) {
 
 
 
-#if __has_include ("<unordered_set>")
+#if __has_include(<unordered_set>)
+#include <unordered_set>
 template <class T>
 string to_string(unordered_multiset<T> &mm) {
     stringstream ss;
@@ -34,7 +36,8 @@ string to_string(unordered_multiset<T> &mm) {
 #endif
 
 
-#if __has_include ("<map>")
+#if __has_include(<map>)
+#include <map>
 template <class T, class X>
 string to_string(multimap<T, X> &mm) {
     stringstream ss;
@@ -50,7 +53,8 @@ string to_string(multimap<T, X> &mm) {
 #endif
 
 
-#if __has_include ("<unordered_map>")
+#if __has_include(<unordered_map>)
+#include <unordered_map>
 template <class T, class X>
 string to_string(unordered_multimap<T, X> &mm) {
     stringstream ss;

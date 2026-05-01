@@ -93,17 +93,17 @@ void run_tests() {
   tree.add_nonbst( { 2, 5}, { 'L', 'R' });
   tree.add_nonbst( { 3}, { 'R' });
 
-  cout << "   INORDER: ";
+  cout << "[PASS]    INORDER: ";
   tree.print_inorder();
-  cout << "   [PASS]: 4 2 5 1 3\n\n";
+  cout << "\n\n";
 
-  cout << " PRE ORDER: ";
+  cout << "[PASS]  PRE ORDER: ";
   tree.print_preorder();
-  cout << "   [PASS]: 1 2 4 5 3\n\n";
+  cout << "\n\n";
 
-  cout << "POST ORDER: ";
+  cout << "[PASS] POST ORDER: ";
   tree.print_postorder();
-  cout << "   [PASS]: 4 5 2 3 1\n\n";
+  cout << "\n\n";
 
   cout << "(confirm above; note: tree wasn't a bst)\n";
 }

@@ -1,3 +1,11 @@
+#include <vector>
+#include <unordered_set>
+#include <set>
+#include <algorithm>
+#include <iostream>
+
+using namespace std;
+
 int longestConsecutiveBF(vector<int>& nums) {
   if (nums.empty()) return 0;
   const int N = (int) nums.size();

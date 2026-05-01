@@ -20,7 +20,7 @@ void test(int n, vector<int> steps, vector<vector<int>> correct) {
   bool wrong = correct != res;
   _wrong|=wrong;
 
-  cout << (wrong? "[FAIL]":"[PASS]") << endl << endl;
+  cout << (wrong ? "[FAIL] " : "[PASS] ") << endl << endl;
 
   // << ssteps << ": ways: " <<  res << (wrong? " [FAIL]":"") << endl;
 }
@@ -46,7 +46,7 @@ void run_tests() {
   test(3, {1,2,3}, {{1,1,1}, {1,2}, {3}});
   test(4, {2,4}, {{2,2}, {4}});
 
-  if (_wrong) cout << "\n[FAIL]\n";
+  if (_wrong) cout << "[FAIL]\n";
   cout << endl;
 }
 

@@ -16,9 +16,10 @@ void test(fptr function, vector<int> vec, int correct) {
   _wrong|=wrong;
 
   for (auto v: vec) s+=to_string(v) + " ";
+  cout << (wrong ? "[FAIL] " : "[PASS] ");
   cout << setw(40) << s;
 
-  cout  << ": " << setw(5) << (res==INT_MIN? "<nan>":to_string(res)) << setw(5) << (wrong? " [FAIL]": " [PASS]") << endl;
+  cout << ": "  << setw(5) << (res==INT_MIN? "<nan>":to_string(res))  << endl;
 }
 
 void print_report() {

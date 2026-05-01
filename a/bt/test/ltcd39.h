@@ -21,7 +21,7 @@ void test(vector<int> candidates, int target, vector<vector<int>> correct) {
   bool wrong = result!=correct;
   _wrong|=wrong;
 
-  cout << (wrong? "[FAIL]" : "[PASS]") << endl << endl;
+  cout << (wrong ? "[FAIL] " : "[PASS] ") << endl << endl;
 }
 
 void run_tests() {
@@ -31,7 +31,7 @@ void run_tests() {
   test({}, 0, {{}});
 
   if (_wrong) {
-    cout << "\n[FAIL]\n";
+    cout << "[FAIL]\n";
   }
 }
 

@@ -1,6 +1,9 @@
 #include <vector>
 #include <deque
 #include <climits>
+#include <deque>
+#include <algorithm>
+#include <climits>
 using namespace std;
 
 vector<int> maxMinWindow(vector<int> a, int k) {

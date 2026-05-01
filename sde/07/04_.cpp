@@ -1,3 +1,8 @@
+#include <vector>
+#include <algorithm>
+
+using namespace std;
+
 int trapBF(vector<int>& height) {
   const int N = height.size();
   if (N<=2) return 0;

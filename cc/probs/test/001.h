@@ -3,9 +3,12 @@
 void test(vector<char> input, int n, int correct) {
     const string msg = "N=" + to_string(n) + " ";
     auto result = solve(input, n);
+    bool wrong = result != correct;
 
-    cout << msg;
-    check_result(input, result, correct);
+    cout << (wrong ? "[FAIL] " : "[PASS] ");
+    cout << msg << to_string(input) << ":\t" << to_string(result);
+    if (wrong) cout << " Expected: " << correct;
+    cout << endl;
 }
 
 vector<char> to_vector(string s) {

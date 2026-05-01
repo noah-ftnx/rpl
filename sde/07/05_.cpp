@@ -1,3 +1,7 @@
+#include <vector>
+
+using namespace std;
+
 int removeDuplicates(vector<int>& nums) {
   int wr=1;
   const int N = (int) nums.size();

@@ -12,8 +12,7 @@ void test(fptr function, string s, int correct) {
   int result = function(s);
   bool wrong = result !=correct;
   _wrong|=wrong;
-  cout << setw(10) << s << ": additions: "  << result <<
-      (wrong? " [FAIL]":"") << endl;
+  cout << (wrong ? "[FAIL] " : "[PASS] ") << setw(10)  << s << ": additions: "  << result  << endl;
 }
 
 void run_tests(string msg, fptr function) {
@@ -30,7 +29,7 @@ void run_tests(string msg, fptr function) {
 }
 
 void print_errors() {
-  if (_wrong) cout << "\n[FAIL]\n";
+  if (_wrong) cout << "[FAIL]\n";
 }
 
 #endif  // RPL_A_DP_TEST_G4G_DP28_H_

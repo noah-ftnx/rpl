@@ -9,11 +9,12 @@ bool _wrong {};
 void test(string input, vector<string> correct) {
   auto res = substrings(input);
 
+  cout << (res == correct ? "[PASS] " : "[FAIL] ");
   cout << setw(3) << input << ": ";
 
   for (auto ss: res) cout << ss << " ";
 
-  cout << (res == correct? " [PASS]":" [FAIL]") << endl;
+  cout << endl;
 }
 
 void run_tests() {

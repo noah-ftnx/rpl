@@ -1,3 +1,11 @@
+#include <vector>
+#include <queue>
+#include <set>
+#include <algorithm>
+#include <climits>
+
+using namespace std;
+
 class Solution {
  private:
   void findLimits(Node *node, int idx, int &limitL, int &limitR) {

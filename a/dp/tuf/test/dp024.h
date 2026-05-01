@@ -16,10 +16,11 @@ void test(fptr function, vector<int> price, int rodLen, int correct) {
   string s;
   for (int a: price) s+=to_string(a) + " ";
   if (!s.empty()) s.pop_back(); else s="{}";
+  cout << (wrong ? "[FAIL] " : "[PASS] ");
   cout << setw(15) << s;
 
   cout << ":\t Rod len: " << setw(2) << rodLen << " Profit: ";
-  cout << setw(2) << result << " " << setw(10) << (wrong? "[FAIL]":"[PASS]") << endl;
+  cout << setw(2)  << result << endl;
 }
 
 void run_tests(string msg, fptr function) {
@@ -36,8 +37,8 @@ void run_tests(string msg, fptr function) {
 }
 
 void print_report() {
-  if (_wrong) cout << "\n[FAIL]\n";
-  else cout << "\n[PASS]: all results.\n";
+  if (_wrong) cout << "[FAIL]\n";
+  else cout << "[PASS]: all results.\n";
 }
 
 #endif  // __H__

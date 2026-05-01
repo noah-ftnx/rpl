@@ -10,8 +10,7 @@ void test(vector<int> input, int num, int correct) {
   int result = find_index(input, num);
   bool wrong = (result != correct);
   _wrong|=wrong;
-  cout << "index: " << result <<
-      (wrong? " [FAIL]": "") << endl;
+  cout << (wrong ? "[FAIL] " : "[PASS] ") << "index: "  << result  << endl;
 
 }
 
@@ -32,7 +31,7 @@ void run_tests() {
   test({1}, 2, -1);
   test({1}, 1, 0);
 
-  cout << endl << (_wrong? "[FAIL]":"[PASS]") << endl;
+  cout << endl << (_wrong ? "[FAIL] " : "[PASS] ") << endl;
 }
 
 #endif  // RPL_DCP_051_TEST_058_H_

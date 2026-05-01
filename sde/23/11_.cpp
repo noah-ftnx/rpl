@@ -1,3 +1,8 @@
+#include <vector>
+#include <queue>
+
+using namespace std;
+
 class SolutionBFS {
   enum Color { unvisited, red, blue };
 

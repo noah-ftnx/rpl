@@ -112,14 +112,14 @@ void run_tests() {
   tree.add( { 2, 5, 10 }, { 'L', 'R', 'L' });
   tree.add( { 2, 5, 11 }, { 'L', 'R', 'R' });
   string ss1=tree.__get_bfs();
-  cout << ss1  << (ss1.compare(correct_bfs[0])!=0?" [FAIL]": " [PASS]")<< endl;
+  cout << (ss1.compare(correct_bfs[0])!=0?"[FAIL] ": "[PASS] ") << ss1 << endl;
 
   tree.add( { 3, 6, 12 }, { 'R', 'L', 'L' });
   tree.add( { 3, 6, 13 }, { 'R', 'L', 'R' });
   tree.add( { 3, 7, 14 }, { 'R', 'R', 'L' });
   tree.add( { 3, 7, 15 }, { 'R', 'R', 'R' });
   string ss2=tree.__get_bfs();
-  cout << ss2  << (ss2.compare(correct_bfs[1])!=0?" [FAIL]": " [PASS]")<< endl;
+  cout << (ss2.compare(correct_bfs[1])!=0?"[FAIL] ": "[PASS] ") << ss2 << endl;
 }
 
 

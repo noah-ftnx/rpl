@@ -1,3 +1,8 @@
+#include <string>
+#include <utility>
+
+using namespace std;
+
 class Solution {
   pair<int, int> expand(const string &s, int l, int r) {
     const int N = s.size();

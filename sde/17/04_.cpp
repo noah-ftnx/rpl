@@ -1,3 +1,8 @@
+#include <vector>
+#include <set>
+
+using namespace std;
+
 class SolutionMorris {
 public:
 

@@ -5,8 +5,8 @@
 
 void test(Trie& trie, string word, int mutations, bool correct) {
   bool result = trie.exists_with_mutations(word, mutations);
-  cout << "'"<< word << "' with " << mutations << " mutations: "
-       << boolalpha << result  << (result!=correct? " [FAIL]":"") << endl;
+  cout << (result!=correct ? "[FAIL] " : "[PASS] ") << "'" << word << "' with " << mutations << " mutations: "
+       << boolalpha << result   << endl;
 }
 
 void run_tests() {

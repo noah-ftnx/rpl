@@ -15,8 +15,7 @@ void test(fptr function, vector<int> input, bool correct) {
   string s;
   for (auto i: input) s+=to_string(i) + " ";
   if (!s.empty()) s.pop_back();
-  cout << setw(10) << s << ": " << boolalpha << result <<
-      (wrong? " [FAIL]":"") << endl;
+  cout << (wrong ? "[FAIL] " : "[PASS] ") << setw(10)  << s << ": " << boolalpha << result  << endl;
 }
 
 void run_tests(string msg, fptr function) {
@@ -32,7 +31,7 @@ void run_tests(string msg, fptr function) {
 }
 
 void print_errors() {
-  cout << endl <<  (_wrong?"[FAIL]": "[PASS]") << endl;
+  cout << endl << (_wrong ? "[FAIL] " : "[PASS] ") << endl;
 }
 
 #endif  // RPL_DCP_051_TEST_060_H_

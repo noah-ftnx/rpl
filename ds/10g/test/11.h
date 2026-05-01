@@ -14,7 +14,7 @@ void test(fptr function, const vector<vector<int>> matrix, int correct) {
   bool wrong = result!=correct;
   _wrong|=wrong;
 
-  cout << "Cost: " << result <<  (wrong? " [FAIL]": " [PASS]") << endl;
+  cout << (wrong ? "[FAIL] " : "[PASS] ") << "Cost: "  << result  << endl;
 }
 
 // Driver code

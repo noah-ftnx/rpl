@@ -1,3 +1,8 @@
+#include <vector>
+#include <algorithm>
+
+using namespace std;
+
 vector<int> JobScheduling(Job arr[], int n) {
   sort(arr, arr+n, [](Job a, Job b) {
     return a.profit > b.profit;

@@ -12,17 +12,18 @@ using fptr = decltype(prototype);
 void test(fptr function, vector<int> vec, vector<int> correct) {
   string s;
   for (auto v: vec) s+=to_string(v) + " ";
-  cout << setw(10) << s << " -> ";
-
   function(vec);
   bool wrong = correct!=vec;
   _wrong|=wrong;
+
+  cout << (wrong ? "[FAIL] " : "[PASS] ");
+  cout << setw(10) << s << " -> ";
 
   s.clear();
   for (auto v: vec) s+=to_string(v) + " ";
   cout << setw(10) << s;
 
-  cout  << ": " << setw(5) << (wrong? " [FAIL]": " [PASS]") << endl;
+  cout << ": "  << endl;
 }
 
 void print_report() {

@@ -1,3 +1,7 @@
+#include <vector>
+
+using namespace std;
+
 class Solution {
 
     // cycle in a particular component

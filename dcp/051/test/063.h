@@ -10,12 +10,12 @@ void test(vector<vector<char>> input, string word, bool correct) {
   bool result = word_exists(input, word);
   bool wrong = result!=correct;
   _wrong|=wrong;
-  cout << word << " exists: " << boolalpha << result
-       << (wrong? " [FAIL]": "") << endl;
+  cout << (wrong ? "[FAIL] " : "[PASS] ") << word  << " exists: " << boolalpha << result
+        << endl;
 }
 
 void print_report() {
-  cout << endl <<  (_wrong? "[FAIL]" : "[PASS]") << endl;
+  cout << endl << (_wrong ? "[FAIL] " : "[PASS] ") << endl;
 }
 
 void run_tests() {

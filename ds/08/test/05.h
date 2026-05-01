@@ -4,9 +4,9 @@
 #include <iostream>
 void test(Trie& trie, string suffix, bool correct) {
   bool result = trie.suffix_exists(suffix);
-  cout << "suffix: " << suffix
+  cout << (result!=correct ? "[FAIL] " : "[PASS] ") << "suffix: "  << suffix
        << (result? ": exists": "")
-       << (result!=correct?" [FAIL]":"") << endl;
+        << endl;
 }
 
 void run_tests() {

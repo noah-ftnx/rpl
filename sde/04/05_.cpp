@@ -1,3 +1,9 @@
+#include <vector>
+#include <unordered_map>
+#include <map>
+
+using namespace std;
+
 int subarraysXorBF(vector<int> &arr, int x) {
   const int N = (int) arr.size();
   int cnt=0;

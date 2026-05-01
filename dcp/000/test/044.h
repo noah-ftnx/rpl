@@ -7,10 +7,11 @@
 void test(vector<int> input, int correct) {
   int result = count_inversions(input);
 
+  cout << (result!=correct ? "[FAIL] " : "[PASS] ");
   for (auto i: input) cout << i << " ";
 
-  cout << " inversions: " << result
-       << (result!=correct? " [FAIL]": "") << endl;
+  cout << " inversions: "  << result
+        << endl;
 }
 
 void run_tests() {

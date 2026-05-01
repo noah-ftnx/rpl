@@ -11,12 +11,12 @@ void test(fptr function, vector<int> v1, vector<int> v2, vector<int> correct) {
   int v1size=v1.size();
   v1.resize(v1size+v2.size());
   function(v1, v1size, v2, v2.size());
-  cout << setw(40) << to_string(v1) << " ";
-
   bool wrong = v1!=correct;
   _wrong|=wrong;
+  cout << (wrong ? "[FAIL] " : "[PASS] ");
+  cout << setw(40) << to_string(v1) << " ";
 
-  cout << ":\t " << (wrong? " [FAIL]": " [PASS]") << endl;
+  cout << ":\t "  << endl;
 }
 
 

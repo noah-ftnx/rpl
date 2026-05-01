@@ -9,9 +9,10 @@ bool _wrong {};
 void test(vector<int> input, int correct) {
   int result = max_profit(input);
 
+  cout << (result!=correct ? "[FAIL] " : "[PASS] ");
   for (auto i: input) cout << " " << i;
-  cout << ": " << result
-       << (result!=correct? " [FAIL]":"") << endl;
+  cout << ": "  << result
+        << endl;
 }
 
 void run_tests() {

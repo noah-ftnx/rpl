@@ -1,3 +1,9 @@
+#include <vector>
+#include <utility>
+#include <queue>
+
+using namespace std;
+
 class Solution {
 
     bool cycleBFS(vector<int> adj[],
@@ -17,6 +23,7 @@ class Solution {
                 }
             }
         }
+        return false;
     }
 
 public:

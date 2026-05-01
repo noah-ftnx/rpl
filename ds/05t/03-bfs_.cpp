@@ -52,4 +52,4 @@ void run_tests_trv() {
   cout << "10 5 25 3 7 20 30 <- expected output\n";
 }
 
-int main () { run_tests(); }
+int main () { run_tests_trv(); }

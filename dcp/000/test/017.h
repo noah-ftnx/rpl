@@ -16,7 +16,7 @@ void test (string path, int correct) {
   int res = longest_path(path);
   bool wrong = (res != correct);
   _wrong|=wrong;
-  cout << "longest path: " << res << (wrong? " [FAIL]":"") << endl << endl;
+  cout << (wrong ? "[FAIL] " : "[PASS] ") << "longest path: "  << res  << endl << endl;
 }
 
 void run_tests() {

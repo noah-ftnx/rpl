@@ -1,3 +1,8 @@
+#include <vector>
+#include <algorithm>
+
+using namespace std;
+
 class Solution {
  public:
 
@@ -137,3 +142,6 @@ int coinChangeOPT(vector<int>& coins, int amount) {
 
   return cur[amount];
 }
+
+#include "test/322.h"
+int main() { run_tests(); return 0; }

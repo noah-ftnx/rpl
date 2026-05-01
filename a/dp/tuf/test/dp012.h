@@ -12,7 +12,7 @@ void test(fptr function, vector<vector<int>> in1, int correct) {
   int result = function(in1);
   bool wrong = result != correct;
   _wrong|=wrong;
-  cout << "max sum: " << result << (wrong? " [FAIL]": " [PASS]") << endl;
+  cout << (wrong ? "[FAIL] " : "[PASS] ") << "max sum: "  << result  << endl;
 }
 
 
@@ -42,8 +42,8 @@ void run_tests(string msg, fptr function) {
 }
 
 void print_errors() {
-  if (_wrong) cout << "\n[FAIL]\n";
-  else cout << "\n[PASS] (all results).\n";
+  if (_wrong) cout << "[FAIL]\n";
+  else cout << "[PASS] (all results).\n";
 }
 
 #endif  // INC_070__CPP_A_DP_TUF_TEST_012_H_

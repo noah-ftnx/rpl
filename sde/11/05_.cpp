@@ -1,3 +1,9 @@
+#include <vector>
+#include <algorithm>
+#include <climits>
+
+using namespace std;
+
 double findMedianSortedArrays(vector<int>& nums1, vector<int>& nums2) {
   const int N = (int) nums1.size();
   const int M = (int) nums2.size();

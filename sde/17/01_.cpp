@@ -1,3 +1,4 @@
+#include <vector>
 class SolutionRecv {
  public:
   void inorder(TreeNode* node, vector<int>& traversal) {

@@ -1,3 +1,8 @@
+#include <vector>
+#include <algorithm>
+
+using namespace std;
+
 double fractionalKnapsack(int W, Item arr[], int n) {
 
   // sort according to the highest price per unit

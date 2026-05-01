@@ -1,3 +1,9 @@
+#include <vector>
+#include <string>
+#include <algorithm>
+
+using namespace std;
+
 bool isPalindrome(string s, int i, int j) {
   while (i<j) {
     if (s[i] != s[j]) return false;

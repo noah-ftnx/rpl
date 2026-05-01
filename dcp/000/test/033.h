@@ -9,8 +9,8 @@ void test(vector<int> stream, vector<double> correct) {
   for (int i=0; i<stream.size(); i++) {
     p.insert(stream[i]);
     double result = p.median();
-    cout << setw(3) << stream[i] << " -> " << setw(3) << result
-         << (result!=correct[i]? " [FAIL]": "") << endl;
+    cout << (result!=correct[i] ? "[FAIL] " : "[PASS] ") << setw(3)  << stream[i] << " -> " << setw(3) << result
+          << endl;
   }
 }
 

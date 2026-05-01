@@ -1,3 +1,5 @@
+#include <vector>
+#include <algorithm>
 class SolutionRecursive {
 public:
  void postorder(TreeNode* node, vector<int> &traversal) {

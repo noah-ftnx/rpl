@@ -15,12 +15,13 @@ void test(fptr function, vector<int> in1, vector<int> in2, int capacity, int cor
   string s;
   for (auto i: in1) s+=to_string(i) + " ";
   if (!s.empty()) s.pop_back(); else s="{}";
+  cout << (wrong ? "[FAIL] " : "[PASS] ");
   cout << setw(20) << s << ": ";
   s.clear();
   for (auto i: in2) s+=to_string(i) + " ";
   if (!s.empty()) s.pop_back(); else s="{}";
   cout << setw(20) << s << ": Weight: " << setw(3) << capacity;
-  cout << setw(6) << result << " " << setw(10) << (wrong? "[FAIL]":"[PASS]") << endl;
+  cout << setw(6)  << result << endl;
 }
 
 void run_tests(string msg, fptr function) {
@@ -37,8 +38,8 @@ void run_tests(string msg, fptr function) {
 }
 
 void print_report() {
-  if (_wrong) cout << "\n[FAIL]\n";
-  else cout << "\n[PASS]: all results.\n";
+  if (_wrong) cout << "[FAIL]\n";
+  else cout << "[PASS]: all results.\n";
 }
 
 #endif  // RPL_A_DP_TUF_TEST_DP19_H_

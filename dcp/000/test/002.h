@@ -22,8 +22,8 @@ void print_result(string msg, int input_id, const vector<int>& result) {
 
   string out = ss.str();
 
-  cout << msg << ":v" << input_id << ": " << out
-       << (out.compare(correct_output[input_id-1])!=0?" [FAIL]": "") << endl;
+  cout << (out.compare(correct_output[input_id-1])!=0 ? "[FAIL] " : "[PASS] ") << msg  << ":v" << input_id << ": " << out
+        << endl;
 }
 
 void run_tests() {

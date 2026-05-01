@@ -6,8 +6,7 @@
 void test(string input, string correct) {
   string result = encode(input);
 
-  cout << input << ": "<< result <<
-      (result!=correct? " [FAIL]":"") << endl;
+  cout << (result!=correct ? "[FAIL] " : "[PASS] ") << input  << ": "<< result  << endl;
 }
 
 void run_tests() {

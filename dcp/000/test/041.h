@@ -6,6 +6,7 @@
 void test(vector<pair<string, string>> flights, string starting, vector<string> correct) {
   auto itinerary = get_itinerary(flights, starting);
 
+  cout << (itinerary != correct ? "[FAIL] " : "[PASS] ");
   cout << "itinerary: ";
   if (itinerary.size()==0) { cout << "<empty> "; }
   else {
@@ -15,7 +16,7 @@ void test(vector<pair<string, string>> flights, string starting, vector<string> 
     itinerary.push_back(last_flight);
   }
 
-  cout << (itinerary != correct? " [FAIL]":"") << endl;
+  cout << endl;
 }
 
 void test1() {

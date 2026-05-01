@@ -5,7 +5,7 @@ int find_index(vector<int> input, int num) {
   if (input.empty())  return -1;
   const int N = (int) input.size();
 
-  int find_start = [&] () {
+  auto find_start = [&] () {
     int l=0, r=(int) input.size()-1;
     while(l < r) {
       int mid = (r+l)/2;

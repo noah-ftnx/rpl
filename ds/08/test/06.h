@@ -13,7 +13,7 @@ void test(string path, const vector<pair<string, bool>>& tests) {
   for (auto test: tests) {
     bool res = trie->has_path(test.first);
     error|=res!=test.second;
-    cout << "exists: " << test.first << (res?" yes": "  no") << (res!=test.second? " [FAIL]":"") << endl;
+    cout << (res!=test.second ? "[FAIL] " : "[PASS] ") << "exists: "  << test.first << (res?" yes": "  no")  << endl;
   }
 }
 

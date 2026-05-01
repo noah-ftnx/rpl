@@ -1,4 +1,12 @@
 
+#include <vector>
+#include <queue>
+#include <algorithm>
+#include <functional>
+#include <climits>
+
+using namespace std;
+
 int findKthLargestSTL(vector<int>& nums, int k) {
   if(k>nums.size() || k <=0) return INT_MIN;
 

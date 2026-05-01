@@ -17,13 +17,14 @@ void test(fptr function, vector<int> vec, int k, vector<int> correct) {
 
   stringstream ss;
   for (auto v: vec) ss << setw(2) << v << " ";
+  cout << (wrong ? "[FAIL] " : "[PASS] ");
   cout << setw(30) << ss.str();
 
   ss.str("");
   for (auto v: res) ss << setw(2) << v <<  " ";
   cout << "| " << setw(10) << ss.str();
 
-  cout  << ": " << setw(5) << (wrong? " [FAIL]": " [PASS]") << endl;
+  cout << ": "  << endl;
 }
 
 void print_report() {

@@ -15,8 +15,9 @@ void test(fptr function, vector<int> num, int x, int correct) {
   string s;
   for (auto i: num) s+=to_string(i) + " ";
   if (!s.empty()) s.pop_back(); else s="{}";
+  cout << (wrong ? "[FAIL] " : "[PASS] ");
   cout << setw(15) << s << ":\t Target: " << setw(2) << x << " Coins: ";
-  cout << setw(2) << result << " " << setw(10) << (wrong? "[FAIL]":"[PASS]") << endl;
+  cout << setw(2)  << result << endl;
 }
 
 void run_tests(string msg, fptr function) {
@@ -34,8 +35,8 @@ void run_tests(string msg, fptr function) {
 }
 
 void print_report() {
-  if (_wrong) cout << "\n[FAIL]\n";
-  else cout << "\n[PASS]: all results.\n";
+  if (_wrong) cout << "[FAIL]\n";
+  else cout << "[PASS]: all results.\n";
 }
 
 #endif  // RPL_A_DP_TUF_TEST_DP20_H_

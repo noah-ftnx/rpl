@@ -11,8 +11,9 @@ void test(vector<char>& input, vector<char> correct) {
   for (auto c: input) cout << c << " "; cout << endl;
   partition(input);
 
+  cout << (input!=correct ? "[FAIL] " : "[PASS] ");
   for (auto c: input) cout << c << " ";
-  cout << ": " << (input!=correct? " [FAIL]": "[PASS]") << endl;
+  cout << ": "  << endl;
 
 }
 

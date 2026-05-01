@@ -1,4 +1,10 @@
 
+#include <vector>
+#include <algorithm>
+#include <climits>
+
+using namespace std;
+
 vector<vector<int>> fourSumBF(vector<int>& nums, int target) {
   sort(nums.begin(), nums.end());
   const int N = nums.size();

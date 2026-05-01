@@ -1,16 +1,13 @@
+int solve(int N, int X) {
+  if (N <= 0 || X <= 0) return 0;
+  if (X > N * N) return 0;
 
-int print_all_subsequences(vector<int> input, int K) {
-  if (K <=0 || input <=0) return 0;
-  if (K > input * input) return 0;
-
-  int res=0;
-  for (int i=0; i< input; i++) {
-    if (K % (i+1) == 0) { // divisible
-      if (K / (i+1) <= input) res++;
-    }
+  int result=0;
+  for (int i=1; i<=N; i++) {
+    if (X % i == 0 && X / i <= N) result++;
   }
 
-  return res;
+  return result;
 }
 
 

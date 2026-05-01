@@ -1,5 +1,6 @@
 // { Driver Code Starts
-#include<bits/stdc++.h>
+#include <stack>
+#include <iostream>
 using namespace std;
 
 class MyStack

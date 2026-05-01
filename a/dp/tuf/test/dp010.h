@@ -18,41 +18,38 @@ void print_maze(vector<vector<int>> maze) {
 }
 
 bool _wrong=false;
-void test(fptr function, vector<vector<int>> maze, int correct) {
+void test(fptr function, string name, vector<vector<int>> maze, int correct) {
   int result = function(maze);
   bool wrong = result != correct;
   _wrong|=wrong;
-  cout << "ways: " << result << (wrong? " [FAIL]": " [PASS]") << endl;
+  cout << (wrong ? "[FAIL] " : "[PASS] ") << name << ": ways: "  << result  << endl;
 }
 
 void test1(fptr function) {
-  cout << "Maze 1: ";
   vector<vector<int>> maze {
       {2, 1, 9},
       {5, 9, 9},
       {1, 1, 1}
   };
-  test(function, maze, 10);
+  test(function, "Maze 1", maze, 10);
 }
 
 void test2(fptr function) {
-  cout << "Maze 2: ";
   vector<vector<int>> maze {
       {2, 10, 9},
       {5, 5, 9},
       {1, 3, 1}
   };
-  test(function, maze, 12);
+  test(function, "Maze 2", maze, 12);
 }
 
 
 void test3(fptr function) {
-  cout << "Maze 3: ";
   vector<vector<int>> maze {
       {2, 1, 9},
       {6, 1, 6},
   };
-  test(function, maze, 10);
+  test(function, "Maze 3", maze, 10);
 }
 
 
@@ -65,8 +62,8 @@ void run_tests(string msg, fptr function) {
 }
 
 void print_errors() {
-  if (_wrong) cout << "\n[FAIL]\n";
-  else cout << "\n[PASS] (all results).\n";
+  if (_wrong) cout << "[FAIL]\n";
+  else cout << "[PASS] (all results).\n";
 }
 
 #endif  // INC_070__CPP_A_DP_TUF_TEST_010_H_

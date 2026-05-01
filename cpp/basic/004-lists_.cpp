@@ -5,7 +5,7 @@ using namespace std;
 void demo()  {
   list<int> lst;
   forward_list<int> flst;
-  flst.rbegin();
+  (void)flst;
   lst.rbegin();
 
 }

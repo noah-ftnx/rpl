@@ -43,7 +43,7 @@ void test1() {
   str = lfu.to_string();
   wrong=str!="Size: 2: freq: 1-2:\n# 2: 12 \n# 1: 10 \n";
   str.pop_back();
-  cout << str << (wrong? "[FAIL]":"") << endl;
+  cout << (wrong ? "[FAIL] " : "[PASS] ") << str  << endl;
   _wrong|=wrong;
 
   _wrong|=check_intPrettyMin("lfu size", lfu.size(), 2);
@@ -54,21 +54,21 @@ void test1() {
   wrong=str!="Size: 3: freq: 1-2:\n# 2: 12 \n# 1: 7 10 \n";
   _wrong|=wrong;
   str.pop_back();
-  cout << str << (wrong? "[FAIL]":"") << endl;
+  cout << (wrong ? "[FAIL] " : "[PASS] ") << str  << endl;
   _wrong|=check_intPrettyMin("lfu size", lfu.size(), 3);
 
   cout << "\n-- Getting key:2 --\n";
   _wrong|=check_intPrettyMin("lfu: get 2", lfu.get(2), 12); // 2: MRU
   str = lfu.to_string();
   wrong=str!="Size: 3: freq: 1-3:\n# 3: 12 \n# 1: 7 10 \n";
-  cout << str << (wrong? "[FAIL]":"") << endl;
+  cout << (wrong ? "[FAIL] " : "[PASS] ") << str  << endl;
 
 
   cout << "\n-- Evicting key:3 val:10 --\n";
   lfu.set(15, 9); // evicts key:3
   str = lfu.to_string();
   wrong=str!="Size: 3: freq: 1-3:\n# 3: 12 \n# 1: 9 7 \n";
-  cout << str << (wrong? "[FAIL]":"") << endl;
+  cout << (wrong ? "[FAIL] " : "[PASS] ") << str  << endl;
 
 
   // cout << lfu.to_string() << endl; // TMP
@@ -77,13 +77,13 @@ void test1() {
   lfu.set(16, 10); // evicts 5
   str = lfu.to_string();
   wrong=str!="Size: 3: freq: 1-3:\n# 3: 12 \n# 1: 10 9 \n";
-  cout << str << (wrong? "[FAIL]":"") << endl;
+  cout << (wrong ? "[FAIL] " : "[PASS] ") << str  << endl;
 
   cout << "\n-- Get key:2 --\n";
   _wrong|=check_intPrettyMin("lfu: get 2", lfu.get(2), 12); // 2: MRU
   str = lfu.to_string();
   wrong=str!="Size: 3: freq: 1-4:\n# 4: 12 \n# 1: 10 9 \n";
-  cout << str << (wrong? "[FAIL]":"") << endl;
+  cout << (wrong ? "[FAIL] " : "[PASS] ") << str  << endl;
 
 
   cout << "\n-- Get key:3. (nan) --\n";
@@ -96,57 +96,57 @@ void test1() {
   lfu.set(20, 10); // evicts 15
   str = lfu.to_string();
   wrong=str!="Size: 3: freq: 1-4:\n# 4: 12 \n# 1: 10 10 \n";
-  cout << str << (wrong? "[FAIL]":"") << endl;
+  cout << (wrong ? "[FAIL] " : "[PASS] ") << str  << endl;
 
   cout << "\n-- Get key:15 --\n";
   _wrong|=check_intPrettyMin("lfu: get 15", lfu.get(9), INT_MIN);
   str = lfu.to_string();
   wrong=str!="Size: 3: freq: 1-4:\n# 4: 12 \n# 1: 10 10 \n";
-  cout << str << (wrong? "[FAIL]":"") << endl;
+  cout << (wrong ? "[FAIL] " : "[PASS] ") << str  << endl;
 
 
   cout << "\n-- Get key:2 --\n";
   _wrong|=check_intPrettyMin("lfu: get 2", lfu.get(2), 12); // 2: MRU
   str = lfu.to_string();
   wrong=str!="Size: 3: freq: 1-5:\n# 5: 12 \n# 1: 10 10 \n";
-  cout << str << (wrong? "[FAIL]":"") << endl;
+  cout << (wrong ? "[FAIL] " : "[PASS] ") << str  << endl;
 
   cout << "\n-- Get key:20 --\n";
   _wrong|=check_intPrettyMin("lfu: get 20", lfu.get(20), 10); // 2: MRU
   str = lfu.to_string();
   wrong=str!="Size: 3: freq: 1-5:\n# 2: 10 \n# 5: 12 \n# 1: 10 \n";
-  cout << str << (wrong? "[FAIL]":"") << endl;
+  cout << (wrong ? "[FAIL] " : "[PASS] ") << str  << endl;
 
 
   cout << "\n-- Get key:20 --\n";
   _wrong|=check_intPrettyMin("lfu: get 20", lfu.get(20), 10); // 2: MRU
   str = lfu.to_string();
   wrong=str!="Size: 3: freq: 1-5:\n# 3: 10 \n# 5: 12 \n# 1: 10 \n";
-  cout << str << (wrong? "[FAIL]":"") << endl;
+  cout << (wrong ? "[FAIL] " : "[PASS] ") << str  << endl;
 
   cout << "\n-- Get key:16 --\n";
   _wrong|=check_intPrettyMin("lfu: get 16", lfu.get(16), 10); // 2: MRU
   str = lfu.to_string();
   wrong=str!="Size: 3: freq: 2-5:\n# 2: 10 \n# 3: 10 \n# 5: 12 \n";
-  cout << str << (wrong? "[FAIL]":"") << endl;
+  cout << (wrong ? "[FAIL] " : "[PASS] ") << str  << endl;
 
   cout << "\n-- Evicting key:16 val:10 --\n";
   lfu.set(22, 42); // evicts 5
   str = lfu.to_string();
   wrong=str!="Size: 3: freq: 1-5:\n# 1: 42 \n# 3: 10 \n# 5: 12 \n";
-  cout << str << (wrong? "[FAIL]":"") << endl;
+  cout << (wrong ? "[FAIL] " : "[PASS] ") << str  << endl;
   if (true) return;
 
   cout << "\n-- Get key:20 --\n";
   _wrong|=check_intPrettyMin("lfu: get 16", lfu.get(16), 10); // 2: MRU
   str = lfu.to_string();
   wrong=str!="Size: 3: freq: 1-5:\n# 5: 12 \n# 1: 10 10 \n";
-  cout << str << (wrong? "[FAIL]":"") << endl;
+  cout << (wrong ? "[FAIL] " : "[PASS] ") << str  << endl;
 }
 
 void print_errors() {
-  if (_wrong) cout << "\n[FAIL]\n";
-  else cout << "\n[PASS]\n";
+  if (_wrong) cout << "[FAIL]\n";
+  else cout << "[PASS]\n";
 }
 
 void run_tests() {

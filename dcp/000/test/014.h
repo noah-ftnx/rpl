@@ -7,7 +7,7 @@ using namespace std;
 void test(int N) {
   double res = monte_carlo(N);
   bool wrong  = res - 3.14 > 1;
-  cout << setw(3) << N << ": pi:" << res << (wrong? " [FAIL]":"") << endl;
+  cout << (wrong ? "[FAIL] " : "[PASS] ") << setw(3)  << N << ": pi:" << res  << endl;
 }
 
 void run_tests() {

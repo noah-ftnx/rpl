@@ -18,10 +18,15 @@ void print_result_path(int src, int tgt, deque<int> path) {
       "0 1 2 8"
   };
 
-  cout << src << " -> " << tgt << ": ";
-  for (auto p: path) cout << p << " ";
-  cout << endl << "   cor: ";
-  cout << cresult[tgt] << endl;
+  string result;
+  for (auto p: path) {
+    if (!result.empty()) result += " ";
+    result += to_string(p);
+  }
+  bool wrong = result != cresult[tgt];
+  cout << (wrong ? "[FAIL] " : "[PASS] ") << src << " -> " << tgt << ": " << result;
+  if (wrong) cout << " Expected: " << cresult[tgt];
+  cout << endl;
 }
 
 void run_tests() {

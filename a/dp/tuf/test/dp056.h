@@ -24,7 +24,7 @@ void test(fptr function, vector<vector<int>> mat, int correct) {
   }
   cout << (s.empty()?"{{}}\n":s);
 
-  cout << "Rectangles: " << setw(15) << result << " " << setw(10) << (wrong? "[FAIL]":"[PASS]") << endl;
+  cout << (wrong ? "[FAIL] " : "[PASS] ") << "Rectangles: "  << setw(15) << result << endl;
 }
 
 void run_tests(string msg, fptr function) {
@@ -57,8 +57,8 @@ void run_tests(string msg, fptr function) {
 }
 
 void print_report() {
-  if (_wrong) cout << "\n[FAIL]\n";
-  else cout << "\n[PASS]: all results.\n";
+  if (_wrong) cout << "[FAIL]\n";
+  else cout << "[PASS]: all results.\n";
 }
 
 

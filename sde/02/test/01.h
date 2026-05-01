@@ -26,7 +26,7 @@ void test(fptr function, vector<vector<int>> vec, vector<vector<int>> correct) {
   bool wrong = correct!=vec;
   _wrong|=wrong;
 
-  cout << "Rotation: " << (wrong? " [FAIL]": " [PASS]") << endl << endl;
+  cout << (wrong ? "[FAIL] " : "[PASS] ") << "Rotation: "  << endl << endl;
 }
 
 void print_report() {

@@ -10,8 +10,8 @@ bool _wrong {};
 void test(Node* root, double correct) {
   double result = evaluate_tree(root);
 
-  cout << "Result: " << setw(12) << result << ": \t\t"
-       << (result!=correct? "[FAIL]": "[PASS]") << endl;
+  cout << (result!=correct ? "[FAIL] " : "[PASS] ") << "Result: "  << setw(12) << result << ": \t\t"
+        << endl;
 }
 
 //      *

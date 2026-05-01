@@ -11,9 +11,9 @@ void test(int N, int X, int correct) {
   bool wrong = result!=correct;
   _wrong|=wrong;
 
-  cout << "N:" << left << setw(3) << N << " X:" << setw(3) << X
+  cout << (wrong ? "[FAIL] " : "[PASS] ") << "N:"  << left << setw(3) << N << " X:" << setw(3) << X
        << " Result: " <<  setw(3) << result
-       << (wrong? " [FAIL]": "") << endl;
+        << endl;
 }
 
 void run_tests() {

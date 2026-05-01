@@ -8,8 +8,8 @@ void test(int N, int correct) {
   int result = perfect_nth_fast(N);
   bool wrong = result!=correct;
   _wrong|=wrong;
-  cout << "Num: " << setw(3) << N << ": " << setw(3) << result
-       << (wrong? " [FAIL]": "") << endl;
+  cout << (wrong ? "[FAIL] " : "[PASS] ") << "Num: "  << setw(3) << N << ": " << setw(3) << result
+        << endl;
 }
 
 void run_tests() {

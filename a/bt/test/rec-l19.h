@@ -4,33 +4,31 @@
 #include <iostream>
 
 bool _wrong=false;
-void test(vector<vector<int>> maze, vector<string> correct) {
+void test(string name, vector<vector<int>> maze, vector<string> correct) {
   auto result = findPath(maze);
   bool wrong = correct!=result;
   _wrong|=wrong;
-  cout << (wrong? "Wrong." : "[PASS]") << ".\n";
+  cout << (wrong ? "[FAIL] " : "[PASS] ") << name << ":\n";
   for (auto r: result) cout << r << endl;
   cout << endl;
 }
 
 void test1() {
-  cout << "Maze 1: ";
   vector<vector<int>> maze {
       {1, 0, 0, 0},
       {1, 1, 0, 1},
       {1, 1, 0, 0},
       {0, 1, 1, 1}};
 
-  test(maze, {"DDRDRR", "DRDDRR"});
+  test("Maze 1", maze, {"DDRDRR", "DRDDRR"});
 }
 
 void test2() {
-  cout << "Maze 2: ";
   vector<vector<int>> maze {
       {1, 0},
       {1, 0}};
 
-  test(maze, {});
+  test("Maze 2", maze, {});
 }
 
 
@@ -38,7 +36,7 @@ void run_tests() {
   test1();
   test2();
 
-  if (_wrong) cout << "\n[FAIL]\n";
+  if (_wrong) cout << "[FAIL]\n";
 }
 
 

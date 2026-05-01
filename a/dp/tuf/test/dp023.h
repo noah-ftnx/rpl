@@ -15,6 +15,7 @@ void test(fptr function, int cap, vector<int> profit, vector<int> weight, int co
   string s;
   for (int a: profit) s+=to_string(a) + " ";
   if (!s.empty()) s.pop_back(); else s="{}";
+  cout << (wrong ? "[FAIL] " : "[PASS] ");
   cout << setw(10) << s;
   s.clear();
   for (int a: weight) s+=to_string(a) + " ";
@@ -22,7 +23,7 @@ void test(fptr function, int cap, vector<int> profit, vector<int> weight, int co
   cout << setw(10) << s;
 
   cout << ":\t Capacity: " << setw(2) << cap << " Profit: ";
-  cout << setw(2) << result << " " << setw(10) << (wrong? "[FAIL]":"[PASS]") << endl;
+  cout << setw(2)  << result << endl;
 }
 
 void run_tests(string msg, fptr function) {
@@ -37,8 +38,8 @@ void run_tests(string msg, fptr function) {
 }
 
 void print_report() {
-  if (_wrong) cout << "\n[FAIL]\n";
-  else cout << "\n[PASS]: all results.\n";
+  if (_wrong) cout << "[FAIL]\n";
+  else cout << "[PASS]: all results.\n";
 }
 
 #endif  // RPL_A_DP_TUF_TEST_DP23_H_

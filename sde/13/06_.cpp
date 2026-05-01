@@ -1,3 +1,5 @@
+#include <stack>
+#include <map>
 class SolutionBF {
  public:
   vector<int> nextGreaterElement(vector<int>& nums1, vector<int>& nums2) {

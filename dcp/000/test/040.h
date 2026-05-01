@@ -6,8 +6,7 @@
 
 void test(vector<int> input, int correct) {
   int result = find_num(input);
-  cout << "unique num: " << result <<
-      (result!=correct? " [FAIL]":"") << endl;
+  cout << (result!=correct ? "[FAIL] " : "[PASS] ") << "unique num: "  << result  << endl;
 }
 
 void run_tests() {

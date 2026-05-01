@@ -10,7 +10,7 @@ void test(string nodes, list<pair<int, int>> edges, int correct) {
 
   bool wrong = result!=correct;
   _wrong|=wrong;
-  cout << "MSG: "<< result << (wrong? " [FAIL]": "") << endl;
+  cout << (wrong ? "[FAIL] " : "[PASS] ") << "MSG: " << result  << endl;
 }
 
 void run_tests() {

@@ -8,18 +8,18 @@ bool _wrong = false;
 
 void test(vector<int> candidates, int target, vector<int> correct) {
 
+  auto result = find_subset(candidates, target);
+  bool wrong = result!=correct;
+  _wrong|=wrong;
+
+  cout << (wrong ? "[FAIL] " : "[PASS] ");
   cout << "Target:" << setw(3) << target << ". Input: ";
   for (auto i: candidates) cout << i << " ";
   cout << "Result: ";
 
-  auto result = find_subset(candidates, target);
-
   for (int i: result) cout << i << " ";
 
-  bool wrong = result!=correct;
-  _wrong|=wrong;
-
-  cout << (wrong? " [FAIL]" : "") << endl ;
+  cout << endl ;
 }
 
 void run_tests() {
@@ -29,7 +29,7 @@ void run_tests() {
   // test({2}, 1, {});
   // test({}, 0, {});
 
-  cout << endl << (_wrong? "[FAIL]": "[PASS]") << endl;
+  cout << endl << (_wrong ? "[FAIL] " : "[PASS] ") << endl;
 }
 
 #endif  // RPL_DCP_TEST_042_H_

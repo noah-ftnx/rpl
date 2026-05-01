@@ -8,7 +8,7 @@ using fptr = decltype(prototype);
 
 void check(string msg, fptr function, int n, int correct) {
   int res = function(n);
-  cout << n << ": " <<  res << (res!=correct?" [FAIL]":"") << endl;
+  cout << (res!=correct ? "[FAIL] " : "[PASS] ") << n  << ": " <<  res  << endl;
 }
 
 void run_tests(string msg, fptr function) {

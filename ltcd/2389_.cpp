@@ -1,4 +1,5 @@
 #include <algorithm>
+#include <vector>
 using namespace std;
 
 class Solution {
@@ -16,8 +17,7 @@ public:
         // instead compute prefix sum
         //     assume: 1,  2,  3,   5
         // prefix_sum: 1,  3,  6,  11
-        struct
-                vector<int> prefix_sum;
+        vector<int> prefix_sum;
         int sum=0;
         for (int num: nums) {
             sum+=num;
@@ -42,3 +42,17 @@ public:
         return result;
     }
 };
+
+#include ".inc/check.h"
+
+void run_test(vector<int> nums, vector<int> queries, vector<int> correct) {
+    Solution s;
+    auto result = s.answerQueries(nums, queries);
+    check_result("answerQueries", result, correct);
+}
+
+int main() {
+    run_test({4, 5, 2, 1}, {3, 10, 21}, {2, 3, 4});
+    run_test({2, 3, 4, 5}, {1}, {0});
+    return 0;
+}

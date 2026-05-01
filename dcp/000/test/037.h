@@ -43,7 +43,7 @@ void run_tests() {
 
   bool wrong = !(result == C1 || result == C2);
 
-  cout << endl << (wrong? "Wrong":"[PASS]") << " result\n";
+  cout << endl << (wrong ? "[FAIL] " : "[PASS] ") << " result\n";
 }
 
 #endif  // RPL_DCP_TEST_037_H_

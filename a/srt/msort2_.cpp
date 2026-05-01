@@ -41,3 +41,7 @@ void DNQ(vector<int>& vec, int left, int right) {
 void merge_sort(vector<int>& vec) {
   DNQ(vec, 0, vec.size()-1);
 }
+
+
+#include "test/msort.h"
+int main() { run_tests(); return 0; }

@@ -13,8 +13,8 @@ void test(fptr function, int n, long long m, double correct) {
   bool wrong = diff>1e-6;
   _wrong|=wrong;
 
-  cout  << setw(4) << n << "th root of: " << setw(4) << m << ": "
-       << setprecision(7) << setw(10) << res << setw(10) << (wrong? " [FAIL]": " [PASS]")
+  cout  << (wrong ? "[FAIL] " : "[PASS] ") << setw(4)  << n << "th root of: " << setw(4) << m << ": "
+       << setprecision(7) << setw(10) << res 
        << "\t diff: " << setw(10) << setprecision(8) << diff << endl;
 }
 

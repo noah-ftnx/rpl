@@ -1,3 +1,7 @@
+#include <vector>
+
+using namespace std;
+
 int singleNonDuplicate(vector<int>& nums) {
   const int N = (int) nums.size();
   // covers nums of size 1

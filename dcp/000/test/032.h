@@ -5,8 +5,8 @@
 
 void test(vector<vector<double>> rates, bool correct) {
   bool result = arbitrage(rates);
-  cout << "arbitrage: " << boolalpha << result
-       << (result!=correct? " [FAIL]": "") << endl;
+  cout << (result!=correct ? "[FAIL] " : "[PASS] ") << "arbitrage: "  << boolalpha << result
+        << endl;
 }
 
 vector<vector<double>> input1() {

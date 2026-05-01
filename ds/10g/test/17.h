@@ -118,7 +118,7 @@ void run_tests() {
     {{5, 1}}, // back
     {{4, 3}}); // cross
 
-  cout << (_wrong? "[FAIL]!" : "[PASS]!") << "\n";
+  cout << (_wrong ? "[FAIL] " : "[PASS] ") << "\n";
   
 }
 

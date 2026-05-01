@@ -8,10 +8,11 @@ bool _wrong {};
 
 string test_shorten(Shortener& s, string url) {
   auto code = s.shorten(url);
-  cout << setw(25) << url << ": code: " << code;
   auto result = s.restore(code);
+  cout << (result!=url ? "[FAIL] " : "[PASS] ");
+  cout << setw(25) << url << ": code: " << code;
 
-  cout << (result!=url? " [FAIL]":" [PASS]") << endl;
+  cout << endl;
   return code;
 }
 
@@ -21,7 +22,7 @@ void test() {
   test_shorten(s, "www.amazon.com");
   test_shorten(s, "www.google.com/here");
   string code2=test_shorten(s, "www.google.com");
-  cout << (code1!=code2? "[FAIL]: used different code for same url":"[PASS] reused same code for same url.") << endl;
+  cout << (code1!=code2 ? "[FAIL] " : "[PASS] ") << endl;
 
   test_shorten(s, "www.amazon.com");
 }

@@ -1,3 +1,8 @@
+#include <vector>
+#include <algorithm>
+
+using namespace std;
+
 class SolutionG4G {
  public:
   void shortest_distance(vector<vector<int>>&matrix) {

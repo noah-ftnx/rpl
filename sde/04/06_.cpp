@@ -1,3 +1,12 @@
+#include <string>
+#include <unordered_map>
+#include <unordered_set>
+#include <set>
+#include <map>
+#include <algorithm>
+
+using namespace std;
+
 int lengthOfLongestSubstringBF(string s) {
   if (s.empty()) return 0;
 

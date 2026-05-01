@@ -31,8 +31,6 @@ int cfind(vector<int>& st, int u) {
 
 void wunion(vector<int>& st, int u, int v) {
   if (st[u] < st[v]) { // u parent
-    vector<Edge> mst(V-1);
-    vector<int> st(V, -1)
     st[u]+=st[v];
     st[v]=u;
   } else {
@@ -45,6 +43,8 @@ vector<Edge> MST(vector<Edge> edges, int V) {;
   priority_queue<Edge, vector<Edge>, EdgeCmp> pq;
   for(auto e: edges) pq.push(e); // O(n) Floyd..
 
+  vector<Edge> mst(V-1);
+  vector<int> st(V+1, -1);
   int found_edges=0;
   while(!pq.empty() && found_edges < V-1) {
     auto min = pq.top(); pq.pop(); // logn

@@ -1,3 +1,7 @@
+#include <vector>
+
+using namespace std;
+
 class Solution {
     void dfs(vector<int> adj[],
              vector<bool> &visited, vector<int> &result, int node) {

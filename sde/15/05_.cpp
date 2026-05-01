@@ -1,3 +1,9 @@
+#include <vector>
+#include <string>
+#include <algorithm>
+
+using namespace std;
+
 class SolutionSlower {
   int maxCommonChars(const string &a, const string &b, int cap) {
     int i=0, j=0;

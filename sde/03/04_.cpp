@@ -1,3 +1,8 @@
+#include <vector>
+#include <climits>
+
+using namespace std;
+
 vector<int> majorityElement(vector<int>& nums) {
   const int N = nums.size();
   const int limit = N/3;

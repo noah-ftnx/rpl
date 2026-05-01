@@ -1,3 +1,10 @@
+#include <vector>
+#include <deque>
+#include <stack>
+#include <algorithm>
+
+using namespace std;
+
 class Solution {
     bool toposortDFS(int V, vector<int> adj[],
                      vector<bool> &visited,

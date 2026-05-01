@@ -18,9 +18,10 @@ void test1() {
     int mx = s->max();
     bool wrong = mx!=correct_max[i];
     _wrong|=wrong;
-    cout << setw(5) << "add: " << setw(2) <<
+    cout << (wrong ? "[FAIL] " : "[PASS] ");
+    cout << setw(5)  << "add: " << setw(2) <<
          input[i] << " max: " << setw(2) << mx
-    << ": " << (wrong? " Wrong":" [PASS]") << endl;
+    << ": "  << endl;
   }
 
   vector<int> correct_max2 { 10, 10, 5, 5, 5, 5};
@@ -29,9 +30,10 @@ void test1() {
     int mx = s->max();
     bool wrong = mx!=correct_max2[i];
     _wrong|=wrong;
-    cout << setw(5) << "pop: " << setw(2) <<
+    cout << (wrong ? "[FAIL] " : "[PASS] ");
+    cout << setw(5)  << "pop: " << setw(2) <<
         val << " max: " << setw(2) << mx
-         << ": " << (wrong? " Wrong":" [PASS]") << endl;
+         << ": "  << endl;
   }
   cout << endl;
 }
@@ -47,9 +49,10 @@ void test2() {
     int mx = s->max();
     bool wrong = mx!=correct_max[i];
     _wrong|=wrong;
-    cout << setw(5) << "add: " << setw(2) <<
+    cout << (wrong ? "[FAIL] " : "[PASS] ");
+    cout << setw(5)  << "add: " << setw(2) <<
         input[i] << " max: " << setw(2) << mx
-         << ": " << (wrong? " Wrong":" [PASS]") << endl;
+         << ": "  << endl;
   }
 
   vector<int> correct_max2 { 3, 2};
@@ -58,11 +61,12 @@ void test2() {
     int mx = s->max();
     bool wrong = mx!=correct_max2[i];
     _wrong|=wrong;
-    cout << setw(5) << "pop: " << setw(2) <<
+    cout << (wrong ? "[FAIL] " : "[PASS] ");
+    cout << setw(5)  << "pop: " << setw(2) <<
         val << " max: " << setw(2) << mx
-         << ": " << (wrong? " [FAIL]":" [PASS]") << endl;
+         << ": "  << endl;
   }
-  cout << "last max: " << s->max() << " [PASS]" << endl;
+  cout << "[PASS] last max: " << s->max() << endl;
   s->pop();
   try {
     s->pop(); // throws exception
@@ -72,7 +76,7 @@ void test2() {
   s->push(1);
   bool w2 = s->max() != 1;
   _wrong|=w2;
-  cout << "another max: " << s->max() << (w2? " [FAIL]":" [PASS]") << endl;
+  cout << (w2 ? "[FAIL] " : "[PASS] ") << "another max: "  << s->max()  << endl;
   cout << endl;
 }
 
@@ -81,7 +85,7 @@ void run_tests() {
   test1();
   test2();
 
-  cout << "\n" << (_wrong? "[FAIL]":"[PASS] (all results).") << endl;
+  cout << (_wrong ? "[FAIL] " : "[PASS] ") << "\n"  << endl;
 }
 
 

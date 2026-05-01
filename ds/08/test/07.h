@@ -22,9 +22,10 @@ void run_tests() {
   for (int i=0; i<test.size(); i++) {
     auto t = test[i];
     auto c = correct[i];
-    cout << "test: " << t  << ": ";
     string r = trie.minimal_prefix(t);
-    cout << r  << (r!=c? " [FAIL]":"")<< endl;
+    cout << (r!=c ? "[FAIL] " : "[PASS] ");
+    cout << "test: " << t  << ": ";
+    cout << r  << endl;
   }
 }
 

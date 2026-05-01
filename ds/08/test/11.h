@@ -9,8 +9,8 @@ void check(TST& trie, string s, bool correct) {
   bool result = trie.find(s);
   _wrong|=(result!=correct);
 
-  cout << "has '" << s << "': " << boolalpha << result
-       << (result!=correct?" [FAIL]":"") << endl;
+  cout << (result!=correct ? "[FAIL] " : "[PASS] ") << "has '"  << s << "': " << boolalpha << result
+        << endl;
 }
 
 void run_tests() {
@@ -37,7 +37,7 @@ void run_tests() {
   check(ternary, "mind", false);
 
 
-  if (_wrong) { cout << "\n\nErrors found!\n"; }
+  if (_wrong) { cout << "[FAIL] errors found.\n"; }
 }
 
 #endif  // RPL_DS_08_TEST_12_H_

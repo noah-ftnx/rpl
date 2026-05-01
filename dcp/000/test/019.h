@@ -6,7 +6,7 @@
 
 void test(vector<vector<int>> costs, int correct) {
   int result = paint_houses(costs);
-  cout << "cost: " << setw(4) << result << (result!=correct? " [FAIL]":"") << endl;
+  cout << (result!=correct ? "[FAIL] " : "[PASS] ") << "cost: "  << setw(4) << result  << endl;
 }
 
 void test1() {

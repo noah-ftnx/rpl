@@ -1,3 +1,8 @@
+#include <string>
+#include <iostream>
+
+using namespace std;
+
 class Solution {
 
   long hash(const string &s, int S) {

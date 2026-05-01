@@ -4,12 +4,13 @@
 #include <iostream>
 void test(vector<int> input, int k, vector<int> correct) {
   auto result = largest_subarray(input, k);
+  bool wrong = result!=correct;
 
   cout << "input: ";
   for (auto i: input) cout << i << " ";
   cout << "\nresult: ";
   for (auto i: result) cout << i << " ";
-  cout << (result!=correct? ": [FAIL]":"") << endl << endl;
+  cout << endl << (wrong ? "[FAIL] " : "[PASS] ") << endl << endl;
 }
 
 void run_tests() {

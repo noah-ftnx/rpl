@@ -8,8 +8,8 @@ bool _wrong = false;
 void check(string msg, bool res, bool correct, string postmsg="") {
   bool wrong = res != correct;
   _wrong|=wrong;
-  cout << msg << ": " << boolalpha  << res << " "
-  << (wrong? " [FAIL]":"") << postmsg << endl;
+  cout << (wrong ? "[FAIL] " : "[PASS] ") << msg  << ": " << boolalpha  << res << " "
+   << postmsg << endl;
 }
 
 void run_tests() {
@@ -69,7 +69,7 @@ void run_tests() {
   check("root.lock", root->lock(), false);
   check("r.isLocked", r->is_locked(), true);
 
-  cout << "\n" << (_wrong? "[FAIL]": "[PASS]") << endl;
+  cout << (_wrong ? "[FAIL] " : "[PASS] ") << "\n"  << endl;
 }
 
 

@@ -1,3 +1,8 @@
+#include <string>
+#include <stack>
+
+using namespace std;
+
 class SolutionNaive {
  public:
   int strStr(string haystack, string needle) {

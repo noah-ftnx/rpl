@@ -11,11 +11,11 @@ void check(string input, int correct) {
   int result = decodings(input);
   bool wrong = result !=correct;
   _wrong|=wrong;
-  cout << setw(7) << input << ": " << setw(4) << result << (wrong?" [FAIL]":"") << endl;
+  cout << (wrong ? "[FAIL] " : "[PASS] ") << setw(7)  << input << ": " << setw(4) << result  << endl;
 }
 
 void print_errors() {
-  if (_wrong) cout << "\n[FAIL]\n";
+  if (_wrong) cout << "[FAIL]\n";
 }
 
 void run_tests() {

@@ -1,4 +1,9 @@
 #include <algorithm>
+#include <vector>
+#include <utility>
+#include <unordered_map>
+#include <map>
+#include <functional>
 using namespace std;
 
 class Solution {
@@ -38,3 +43,17 @@ public:
         return result;
     }
 };
+
+#include ".inc/check.h"
+
+void run_test(vector<int> nums, vector<int> queries, vector<int> correct) {
+    Solution s;
+    auto result = s.answerQueries(nums, queries);
+    check_result("answerQueries", result, correct);
+}
+
+int main() {
+    run_test({4, 5, 2, 1}, {3, 10, 21}, {2, 3, 4});
+    run_test({2, 3, 4, 5}, {1}, {0});
+    return 0;
+}

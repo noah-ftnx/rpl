@@ -7,7 +7,7 @@ void test(vector<string> dictionary, string prefix, string suffix, int correct) 
   auto trie = WordFilter(dictionary);
   int idx = trie.f(prefix, suffix);
 
-  cout << "match: " << (idx!=-1?dictionary[idx]:"-1") << (idx != correct? " [FAIL]":"") << endl;
+  cout << (idx != correct ? "[FAIL] " : "[PASS] ") << "match: "  << (idx!=-1?dictionary[idx]:"-1")  << endl;
 }
 
 void run_tests() {

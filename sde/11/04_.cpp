@@ -1,3 +1,8 @@
+#include <vector>
+#include <algorithm>
+
+using namespace std;
+
 int search(vector<int>& nums, int target) {
   const int N = (int) nums.size();
   int low=0, high=N-1;

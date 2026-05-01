@@ -8,9 +8,7 @@ void test(string input, int correct) {
   int result = count_anagram_substrings(input);
   string label = input.empty() ? "\"\"" : input;
 
-  cout << left << setw(10) << (label + ":")
-       << setw(4) << result
-       << (result == correct ? " [PASS]" : " [FAIL]") << endl;
+  cout << (result == correct ? "[PASS] " : "[FAIL] ") << left  << (label + ":") << setw(4) << result  << endl;
 }
 
 void run_tests() {

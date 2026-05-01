@@ -9,12 +9,12 @@ using fptr = decltype(prototype);
 
 void test(fptr function, vector<int> v1, int correct) {
   auto res = function(v1, v1.size());
-  cout << setw(20) << to_string(v1) << " ";
-
   bool wrong = res!=correct;
   _wrong|=wrong;
+  cout << (wrong ? "[FAIL] " : "[PASS] ");
+  cout << setw(20) << to_string(v1) << " ";
 
-  cout << ":\t " << setw(3) << res << (wrong? " [FAIL]": " [PASS]") << endl;
+  cout << ":\t "  << setw(3) << res  << endl;
 }
 
 

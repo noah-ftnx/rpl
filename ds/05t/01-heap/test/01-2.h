@@ -11,18 +11,17 @@ void test(vector<int> input, vector<int> correct) {
 
   // s=ss.str();
   // ss.str("");
-  cout << setw(40) << to_string(input, 1);
-
   auto vec = input; // creating a copy
   heapify(vec); // in place
-
-  cout << "  ->  ";
-  cout << setw(40) << to_string(vec, 1);
-
   bool wrong = vec != correct;
   _wrong|=wrong;
 
-  cout << "\t"  <<  (wrong? " [FAIL]": " [PASS]") << endl;
+  cout << (wrong ? "[FAIL] " : "[PASS] ");
+  cout << setw(40) << to_string(input, 1);
+  cout << "  ->  ";
+  cout << setw(40) << to_string(vec, 1);
+
+  cout << "\t"   << endl;
 }
 
 void run_tests(string msg) {

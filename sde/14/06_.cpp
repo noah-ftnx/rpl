@@ -1,3 +1,10 @@
+#include <deque>
+#include <stack>
+#include <algorithm>
+#include <climits>
+
+using namespace std;
+
 struct Node {
   long value; // modified num might overflow
   Node *next{};

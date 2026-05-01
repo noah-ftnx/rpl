@@ -13,7 +13,7 @@ using fptr = decltype(prototype);
 
 void test_score_only(string msg, fptr_score function, string input, int line_len, int correct) {
   int score = function(input, line_len);
-  cout << msg << ": " << score << (score!=correct? " [FAIL]":"") << endl;
+  cout << (score!=correct ? "[FAIL] " : "[PASS] ") << msg  << ": " << score  << endl;
 }
 
 void run_tests_score(string msg, fptr_score function) {
@@ -28,7 +28,7 @@ void test(string msg, fptr function, string input, int line_len, const vector<ve
     cout << endl;
   }
 
-  cout << endl << (result!=correct? "[FAIL]":"[PASS]") << " (" << msg << ")" << endl;
+  cout << endl << (result!=correct ? "[FAIL] " : "[PASS] ") << " (" << msg << ")" << endl;
 }
 
 void run_tests(string msg, fptr function) {

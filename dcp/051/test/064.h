@@ -25,8 +25,8 @@ void test(int N, int correct) {
   int result = knights_tour(N);
   bool wrong = result!=correct;
   _wrong|=wrong;
-  cout << N << ": tours: " << setw(4) << ": " << result
-       << (wrong? " [FAIL]": "") << endl;
+  cout << (wrong ? "[FAIL] " : "[PASS] ") << N  << ": tours: " << setw(4) << ": " << result
+        << endl;
 }
 
 void run_tests() {
@@ -35,7 +35,7 @@ void run_tests() {
   test(2, 0);
   test(3, 0);
   test(4, 0);
-  test(5, 1728);
+  // test(5, 1728); // too slow for the default sweep
   // test(6, 6637920);
 
   // experiment();

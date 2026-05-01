@@ -2,6 +2,7 @@
 #define RPL_DS_05T_TEST_13_H_
 
 #include <iostream>
+#include <cassert>
 #include <iomanip>
 
 void Tree::add(const vector<int>& data, const string& path) {
@@ -44,7 +45,7 @@ Tree::Tree(int n) {
 
 void check(Tree* tree, string msg, string correct) {
   string res = tree->to_string();
-  cout << setw(40) << res << " \t " << msg <<(res!=correct? "\t\t [FAIL]":"")  << endl;
+  cout << (res!=correct ? "[FAIL] " : "[PASS] ") << setw(40)  << res << " \t " << msg   << endl;
 }
 
 void run_tests() {

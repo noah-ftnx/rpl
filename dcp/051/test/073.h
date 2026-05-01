@@ -25,8 +25,8 @@ void test(List *l, string correct) {
 
   bool wrong = result!=correct;
   _wrong|=wrong;
-  cout << setw(15) << result << " \t"
-       << (wrong? " [FAIL]":  "[PASS]") << endl;
+  cout << (wrong ? "[FAIL] " : "[PASS] ") << setw(15)  << result << " \t"
+        << endl;
 }
 
 void run_tests() {

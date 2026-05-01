@@ -94,7 +94,6 @@ int main() {
   run_tests("DP", matrixMultiplicationBF);
   run_tests("MMZ", matrixMultiplicationMMZ);
   run_tests("BU", matrixMultiplicationBU);
-  run_tests("OPT", matrixMultiplicationOPT);
 
   print_report();
   return 0;

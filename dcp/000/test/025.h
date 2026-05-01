@@ -10,13 +10,14 @@ bool prototype(string input, string regex);
 using fptr = decltype(prototype);
 
 void test(fptr function, string word, string regex, bool correct) {
-  cout << setw(15) << word << ": regex: " << setw(10) << regex << flush;
-
   bool result = function(word, regex);
   bool wrong = result != correct;
   _wrong|=wrong;
 
-  cout << ": " << boolalpha << result << (wrong? " [FAIL]":"") << endl;
+  cout << (wrong ? "[FAIL] " : "[PASS] ");
+  cout << setw(15) << word << ": regex: " << setw(10) << regex << flush;
+
+  cout << ": "  << boolalpha << result  << endl;
 }
 
 void test_method(fptr function) {
@@ -60,7 +61,7 @@ void run_tests(string msg, fptr function) {
 }
 
 void print_errors() {
-  cout << "\n" << (_wrong? "[FAIL]": "[PASS].") << endl;
+  cout << (_wrong ? "[FAIL] " : "[PASS] ") << "\n"  << endl;
 }
 
 #endif  // RPL_DCP_TEST_025_H_

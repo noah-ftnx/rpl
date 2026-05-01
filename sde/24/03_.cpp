@@ -1,3 +1,7 @@
+#include <vector>
+
+using namespace std;
+
 vector <int> bellman_ford(int V, vector<vector<int>> adj, int S) {
   const int E = adj.size();
   vector<int> dist(V, 1e8);

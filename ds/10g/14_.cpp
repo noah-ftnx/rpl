@@ -1,3 +1,8 @@
+#include <vector>
+#include <algorithm>
+
+using namespace std;
+
 class Solution {
 
   int DFS(vector<vector<int>> &AL, vector<vector<int>> &res, vector<bool> &visited,
@@ -44,3 +49,17 @@ class Solution {
     return res;
   }
 };
+
+#include ".inc/check.h"
+
+void run_test(string name, int n, vector<vector<int>> connections, vector<vector<int>> correct) {
+  Solution s;
+  auto result = s.criticalConnections(n, connections);
+  check_result(name, result, correct);
+}
+
+int main() {
+  run_test("triangle-tail", 4, {{0, 1}, {1, 2}, {2, 0}, {1, 3}}, {{1, 3}});
+  run_test("single-edge", 2, {{0, 1}}, {{0, 1}});
+  return 0;
+}

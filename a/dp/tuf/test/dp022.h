@@ -16,7 +16,7 @@ void test(fptr function, int* arr, int n, int value, int correct) {
   for (int i=0; i<n; i++) s+=to_string(arr[i]) + " ";
   if (!s.empty()) s.pop_back(); else s="{}";
   cout << setw(15) << s << ":\t Target: " << setw(2) << value << " Ways: ";
-  cout << setw(2) << result << " " << setw(10) << (wrong? "(WRONG)":"Correct") << endl;
+  cout << setw(2) << result << " " << setw(10) << (wrong? "[FAIL]":"[PASS]") << endl;
 }
 
 void run_tests(string msg, fptr function) {
@@ -43,8 +43,8 @@ void run_tests(string msg, fptr function) {
 }
 
 void print_report() {
-  if (_wrong) cout << "\nWRONG RESULTS.\n";
-  else cout << "\nCorrect: all results.\n";
+  if (_wrong) cout << "\n[FAIL]\n";
+  else cout << "\n[PASS]: all results.\n";
 }
 
 #endif  // RPL_A_DP_TUF_TEST_DP22_H_

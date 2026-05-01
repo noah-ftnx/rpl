@@ -20,7 +20,7 @@ void test1() {
     _wrong|=wrong;
     cout << setw(5) << "add: " << setw(2) <<
          input[i] << " max: " << setw(2) << mx
-    << ": " << (wrong? " Wrong":" Correct") << endl;
+    << ": " << (wrong? " Wrong":" [PASS]") << endl;
   }
 
   vector<int> correct_max2 { 10, 10, 5, 5, 5, 5};
@@ -31,7 +31,7 @@ void test1() {
     _wrong|=wrong;
     cout << setw(5) << "pop: " << setw(2) <<
         val << " max: " << setw(2) << mx
-         << ": " << (wrong? " Wrong":" Correct") << endl;
+         << ": " << (wrong? " Wrong":" [PASS]") << endl;
   }
   cout << endl;
 }
@@ -49,7 +49,7 @@ void test2() {
     _wrong|=wrong;
     cout << setw(5) << "add: " << setw(2) <<
         input[i] << " max: " << setw(2) << mx
-         << ": " << (wrong? " Wrong":" Correct") << endl;
+         << ": " << (wrong? " Wrong":" [PASS]") << endl;
   }
 
   vector<int> correct_max2 { 3, 2};
@@ -60,9 +60,9 @@ void test2() {
     _wrong|=wrong;
     cout << setw(5) << "pop: " << setw(2) <<
         val << " max: " << setw(2) << mx
-         << ": " << (wrong? " WRONG":" Correct") << endl;
+         << ": " << (wrong? " [FAIL]":" [PASS]") << endl;
   }
-  cout << "last max: " << s->max() << " Correct" << endl;
+  cout << "last max: " << s->max() << " [PASS]" << endl;
   s->pop();
   try {
     s->pop(); // throws exception
@@ -72,7 +72,7 @@ void test2() {
   s->push(1);
   bool w2 = s->max() != 1;
   _wrong|=w2;
-  cout << "another max: " << s->max() << (w2? " WRONG":" Correct") << endl;
+  cout << "another max: " << s->max() << (w2? " [FAIL]":" [PASS]") << endl;
   cout << endl;
 }
 
@@ -81,7 +81,7 @@ void run_tests() {
   test1();
   test2();
 
-  cout << "\n" << (_wrong? "WRONG RESULTS.":"Correct (all results).") << endl;
+  cout << "\n" << (_wrong? "[FAIL]":"[PASS] (all results).") << endl;
 }
 
 

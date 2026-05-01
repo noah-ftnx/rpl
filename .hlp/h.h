@@ -20,7 +20,7 @@ void test(T input, T correct) {
   bool wrong = result!=correct;
   _wrong|=wrong;
   cout << "MSG: "<< result
-       << (wrong? " (WRONG)": "") << endl;
+       << (wrong? " [FAIL]": "") << endl;
 }
 
 void run_tests() {
@@ -53,7 +53,7 @@ void test(fptr function, string s, T correct) {
   bool wrong = result !=correct;
   _wrong|=wrong;
   cout << setw(10) << s << ": MSG: "  << result <<
-      (wrong? " (WRONG)":"") << endl;
+      (wrong? " [FAIL]":"") << endl;
 }
 
 void run_tests(string msg, fptr function) {
@@ -63,8 +63,8 @@ void run_tests(string msg, fptr function) {
 }
 
 void print_report() {
-  if (_wrong) cout << "\nWRONG RESULTS.\n";
-  else cout << "\nCorrect: all results.\n";
+  if (_wrong) cout << "\n[FAIL]\n";
+  else cout << "\n[PASS]: all results.\n";
 }
 
 

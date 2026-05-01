@@ -10,7 +10,7 @@ void test(vector<int> input, int correct) {
   for (auto i: input) cout << i << " ";
 
   cout << " inversions: " << result
-       << (result!=correct? " (WRONG)": "") << endl;
+       << (result!=correct? " [FAIL]": "") << endl;
 }
 
 void run_tests() {

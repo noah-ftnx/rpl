@@ -7,7 +7,7 @@ using namespace std;
 template <class T>
 void check_optional(string msg, optional<T> result, optional<T> correct) {
   cout << msg << ": " << (result? to_string(result.value()): "<nullopt>")
-       << (result!=correct?" (WRONG)": "") << endl;
+       << (result!=correct?" [FAIL]": "") << endl;
 }
 
 #endif  // RPL_CHECK_CHECK_OPT_H_

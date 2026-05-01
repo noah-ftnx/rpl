@@ -5,7 +5,7 @@
 
 void test(vector<pair<int, int>> timetable, int correct) {
   int result = min_rooms(timetable);
-  cout << "min rooms: " << result << (result!=correct? " (WRONG)": "") << endl;
+  cout << "min rooms: " << result << (result!=correct? " [FAIL]": "") << endl;
 }
 
 void run_tests() {

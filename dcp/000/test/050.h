@@ -11,7 +11,7 @@ void test(Node* root, double correct) {
   double result = evaluate_tree(root);
 
   cout << "Result: " << setw(12) << result << ": \t\t"
-       << (result!=correct? "WRONG.": "Correct.") << endl;
+       << (result!=correct? "[FAIL]": "[PASS]") << endl;
 }
 
 //      *

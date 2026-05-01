@@ -17,7 +17,7 @@ void test(fptr function, vector<vector<int>> triangle, int correct) {
   //   for (auto i: row) cout << i << " ";
   //   cout << endl;
   // }
-  cout << "MIN SUM: " << result << (wrong? " (WRONG)": " correct.") << endl;
+  cout << "MIN SUM: " << result << (wrong? " [FAIL]": " [PASS]") << endl;
 }
 
 
@@ -54,8 +54,8 @@ void run_tests(string msg, fptr function) {
 }
 
 void print_errors() {
-  if (_wrong) cout << "\nWRONG RESULTS.\n";
-  else cout << "\nCorrect (all results).\n";
+  if (_wrong) cout << "\n[FAIL]\n";
+  else cout << "\n[PASS] (all results).\n";
 }
 
 #endif  // INC_070__CPP_A_DP_TUF_TEST_011_H_

@@ -24,11 +24,11 @@ void run_tests() {
   cout << "Cycles in a Graph (undirected)" << endl;
   auto gCyclic=input_cyclic();
   bool gc=gCyclic.has_cycles();
-  cout << "Graph: Cyclic:  has_cycles: " << gc << (!gc?" (WRONG)": "")  << endl;
+  cout << "Graph: Cyclic:  has_cycles: " << gc << (!gc?" [FAIL]": "")  << endl;
 
   auto gAcyclic=input_acyclic();
   bool ga=gAcyclic.has_cycles();
-  cout << "Graph: Acyclic: has_cycles: " << ga << (ga?" (WRONG)": "")  << endl;
+  cout << "Graph: Acyclic: has_cycles: " << ga << (ga?" [FAIL]": "")  << endl;
 }
 
 #endif  // RPL_DS_10G_TEST_08_H_

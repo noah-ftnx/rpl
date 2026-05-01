@@ -14,7 +14,7 @@ void test(int N, int K, string correct) {
   _wrong|=wrong;
 
   cout << ": " << setw(10) << result << " ";
-  cout << (wrong? "WRONG!" : "Correct.") << endl;
+  cout << (wrong? "[FAIL]" : "[PASS]") << endl;
 }
 
 void run_tests() {
@@ -33,9 +33,9 @@ void run_tests() {
   test(3, 3, "213");
 
   if (_wrong) {
-    cout << "\nWRONG RESULTS.\n";
+    cout << "\n[FAIL]\n";
   } else {
-    cout << "\nCorrect: ALL results.\n";
+    cout << "\n[PASS]: ALL results.\n";
   }
 }
 

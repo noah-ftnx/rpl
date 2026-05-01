@@ -19,7 +19,7 @@ void test(fptr function, double  x, int y) {
    cout << setw(13) << x << " "
         << setw(13) << y <<  ": "
        << setw(15) << res << " : C: "
-        << (wrong? " (WRONG)": " correct") << endl;
+        << (wrong? " [FAIL]": " [PASS]") << endl;
 
 }
 

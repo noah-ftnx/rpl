@@ -17,7 +17,7 @@ void test(vector<int> candidates, vector<int> correct) {
   bool wrong = result!=correct;
   _wrong|=wrong;
 
-  cout << (wrong? "WRONG!" : "Correct.") << endl << endl;
+  cout << (wrong? "[FAIL]" : "[PASS]") << endl << endl;
 }
 
 void run_tests() {
@@ -29,9 +29,9 @@ void run_tests() {
   test({1,2,3}, {0, 1, 2, 3, 3, 4, 5, 6});
 
   if (_wrong) {
-    cout << "\nWRONG RESULTS.\n";
+    cout << "\n[FAIL]\n";
   } else {
-    cout << "\nCorrect: ALL results.\n";
+    cout << "\n[PASS]: ALL results.\n";
   }
 }
 

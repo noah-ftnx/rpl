@@ -14,7 +14,7 @@ void test(vector<string> dict, string input, vector<vector<string>> correct) {
 
   bool wrong = correct !=res;
   _wrong=wrong;
-  cout << (wrong? "WRONG.": "Correct.") << endl << endl;
+  cout << (wrong? "[FAIL]": "[PASS]") << endl << endl;
 }
 
 void test1() {
@@ -41,7 +41,7 @@ void run_tests() {
   test1();
   test2();
 
-  if (_wrong) cout << "WRONG RESULTS.\n";
+  if (_wrong) cout << "[FAIL]\n";
 }
 
 #endif  // RPL_DCP_TEST_022_H_

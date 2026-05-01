@@ -6,7 +6,7 @@ using namespace std;
 
 void test(List* l1, List* l2, int correct) {
   int result = intersecting_node(l1, l2);
-  cout << "intersecting node: " << result << (result!=correct? " (WRONG)": "") << endl;
+  cout << "intersecting node: " << result << (result!=correct? " [FAIL]": "") << endl;
 }
 
 void test1() {

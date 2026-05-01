@@ -20,7 +20,7 @@ void test(vector<int> candidates, int k, vector<vector<int>> correct) {
   bool wrong = result!=correct;
   _wrong|=wrong;
 
-  cout << (wrong? "WRONG!" : "Correct.") << endl << endl;
+  cout << (wrong? "[FAIL]" : "[PASS]") << endl << endl;
 }
 
 void run_tests() {
@@ -32,9 +32,9 @@ void run_tests() {
                   });
 
   if (_wrong) {
-    cout << "\nWRONG RESULTS.\n";
+    cout << "\n[FAIL]\n";
   } else {
-    cout << "\nCorrect: ALL results.\n";
+    cout << "\n[PASS]: ALL results.\n";
   }
 }
 

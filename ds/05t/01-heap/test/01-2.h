@@ -22,7 +22,7 @@ void test(vector<int> input, vector<int> correct) {
   bool wrong = vec != correct;
   _wrong|=wrong;
 
-  cout << "\t"  <<  (wrong? " (WRONG)": " correct") << endl;
+  cout << "\t"  <<  (wrong? " [FAIL]": " [PASS]") << endl;
 }
 
 void run_tests(string msg) {

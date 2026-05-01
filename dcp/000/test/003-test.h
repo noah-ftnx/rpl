@@ -74,7 +74,7 @@ void DCP_TEST() {
   cout << "RUNNING DCP TEST: ";
   auto node = new Tree(new Node("root", new Node("left", new Node("left.left")), new Node("right")));
   assert(Tree::deserialize(node->serialize())->root->left->left->val == "left.left");
-  cout << "passed.\n";
+  cout << "[PASS]\n";
 }
 
 void test_tree(Tree*& t) {
@@ -85,7 +85,7 @@ void test_tree(Tree*& t) {
 
   Tree* td = Tree::deserialize(str);
   string r2 = td->__get_bfs();
-  cout << "Parsed: " << r2 << (r1.compare(r2)?" (WRONG)":"") << endl;
+  cout << "Parsed: " << r2 << (r1.compare(r2)?" [FAIL]":"") << endl;
 }
 
 void test_perfect() {

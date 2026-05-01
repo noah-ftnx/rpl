@@ -9,7 +9,7 @@ void check(string msg, bool res, bool correct, string postmsg="") {
   bool wrong = res != correct;
   _wrong|=wrong;
   cout << msg << ": " << boolalpha  << res << " "
-  << (wrong? " (WRONG)":"") << postmsg << endl;
+  << (wrong? " [FAIL]":"") << postmsg << endl;
 }
 
 void run_tests() {
@@ -69,7 +69,7 @@ void run_tests() {
   check("root.lock", root->lock(), false);
   check("r.isLocked", r->is_locked(), true);
 
-  cout << "\n" << (_wrong? "WRONG RESULTS.": "Correct.") << endl;
+  cout << "\n" << (_wrong? "[FAIL]": "[PASS]") << endl;
 }
 
 

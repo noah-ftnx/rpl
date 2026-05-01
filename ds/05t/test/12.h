@@ -60,7 +60,7 @@ void run_tests() {
 
   string correct = "unsolved: 58 \n"
                    "solution: 16 35 \n";
-  cout << endl << (result!=correct?"(WRONG)":"correct result.") << endl;
+  cout << endl << (result!=correct?"[FAIL]":"[PASS] result.") << endl;
 
 }
 

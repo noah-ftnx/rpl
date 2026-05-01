@@ -9,7 +9,7 @@ void test(vector<int> vec, int correct) {
   int result = lowestCantMake(vec);
   bool wrong = result!=correct;
   _wrong|=wrong;
-  cout << "result: "<< result << (wrong? " (WRONG)": "") << endl;
+  cout << "result: "<< result << (wrong? " [FAIL]": "") << endl;
 }
 
 void run_tests() {

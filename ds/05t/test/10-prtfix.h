@@ -26,7 +26,7 @@ void check(string postfix, string result) {
   auto tree = Tree(postfix);
   string prt = tree.to_string();
   cout << left << setw(10) << postfix << setw(28) << prt;
-  if (prt != result) cout << "WRONG. Expected: " << result;
+  if (prt != result) cout << "[FAIL] Expected: " << result;
   cout << endl;
 }
 

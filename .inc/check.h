@@ -9,27 +9,27 @@
 #include "to_string.h"
 
 void check_bool(string msg, bool result, bool correct) {
-  cout << msg << ": " << boolalpha << result << (result != correct? " (WRONG)":"") << endl;
+  cout << msg << ": " << boolalpha << result << (result != correct? " [FAIL]":"") << endl;
 }
 
 
 template <class T>
 void check_result(string msg, T result, T correct) {
-  cout << msg << ": " << to_string(result) << (result != correct? " (WRONG)":"") << endl;
+  cout << msg << ": " << to_string(result) << (result != correct? " [FAIL]":"") << endl;
 }
 
 // different classes
 template <class A, class B>
 bool check_result(A input, B result, B correct) {
   bool is_wrong=result!=correct;
-  cout << to_string(input) << ":\t"  << to_string(result) << (is_wrong? " (WRONG)":"") << endl;
+  cout << to_string(input) << ":\t"  << to_string(result) << (is_wrong? " [FAIL]":"") << endl;
   return !is_wrong;
 }
 
 bool check_intPrettyMin(string msg, int result, int correct) {
   string pretty_int = (result==INT_MIN?"<nan>":to_string(result));
   bool wrong=result != correct;
-  cout << msg << ": " << pretty_int << (wrong ? " (WRONG)":"") << endl;
+  cout << msg << ": " << pretty_int << (wrong ? " [FAIL]":"") << endl;
   return wrong;
 }
 

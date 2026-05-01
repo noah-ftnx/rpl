@@ -24,7 +24,7 @@ void run_tests() {
     auto c = correct[i];
     cout << "test: " << t  << ": ";
     string r = trie.minimal_prefix(t);
-    cout << r  << (r!=c? " (WRONG)":"")<< endl;
+    cout << r  << (r!=c? " [FAIL]":"")<< endl;
   }
 }
 

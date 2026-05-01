@@ -20,7 +20,7 @@ void test(fptr function, vector<int> vec, vector<int> correct) {
   s.clear();
   for (int p: result) s += to_string(p) + " ";
 
-  cout << "\tLIS: " << setw(15) << s << " " << setw(10) << (wrong? "(WRONG)":"Correct") << endl;
+  cout << "\tLIS: " << setw(15) << s << " " << setw(10) << (wrong? "[FAIL]":"[PASS]") << endl;
 }
 
 void run_tests(string msg, fptr function) {
@@ -37,8 +37,8 @@ void run_tests(string msg, fptr function) {
 }
 
 void print_report() {
-  if (_wrong) cout << "\nWRONG RESULTS.\n";
-  else cout << "\nCorrect: all results.\n";
+  if (_wrong) cout << "\n[FAIL]\n";
+  else cout << "\n[PASS]: all results.\n";
 }
 
 void print_arrays(int N, vector<int>& nums,

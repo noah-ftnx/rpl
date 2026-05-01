@@ -11,7 +11,7 @@ void test(fptr function, string msg, vector<int> input, int correct) {
   bool wrong = result != correct;
   _wrong|=wrong;
   cout << setw(10) << msg << ":  "  << result <<
-      (wrong? " (WRONG)":"") << endl;
+      (wrong? " [FAIL]":"") << endl;
 }
 
 void run_tests(string msg, fptr function) {

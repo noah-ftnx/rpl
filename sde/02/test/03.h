@@ -16,7 +16,7 @@ void test(fptr function, vector<int> v1, vector<int> v2, vector<int> correct) {
   bool wrong = v1!=correct;
   _wrong|=wrong;
 
-  cout << ":\t " << (wrong? " (WRONG)": " correct") << endl;
+  cout << ":\t " << (wrong? " [FAIL]": " [PASS]") << endl;
 }
 
 

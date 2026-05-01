@@ -12,7 +12,7 @@ void print_result_spt(vector<int> result) {
          << result[i] << " | " << correct[i] << endl;
   }
 
-   cout << endl << (result!=correct?"WRONG.":"Correct.") << endl;
+   cout << endl << (result!=correct?"[FAIL]":"[PASS]") << endl;
 }
 
 

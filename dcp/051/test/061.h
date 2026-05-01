@@ -24,7 +24,7 @@ void test(fptr function, double x, int y) {
   _wrong|=wrong;
   cout << setw(3) << x << ", "
        << setw(3) << y <<  ": "
-  << result << (wrong?" (WRONG)":"") << endl;
+  << result << (wrong?" [FAIL]":"") << endl;
 
 }
 
@@ -49,7 +49,7 @@ void run_tests(string msg, fptr function) {
 
   cout << endl;
 
-  cout << endl <<  (_wrong?"WRONG RESULTS.": "Correct results.") << endl;
+  cout << endl <<  (_wrong?"[FAIL]": "[PASS]") << endl;
 }
 
 #endif  // RPL_DCP_051_TEST_061_H_

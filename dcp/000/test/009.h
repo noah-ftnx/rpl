@@ -9,7 +9,7 @@ using fptr = decltype(prototype);
 
 void check(string msg, fptr function, vector<int> v, int correct) {
   int r = function(v);
-  cout << msg << ": " << r << (r!=correct? " (WRONG)": "")  << endl;
+  cout << msg << ": " << r << (r!=correct? " [FAIL]": "")  << endl;
 }
 
 void run_tests(string msg, fptr function) {

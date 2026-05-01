@@ -7,8 +7,8 @@
 
 bool _wrong;
 void print_errors() {
-  if (_wrong) cout << "\nWRONG RESULTS.\n";
-  else cout << "\nCorrect: all results.\n";
+  if (_wrong) cout << "\n[FAIL]\n";
+  else cout << "\n[PASS]: all results.\n";
 }
 
 int prototype(vector<vector<int>> &points);
@@ -19,7 +19,7 @@ void check(fptr function, string msg, vector<vector<int>> in2, int correct) {
 
   bool wrong = result !=correct;
   _wrong|=wrong;
-  cout << msg << " |  Result: " << setw(5) << result << (wrong? " (WRONG)":"") << endl;
+  cout << msg << " |  Result: " << setw(5) << result << (wrong? " [FAIL]":"") << endl;
 }
 
 void run_tests(string msg, fptr function) {

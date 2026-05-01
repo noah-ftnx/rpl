@@ -19,7 +19,7 @@ void test(vector<int> input, int insertVal, int correctPopVal, vector<int> corre
 
   cout << to_string(vec, 1) << endl;
 
-  cout << "\nResult: "  <<  (wrong? " (WRONG)": " correct") << endl;
+  cout << "\nResult: "  <<  (wrong? " [FAIL]": " [PASS]") << endl;
 }
 
 void run_tests(string msg) {

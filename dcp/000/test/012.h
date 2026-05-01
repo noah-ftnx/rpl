@@ -17,7 +17,7 @@ void test(fptr function, int n, vector<int> steps, int correct) {
   ssteps.pop_back();
   bool wrong = res != correct;
   _wrong |= wrong;
-  cout << "stair: " << n << " steps: " << ssteps << ": ways: " <<  res << (wrong? " (WRONG)":"") << endl;
+  cout << "stair: " << n << " steps: " << ssteps << ": ways: " <<  res << (wrong? " [FAIL]":"") << endl;
 }
 
 

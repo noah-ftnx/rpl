@@ -15,12 +15,12 @@ void test(fptr function, vector<int> vec, int correct) {
   _wrong|=wrong;
   string s;
   for (auto v: vec) s+= to_string(v) + " ";
-  cout << setw(15) << s << " Max Area: " << setw(3) << result << (wrong? " (WRONG)": "") << endl;
+  cout << setw(15) << s << " Max Area: " << setw(3) << result << (wrong? " [FAIL]": "") << endl;
 }
 
 void print_report() {
-  if (_wrong) cout << "\nWRONG RESULTS.\n";
-  else cout << "\nCorrect: all results.\n";
+  if (_wrong) cout << "\n[FAIL]\n";
+  else cout << "\n[PASS]: all results.\n";
 }
 
 

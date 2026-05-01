@@ -14,7 +14,7 @@ void test(fptr function, string s, string correct) {
   bool wrong = result !=correct;
   _wrong|=wrong;
   cout << setw(10) << s << ": additions: "  << setw(10) << result <<
-      (wrong? " (WRONG)":"") << endl;
+      (wrong? " [FAIL]":"") << endl;
 }
 
 #include <sstream>
@@ -56,7 +56,7 @@ void run_tests(string msg, fptr function) {
 }
 
 void print_errors() {
-  if (_wrong) cout << "\nWRONG RESULTS.\n";
+  if (_wrong) cout << "\n[FAIL]\n";
 }
 
 #endif  // RPL_DCP_TEST_034_H_

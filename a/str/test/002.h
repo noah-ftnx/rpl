@@ -10,7 +10,7 @@ void test(string input, int correct) {
 
   cout << left << setw(10) << (label + ":")
        << setw(4) << result
-       << (result == correct ? " (Correct)" : " (WRONG)") << endl;
+       << (result == correct ? " [PASS]" : " [FAIL]") << endl;
 }
 
 void run_tests() {

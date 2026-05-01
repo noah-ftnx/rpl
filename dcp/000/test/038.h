@@ -14,7 +14,7 @@ void test(fptr function, int N, int correct) {
   int solutions = function(N);
 
   cout << N << " Queens. Solutions: " << solutions
-      << (solutions != correct ? " (WRONG)": "") << endl << flush;
+      << (solutions != correct ? " [FAIL]": "") << endl << flush;
 }
 
 

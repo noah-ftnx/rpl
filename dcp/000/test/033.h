@@ -10,7 +10,7 @@ void test(vector<int> stream, vector<double> correct) {
     p.insert(stream[i]);
     double result = p.median();
     cout << setw(3) << stream[i] << " -> " << setw(3) << result
-         << (result!=correct[i]? " (WRONG)": "") << endl;
+         << (result!=correct[i]? " [FAIL]": "") << endl;
   }
 }
 

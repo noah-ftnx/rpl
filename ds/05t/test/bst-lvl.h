@@ -48,7 +48,7 @@ void run_tests() {
   cout << "VERIFY MANUALLY:\n";
   t.print_bst_level();
 
-  cout << "\nCorrect output:\n";
+  cout << "\n[PASS] output:\n";
   cout<< "10\n";
   cout<< "5 25\n";
   cout<< "3 7 20 30\n";

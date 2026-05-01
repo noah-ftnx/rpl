@@ -29,7 +29,7 @@ void run_tests () {
 
   cout << endl;
 
-  cout << "Correct output:\n"
+  cout << "[PASS] output:\n"
        << "(1,6) 5\n"
        << "(3,4) 8\n"
        << "(2,7) 10\n"

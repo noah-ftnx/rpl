@@ -12,7 +12,7 @@ void test(vector<char>& input, vector<char> correct) {
   partition(input);
 
   for (auto c: input) cout << c << " ";
-  cout << ": " << (input!=correct? " (WRONG)": "correct.") << endl;
+  cout << ": " << (input!=correct? " [FAIL]": "[PASS]") << endl;
 
 }
 

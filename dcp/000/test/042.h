@@ -19,7 +19,7 @@ void test(vector<int> candidates, int target, vector<int> correct) {
   bool wrong = result!=correct;
   _wrong|=wrong;
 
-  cout << (wrong? " (WRONG)" : "") << endl ;
+  cout << (wrong? " [FAIL]" : "") << endl ;
 }
 
 void run_tests() {
@@ -29,7 +29,7 @@ void run_tests() {
   // test({2}, 1, {});
   // test({}, 0, {});
 
-  cout << endl << (_wrong? "WRONG RESULTS.": "Correct results.") << endl;
+  cout << endl << (_wrong? "[FAIL]": "[PASS]") << endl;
 }
 
 #endif  // RPL_DCP_TEST_042_H_

@@ -15,12 +15,12 @@ void test(fptr function, int n, int m, int correct) {
 
   bool wrong = result!=correct;
   _wrong|=wrong;
-  cout << result<< (wrong? " (WRONG)": "") << endl;
+  cout << result<< (wrong? " [FAIL]": "") << endl;
 
 }
 
 void print_report() {
-  cout << endl <<  (_wrong? "WRONG RESULTS." : "Correct (all tests)") << endl;
+  cout << endl <<  (_wrong? "[FAIL]" : "[PASS]") << endl;
 }
 
 void run_tests(string msg, fptr function) {

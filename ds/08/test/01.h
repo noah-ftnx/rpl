@@ -5,12 +5,12 @@
 
 void check_word(Trie& trie, string word, bool correct) {
   bool res = trie.word_exists(word);
-  cout << "  word: exists: " << word << ": " << res  << (res!=correct? " (WRONG)":"")<< endl;
+  cout << "  word: exists: " << word << ": " << res  << (res!=correct? " [FAIL]":"")<< endl;
 }
 
 void check_prefix(Trie& trie, string word, bool correct) {
   bool res = trie.prefix_exists(word);
-  cout << "prefix: exists: " << word << ": " << res  << (res!=correct? " (WRONG)":"")<< endl;
+  cout << "prefix: exists: " << word << ": " << res  << (res!=correct? " [FAIL]":"")<< endl;
 }
 
 void run_tests() {

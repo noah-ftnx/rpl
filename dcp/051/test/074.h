@@ -13,7 +13,7 @@ void test(int N, int X, int correct) {
 
   cout << "N:" << left << setw(3) << N << " X:" << setw(3) << X
        << " Result: " <<  setw(3) << result
-       << (wrong? " (WRONG)": "") << endl;
+       << (wrong? " [FAIL]": "") << endl;
 }
 
 void run_tests() {

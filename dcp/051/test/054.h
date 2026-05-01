@@ -48,8 +48,8 @@ void run_tests() {
     bool verified = true;
     for (int i=0; verified && i<N; i++)
       for (int j=0; verified && j<N; j++) verified = (grid[i][j]==correct[i][j]);
-    if (!verified) cout << "\nWRONG RESULT\n";
-    else cout << "\nCorrect.\n";
+    if (!verified) cout << "\n[FAIL]\n";
+    else cout << "\n[PASS]\n";
   }
   else
     cout << "No solution exists\n";

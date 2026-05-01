@@ -16,7 +16,7 @@ void test(fptr function, vector<int> input, int k, bool correct) {
   for (auto i: input) s+=to_string(i) + " ";
   if (!s.empty()) s.pop_back(); else s="{}";
   cout << setw(15) << s << ": " << setw(6) << (result? "true":"false")
-       << " " << setw(10) << (wrong? "(WRONG)":"Correct") << endl;
+       << " " << setw(10) << (wrong? "[FAIL]":"[PASS]") << endl;
 }
 
 void run_tests(string msg, fptr function) {
@@ -30,8 +30,8 @@ void run_tests(string msg, fptr function) {
 }
 
 void print_report() {
-  if (_wrong) cout << "\nWRONG RESULTS.\n";
-  else cout << "\nCorrect: all results.\n";
+  if (_wrong) cout << "\n[FAIL]\n";
+  else cout << "\n[PASS]: all results.\n";
 }
 
 #endif  // RPL_A_DP_TUF_TEST_DP14_H_

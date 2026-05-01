@@ -6,7 +6,13 @@
 void run_test(vector<string> dict, string sentence, string correct) {
   auto trie = new Solution();
   string result = trie->replaceWords(dict, sentence);
-  cout << result << (result!=correct? " (WRONG)":"")<< endl;
+  cout << result;
+  if (result == correct) {
+    cout << " [PASS]";
+  } else {
+    cout << " [FAIL] Expected: " << correct;
+  }
+  cout << endl;
 }
 
 void test1() {

@@ -10,7 +10,7 @@ void check(TST& trie, string s, bool correct) {
   _wrong|=(result!=correct);
 
   cout << "has '" << s << "': " << boolalpha << result
-       << (result!=correct?" (WRONG)":"") << endl;
+       << (result!=correct?" [FAIL]":"") << endl;
 }
 
 void run_tests() {

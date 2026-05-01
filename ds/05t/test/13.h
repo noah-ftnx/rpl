@@ -44,7 +44,7 @@ Tree::Tree(int n) {
 
 void check(Tree* tree, string msg, string correct) {
   string res = tree->to_string();
-  cout << setw(40) << res << " \t " << msg <<(res!=correct? "\t\t (WRONG)":"")  << endl;
+  cout << setw(40) << res << " \t " << msg <<(res!=correct? "\t\t [FAIL]":"")  << endl;
 }
 
 void run_tests() {

@@ -8,11 +8,11 @@ using namespace std;
 bool _wrong {};
 
 void print_report() {
-  cout << endl <<  (_wrong? "WRONG RESULTS." : "Correct (all tests)") << endl;
+  cout << endl <<  (_wrong? "[FAIL]" : "[PASS]") << endl;
 }
 
 void print_errors() {
-  if (_wrong) cout << "\nWRONG RESULTS.\n";
+  if (_wrong) cout << "\n[FAIL]\n";
 }
 
 

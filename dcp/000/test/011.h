@@ -33,7 +33,7 @@ void run_tests() {
   string res;
   for (auto r: result) res+=r+"\n";
   bool wrong = (result!=correct);
-  cout << res << (wrong? "\n\nWRONG.":"") << endl;
+  cout << res << (wrong? "\n\n[FAIL]":"") << endl;
 }
 
 #endif  // RPL_DS_08_TEST_11_H_

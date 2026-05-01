@@ -9,7 +9,7 @@ void test(vector<int> input, int k, vector<int> correct) {
   for (auto i: input) cout << i << " ";
   cout << "\nresult: ";
   for (auto i: result) cout << i << " ";
-  cout << (result!=correct? ": (WRONG)":"") << endl << endl;
+  cout << (result!=correct? ": [FAIL]":"") << endl << endl;
 }
 
 void run_tests() {

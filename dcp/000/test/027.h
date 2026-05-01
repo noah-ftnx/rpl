@@ -8,7 +8,7 @@ void test(string input, bool correct) {
   bool result = match_parenthesis(input);
 
   cout << setw(10) << input << ": " << boolalpha << result
-       << (result!=correct? " (WRONG)":"") << endl;
+       << (result!=correct? " [FAIL]":"") << endl;
 }
 
 void run_tests() {

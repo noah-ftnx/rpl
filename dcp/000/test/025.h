@@ -16,7 +16,7 @@ void test(fptr function, string word, string regex, bool correct) {
   bool wrong = result != correct;
   _wrong|=wrong;
 
-  cout << ": " << boolalpha << result << (wrong? " (WRONG)":"") << endl;
+  cout << ": " << boolalpha << result << (wrong? " [FAIL]":"") << endl;
 }
 
 void test_method(fptr function) {
@@ -60,7 +60,7 @@ void run_tests(string msg, fptr function) {
 }
 
 void print_errors() {
-  cout << "\n" << (_wrong? "WRONG RESULTS.": "Correct (all methods).") << endl;
+  cout << "\n" << (_wrong? "[FAIL]": "[PASS].") << endl;
 }
 
 #endif  // RPL_DCP_TEST_025_H_

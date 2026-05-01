@@ -47,7 +47,7 @@ void test(fptr function, int N, bool print, vector<vector<int>> correct) {
 
   if (correct != solutions) {
     _wrong=true;
-    cout << "WRONG.\n";
+    cout << "[FAIL]\n";
   }
 }
 

@@ -36,7 +36,7 @@ void run_tests() {
     cout << w  << " ";
     tmp+=w + " ";
   }
-  cout << "| result." << (tmp!=correct? " (WRONG)":"") << endl;
+  cout << "| result." << (tmp!=correct? " [FAIL]":"") << endl;
 
 
 }

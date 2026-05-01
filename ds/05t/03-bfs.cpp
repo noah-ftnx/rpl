@@ -19,7 +19,7 @@ void run_tests_trv() {
 
   cout << "VERIFY MANUALLY:\n";
   t.print_bfs();
-  cout << "10 5 25 3 7 20 30 <- correct output\n";
+  cout << "10 5 25 3 7 20 30 <- expected output\n";
 }
 
 int main () { run_tests(); }

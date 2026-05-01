@@ -25,12 +25,12 @@ void test(fptr function, vector<vector<int>> vec, vector<vector<int>> correct) {
     cout << endl;
   }
 
-  cout  << "Result: " << setw(3) << (wrong? " (WRONG)": " correct") << endl << endl;
+  cout  << "Result: " << setw(3) << (wrong? " [FAIL]": " [PASS]") << endl << endl;
 }
 
 void print_report() {
-  if (_wrong) cout << "WRONG RESULTS.\n";
-  else cout << "Correct: all results.\n";
+  if (_wrong) cout << "[FAIL]\n";
+  else cout << "[PASS]: all results.\n";
 }
 
 

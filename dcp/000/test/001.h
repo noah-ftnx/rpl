@@ -31,7 +31,7 @@ vector<int> v14 {1, 0, -5};
 
 string res(bool r, bool correct_r) {
   stringstream ss;
-  ss << boolalpha << r << ((r==correct_r)?"":" (WRONG)");
+  ss << boolalpha << r << ((r==correct_r)?"":" [FAIL]");
   return ss.str();
 }
 

@@ -16,7 +16,7 @@ void test(fptr function, vector<int> prices, int fee, int correct) {
   string s;
   for (int p: prices) s += to_string(p) + " ";
   cout << "Fee:" << setw(2) << fee << setw(20) << (s.empty()?"{}":s) << " ";
-  cout << "\tProfit: " << setw(3) << result << " " << setw(10) << (wrong? "(WRONG)":"Correct") << endl;
+  cout << "\tProfit: " << setw(3) << result << " " << setw(10) << (wrong? "[FAIL]":"[PASS]") << endl;
 }
 
 void run_tests(string msg, fptr function) {
@@ -39,8 +39,8 @@ void run_tests(string msg, fptr function) {
 }
 
 void print_report() {
-  if (_wrong) cout << "\nWRONG RESULTS.\n";
-  else cout << "\nCorrect: all results.\n";
+  if (_wrong) cout << "\n[FAIL]\n";
+  else cout << "\n[PASS]: all results.\n";
 }
 
 #endif  // __H__

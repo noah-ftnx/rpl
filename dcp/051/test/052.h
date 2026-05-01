@@ -36,8 +36,8 @@ void test1() {
 }
 
 void print_errors() {
-  if (_wrong) cout << "\nWRONG RESULTS.\n";
-  else cout << "\nCorrect.\n";
+  if (_wrong) cout << "\n[FAIL]\n";
+  else cout << "\n[PASS]\n";
 }
 
 void run_tests() {

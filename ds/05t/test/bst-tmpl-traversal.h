@@ -95,15 +95,15 @@ void run_tests() {
 
   cout << "   INORDER: ";
   tree.print_inorder();
-  cout << "   CORRECT: 4 2 5 1 3\n\n";
+  cout << "   [PASS]: 4 2 5 1 3\n\n";
 
   cout << " PRE ORDER: ";
   tree.print_preorder();
-  cout << "   CORRECT: 1 2 4 5 3\n\n";
+  cout << "   [PASS]: 1 2 4 5 3\n\n";
 
   cout << "POST ORDER: ";
   tree.print_postorder();
-  cout << "   CORRECT: 4 5 2 3 1\n\n";
+  cout << "   [PASS]: 4 5 2 3 1\n\n";
 
   cout << "(confirm above; note: tree wasn't a bst)\n";
 }

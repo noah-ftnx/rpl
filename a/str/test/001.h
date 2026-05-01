@@ -13,7 +13,7 @@ void test(string input, vector<string> correct) {
 
   for (auto ss: res) cout << ss << " ";
 
-  cout << (res == correct? " (Correct)":" (WRONG)") << endl;
+  cout << (res == correct? " [PASS]":" [FAIL]") << endl;
 }
 
 void run_tests() {

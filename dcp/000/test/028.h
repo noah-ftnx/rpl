@@ -9,7 +9,7 @@ void test(vector<string> input, int k, const vector<string>& correct) {
   for (string line: result) cout << line << endl;
   bool wrong = correct!=result;
   _wrong|=wrong;
-  cout << (wrong? "WRONG.":"Correct.") << endl;
+  cout << (wrong? "[FAIL]":"[PASS]") << endl;
 }
 
 void run_tests() {
@@ -38,7 +38,7 @@ void run_tests() {
            "ABC          123",
        });
 
-      cout << endl << (_wrong? "WRONG RESULTS.": "Correct (all).") << endl;
+      cout << endl << (_wrong? "[FAIL]": "[PASS].") << endl;
 }
 
 #endif  // RPL_DCP_TEST_028_H_

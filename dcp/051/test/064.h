@@ -26,7 +26,7 @@ void test(int N, int correct) {
   bool wrong = result!=correct;
   _wrong|=wrong;
   cout << N << ": tours: " << setw(4) << ": " << result
-       << (wrong? " (WRONG)": "") << endl;
+       << (wrong? " [FAIL]": "") << endl;
 }
 
 void run_tests() {

@@ -88,7 +88,7 @@ void run_tests() {
   vector<int> v1 {35, 15, 20, 45, 70, 60, 73, 50};
   t1->insert(v1);
   string s = t1->__get_bfs();
-  cout << s  << (s.compare(correct_bfs)!=0?" (WRONG)": "")<< endl;
+  cout << s  << (s.compare(correct_bfs)!=0?" [FAIL]": " [PASS]")<< endl;
 }
 
 int main() { run_tests(); return 0; }

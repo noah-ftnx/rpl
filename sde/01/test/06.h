@@ -19,12 +19,12 @@ void test(fptr function, vector<int> vec, int correct) {
   bool wrong = correct!=res;
   _wrong|=wrong;
 
-  cout  << ": Profit: " << setw(3) << res << setw(5) << (wrong? " (WRONG)": " correct") << endl;
+  cout  << ": Profit: " << setw(3) << res << setw(5) << (wrong? " [FAIL]": " [PASS]") << endl;
 }
 
 void print_report() {
-  if (_wrong) cout << "WRONG RESULTS.\n";
-  else cout << "Correct: all results.\n";
+  if (_wrong) cout << "[FAIL]\n";
+  else cout << "[PASS]: all results.\n";
 }
 
 

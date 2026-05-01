@@ -13,7 +13,7 @@ void test(fptr function, string a, string b, int correct) {
   bool wrong = correct!=result;
   _wrong|=wrong;
   cout << a << ", " << b << ": distance: " << result
-       << (wrong? " (WRONG)":"") << endl;
+       << (wrong? " [FAIL]":"") << endl;
 }
 
 void run_tests(string msg, fptr function) {
@@ -25,7 +25,7 @@ void run_tests(string msg, fptr function) {
   test(function, "TomorrowIsSaturday","TomorrowIsSunday", 3);
   test(function, "TodayIsSaturday", "TomorrowIsSunday", 9);
 
-  if (_wrong) cout << "\nWRONG RESULTS.\n";
+  if (_wrong) cout << "\n[FAIL]\n";
 }
 
 #endif  // RPL_DCP_TEST_031_H_

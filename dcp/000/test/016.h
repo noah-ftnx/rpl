@@ -8,7 +8,7 @@ using namespace std;
 
 void test(string msg, Log& log, int i, int correct) {
   int res = log.get_last(i);
-  cout << setw(10) << msg << " " << i << ": " << setw(10) << res << (res!=correct? " (WRONG)":"") << endl;
+  cout << setw(10) << msg << " " << i << ": " << setw(10) << res << (res!=correct? " [FAIL]":"") << endl;
 }
 
 

@@ -9,7 +9,7 @@ void test(int N, int correct) {
   bool wrong = result!=correct;
   _wrong|=wrong;
   cout << "Num: " << setw(3) << N << ": " << setw(3) << result
-       << (wrong? " (WRONG)": "") << endl;
+       << (wrong? " [FAIL]": "") << endl;
 }
 
 void run_tests() {

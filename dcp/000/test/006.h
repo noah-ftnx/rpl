@@ -14,7 +14,7 @@ string get_str(Node* node) {
 void check_node(XORList* xl, int i, string res) {
   Node* node = xl->get(i);
   string str = get_str(node);
-  cout << "get:"<<i<<": " << str << (str!=res?" (WRONG)": "") << endl;
+  cout << "get:"<<i<<": " << str << (str!=res?" [FAIL]": "") << endl;
 }
 
 void run_tests() {

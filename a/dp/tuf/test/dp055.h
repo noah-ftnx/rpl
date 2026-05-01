@@ -24,7 +24,7 @@ void test(fptr function, vector<vector<int>> mat, int correct) {
   }
   cout << (s.empty()?"{{}}\n":s);
 
-  cout << "Area: " << setw(15) << result << " " << setw(10) << (wrong? "(WRONG)":"Correct") << endl;
+  cout << "Area: " << setw(15) << result << " " << setw(10) << (wrong? "[FAIL]":"[PASS]") << endl;
 }
 
 void run_tests(string msg, fptr function) {
@@ -51,8 +51,8 @@ void run_tests(string msg, fptr function) {
 }
 
 void print_report() {
-  if (_wrong) cout << "\nWRONG RESULTS.\n";
-  else cout << "\nCorrect: all results.\n";
+  if (_wrong) cout << "\n[FAIL]\n";
+  else cout << "\n[PASS]: all results.\n";
 }
 
 

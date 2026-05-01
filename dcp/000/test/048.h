@@ -48,14 +48,14 @@ void test(deque<char> preorder, vector<char> inorder) {
   bool wrong = (pre!=orig_pre || ino !=orig_ino);
   _wrong|=wrong;
 
-  cout << (wrong? "WRONG RESULT": "Correct")  << ".\n\n";
+  cout << (wrong? "[FAIL]": "[PASS]")  << ".\n\n";
 }
 
 void run_tests() {
   test({'a', 'b', 'd', 'e', 'c', 'f', 'g'}, {'d', 'b', 'e', 'a', 'f', 'c', 'g'});
   test({'a', 'b', 'c'}, {'a', 'b', 'c'});
 
-  if(_wrong) cout << "\nWRONG RESULTS.\n";
+  if(_wrong) cout << "\n[FAIL]\n";
 }
 
 #endif  // RPL_DCP_000_TEST_048_H_

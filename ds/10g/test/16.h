@@ -69,7 +69,7 @@ void test(vector<vector<int>> &graph, vector<int> c_pre, vector<int> c_post) {
   cout << endl << endl;
 
   // for (auto cost: result) cout << setw(3) << cost << " ";
-  // cout << (correct!=result? " (WRONG)": "Correct.") << endl;
+  // cout << (correct!=result? " [FAIL]": "[PASS]") << endl;
 }
 
 

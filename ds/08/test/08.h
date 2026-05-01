@@ -9,7 +9,7 @@ void test(string input, vector<string>& queries, string correct) {
   for (auto r: substr) {
     res+= r + " ";
   }
-  cout << "substrings: " << res << (res!=correct?" (WRONG)":"") << endl;
+  cout << "substrings: " << res << (res!=correct?" [FAIL]":"") << endl;
 }
 
 void test1() {

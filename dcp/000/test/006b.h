@@ -35,7 +35,7 @@ void check(string msg, List* list, string correct) {
     node=node->next;
   }
 
-  cout << msg << ": " << result << (result!=correct? " (WRONG)" :"") << endl;
+  cout << msg << ": " << result << (result!=correct? " [FAIL]" :"") << endl;
 }
 
 void run_tests() {

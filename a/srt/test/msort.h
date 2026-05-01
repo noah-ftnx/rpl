@@ -10,7 +10,7 @@ void test(vector<int> input, vector<int> correct) {
 
   for (auto v: input) cout << setw(3) << v << " ";
   cout << endl; for (auto v: correct) cout << setw(3) << v << " ";
-  cout << (wrong? " (WRONG)": "") << endl;
+  cout << (wrong? " [FAIL]": "") << endl;
   // if (wrong) {
   //   cout << endl; for (auto v: correct) cout << setw(3) << v << " ";
   // }

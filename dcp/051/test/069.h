@@ -9,7 +9,7 @@ void test(vector<int> input, int correct) {
   bool wrong = result!=correct;
   _wrong|=wrong;
   cout << "Largest product: " << result
-       << (wrong? " (WRONG)": "") << endl;
+       << (wrong? " [FAIL]": "") << endl;
 }
 
 void run_tests() {

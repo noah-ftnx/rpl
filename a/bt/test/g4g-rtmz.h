@@ -21,10 +21,10 @@ void test(vector<vector<int>> maze, bool correct_a, vector<vector<int>> correct_
   }
 
   if (result_a == correct_a && (!result_a || result_b == correct_b)) {
-    cout << "Correct.\n";
+    cout << "[PASS]\n";
   } else {
     _wrong=true;
-    cout << " WRONG.\n";
+    cout << " [FAIL]\n";
   }
   cout << endl;
 }
@@ -63,7 +63,7 @@ void run_tests() {
   test1();
   test2();
 
-  if (_wrong) cout << "\nWRONG RESULTS.\n";
+  if (_wrong) cout << "\n[FAIL]\n";
 }
 
 #endif  // RPL_A_BT_TEST_G3G_RTMZ_H_

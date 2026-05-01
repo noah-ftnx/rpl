@@ -15,7 +15,7 @@ void test(vector<pair<string, string>> flights, string starting, vector<string> 
     itinerary.push_back(last_flight);
   }
 
-  cout << (itinerary != correct? " (WRONG)":"") << endl;
+  cout << (itinerary != correct? " [FAIL]":"") << endl;
 }
 
 void test1() {

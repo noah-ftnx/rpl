@@ -11,7 +11,7 @@ void test(vector<int> input, int num, int correct) {
   bool wrong = (result != correct);
   _wrong|=wrong;
   cout << "index: " << result <<
-      (wrong? " (WRONG)": "") << endl;
+      (wrong? " [FAIL]": "") << endl;
 
 }
 
@@ -32,7 +32,7 @@ void run_tests() {
   test({1}, 2, -1);
   test({1}, 1, 0);
 
-  cout << endl << (_wrong? "WRONG RESULTS.":"Correct results.") << endl;
+  cout << endl << (_wrong? "[FAIL]":"[PASS]") << endl;
 }
 
 #endif  // RPL_DCP_051_TEST_058_H_

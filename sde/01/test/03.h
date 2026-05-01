@@ -22,12 +22,12 @@ void test(fptr function, vector<int> vec, vector<int> correct) {
   for (auto v: vec) s+=to_string(v) + " ";
   cout << setw(10) << s;
 
-  cout  << ": " << setw(5) << (wrong? " (WRONG)": " correct") << endl;
+  cout  << ": " << setw(5) << (wrong? " [FAIL]": " [PASS]") << endl;
 }
 
 void print_report() {
-  if (_wrong) cout << "WRONG RESULTS.\n";
-  else cout << "Correct: all results.\n";
+  if (_wrong) cout << "[FAIL]\n";
+  else cout << "[PASS]: all results.\n";
 }
 
 

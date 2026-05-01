@@ -34,7 +34,7 @@ void test(fptr function, int N, pair<int,int> correct) {
 
   cout << setw(3) << solution.first
        << " permutations: " << setw(5) << solution.second
-       << (solution != correct ? " (WRONG)": "") << endl << flush;
+       << (solution != correct ? " [FAIL]": "") << endl << flush;
 }
 
 

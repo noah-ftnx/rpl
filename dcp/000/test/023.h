@@ -6,7 +6,7 @@
 
 void test(bool input[N][M], pair<int, int> start, pair<int, int>end, int correct) {
   int result = min_steps(input, start, end);
-  cout << "min steps: " << result << (result != correct? " (WRONG)":"") << endl;
+  cout << "min steps: " << result << (result != correct? " [FAIL]":"") << endl;
 }
 
 void test1() {

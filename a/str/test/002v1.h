@@ -10,7 +10,7 @@ void test(string input, int correct) {
 
   cout << left << setw(8) << (label + ":")
        << setw(4) << result
-       << (result == correct ? " (Correct)" : " (WRONG. Expected: " + to_string(correct) + ")")
+       << (result == correct ? " [PASS]" : " ([FAIL] Expected: " + to_string(correct) + ")")
        << endl;
 }
 

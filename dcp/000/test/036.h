@@ -47,7 +47,7 @@ void test(Node* root, int correct) {
   int result = predecessor(root);
 
   cout << "second smallest: " << setw(2) << (result==INT_MIN? "NAN":to_string(result))
-       << (correct!=result? " (WRONG)":"") << endl;
+       << (correct!=result? " [FAIL]":"") << endl;
 }
 
 void run_tests() {

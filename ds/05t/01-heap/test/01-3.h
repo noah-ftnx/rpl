@@ -20,7 +20,7 @@ void test(fptr fun, const vector<int> input, vector<int> correct) {
   bool wrong = vec != correct;
   _wrong|=wrong;
 
-  cout  <<  (wrong? " (WRONG)": " correct") << endl;
+  cout  <<  (wrong? " [FAIL]": " [PASS]") << endl;
 }
 
 void run_tests(fptr fun, string msg) {

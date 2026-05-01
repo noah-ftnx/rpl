@@ -8,7 +8,7 @@ void test(vector<vector<int>> maze, vector<string> correct) {
   auto result = findPath(maze);
   bool wrong = correct!=result;
   _wrong|=wrong;
-  cout << (wrong? "Wrong." : "Correct") << ".\n";
+  cout << (wrong? "Wrong." : "[PASS]") << ".\n";
   for (auto r: result) cout << r << endl;
   cout << endl;
 }
@@ -38,7 +38,7 @@ void run_tests() {
   test1();
   test2();
 
-  if (_wrong) cout << "\nWRONG RESULTS.\n";
+  if (_wrong) cout << "\n[FAIL]\n";
 }
 
 

@@ -26,12 +26,12 @@ void test(fptr function, vector<vector<int>> vec, vector<vector<int>> correct) {
   bool wrong = correct!=vec;
   _wrong|=wrong;
 
-  cout << "Rotation: " << (wrong? " (WRONG)": " correct") << endl << endl;
+  cout << "Rotation: " << (wrong? " [FAIL]": " [PASS]") << endl << endl;
 }
 
 void print_report() {
-  if (_wrong) cout << "WRONG RESULTS.\n";
-  else cout << "Correct: all results.\n";
+  if (_wrong) cout << "[FAIL]\n";
+  else cout << "[PASS]: all results.\n";
 }
 
 

@@ -24,7 +24,7 @@ void test(fptr function, vector<vector<int>> maze, int correct) {
   int result = function(N, M, maze);
   bool wrong = result != correct;
   _wrong|=wrong;
-  cout << "ways: " << result << (wrong? " (WRONG)": " correct.") << endl;
+  cout << "ways: " << result << (wrong? " [FAIL]": " [PASS]") << endl;
 }
 
 void test1(fptr function) {
@@ -58,8 +58,8 @@ void run_tests(string msg, fptr function) {
 }
 
 void print_errors() {
-  if (_wrong) cout << "\nWRONG RESULTS.\n";
-  else cout << "\nCorrect (all results).\n";
+  if (_wrong) cout << "\n[FAIL]\n";
+  else cout << "\n[PASS] (all results).\n";
 }
 
 #endif  // INC_070__CPP_A_DP_TUF_TEST_009_H_

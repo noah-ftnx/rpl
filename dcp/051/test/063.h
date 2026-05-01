@@ -11,11 +11,11 @@ void test(vector<vector<char>> input, string word, bool correct) {
   bool wrong = result!=correct;
   _wrong|=wrong;
   cout << word << " exists: " << boolalpha << result
-       << (wrong? " (WRONG)": "") << endl;
+       << (wrong? " [FAIL]": "") << endl;
 }
 
 void print_report() {
-  cout << endl <<  (_wrong? "WRONG RESULTS." : "Correct (all tests)") << endl;
+  cout << endl <<  (_wrong? "[FAIL]" : "[PASS]") << endl;
 }
 
 void run_tests() {

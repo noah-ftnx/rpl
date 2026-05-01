@@ -13,7 +13,7 @@ void test(vector<vector<bool>> graph, int k, bool correct) {
   msg+=" be colored.";
 
   bool wrong = correct != result;
-  cout << setw(25) << msg << (wrong?" WRONG":" Correct") << ".\n";
+  cout << setw(25) << msg << (wrong?" [FAIL]":" [PASS]") << ".\n";
 }
 
 void test1() {

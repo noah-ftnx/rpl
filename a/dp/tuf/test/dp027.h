@@ -13,7 +13,7 @@ void test(fptr function, string s, string t, int correct) {
   bool wrong = result !=correct;
   _wrong|=wrong;
   cout << setw(20) << (s.empty()?"{}":s) << " " << setw(20) << (t.empty()?"{}":t) << " ";
-  cout << "LCSTR: " << setw(5) << result << " " << setw(10) << (wrong? "(WRONG)":"Correct") << endl;
+  cout << "LCSTR: " << setw(5) << result << " " << setw(10) << (wrong? "[FAIL]":"[PASS]") << endl;
 }
 
 void run_tests(string msg, fptr function) {
@@ -27,8 +27,8 @@ void run_tests(string msg, fptr function) {
 }
 
 void print_report() {
-  if (_wrong) cout << "\nWRONG RESULTS.\n";
-  else cout << "\nCorrect: all results.\n";
+  if (_wrong) cout << "\n[FAIL]\n";
+  else cout << "\n[PASS]: all results.\n";
 }
 
 #endif  // __H__

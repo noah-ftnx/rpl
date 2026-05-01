@@ -17,12 +17,12 @@ void test(fptr function, int n, vector<int> correct) {
   for (auto v: res) cout<< to_string(v) <<" ";
   cout << endl;
 
-  cout  << "Input: " << n << setw(5) << (wrong? " (WRONG)": " correct") << endl << endl;
+  cout  << "Input: " << n << setw(5) << (wrong? " [FAIL]": " [PASS]") << endl << endl;
 }
 
 void print_report() {
-  if (_wrong) cout << "WRONG RESULTS.\n";
-  else cout << "Correct: all results.\n";
+  if (_wrong) cout << "[FAIL]\n";
+  else cout << "[PASS]: all results.\n";
 }
 
 

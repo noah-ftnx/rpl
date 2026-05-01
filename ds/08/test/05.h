@@ -6,7 +6,7 @@ void test(Trie& trie, string suffix, bool correct) {
   bool result = trie.suffix_exists(suffix);
   cout << "suffix: " << suffix
        << (result? ": exists": "")
-       << (result!=correct?" (WRONG)":"") << endl;
+       << (result!=correct?" [FAIL]":"") << endl;
 }
 
 void run_tests() {

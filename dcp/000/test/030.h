@@ -15,7 +15,7 @@ void test(vector<int> input, int correct) {
   cout << setw(20) << str << ": capacity: " << setw(2) << result;
   bool wrong = result!=correct;
   _wrong|=wrong;
-  cout << (wrong? " WRONG": " correct") << endl;
+  cout << (wrong? " [FAIL]": " [PASS]") << endl;
 }
 
 void run_tests() {
@@ -49,7 +49,7 @@ void run_tests() {
 
   // test({}, 1);
 
-  if (_wrong) cout << "\nWRONG RESULTS.\n";
+  if (_wrong) cout << "\n[FAIL]\n";
 }
 
 #endif  // RPL_DCP_TEST_030_H_

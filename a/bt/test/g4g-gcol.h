@@ -17,7 +17,7 @@ void test(vector<vector<bool>> graph, int m, vector<int> correct_a, bool correct
 
   bool wrong = !((correct_b == result_b) && (correct_a == result_a || correct_b==false));
 
-  cout << (wrong?" WRONG":" Correct") << ".\n";
+  cout << (wrong?" [FAIL]":" [PASS]") << ".\n";
 }
 
 void test1() {

@@ -1,3 +1,4 @@
+// status: failing
 
 class Foo {
   int xx;

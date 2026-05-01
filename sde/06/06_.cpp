@@ -1,3 +1,4 @@
+// status: failing
 
 struct Node{
   int data;

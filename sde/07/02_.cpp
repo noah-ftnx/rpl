@@ -1,3 +1,4 @@
+// status: failing
 Node* copyRandomList1(Node* head) {
   if (head==nullptr) return head;
 

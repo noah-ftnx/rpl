@@ -4,19 +4,17 @@
 using namespace std;
 
 int count_anagram_substrings(string s) {
-  unordered_set<string> seen;
-  const int N = s.size();
-
-  for (int i=0; i<N; i++) {
-    string key;
-    for (int j=i; j<N; j++) {
-      key += s[j];
-      sort(key.begin(), key.end());
-      seen.insert(key);
+  const int S = s.size();
+  unordered_set<string> unq;
+  vector<string> substrs;
+  for (int i=0; i<S; i++) {
+    for (int j=i; j<S; j++) {
+      string substr(s.begin()+i, s.begin()+j+1);
+      sort(substr.begin(), substr.end());
+      unq.insert(substr);
     }
   }
-
-  return seen.size();
+  return unq.size();
 }
 
 #include "test/002.h"

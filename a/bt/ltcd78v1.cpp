@@ -1,4 +1,5 @@
 
+// Duplicate-aware variant, close to Subsets II.
 vector<vector<int>> subsets(vector<int>& nums);
 
 

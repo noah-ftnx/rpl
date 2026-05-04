@@ -1,6 +1,7 @@
 #include <vector>
 using namespace std;
 
+// Same as dcp/000/037.
 void solve(const vector<int>& nums,
            vector<int>& subset,
            vector<vector<int>>& powerset,

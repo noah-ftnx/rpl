@@ -1,6 +1,7 @@
 #include <vector>
 using namespace std;
 
+// Same as a/bt/ltcd78.
 void find_powerset(const vector<int>& input,
                    vector<int>& cset,
                    vector<vector<int>>& pset, int start) {

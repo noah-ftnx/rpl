@@ -3,6 +3,7 @@
 
 using namespace std;
 
+// Duplicate-aware variant, close to Subsets II.
 void solve(const vector<int>& nums, int start,
            vector<vector<int>>& powerset, vector<int>& subset) {
 

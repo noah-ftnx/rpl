@@ -1,18 +1,21 @@
-/**
- * Definition for a binary tree node.
- * struct TreeNode {
- *     int val;
- *     TreeNode *left;
- *     TreeNode *right;
- *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
- *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
- *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
- * };
- */
-class Solution {
- public:
-  int maxDepth(TreeNode* root) {
-    if (root==nullptr) return 0;
-    return 1+max(maxDepth(root->left), maxDepth(root->right));
-  }
-};
+#include <algorithm>
+#include "test/02.h"
+
+template <class T>
+int max_depth(Node<T>* node) {
+  if (!node) return 0; // base case: empty subtree
+
+  // depth counts nodes:
+  // - single node => 1
+  // - empty tree  => 0
+  int L = max_depth(node->left);
+  int R = max_depth(node->right);
+  return 1 + max(L, R);
+}
+
+template <class T>
+int Tree<T>::max_depth() {
+  return ::max_depth(root);
+}
+
+int main() { run_tests(); return 0; }

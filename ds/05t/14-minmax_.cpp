@@ -1,24 +1,19 @@
-#include "test/bst-tmpl-minmax.h"
-template <class T>
-T Tree<T>::min() {
-  auto _min = [] (Node<T>* node) -> T {
-    while (node->left) node=node->left;
-    return node->data;
-  };
+#include "test/14-minmax.h"
+
+int Tree::min() {
   if (!root) return INT_MAX;
-  return _min(root);
+
+  auto node = root;
+  while (node->left) node = node->left;
+  return node->data;
 }
 
-template <class T>
-T Tree<T>::max() {
-  auto _max = [] (Node<T>* node) -> T {
-    while (node->right) node=node->right;
-    return node->data;
-  };
-
+int Tree::max() {
   if (!root) return INT_MIN;
-  return _max(root);
-}
 
+  auto node = root;
+  while (node->right) node = node->right;
+  return node->data;
+}
 
 int main() { run_tests(); return 0; }

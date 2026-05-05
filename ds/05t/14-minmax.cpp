@@ -1,8 +1,12 @@
-#include "test/bst-tmpl-minmax.h"
+#include "test/14-minmax.h"
 
-// Class Tree. Is template
-// T min()
-// T max()
+// Implement:
+// int Tree::min();
+// int Tree::max();
+//
+// Empty tree:
+// - min => INT_MAX
+// - max => INT_MIN
 
 
 int main() { run_tests(); return 0; }

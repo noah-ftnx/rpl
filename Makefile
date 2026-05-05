@@ -14,6 +14,15 @@ all: $(OBJ)
 
 underscore: $(OBJ_UNDERSCORE)
 
+rpl-temp:
+	@test -n "$(RPL_SRC)" || (echo "RPL_SRC is required" >&2; exit 2)
+	@test -n "$(RPL_REL)" || (echo "RPL_REL is required" >&2; exit 2)
+	@test -n "$(RPL_OUT)" || (echo "RPL_OUT is required" >&2; exit 2)
+	mkdir -p "$(dir $(RPL_OUT))"
+	$(CXX) -I"$(dir $(RPL_REL))" $(CXXFLAGS) -o "$(RPL_OUT)" "$(RPL_SRC)"
+	@if [ -t 1 ] && [ -n "$$TERM" ]; then clear; fi
+	"$(RPL_OUT)"
+
 # INFO:
 # mkdir trick: creates all the dirs, and the last one that must have been a file
 # then it deletes the last dir.

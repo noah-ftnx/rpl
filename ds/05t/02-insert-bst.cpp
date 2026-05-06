@@ -1,43 +1,67 @@
-#include <vector>
-#include <string>
 #include <iostream>
+#include <queue>
+#include <string>
+#include <vector>
 using namespace std;
 
-class BSTree {
+template <class T>
+struct Node {
+  Node<T>* left {};
+  Node<T>* right {};
+  Node<T>* parent {};
+  T data;
 
-  ///////////// for verification
-  string __get_bfs() {
-    queue<Node<T>*> q;
-    q.push(root);
-    string r;
-    while (!q.empty()) {
-      auto n=q.front();
-      q.pop();
-      r+= std::to_string(n->data) + " ";
-      if (n->left) q.push(n->left);
-      if (n->right) q.push(n->right);
-    }
-    return r;
+  explicit Node(T data) : data{data} {}
+
+  ~Node() {
+    delete left;
+    delete right;
   }
-  /////////////
 };
 
+template <class T>
+class BSTree {
+ private:
+  Node<T>* root {};
 
+ public:
+  explicit BSTree() = default;
+  ~BSTree() { delete root; }
 
-// -----------------------------------------------------------------------------
-// -----------------------------------------------------------------------------
-// -----------------------------------------------------------------------------
+  // Implement:
+  void insert(vector<T> vec);
+  void insert(T data);
+  void _insert(T data, Node<T>* node);
 
+  string __get_bfs() {
+    if (!root) return "";
 
+    queue<Node<T>*> q;
+    q.push(root);
 
-string correct_bfs="35 15 45 20 70 60 73 50 ";
+    string res;
+    while (!q.empty()) {
+      auto node = q.front();
+      q.pop();
+
+      res += to_string(node->data) + " ";
+      if (node->left) q.push(node->left);
+      if (node->right) q.push(node->right);
+    }
+    return res;
+  }
+};
+
+const string correct_bfs = "35 15 45 20 70 60 73 50 ";
 
 void run_tests() {
-  auto t1= new BSTree<int>();
+  BSTree<int> t1;
   vector<int> v1 {35, 15, 20, 45, 70, 60, 73, 50};
-  t1->insert(v1);
-  string s = t1->__get_bfs();
-  cout << s  << (s.compare(correct_bfs)!=0?" [FAIL]": " [PASS]")<< endl;
+
+  t1.insert(v1);
+  string s = t1.__get_bfs();
+
+  cout << (s == correct_bfs ? "[PASS] " : "[FAIL] ") << s << endl;
 }
 
 int main() { run_tests(); return 0; }

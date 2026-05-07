@@ -36,8 +36,25 @@ void test(string name, vector<int> input, vector<int> correct) {
   cout << endl;
 }
 
+void test_pop_empty() {
+  MinHeap heap;
+  heap.pop();
+
+  bool wrong = !heap.empty() || heap.size() != 0;
+  _wrong |= wrong;
+
+  cout << (wrong ? "[FAIL] " : "[PASS] ");
+  cout << setw(18) << "pop empty";
+  cout << setw(42) << "[]";
+  cout << " -> ";
+  cout << "[]";
+  if (wrong) cout << " (WRONG. Expected: [])";
+  cout << endl;
+}
+
 void run_tests(string msg) {
   cout << msg << ":\n";
+  test_pop_empty();
   test("mixed", {9, 25, 3, 10, 6, 4, 15, 2, 8, 40, 24}, {2, 3, 4, 6, 8, 9, 10, 15, 24, 25, 40});
   test("already heap", {2, 6, 3, 8, 9, 4, 15}, {2, 3, 4, 6, 8, 9, 15});
   test("descending", {9, 8, 7, 6, 5, 4, 3}, {3, 4, 5, 6, 7, 8, 9});

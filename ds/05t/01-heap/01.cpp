@@ -9,7 +9,10 @@ private:
   int right(int i) const;
   int parent(int i) const;
 
+  // Why needed?
   void percolate_up(int i);
+
+  // Why needed?
   void percolate_down(int i);
 
 public:

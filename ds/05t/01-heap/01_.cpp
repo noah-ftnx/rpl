@@ -53,6 +53,8 @@ public:
   }
 
   void pop() {
+    if (empty()) return;
+
     vec[0] = vec.back();
     vec.pop_back();
     if (!empty()) percolate_down(0);

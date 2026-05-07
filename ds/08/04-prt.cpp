@@ -1,7 +1,11 @@
+#include <string>
+#include <vector>
+using namespace std;
 
-// Trie:
-void insert(string s);
-vector<string> get_words();
+struct Trie {
+  void insert(string s);
+  vector<string> get_words();
+};
 
 
 

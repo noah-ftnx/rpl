@@ -11,7 +11,7 @@ struct Node {
   bool has(char c) { return child.contains(c); }
   void put(char c, int idx) {
     if (!has(c)) child.insert(make_pair(c, new Node()));
-    indices.push_back(idx);
+    child[c]->indices.push_back(idx);
   }
   Node* get(char c) { return child[c]; }
 };

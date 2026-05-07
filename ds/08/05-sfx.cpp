@@ -1,7 +1,10 @@
-// Trie
+#include <string>
+using namespace std;
 
-void insert(string s);
-bool suffix_exists(string suffix);
+struct Trie {
+  void insert(string s);
+  bool suffix_exists(string suffix);
+};
 
 
 

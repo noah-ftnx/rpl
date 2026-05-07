@@ -1,4 +1,6 @@
-// INCLUDES
+#include <string>
+#include <vector>
+using namespace std;
 
 struct WordFilter {
   WordFilter(vector<string>& words);

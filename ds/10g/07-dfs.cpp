@@ -1,16 +1,15 @@
+
 struct Graph {
   // IMPLEMENT: store edges in a DS
   Graph(int V);
-
   // IMPLEMENT: addEdge
-  void addEdge(int v, int w);
-
-  // IMPLEMENT: linearize; return empty if not DAG
-  vector<int> linearize();
+  void addEdge(int src, int tgt);
+  // IMPLEMENT: hasCyclesDFS
+  bool hasCyclesDFS();
 
 };
 
 
 
-#include "test/10.h"
+#include "test/07.h"
 int main() { run_tests(); return 0; }

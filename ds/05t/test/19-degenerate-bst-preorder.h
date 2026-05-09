@@ -31,6 +31,8 @@ void run_tests() {
   check("ancestor bound", {10, 5, 1, 7}, false);
   check("complex false", {8, 3, 1, 6, 4, 7, 10}, false);
   check("duplicate", {10, 5, 5}, false);
+  check("duplicate bound", {10, 5, 3, 5}, false);
+  check("duplicate lower bound", {10, 15, 20, 15}, false);
   cout << endl;
 }
 

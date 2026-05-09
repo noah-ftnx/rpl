@@ -1,10 +1,12 @@
-#ifndef RPL_DS_10G_TEST_07_H_
-#define RPL_DS_10G_TEST_07_H_
+#ifndef RPL_DS_10G_TEST_07_BFS_H_
+#define RPL_DS_10G_TEST_07_BFS_H_
 
 #include <iostream>
+#include <string>
+using namespace std;
 
 void check(string name, Graph& g, bool expected) {
-  bool res = g.hasCyclesDFS();
+  bool res = g.hasCyclesBFS();
   bool wrong = res != expected;
   cout << (wrong ? "[FAIL] " : "[PASS] ");
   cout << name << ": " << res;
@@ -58,7 +60,7 @@ Graph input_diamond() {
   auto g = Graph(4);
   g.addEdge(0, 1);
   g.addEdge(0, 2);
-  g.addEdge(1, 2);
+  g.addEdge(1, 3);
   g.addEdge(2, 3);
   return g;
 }
@@ -95,4 +97,4 @@ void run_tests() {
   check("cross edge", crossEdge, false);
 }
 
-#endif  // RPL_DS_10G_TEST_07_H_
+#endif  // RPL_DS_10G_TEST_07_BFS_H_

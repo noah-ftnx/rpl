@@ -13,22 +13,25 @@ struct Graph {
     AL[v].push_back(w);
   }
 
-  void DFS(vector<bool> &visited, deque<int>& order, int v) {
-    visited[v]=true;
+  bool DFS(vector<int>& state, deque<int>& order, int v) {
+    state[v]=1; // open
 
     for (auto nei: AL[v]) {
-     if (!visited[nei]) DFS(visited, order, nei);
+      if (state[nei]==1) return true; // cycle
+      if (state[nei]==0 && DFS(state, order, nei)) return true;
     }
 
+    state[v]=2; // closed
     order.push_front(v);
+    return false;
   }
 
   vector<int> linearize() {
-    vector<bool> visited(V, false);
+    vector<int> state(V, 0);
 
     deque<int> order;
     for (int v=0; v<V; v++) {
-      if (!visited[v]) DFS(visited, order, v);
+      if (state[v]==0 && DFS(state, order, v)) return {};
     }
 
     vector<int> result;

@@ -33,6 +33,10 @@ bool is_topological(int V, const vector<pair<int, int>>& edges, const vector<int
   return true;
 }
 
+bool is_empty_order(const vector<int>& order) {
+  return order.empty();
+}
+
 void test(string name, int V, vector<pair<int, int>> edges) {
   Graph g(V);
   for (auto [from, to]: edges) {
@@ -47,6 +51,23 @@ void test(string name, int V, vector<pair<int, int>> edges) {
   cout << left << setw(14) << name;
   cout << show(order);
   if (wrong) cout << " (WRONG)";
+  cout << endl;
+}
+
+void test_cycle(string name, int V, vector<pair<int, int>> edges) {
+  Graph g(V);
+  for (auto [from, to]: edges) {
+    g.addEdge(from, to);
+  }
+
+  auto order = g.linearize();
+  bool wrong = !is_empty_order(order);
+  _wrong |= wrong;
+
+  cout << (wrong ? "[FAIL] " : "[PASS] ");
+  cout << left << setw(14) << name;
+  cout << show(order);
+  if (wrong) cout << " (WRONG. Expected: empty)";
   cout << endl;
 }
 
@@ -67,6 +88,12 @@ void run_tests() {
   });
   test("multi-source", 4, {
     {0, 3}, {1, 3}, {2, 3},
+  });
+  test_cycle("cycle", 3, {
+    {0, 1}, {1, 2}, {2, 0},
+  });
+  test_cycle("partial-cycle", 5, {
+    {0, 1}, {2, 3}, {3, 4}, {4, 2},
   });
 
   cout << endl;

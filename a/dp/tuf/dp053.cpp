@@ -1,8 +1,11 @@
 
+// IMPLEMENT: palindromePartitioningBF
 int palindromePartitioningBF(string str);
 
+// IMPLEMENT: palindromePartitioningMMZ
 int palindromePartitioningMMZ(string str);
 
+// IMPLEMENT: palindromePartitioningBU
 int palindromePartitioningBU(string str);
 
 

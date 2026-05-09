@@ -1,10 +1,14 @@
 
+// IMPLEMENT: longestPalindromeSubseqBF
 int longestPalindromeSubseqBF(string s);
 
+// IMPLEMENT: longestPalindromeSubseqMMZ
 int longestPalindromeSubseqMMZ(string s);
 
+// IMPLEMENT: longestPalindromeSubseqBU
 int longestPalindromeSubseqBU(string s);
 
+// IMPLEMENT: longestPalindromeSubseqOPT
 int longestPalindromeSubseqOPT(string s);
 
 

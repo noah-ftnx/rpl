@@ -6,6 +6,7 @@ struct Node {
   Node(int data) : data{data} {}
 };
 
+// IMPLEMENT: predecessor
 int predecessor(Node* root);
 
 

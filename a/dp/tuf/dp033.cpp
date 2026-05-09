@@ -1,10 +1,14 @@
 
+// IMPLEMENT: minDistanceBF
 int minDistanceBF(string s, string t);
 
+// IMPLEMENT: minDistanceMMZ
 int minDistanceMMZ(string s, string t);
 
+// IMPLEMENT: minDistanceBU
 int minDistanceBU(string s, string t);
 
+// IMPLEMENT: minDistanceOPT
 int minDistanceOPT(string s, string t);
 
 

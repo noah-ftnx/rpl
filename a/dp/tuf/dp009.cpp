@@ -1,10 +1,14 @@
 
+// IMPLEMENT: mazeObstaclesBF
 int mazeObstaclesBF(int n, int m, vector<vector<int>> &mat);
 
+// IMPLEMENT: mazeObstaclesMMZ
 int mazeObstaclesMMZ(int n, int m, vector<vector<int>> &mat);
 
+// IMPLEMENT: mazeObstaclesBU
 int mazeObstaclesBU(int n, int m, vector<vector<int>> &mat);
 
+// IMPLEMENT: mazeObstaclesOPT
 int mazeObstaclesOPT(int n, int m, vector<vector<int>> &mat);
 
 

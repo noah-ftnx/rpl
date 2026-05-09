@@ -1,4 +1,5 @@
 
+// IMPLEMENT: word_exists
 bool word_exists(vector<vector<char>> grid, string word);
 
 

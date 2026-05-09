@@ -1,10 +1,14 @@
 
+// IMPLEMENT: max_sumBF
 int max_sumBF(const vector<int>& input);
 
+// IMPLEMENT: max_sumTD
 int max_sumTD(const vector<int>& input);
 
+// IMPLEMENT: max_sumBU
 int max_sumBU(const vector<int>& input);
 
+// IMPLEMENT: max_sumOPT
 int max_sumOPT(const vector<int>& input);
 
 

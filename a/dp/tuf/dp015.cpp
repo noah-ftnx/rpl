@@ -1,10 +1,14 @@
 
+// IMPLEMENT: canPartitionBF
 bool canPartitionBF(vector<int> &arr, int n);
 
+// IMPLEMENT: canPartitionMMZ
 bool canPartitionMMZ(vector<int> &arr, int n);
 
+// IMPLEMENT: canPartitionBU
 bool canPartitionBU(vector<int> &arr, int n);
 
+// IMPLEMENT: canPartitionOPT
 bool canPartitionOPT(vector<int> &arr, int n);
 
 

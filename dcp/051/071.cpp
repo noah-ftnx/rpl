@@ -1,6 +1,8 @@
 
+// IMPLEMENT: rand7
 int rand7();
 
+// IMPLEMENT: rand5
 int rand5();
 
 

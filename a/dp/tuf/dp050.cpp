@@ -1,8 +1,11 @@
 
+// IMPLEMENT: costBF
 int costBF(int n, int c, vector<int> &cuts);
 
+// IMPLEMENT: costMMZ
 int costMMZ(int n, int c, vector<int> &cuts);
 
+// IMPLEMENT: costBU
 int costBU(int n, int c, vector<int> &cuts);
 
 

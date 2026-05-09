@@ -1,10 +1,14 @@
 
+// IMPLEMENT: string_distanceBF
 int string_distanceBF(string a, string b);
 
+// IMPLEMENT: string_distanceMMZ
 int string_distanceMMZ(string a, string b);
 
+// IMPLEMENT: string_distanceBU
 int string_distanceBU(string a, string b);
 
+// IMPLEMENT: string_distanceOPT
 int string_distanceOPT(string a, string b);
 
 

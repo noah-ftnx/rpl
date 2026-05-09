@@ -1,10 +1,14 @@
 
+// IMPLEMENT: minimumPathSumBF
 int minimumPathSumBF(vector<vector<int>>& triangle, int n);
 
+// IMPLEMENT: minimumPathSumMMZ
 int minimumPathSumMMZ(vector<vector<int>>& triangle, int n);
 
+// IMPLEMENT: minimumPathSumBU
 int minimumPathSumBU(vector<vector<int>>& triangle, int n);
 
+// IMPLEMENT: minimumPathSumOPT
 int minimumPathSumOPT(vector<vector<int>>& triangle, int n);
 
 

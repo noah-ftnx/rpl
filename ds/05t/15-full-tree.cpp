@@ -1,6 +1,6 @@
 #include "test/15-full-tree.h"
 
-// Implement:
+// IMPLEMENT: Tree<T>::is_full
 template <class T>
 bool Tree<T>::is_full() {
     function<bool(Node<T>*)> f = [&](Node<T>* node) {

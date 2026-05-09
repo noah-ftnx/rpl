@@ -1,10 +1,14 @@
 
+// IMPLEMENT: subsetSumToKBF
 bool subsetSumToKBF(int n, int k, vector<int> &arr);
 
+// IMPLEMENT: subsetSumToKMMZ
 bool subsetSumToKMMZ(int n, int k, vector<int> &arr);
 
+// IMPLEMENT: subsetSumToKBU
 bool subsetSumToKBU(int n, int k, vector<int> &arr);
 
+// IMPLEMENT: subsetSumToKOPT
 bool subsetSumToKOPT(int n, int k, vector<int> &arr);
 
 

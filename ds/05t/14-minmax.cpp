@@ -1,8 +1,10 @@
 #include "test/14-minmax.h"
 
-// Implement:
-// int Tree::min();
-// int Tree::max();
+// IMPLEMENT: Tree::min
+int Tree::min();
+
+// IMPLEMENT: Tree::max
+int Tree::max();
 //
 // Empty tree:
 // - min => INT_MAX

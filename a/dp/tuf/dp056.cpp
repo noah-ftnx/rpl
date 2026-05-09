@@ -1,10 +1,14 @@
 
+// IMPLEMENT: countSquaresBF
 int countSquaresBF(int n, int m, vector<vector<int>> &arr);
 
+// IMPLEMENT: countSquaresMMZ
 int countSquaresMMZ(int n, int m, vector<vector<int>> &arr);
 
+// IMPLEMENT: countSquaresBU
 int countSquaresBU(int n, int m, vector<vector<int>> &arr);
 
+// IMPLEMENT: countSquaresOPT
 int countSquaresOPT(int n, int m, vector<vector<int>> &arr);
 
 

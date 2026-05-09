@@ -3,7 +3,9 @@
 using namespace std;
 
 // Trie
+// IMPLEMENT: insert
 void insert(string path);
+// IMPLEMENT: has_path
 bool has_path(string path);
 
 

@@ -2,7 +2,9 @@
 struct Graph {
 
   Graph(int V);
+  // IMPLEMENT: addEdge
   void addEdge(int src, int tgt);
+  // IMPLEMENT: has_cycles
   bool has_cycles();
 
 };

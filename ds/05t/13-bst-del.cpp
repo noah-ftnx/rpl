@@ -7,6 +7,7 @@ struct Tree {
   Node *root; // taken care by ctor
   Tree(int n); // given
 
+  // IMPLEMENT: delete_node
   void delete_node(int tgt); // TODO
 
 

@@ -1,6 +1,7 @@
 
 
 // return pair of: <solutions, permutations>
+// IMPLEMENT: n_queensBF
 pair<int, int> n_queensBF(int N);
 
 

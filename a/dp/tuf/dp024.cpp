@@ -1,10 +1,14 @@
 
+// IMPLEMENT: cutRodBF
 int cutRodBF(vector<int> &price, int n);
 
+// IMPLEMENT: cutRodMMZ
 int cutRodMMZ(vector<int> &price, int n);
 
+// IMPLEMENT: cutRodBU
 int cutRodBU(vector<int> &price, int n);
 
+// IMPLEMENT: cutRodOPT
 int cutRodOPT(vector<int> &price, int n);
 
 

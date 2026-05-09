@@ -12,6 +12,7 @@ struct Tree {
 
   void add(const vector<T>& data, const string& path); // given
 
+  // IMPLEMENT: query_successors
   void query_successors(deque<int>& query, deque<int>& answer);
 
 };

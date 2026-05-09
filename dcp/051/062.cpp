@@ -1,8 +1,10 @@
 #include <vector>
 using namespace std;
 
+// IMPLEMENT: paths_num
 int paths_num(int N, int M);
 
+// IMPLEMENT: paths_numOPT
 int paths_numOPT(int N, int M);
 
 

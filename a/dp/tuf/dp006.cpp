@@ -1,10 +1,14 @@
 
+// IMPLEMENT: robBF
 int robBF(vector<int>& nums);
 
+// IMPLEMENT: robMMZ
 int robMMZ(vector<int>& nums);
 
+// IMPLEMENT: robBU
 int robBU(vector<int>& nums);
 
+// IMPLEMENT: robOPT
 int robOPT(vector<int>& nums);
 
 

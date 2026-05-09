@@ -1,10 +1,14 @@
 
+// IMPLEMENT: wildcardMatchingBF
 bool wildcardMatchingBF(string pattern, string text);
 
+// IMPLEMENT: wildcardMatchingMMZ
 bool wildcardMatchingMMZ(string pattern, string text);
 
+// IMPLEMENT: wildcardMatchingBU
 bool wildcardMatchingBU(string pattern, string text);
 
+// IMPLEMENT: wildcardMatchingOPT
 bool wildcardMatchingOPT(string pattern, string text);
 
 

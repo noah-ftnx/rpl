@@ -1,7 +1,11 @@
 
+// IMPLEMENT: count_bf
 uint64_t count_bf(int n);
+// IMPLEMENT: count_td
 uint64_t count_td(int n);
+// IMPLEMENT: count_bu
 uint64_t count_bu(int n);
+// IMPLEMENT: sol
 uint64_t sol(int n);
 
 

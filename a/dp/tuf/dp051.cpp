@@ -1,10 +1,14 @@
 
+// IMPLEMENT: maxCoinsBF
 int maxCoinsBF(vector<int>& nums);
 
+// IMPLEMENT: maxCoinsMMZ
 int maxCoinsMMZ(vector<int>& nums);
 
+// IMPLEMENT: maxCoinsBU
 int maxCoinsBU(vector<int>& nums);
 
+// IMPLEMENT: maxCoinsOPT
 int maxCoinsOPT(vector<int>& nums);
 
 

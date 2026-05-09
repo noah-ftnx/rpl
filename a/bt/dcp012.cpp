@@ -1,5 +1,6 @@
 // INCLUDES
 
+// IMPLEMENT: enumerate_ways
 vector<vector<int>> enumerate_ways(int N, vector<int> steps);
 
 

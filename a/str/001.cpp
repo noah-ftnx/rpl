@@ -2,6 +2,7 @@
 #include <string>
 using namespace std;
 
+// IMPLEMENT: substrings
 vector<string> substrings(string s) ;
 
 

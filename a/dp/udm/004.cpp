@@ -1,10 +1,14 @@
 
+// IMPLEMENT: justifyBF
 int justifyBF(string text, const int& line_limit);
 
+// IMPLEMENT: justifyMMZ
 int justifyMMZ(string text, const int& line_limit);
 
+// IMPLEMENT: justifyBU
 vector<vector<string>> justifyBU(string text, const int& line_limit);
 
+// IMPLEMENT: justifyOPT
 vector<vector<string>> justifyOPT(string text, const int& line_limit);
 
 

@@ -1,6 +1,7 @@
 #include <string>
 using namespace std;
 
+// IMPLEMENT: encode
 string encode(string input);
 
 

@@ -1,4 +1,5 @@
 
+// IMPLEMENT: findDuplicate
 int findDuplicate(vector<int>& nums);
 
 #include "test/04.h"

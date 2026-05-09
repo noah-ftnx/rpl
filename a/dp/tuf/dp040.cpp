@@ -1,10 +1,14 @@
 
+// IMPLEMENT: maximumProfitBF
 int maximumProfitBF(int fee, vector<int> &prices);
 
+// IMPLEMENT: maximumProfitMMZ
 int maximumProfitMMZ(int fee, vector<int> &prices);
 
+// IMPLEMENT: maximumProfitBU
 int maximumProfitBU(int fee, vector<int> &prices);
 
+// IMPLEMENT: maximumProfitOPT
 int maximumProfitOPT(int fee, vector<int> &prices);
 
 

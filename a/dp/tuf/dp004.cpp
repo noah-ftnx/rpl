@@ -1,10 +1,14 @@
 
+// IMPLEMENT: frogJump2BF
 int frogJump2BF(int n, int k, vector<int> &heights);
 
+// IMPLEMENT: frogJump2MMZ
 int frogJump2MMZ(int n, int k, vector<int> &heights);
 
+// IMPLEMENT: frogJump2BU
 int frogJump2BU(int n, int k, vector<int> &heights);
 
+// IMPLEMENT: frogJump2OPT
 int frogJump2OPT(int n, int k, vector<int> &heights);
 
 

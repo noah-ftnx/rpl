@@ -1,8 +1,11 @@
 
+// IMPLEMENT: matchBF
 bool matchBF(string input, string pattern);
 
+// IMPLEMENT: matchMMZ
 bool matchMMZ(string input, string pattern);
 
+// IMPLEMENT: matchTD
 bool matchTD(string input, string pattern);
 
 

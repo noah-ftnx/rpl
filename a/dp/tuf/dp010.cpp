@@ -1,10 +1,14 @@
 
+// IMPLEMENT: minSumPathBF
 int minSumPathBF(vector<vector<int>> &grid);
 
+// IMPLEMENT: minSumPathMMZ
 int minSumPathMMZ(vector<vector<int>> &grid);
 
+// IMPLEMENT: minSumPathBU
 int minSumPathBU(vector<vector<int>> &grid);
 
+// IMPLEMENT: minSumPathOPT
 int minSumPathOPT(vector<vector<int>> &grid);
 
 

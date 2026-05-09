@@ -1,7 +1,9 @@
 
 
 // Trie
+// IMPLEMENT: insert
 void insert(string s);
+// IMPLEMENT: minimal_prefix
 string minimal_prefix(string s);
 
 

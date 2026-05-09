@@ -1,8 +1,11 @@
 
 class Node {
 
+  // IMPLEMENT: is_locked
   bool is_locked();
+  // IMPLEMENT: lock
   bool lock();
+  // IMPLEMENT: unlock
   bool unlock();
 
 };

@@ -1,4 +1,5 @@
 
+// IMPLEMENT: find_first_missing
 int find_first_missing(vector<int>& vec);
 
 #include "test/004.h"

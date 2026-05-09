@@ -1,10 +1,14 @@
 
+// IMPLEMENT: maximumNonAdjacentSumBF
 int maximumNonAdjacentSumBF(vector<int> &nums);
 
+// IMPLEMENT: maximumNonAdjacentSumMMZ
 int maximumNonAdjacentSumMMZ(vector<int> &nums);
 
+// IMPLEMENT: maximumNonAdjacentSumBU
 int maximumNonAdjacentSumBU(vector<int> &nums);
 
+// IMPLEMENT: maximumNonAdjacentSumOPT
 int maximumNonAdjacentSumOPT(vector<int> &nums);
 
 

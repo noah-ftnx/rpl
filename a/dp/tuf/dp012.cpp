@@ -1,10 +1,14 @@
 
+// IMPLEMENT: getMaxPathSumBF
 int getMaxPathSumBF(vector<vector<int>> &matrix);
 
+// IMPLEMENT: getMaxPathSumMMZ
 int getMaxPathSumMMZ(vector<vector<int>> &matrix);
 
+// IMPLEMENT: getMaxPathSumBU
 int getMaxPathSumBU(vector<vector<int>> &matrix);
 
+// IMPLEMENT: getMaxPathSumOPT
 int getMaxPathSumOPT(vector<vector<int>> &matrix);
 
 

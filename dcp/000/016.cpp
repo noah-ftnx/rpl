@@ -3,8 +3,10 @@ class Log {
  private:
 
  public:
+  // IMPLEMENT: record
   void record(int order_id);
 
+  // IMPLEMENT: get_last
   int get_last(int i);
 
 };

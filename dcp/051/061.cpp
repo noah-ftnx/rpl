@@ -1,6 +1,8 @@
 
+// IMPLEMENT: pow
 double pow(int x, int y);
 
+// IMPLEMENT: pow_fast
 double pow_fast(int x, int y);
 
 

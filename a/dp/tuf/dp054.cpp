@@ -1,10 +1,14 @@
 
+// IMPLEMENT: maxSumAfterPartitioningBF
 int maxSumAfterPartitioningBF(vector<int> &num, int x);
 
+// IMPLEMENT: maxSumAfterPartitioningMMZ
 int maxSumAfterPartitioningMMZ(vector<int> &num, int x);
 
+// IMPLEMENT: maxSumAfterPartitioningBU
 int maxSumAfterPartitioningBU(vector<int> &num, int x);
 
+// IMPLEMENT: maxSumAfterPartitioningOPT
 int maxSumAfterPartitioningOPT(vector<int> &num, int x);
 
 

@@ -1,6 +1,7 @@
 bool toss_biased();  // GIVEN
 #include "test/066pre.h"
 
+// IMPLEMENT: toss
 bool toss();
 
 

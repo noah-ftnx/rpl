@@ -1,8 +1,11 @@
 
+// IMPLEMENT: longest_palidromeBF
 string longest_palidromeBF(string input);
 
+// IMPLEMENT: longest_palidromeBU
 string longest_palidromeBU(string input);
 
+// IMPLEMENT: longest_palindrome
 string longest_palindrome(string input);
 
 

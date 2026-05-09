@@ -1,6 +1,7 @@
 #include <cmath>
 using namespace std;
 
+// IMPLEMENT: myPow
 double myPow(double x, int n);
 
 #include "test/02.h"

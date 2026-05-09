@@ -1,10 +1,14 @@
 
+// IMPLEMENT: minSubsetSumDifferenceBF
 int minSubsetSumDifferenceBF(vector<int>& arr, int n);
 
+// IMPLEMENT: minSubsetSumDifferenceMMZ
 int minSubsetSumDifferenceMMZ(vector<int>& arr, int n);
 
+// IMPLEMENT: minSubsetSumDifferenceBU
 int minSubsetSumDifferenceBU(vector<int>& arr, int n);
 
+// IMPLEMENT: minSubsetSumDifferenceOPT
 int minSubsetSumDifferenceOPT(vector<int>& arr, int n);
 
 

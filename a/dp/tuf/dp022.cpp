@@ -1,10 +1,14 @@
 
+// IMPLEMENT: countWaysToMakeChangeBF
 long countWaysToMakeChangeBF(int *denominations, int n, int value);
 
+// IMPLEMENT: countWaysToMakeChangeMMZ
 long countWaysToMakeChangeMMZ(int *denominations, int n, int value);
 
+// IMPLEMENT: countWaysToMakeChangeBU
 long countWaysToMakeChangeBU(int *denominations, int n, int value);
 
+// IMPLEMENT: countWaysToMakeChangeOPT
 long countWaysToMakeChangeOPT(int *denominations, int n, int value);
 
 

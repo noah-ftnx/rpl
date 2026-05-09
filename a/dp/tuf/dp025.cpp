@@ -1,10 +1,14 @@
 
+// IMPLEMENT: lcsBF
 int lcsBF(string s, string t);
 
+// IMPLEMENT: lcsMMZ
 int lcsMMZ(string s, string t);
 
+// IMPLEMENT: lcsBU
 int lcsBU(string s, string t);
 
+// IMPLEMENT: lcsOPT
 int lcsOPT(string s, string t);
 
 

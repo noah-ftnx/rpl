@@ -1,6 +1,6 @@
 #include "test/18-kth-smallest.h"
 
-// Implement:
+// IMPLEMENT: Tree<T>::kth_smallest
 optional<T> Tree<T>::kth_smallest(int k);
 
 //

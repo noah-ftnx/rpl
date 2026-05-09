@@ -1,4 +1,5 @@
 
+// IMPLEMENT: bishop_attacks
 int bishop_attacks(vector<pair<int,int>> bishops, const int M);
 
 

@@ -1,6 +1,8 @@
 
 class Processor {
+  // IMPLEMENT: insert
   void insert(int element);
+  // IMPLEMENT: median
   double median();
 };
 

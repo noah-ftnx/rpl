@@ -1,8 +1,11 @@
 
+// IMPLEMENT: matrixMultiplicationBF
 int matrixMultiplicationBF(vector<int> &arr, int N);
 
+// IMPLEMENT: matrixMultiplicationMMZ
 int matrixMultiplicationMMZ(vector<int> &arr, int N);
 
+// IMPLEMENT: matrixMultiplicationBU
 int matrixMultiplicationBU(vector<int> &arr, int N);
 
 

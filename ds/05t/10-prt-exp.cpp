@@ -15,6 +15,7 @@ class Tree {
 
   // BONUS: delete: default ctor, copy ctor, and copy assignment.
 
+  // IMPLEMENT: to_string
   string to_string();
 };
 

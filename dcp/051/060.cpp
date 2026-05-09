@@ -1,10 +1,14 @@
 
+// IMPLEMENT: partitioned_subsetBF
 bool partitioned_subsetBF(vector<int> input);
 
+// IMPLEMENT: partitioned_subsetTD
 bool partitioned_subsetTD(vector<int> input);
 
+// IMPLEMENT: partitioned_subsetBU
 bool partitioned_subsetBU(vector<int> input);
 
+// IMPLEMENT: partitioned_subsetOPT
 bool partitioned_subsetOPT(vector<int> input);
 
 

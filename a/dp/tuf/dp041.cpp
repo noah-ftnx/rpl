@@ -1,10 +1,14 @@
 
+// IMPLEMENT: lengthOfLISBF
 int lengthOfLISBF(vector<int>& nums);
 
+// IMPLEMENT: lengthOfLISMMZ
 int lengthOfLISMMZ(vector<int>& nums);
 
+// IMPLEMENT: lengthOfLISBU
 int lengthOfLISBU(vector<int>& nums);
 
+// IMPLEMENT: lengthOfLISOPT
 int lengthOfLISOPT(vector<int>& nums);
 
 

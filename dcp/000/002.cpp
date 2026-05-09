@@ -1,7 +1,9 @@
 #include <vector>
 using namespace std;
 
+// IMPLEMENT: sol1
 vector<int> sol1(vector<int>& vec);
+// IMPLEMENT: sol2
 vector<int> sol2(vector<int>& vec);
 
 

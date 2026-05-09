@@ -1,10 +1,14 @@
 
+// IMPLEMENT: findWaysBF
 int findWaysBF(vector<int> &num, int tar);
 
+// IMPLEMENT: findWaysMMZ
 int findWaysMMZ(vector<int> &num, int tar);
 
+// IMPLEMENT: findWaysBU
 int findWaysBU(vector<int> &num, int tar);
 
+// IMPLEMENT: findWaysOPT
 int findWaysOPT(vector<int> &num, int tar);
 
 

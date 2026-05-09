@@ -1,6 +1,6 @@
 #include "test/02.h"
 
-// Implement:
+// IMPLEMENT: Tree<T>::max_depth
 int Tree<T>::max_depth();
 
 // Depth counts nodes:

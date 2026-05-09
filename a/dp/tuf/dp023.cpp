@@ -1,10 +1,14 @@
 
+// IMPLEMENT: unboundedKnapsackBF
 int unboundedKnapsackBF(int n, int w, vector<int> &profit, vector<int> &weight);
 
+// IMPLEMENT: unboundedKnapsackMMZ
 int unboundedKnapsackMMZ(int n, int w, vector<int> &profit, vector<int> &weight);
 
+// IMPLEMENT: unboundedKnapsackBU
 int unboundedKnapsackBU(int n, int w, vector<int> &profit, vector<int> &weight);
 
+// IMPLEMENT: unboundedKnapsackOPT
 int unboundedKnapsackOPT(int n, int w, vector<int> &profit, vector<int> &weight);
 
 

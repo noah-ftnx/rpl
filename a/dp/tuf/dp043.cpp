@@ -1,7 +1,9 @@
 
+// IMPLEMENT: lengthOfLISBF_DP3
 int lengthOfLISBF_DP3(vector<int>& nums);
 
 // binary search
+// IMPLEMENT: lengthOfLISBF_DP4
 int lengthOfLISBF_DP4(vector<int>& nums);
 
 

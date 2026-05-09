@@ -1,10 +1,14 @@
 
+// IMPLEMENT: numDistinctBF
 int numDistinctBF(string s, string t) ;
 
+// IMPLEMENT: numDistinctMMZ
 int numDistinctMMZ(string s, string t);
 
+// IMPLEMENT: numDistinctBU
 int numDistinctBU(string s, string t) ;
 
+// IMPLEMENT: numDistinctOPT
 int numDistinctOPT(string s, string t) ;
 
 

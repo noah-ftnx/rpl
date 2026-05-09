@@ -1,10 +1,14 @@
 
+// IMPLEMENT: getMaximumProfitBF
 long getMaximumProfitBF(vector<int> &prices);
 
+// IMPLEMENT: getMaximumProfitMMZ
 long getMaximumProfitMMZ(vector<int> &prices);
 
+// IMPLEMENT: getMaximumProfitBU
 long getMaximumProfitBU(vector<int> &prices);
 
+// IMPLEMENT: getMaximumProfitOPT
 long getMaximumProfitOPT(vector<int> &prices);
 
 

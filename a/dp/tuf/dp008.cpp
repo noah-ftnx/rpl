@@ -1,10 +1,14 @@
 
+// IMPLEMENT: uniquePathsBF
 int uniquePathsBF(int m, int n);
 
+// IMPLEMENT: uniquePathsMMZ
 int uniquePathsMMZ(int m, int n);
 
+// IMPLEMENT: uniquePathsBU
 int uniquePathsBU(int m, int n);
 
+// IMPLEMENT: uniquePathsOPT
 int uniquePathsOPT(int m, int n);
 
 

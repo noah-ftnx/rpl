@@ -1,10 +1,14 @@
 
+// IMPLEMENT: stockProfitBF
 int stockProfitBF(vector<int> &prices);
 
+// IMPLEMENT: stockProfitMMZ
 int stockProfitMMZ(vector<int> &prices);
 
+// IMPLEMENT: stockProfitBU
 int stockProfitBU(vector<int> &prices);
 
+// IMPLEMENT: stockProfitOPT
 int stockProfitOPT(vector<int> &prices);
 
 

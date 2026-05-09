@@ -1,9 +1,7 @@
 #include <string>
 using namespace std;
 
-// Implement:
-// string infix_to_postfix(string input);
-
+// IMPLEMENT: infix_to_postfix
 string infix_to_postfix(string input) {
 }
 

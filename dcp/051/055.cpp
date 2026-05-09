@@ -1,7 +1,9 @@
 
 // Shortener
+// IMPLEMENT: shorten
 string shorten(string url);
 
+// IMPLEMENT: restore
 string restore(string code);
 
 

@@ -1,10 +1,11 @@
 #include "test/02-kth-smallest-stream-pre.h"
 
-// Implement:
 class KthSmallest {
  public:
+  // IMPLEMENT: KthSmallest
   explicit KthSmallest(int k);
 
+  // IMPLEMENT: add
   optional<int> add(int val);
 };
 

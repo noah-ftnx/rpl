@@ -1,10 +1,14 @@
 
+// IMPLEMENT: maximalAreaOfSubMatrixOfAll1BF
 int maximalAreaOfSubMatrixOfAll1BF(vector<vector<int>> &mat, int n, int m);
 
+// IMPLEMENT: maximalAreaOfSubMatrixOfAll1MMZ
 int maximalAreaOfSubMatrixOfAll1MMZ(vector<vector<int>> &mat, int n, int m);
 
+// IMPLEMENT: maximalAreaOfSubMatrixOfAll1BU
 int maximalAreaOfSubMatrixOfAll1BU(vector<vector<int>> &mat, int n, int m);
 
+// IMPLEMENT: maximalAreaOfSubMatrixOfAll1OPT
 int maximalAreaOfSubMatrixOfAll1OPT(vector<vector<int>> &mat, int n, int m);
 
 

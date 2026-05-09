@@ -4,6 +4,7 @@ struct Edge {
 };
 
 
+// IMPLEMENT: spt_path
 deque<int> spt_path(vector<list<Edge>> G, int src, int target);
 
 

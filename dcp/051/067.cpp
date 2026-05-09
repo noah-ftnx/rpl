@@ -2,11 +2,14 @@
 
 class LFU {
 
+  // IMPLEMENT: size
   int size();  // provide this also
 
   string to_string(); // GIVEN
 
+  // IMPLEMENT: set
   void set(int key, int value);
+  // IMPLEMENT: get
   int get(int key);
 
 };

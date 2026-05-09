@@ -1,10 +1,14 @@
 
+// IMPLEMENT: printLISBF
 string printLISBF(vector<int>& nums);
 
+// IMPLEMENT: printLISMMZ
 string printLISMMZ(vector<int>& nums);
 
+// IMPLEMENT: printLISBU
 string printLISBU(vector<int>& nums);
 
+// IMPLEMENT: printLISOPT
 string printLISOPT(vector<int>& nums);
 
 

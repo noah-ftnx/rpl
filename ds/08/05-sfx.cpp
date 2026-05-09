@@ -2,7 +2,9 @@
 using namespace std;
 
 struct Trie {
+  // IMPLEMENT: insert
   void insert(string s);
+  // IMPLEMENT: suffix_exists
   bool suffix_exists(string suffix);
 };
 

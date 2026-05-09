@@ -1,10 +1,14 @@
 
+// IMPLEMENT: maximumChocolatesBF
 int maximumChocolatesBF(int r, int c, vector<vector<int>> &grid);
 
+// IMPLEMENT: maximumChocolatesMMZ
 int maximumChocolatesMMZ(int r, int c, vector<vector<int>> &grid);
 
+// IMPLEMENT: maximumChocolatesBU
 int maximumChocolatesBU(int r, int c, vector<vector<int>> &grid);
 
+// IMPLEMENT: maximumChocolatesOPT
 int maximumChocolatesOPT(int r, int c, vector<vector<int>> &grid);
 
 

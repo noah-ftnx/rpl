@@ -3,7 +3,9 @@
 using namespace std;
 
 struct Trie {
+  // IMPLEMENT: insert
   void insert(string s);
+  // IMPLEMENT: get_words
   vector<string> get_words();
 };
 

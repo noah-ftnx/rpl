@@ -1,6 +1,7 @@
 const int N=4;
 const int M=4;
 
+// IMPLEMENT: min_steps
 int min_steps(bool input[N][M], pair<int, int> start, pair<int, int> end);
 
 

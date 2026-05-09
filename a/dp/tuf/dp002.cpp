@@ -1,12 +1,16 @@
 #include <vector>
 using namespace std;
 
+// IMPLEMENT: countBF
 int countBF(long long nStairs);
 
+// IMPLEMENT: countMMZ
 int countMMZ(long long nStairs);
 
+// IMPLEMENT: countBU
 int countBU(long long nStairs);
 
+// IMPLEMENT: countOPT
 int countOPT(long long nStairs);
 
 

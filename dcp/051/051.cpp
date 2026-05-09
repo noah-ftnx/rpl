@@ -4,6 +4,7 @@
 int randk(int k);
 
 
+// IMPLEMENT: shuffle
 void shuffle(vector<int>& deck);
 
 

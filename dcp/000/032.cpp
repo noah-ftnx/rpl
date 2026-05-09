@@ -1,4 +1,5 @@
 
+// IMPLEMENT: arbitrage
 bool arbitrage(vector<vector<double>> rates);
 
 

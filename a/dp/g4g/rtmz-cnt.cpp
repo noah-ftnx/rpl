@@ -1,12 +1,17 @@
 
+// IMPLEMENT: solve_mazeBF
 int solve_mazeBF(vector<vector<int>> maze);
 
+// IMPLEMENT: solve_mazeMMZ
 int solve_mazeMMZ(vector<vector<int>> maze);
 
+// IMPLEMENT: solve_mazeBU
 int solve_mazeBU(vector<vector<int>> maze);
 
+// IMPLEMENT: solve_mazeOPT
 int solve_mazeOPT(vector<vector<int>> maze);
 
+// IMPLEMENT: solve_mazeIN_PLACE
 int solve_mazeIN_PLACE(vector<vector<int>> maze);
 
 

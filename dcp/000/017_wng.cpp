@@ -74,6 +74,7 @@ int longest_path(string fsys) {
       if (folder) {
         if (depth==0) tree.push_back(node);  // root directories
           // keep only the last folder per depth
+        // IMPLEMENT: while
         else while (depth<=cur_folders.back()->depth) cur_folders.pop_back();  // TRICKY
       }
 

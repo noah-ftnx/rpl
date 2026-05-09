@@ -1,10 +1,14 @@
 
+// IMPLEMENT: evaluateExpBF
 int evaluateExpBF(string &exp);
 
+// IMPLEMENT: evaluateExpMMZ
 int evaluateExpMMZ(string &exp);
 
+// IMPLEMENT: evaluateExpBU
 int evaluateExpBU(string &exp);
 
+// IMPLEMENT: evaluateExpOPT
 int evaluateExpOPT(string &exp);
 
 

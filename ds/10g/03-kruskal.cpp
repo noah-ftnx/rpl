@@ -8,6 +8,7 @@ struct Edge {
   int w; // weight
 };
 
+// IMPLEMENT: MST
 vector<Edge> MST(vector<Edge> edges, int V);
 
 

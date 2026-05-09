@@ -1,4 +1,5 @@
 
+// IMPLEMENT: sol
 bool sol(vector<int> vec, const int sum);
 
 

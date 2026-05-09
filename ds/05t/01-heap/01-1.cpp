@@ -1,6 +1,8 @@
 
+// IMPLEMENT: insert
 void insert(vector<int> &vec, int val);
 
+// IMPLEMENT: pop
 int pop(vector<int> &vec);
 
 #include "test/01-1.h"

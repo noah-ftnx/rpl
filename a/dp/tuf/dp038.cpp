@@ -1,8 +1,11 @@
 
+// IMPLEMENT: maximumProfitBF
 int maximumProfitBF(vector<int> &prices, int k);
 
+// IMPLEMENT: maximumProfitMMZ
 int maximumProfitMMZ(vector<int> &prices, int k);
 
+// IMPLEMENT: maximumProfitBU
 int maximumProfitBU(vector<int> &prices, int k);
 
 int maximumProfitOPT(vector<int> &prices, int k)

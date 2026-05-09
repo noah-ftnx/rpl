@@ -1,4 +1,5 @@
 
+// IMPLEMENT: list_substrs
 unordered_set<string> list_substrs(const string& str, const vector<string>& queries);
 
 

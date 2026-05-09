@@ -1,10 +1,14 @@
 
+// IMPLEMENT: canYouMakeBF
 int canYouMakeBF(string &s, string &t);
 
+// IMPLEMENT: canYouMakeMMZ
 int canYouMakeMMZ(string &s, string &t);
 
+// IMPLEMENT: canYouMakeBU
 int canYouMakeBU(string &s, string &t);
 
+// IMPLEMENT: canYouMakeOPT
 int canYouMakeOPT(string &s, string &t);
 
 

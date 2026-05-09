@@ -1,10 +1,14 @@
 
+// IMPLEMENT: targetSumBF
 int targetSumBF(int n, int target, vector<int>& arr);
 
+// IMPLEMENT: targetSumMMZ
 int targetSumMMZ(int n, int target, vector<int>& arr);
 
+// IMPLEMENT: targetSumBU
 int targetSumBU(int n, int target, vector<int>& arr);
 
+// IMPLEMENT: targetSumOPT
 int targetSumOPT(int n, int target, vector<int>& arr);
 
 

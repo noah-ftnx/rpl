@@ -1,4 +1,5 @@
 
+// IMPLEMENT: paint_houses
 int paint_houses(vector<vector<int>> input);
 
 

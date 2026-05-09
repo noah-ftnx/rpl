@@ -1,10 +1,14 @@
 
+// IMPLEMENT: minimumElementsBF
 int minimumElementsBF(vector<int> &num, int x);
 
+// IMPLEMENT: minimumElementsMMZ
 int minimumElementsMMZ(vector<int> &num, int x);
 
+// IMPLEMENT: minimumElementsBU
 int minimumElementsBU(vector<int> &num, int x);
 
+// IMPLEMENT: minimumElementsOPT
 int minimumElementsOPT(vector<int> &num, int x);
 
 

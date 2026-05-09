@@ -1,7 +1,11 @@
 
+// IMPLEMENT: sum_naBF
 int sum_naBF(const vector<int>& vec);
+// IMPLEMENT: sum_naTD
 int sum_naTD(const vector<int>& vec);
+// IMPLEMENT: sum_naBU
 int sum_naBU(const vector<int>& v);
+// IMPLEMENT: sol
 int sol(const vector<int>& v);
 
 

@@ -1,6 +1,8 @@
 
 class LRU {
+  // IMPLEMENT: set
   void set(int k, int v);
+  // IMPLEMENT: get
   int get(int k);
 };
 

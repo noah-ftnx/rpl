@@ -4,7 +4,7 @@
 // - template Tree class containing root
 // -template Node has: right, left, data
 
-// Implement:
-// bool is_bst();
+// IMPLEMENT: is_bst
+bool is_bst();
 
 int main() { run_tests(); return 0; }

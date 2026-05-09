@@ -1,10 +1,14 @@
 
+// IMPLEMENT: countPartitionsBF
 int countPartitionsBF(int n, int d, vector<int> &arr);
 
+// IMPLEMENT: countPartitionsMMZ
 int countPartitionsMMZ(int n, int d, vector<int> &arr);
 
+// IMPLEMENT: countPartitionsBU
 int countPartitionsBU(int n, int d, vector<int> &arr);
 
+// IMPLEMENT: countPartitionsOPT
 int countPartitionsOPT(int n, int d, vector<int> &arr);
 
 

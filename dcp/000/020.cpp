@@ -1,9 +1,11 @@
 
 struct List {
+  // IMPLEMENT: insert
   void insert(int n);
 
 };
 
+// IMPLEMENT: intersecting_node
 int intersecting_node(List* l1, List* l2);
 
 

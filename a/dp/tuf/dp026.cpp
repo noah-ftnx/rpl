@@ -1,10 +1,14 @@
 
+// IMPLEMENT: lcsBF
 string lcsBF(string s, string t);
 
+// IMPLEMENT: lcsMMZ
 string lcsMMZ(string s, string t);
 
+// IMPLEMENT: lcsBU
 string lcsBU(string s, string t);
 
+// IMPLEMENT: lcsOPT
 string lcsOPT(string s, string t);
 
 #include "test/dp026.h"

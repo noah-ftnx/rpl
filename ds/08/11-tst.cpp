@@ -2,10 +2,13 @@
 
 struct TST {
 
+  // IMPLEMENT: insert
   void insert(const string& s);
 
+  // IMPLEMENT: find
   bool find(const string& s);
 
+  // IMPLEMENT: remove
   void remove(const string & s);
 };
 

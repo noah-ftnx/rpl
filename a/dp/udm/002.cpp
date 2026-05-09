@@ -1,7 +1,11 @@
 
+// IMPLEMENT: max_passBF
 int max_passBF(const vector<int>& v);
+// IMPLEMENT: max_passTD
 int max_passTD(const vector<int>& v);
+// IMPLEMENT: max_passBU
 int max_passBU(const vector<int>& v);
+// IMPLEMENT: sol
 int sol(const vector<int>& v);
 
 

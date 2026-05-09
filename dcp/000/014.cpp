@@ -1,4 +1,5 @@
 
+// IMPLEMENT: monte_carlo
 double monte_carlo(int N);
 
 

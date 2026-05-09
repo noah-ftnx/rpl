@@ -1,11 +1,15 @@
 // INCLUDES
 
+// IMPLEMENT: count_bf
 int count_bf(int N, vector<int> steps);
 
+// IMPLEMENT: count_td
 int count_td(int N, vector<int> steps);
 
+// IMPLEMENT: count_bu
 int count_bu(int N, vector<int> steps);
 
+// IMPLEMENT: sol
 int sol(int N, vector<int> steps);
 
 

@@ -6,8 +6,10 @@ using namespace std;
 struct Graph {
   Graph(int V);
 
+  // IMPLEMENT: addEdge
   void addEdge(int v, int w);
 
+  // IMPLEMENT: linearize
   vector<int> linearize();
 
 };

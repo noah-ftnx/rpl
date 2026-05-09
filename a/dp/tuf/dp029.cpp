@@ -1,10 +1,14 @@
 
+// IMPLEMENT: minInsertionBF
 int minInsertionBF(string &s);
 
+// IMPLEMENT: minInsertionMMZ
 int minInsertionMMZ(string &s);
 
+// IMPLEMENT: minInsertionBU
 int minInsertionBU(string &s);
 
+// IMPLEMENT: minInsertionOPT
 int minInsertionOPT(string &s);
 
 

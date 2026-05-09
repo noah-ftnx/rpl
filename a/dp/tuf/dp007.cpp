@@ -1,10 +1,14 @@
 
+// IMPLEMENT: ninjaTrainingBF
 int ninjaTrainingBF(vector<vector<int>> &points);
 
+// IMPLEMENT: ninjaTrainingMMZ
 int ninjaTrainingMMZ(vector<vector<int>> &points);
 
+// IMPLEMENT: ninjaTrainingBU
 int ninjaTrainingBU(vector<vector<int>> &points);
 
+// IMPLEMENT: ninjaTrainingOPT
 int ninjaTrainingOPT(vector<vector<int>> &points);
 
 

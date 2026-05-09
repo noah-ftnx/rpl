@@ -1,8 +1,11 @@
 
+// IMPLEMENT: setZeroesBF
 void setZeroesBF(vector<vector<int>>& matrix);
 
+// IMPLEMENT: setZeroesV2
 void setZeroesV2(vector<vector<int>>& matrix);
 
+// IMPLEMENT: setZeroesV3
 void setZeroesV3(vector<vector<int>>& matrix);
 
 

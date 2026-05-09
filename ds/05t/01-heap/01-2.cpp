@@ -1,6 +1,7 @@
 #include <vector>
 using namespace std;
 
+// IMPLEMENT: heapify
 void heapify(vector<int> &vec);
 
 

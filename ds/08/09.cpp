@@ -4,6 +4,7 @@ using namespace std;
 
 struct WordFilter {
   WordFilter(vector<string>& words);
+  // IMPLEMENT: f
   int f(string prefix, string suffix);
 };
 

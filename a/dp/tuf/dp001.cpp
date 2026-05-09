@@ -1,10 +1,14 @@
 
+// IMPLEMENT: fiboBF
 int fiboBF(int N);
 
+// IMPLEMENT: fiboMMZ
 int fiboMMZ(int N);
 
+// IMPLEMENT: fiboBU
 int fiboBU(int N);
 
+// IMPLEMENT: fiboOPT
 int fiboOPT(int N);
 
 

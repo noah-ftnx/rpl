@@ -12,11 +12,9 @@ private:
   // IMPLEMENT: parent
   int parent(int i) const;
 
-  // Why needed?
   // IMPLEMENT: percolate_up
   void percolate_up(int i);
 
-  // Why needed?
   // IMPLEMENT: percolate_down
   void percolate_down(int i);
 

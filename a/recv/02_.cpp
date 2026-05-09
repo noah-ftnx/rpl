@@ -9,12 +9,15 @@ using namespace std;
 
 const int N = 10;
 
-// IMPLEMENT: recursive reverse
 void reverse(int array[N], int i) {
+  if (i>=N/2) return; // reached middle
+
+  swap(array[i], array[N-1-i]);
+  reverse(array, i+1);
 }
 
-// IMPLEMENT: reverse wrapper
-void reverse_array(int array[N]) {
+void reverse_array(int array[N]) { // O(N)
+  reverse(array, 0);
 }
 
 #include <iostream>

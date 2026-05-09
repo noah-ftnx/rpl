@@ -6,13 +6,26 @@
 #include <vector>
 using namespace std;
 
-// IMPLEMENT: recursive print
 void print(vector<int> input, vector<int> pset, int i) {
+  if (i == input.size()) {
+    if (pset.empty()) cout << "{}\n";
+    else { for (auto p: pset) cout << p << " "; cout << endl; }
+    return;
+  }
+
+  // case: take number
+  pset.push_back(input[i]);
+  print(input, pset, i+1);
+
+  // case: not take
+  pset.pop_back(); // backtrack
+  print(input, pset, i+1);
 }
 
-// IMPLEMENT: print all subsequences
 void print_subsequences(vector<int> input) {
+  print(input, {}, 0);
 }
+
 
 int main() {
   vector<int> vec {3,1,2};

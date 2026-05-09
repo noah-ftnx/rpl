@@ -5,20 +5,30 @@
  *
 */
 
-// IMPLEMENT: recv1
 void recv1(int i, int N, int &sum) {
+  if (i>N) return;
+  sum+=i;
+  recv1(i+1, N, sum);
 }
 
-// IMPLEMENT: parameterized
 int parameterized(int N) {
+  int sum {};
+  recv1(1, N, sum);
+  return sum;
 }
 
-// IMPLEMENT: functional
+
 int functional(int N) {
+  if (N==0) return 0;
+
+  return N + functional(N-1);
 }
 
-// IMPLEMENT: factorial
 int factorial(int N) {
+  if (N<0) return 0;
+  if (N==0) return 1;
+
+  return N * factorial(N-1);
 }
 
 #include <iostream>

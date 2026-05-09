@@ -1,29 +1,68 @@
 #ifndef INC_070__CPP_DS_10G_TEST_10_H_
 #define INC_070__CPP_DS_10G_TEST_10_H_
 
+#include <iomanip>
 #include <iostream>
+#include <string>
+#include <vector>
+using namespace std;
+
+bool _wrong {};
+
+string show(const vector<int>& vec) {
+  string res;
+  for (auto v: vec) res += to_string(v) + " ";
+  if (!res.empty()) res.pop_back();
+  return res;
+}
+
+bool is_topological(int V, const vector<pair<int, int>>& edges, const vector<int>& order) {
+  if (order.size() != V) return false;
+
+  vector<int> pos(V, -1);
+  for (int i=0; i<order.size(); i++) {
+    if (order[i] < 0 || order[i] >= V || pos[order[i]] != -1) return false;
+    pos[order[i]]=i;
+  }
+
+  for (auto [from, to]: edges) {
+    if (pos[from] > pos[to]) return false;
+  }
+  return true;
+}
+
+void test(string name, int V, vector<pair<int, int>> edges) {
+  Graph g(V);
+  for (auto [from, to]: edges) {
+    g.addEdge(from, to);
+  }
+
+  auto order = g.linearize();
+  bool wrong = !is_topological(V, edges, order);
+  _wrong |= wrong;
+
+  cout << (wrong ? "[FAIL] " : "[PASS] ");
+  cout << left << setw(14) << name;
+  cout << show(order);
+  if (wrong) cout << " (WRONG)";
+  cout << endl;
+}
 
 void run_tests() {
-  // Create a graph given in the above diagram
-  Graph g(6);
-  g.addEdge(5, 2);
-  g.addEdge(5, 0);
-  g.addEdge(4, 0);
-  g.addEdge(4, 1);
-  g.addEdge(2, 3);
-  g.addEdge(3, 1);
+  test("classic", 6, {
+    {5, 2}, {5, 0}, {4, 0}, {4, 1}, {2, 3}, {3, 1},
+  });
+  test("chain", 4, {
+    {0, 1}, {1, 2}, {2, 3},
+  });
+  test("diamond", 4, {
+    {0, 1}, {0, 2}, {1, 3}, {2, 3},
+  });
+  test("disconnected", 5, {
+    {0, 1}, {3, 4},
+  });
 
-  // Function Call
-  auto result = g.linearize();
-
-  string res = "";
-  for (auto node: result) res+= to_string(node) + " ";
-  if (!res.empty()) res.pop_back();
-
-  bool wrong = (res != "5 4 2 3 1 0")
-          && (res != "4 5 2 0 3 1")
-          && (res != "4 0 1 5 2 3");
-  cout << res << endl << (wrong ? "[FAIL] " : "[PASS] ") << endl;
+  cout << endl;
 }
 
 #endif  // INC_070__CPP_DS_10G_TEST_10_H_

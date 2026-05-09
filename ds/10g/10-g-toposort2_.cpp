@@ -10,7 +10,7 @@ struct Graph {
 
   Graph(int V) : V{V} {
     AL.resize(V);
-    indegree = move(vector<int>(V, 0));
+    indegree.resize(V);
   }
 
   void addEdge(int v, int w) {

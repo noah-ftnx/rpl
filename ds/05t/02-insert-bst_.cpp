@@ -65,6 +65,8 @@ class BSTree {
 
   ///////////// for verification
   string __get_bfs() {
+    if (!root) return "";
+
     queue<Node<T>*> q;
     q.push(root);
     string r;
@@ -81,14 +83,19 @@ class BSTree {
 };
 
 
-string correct_bfs="35 15 45 20 70 60 73 50 ";
+void check(vector<int> values, string expected) {
+  BSTree<int> tree;
+  tree.insert(values);
+
+  string result = tree.__get_bfs();
+  cout << (result == expected ? "[PASS] " : "[FAIL] ") << result << endl;
+}
 
 void run_tests() {
-  auto t1= new BSTree<int>();
-  vector<int> v1 {35, 15, 20, 45, 70, 60, 73, 50};
-  t1->insert(v1);
-  string s = t1->__get_bfs();
-  cout << (s.compare(correct_bfs)!=0?"[FAIL] ": "[PASS] ") << s << endl;
+  check({}, "");
+  check({35}, "35 ");
+  check({10, 5, 15, 3, 7, 12, 18}, "10 5 15 3 7 12 18 ");
+  check({35, 15, 20, 45, 70, 60, 73, 50}, "35 15 45 20 70 60 73 50 ");
 }
 
 int main() { run_tests(); return 0; }

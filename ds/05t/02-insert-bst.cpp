@@ -4,64 +4,55 @@
 #include <vector>
 using namespace std;
 
-template <class T>
 struct Node {
-  Node<T>* left {};
-  Node<T>* right {};
-  Node<T>* parent {};
-  T data;
+  int data {};
+  Node* left {};
+  Node* right {};
 
-  explicit Node(T data) : data{data} {}
-
-  ~Node() {
-    delete left;
-    delete right;
-  }
+  explicit Node(int data) : data{data} {}
 };
 
-template <class T>
 class BSTree {
  private:
-  Node<T>* root {};
+  Node* root {};
 
  public:
-  explicit BSTree() = default;
-  ~BSTree() { delete root; }
+  // Implement these:
+  void insert(int data);
+  void insert(const vector<int>& values);
 
-  // Implement:
-  void insert(vector<T> vec);
-  void insert(T data);
-  void _insert(T data, Node<T>* node);
-
-  string __get_bfs() {
+  string bfs() {
     if (!root) return "";
 
-    queue<Node<T>*> q;
+    queue<Node*> q;
     q.push(root);
 
-    string res;
+    string result;
     while (!q.empty()) {
       auto node = q.front();
       q.pop();
 
-      res += to_string(node->data) + " ";
+      result += to_string(node->data) + " ";
       if (node->left) q.push(node->left);
       if (node->right) q.push(node->right);
     }
-    return res;
+    return result;
   }
 };
 
-const string correct_bfs = "35 15 45 20 70 60 73 50 ";
+void check(vector<int> values, string expected) {
+  BSTree tree;
+  tree.insert(values);
+
+  string result = tree.bfs();
+  cout << (result == expected ? "[PASS] " : "[FAIL] ") << result << endl;
+}
 
 void run_tests() {
-  BSTree<int> t1;
-  vector<int> v1 {35, 15, 20, 45, 70, 60, 73, 50};
-
-  t1.insert(v1);
-  string s = t1.__get_bfs();
-
-  cout << (s == correct_bfs ? "[PASS] " : "[FAIL] ") << s << endl;
+  check({}, "");
+  check({35}, "35 ");
+  check({10, 5, 15, 3, 7, 12, 18}, "10 5 15 3 7 12 18 ");
+  check({35, 15, 20, 45, 70, 60, 73, 50}, "35 15 45 20 70 60 73 50 ");
 }
 
 int main() { run_tests(); return 0; }

@@ -1,6 +1,5 @@
 #include <vector>
 #include <list>
-#include <iostream>
 using namespace std;
 
 struct Graph {
@@ -21,7 +20,6 @@ struct Graph {
 
     for (auto n: AL[u]) {
       if (visited[n]) {
-        // it's not from where we just came from
         if (n != parent) return true;
       } else {
         if (cyclesDFS(visited, n, u)) return true;
@@ -35,10 +33,8 @@ struct Graph {
     for (int i=0; i<V; i++) {
       if (!visited[i] && cyclesDFS(visited, i, -1)) return true;
     }
-
     return false;
   }
-
 };
 
 

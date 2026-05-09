@@ -13,7 +13,10 @@ class BSTree {
  public:
   Node* root {};
 
+  // IMPLEMENT: insert one value
   void insert(int data);
+
+  // IMPLEMENT: insert all values in order
   void insert(const vector<int>& values);
 };
 

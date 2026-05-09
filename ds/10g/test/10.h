@@ -5,6 +5,8 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include <list>
+#include <deque>
 using namespace std;
 
 bool _wrong {};
@@ -49,6 +51,8 @@ void test(string name, int V, vector<pair<int, int>> edges) {
 }
 
 void run_tests() {
+  test("single", 1, {});
+  test("isolated", 4, {});
   test("classic", 6, {
     {5, 2}, {5, 0}, {4, 0}, {4, 1}, {2, 3}, {3, 1},
   });
@@ -60,6 +64,9 @@ void run_tests() {
   });
   test("disconnected", 5, {
     {0, 1}, {3, 4},
+  });
+  test("multi-source", 4, {
+    {0, 3}, {1, 3}, {2, 3},
   });
 
   cout << endl;

@@ -1,101 +1,46 @@
 #include <vector>
-#include <queue>
-#include <string>
-#include <iostream>
 using namespace std;
 
-
-template <class T>
 struct Node {
-  Node<T>* left {};
-  Node<T>* right {};
-  Node<T>* parent {};
-  T data;
+  int data {};
+  Node* left {};
+  Node* right {};
 
-  Node(T data) : data{data} {
-  }
-  ~Node() {
-    if (left) {
-      delete left;
-      left = nullptr;
-    }
-    if (right) {
-      delete right;
-      right=nullptr;
-    }
-  }
+  explicit Node(int data) : data{data} {}
 };
 
-
-template <class T>
 class BSTree {
- private:
-  Node<T>* root {};
  public:
-  explicit BSTree() = default;
+  Node* root {};
 
-  ~BSTree() {
-    delete root;
-  }
+  void insert(int data) {
+    if (!root) {
+      root = new Node(data);
+      return;
+    }
 
-  void insert(vector<T> vec) { for (auto v: vec) insert(v); }
-
-  void _insert(T data, Node<T>* node) {
-    if (data > node->data)  { // insert: Right
-      if (!node->right) {
-        node->right = new Node(data);
-        node->right->parent=node;
+    auto node = root;
+    while (true) {
+      if (data < node->data) {
+        if (!node->left) {
+          node->left = new Node(data);
+          return;
+        }
+        node = node->left;
+      } else {
+        if (!node->right) {
+          node->right = new Node(data);
+          return;
+        }
+        node = node->right;
       }
-      else _insert(data, node->right);
-    } else { // insert: Left
-      if (!node->left) {
-        node->left = new Node(data);
-        node->left->parent=node;
-      }
-      else _insert(data, node->left);
     }
   }
 
-  void insert(T data) {
-    if (root == nullptr) { root = new Node(data); }
-    else {
-      _insert(data, root);
-    }
+  void insert(const vector<int>& values) {
+    for (auto value: values) insert(value);
   }
-
-  ///////////// for verification
-  string __get_bfs() {
-    if (!root) return "";
-
-    queue<Node<T>*> q;
-    q.push(root);
-    string r;
-    while (!q.empty()) {
-      auto n=q.front();
-      q.pop();
-      r+= std::to_string(n->data) + " ";
-      if (n->left) q.push(n->left);
-      if (n->right) q.push(n->right);
-    }
-    return r;
-  }
-  /////////////
 };
 
-
-void check(vector<int> values, string expected) {
-  BSTree<int> tree;
-  tree.insert(values);
-
-  string result = tree.__get_bfs();
-  cout << (result == expected ? "[PASS] " : "[FAIL] ") << result << endl;
-}
-
-void run_tests() {
-  check({}, "");
-  check({35}, "35 ");
-  check({10, 5, 15, 3, 7, 12, 18}, "10 5 15 3 7 12 18 ");
-  check({35, 15, 20, 45, 70, 60, 73, 50}, "35 15 45 20 70 60 73 50 ");
-}
-
+#include "test/02-insert-bst.h"
 int main() { run_tests(); return 0; }

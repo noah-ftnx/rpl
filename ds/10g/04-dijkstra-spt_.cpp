@@ -15,7 +15,7 @@ struct EdgeCmp {
   }
 };
 
-vector<int> spt(vector<list<Edge>> G, int src) {
+vector<int> min_costs(vector<list<Edge>> G, int src) {
   const int V=G.size();
   // here Edge is: to: vertex: w: total weight from src
   priority_queue<Edge, vector<Edge>, EdgeCmp> pq;

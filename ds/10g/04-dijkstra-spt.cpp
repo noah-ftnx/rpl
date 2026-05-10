@@ -4,8 +4,8 @@ struct Edge {
   int w;
 };
 
-// IMPLEMENT: spt
-vector<int> spt(vector<list<Edge>> G, int src);
+// IMPLEMENT: return shortest cost from src to every vertex
+vector<int> min_costs(vector<list<Edge>> G, int src);
 
 
 

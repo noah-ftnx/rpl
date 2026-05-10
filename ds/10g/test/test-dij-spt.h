@@ -17,8 +17,8 @@ void print_result_spt(vector<int> result) {
 
 
 void run_tests() {
-  cout << "dijkstra: spt: priority-queue\n";
-  auto dist = spt(input_adj_list(), 0);
+  cout << "dijkstra: min costs: priority-queue\n";
+  auto dist = min_costs(input_adj_list(), 0);
   print_result_spt(dist);
 }
 

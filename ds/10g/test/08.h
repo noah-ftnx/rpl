@@ -46,6 +46,17 @@ Graph input_self_loop() {
   return g;
 }
 
+Graph input_single_node() {
+  auto g = Graph(1);
+  return g;
+}
+
+Graph input_one_edge() {
+  auto g = Graph(2);
+  g.addEdge(0, 1);
+  return g;
+}
+
 void check(string name, Graph g, bool correct) {
   bool result = g.has_cycles();
   bool wrong = result != correct;
@@ -64,6 +75,8 @@ void run_tests() {
   check("disconnected cyclic", input_disconnected_cyclic(), true);
   check("disconnected acyclic", input_disconnected_acyclic(), false);
   check("self loop", input_self_loop(), true);
+  check("single node", input_single_node(), false);
+  check("one edge", input_one_edge(), false);
 
   cout << endl;
 }

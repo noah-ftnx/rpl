@@ -36,3 +36,6 @@ public:
         return false; // no cycle (in any component)
     }
 };
+
+#include "test/05.h"
+int main() { run_tests(); return 0; }

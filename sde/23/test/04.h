@@ -1,5 +1,5 @@
-#ifndef RPL_SDE_23_TEST_05_H_
-#define RPL_SDE_23_TEST_05_H_
+#ifndef RPL_SDE_23_TEST_04_H_
+#define RPL_SDE_23_TEST_04_H_
 
 #include <iomanip>
 #include <iostream>
@@ -52,6 +52,13 @@ Adj input_single_node() {
   return Adj(1);
 }
 
+Adj input_star_tree() {
+  Adj adj(3);
+  add_edge(adj, 0, 1);
+  add_edge(adj, 0, 2);
+  return adj;
+}
+
 Adj input_self_loop() {
   Adj adj(1);
   add_edge(adj, 0, 0);
@@ -88,10 +95,11 @@ void run_tests() {
   check("disconnected cyclic", input_disconnected_cyclic(), true);
   check("disconnected acyclic", input_disconnected_acyclic(), false);
   check("single node", input_single_node(), false);
+  check("star tree", input_star_tree(), false);
   check("self loop", input_self_loop(), true);
   check("branch cycle", input_branch_cycle(), true);
 
   cout << endl;
 }
 
-#endif  // RPL_SDE_23_TEST_05_H_
+#endif  // RPL_SDE_23_TEST_04_H_

@@ -48,6 +48,15 @@ Graph input_long_cycle() {
   return g;
 }
 
+Graph input_source_into_cycle() {
+  auto g = Graph(4);
+  g.addEdge(0, 1);
+  g.addEdge(1, 2);
+  g.addEdge(2, 3);
+  g.addEdge(3, 1);
+  return g;
+}
+
 Graph input_chain() {
   auto g = Graph(4);
   g.addEdge(0, 1);
@@ -86,6 +95,9 @@ void run_tests() {
 
   auto longCycle = input_long_cycle();
   check("long cycle", longCycle, true);
+
+  auto sourceIntoCycle = input_source_into_cycle();
+  check("source into cycle", sourceIntoCycle, true);
 
   auto chain = input_chain();
   check("chain", chain, false);

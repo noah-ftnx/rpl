@@ -3,6 +3,11 @@
 
 using namespace std;
 
+struct Item {
+  int value;
+  int weight;
+};
+
 double fractionalKnapsack(int W, Item arr[], int n) {
 
   // sort according to the highest price per unit
@@ -32,3 +37,6 @@ double fractionalKnapsack(int W, Item arr[], int n) {
   }
   return res;
 }
+
+#include "test/04.h"
+int main() { run_tests(); return 0; }

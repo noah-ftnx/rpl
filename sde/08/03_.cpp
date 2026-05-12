@@ -3,6 +3,12 @@
 
 using namespace std;
 
+struct Job {
+  int id;
+  int dead;
+  int profit;
+};
+
 vector<int> JobScheduling(Job arr[], int n) {
   sort(arr, arr+n, [](Job a, Job b) {
     return a.profit > b.profit;
@@ -16,7 +22,7 @@ vector<int> JobScheduling(Job arr[], int n) {
   for (int i=0; i<n; i++) {
 
     // find scheduling slot:
-    // schedule max paying jobsas late as possible to max profit
+    // schedule max paying jobs as late as possible to max profit
     int j=arr[i].dead-1;
     while (j>=0 && scheduling[j]!=-1) j--;
 
@@ -30,3 +36,6 @@ vector<int> JobScheduling(Job arr[], int n) {
   }
   return {jobs, profit};
 }
+
+#include "test/03.h"
+int main() { run_tests(); return 0; }

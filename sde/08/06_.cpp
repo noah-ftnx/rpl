@@ -27,3 +27,6 @@ int maximumActivities(vector<int> &start, vector<int> &finish) {
   }
   return cnt;
 }
+
+#include "test/06.h"
+int main() { run_tests(); return 0; }

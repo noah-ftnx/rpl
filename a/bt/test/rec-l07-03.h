@@ -19,9 +19,11 @@ void test(vector<int> candidates, int k, int correct) {
 }
 
 void run_tests() {
-
   test({1,2,1,4}, 2, 2);
   test({1,2,2,3,4}, 4, 3);
+  test({1,2,3}, 7, 0);
+  test({}, 0, 1);
+  test({0,0}, 0, 4);
 
   if (_wrong) {
     cout << "[FAIL]\n";

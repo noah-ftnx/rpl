@@ -12,7 +12,7 @@ void test(vector<int> candidates, int k, vector<vector<int>> correct) {
 
   auto result = any_subsequence(candidates, k);
   cout << "Result:\n";
-  bool wrong = true; // assumption
+  bool wrong = true;
   for (auto any: correct) {
     if (any==result) {
       for (int i: any) cout << i << " ";
@@ -28,12 +28,14 @@ void test(vector<int> candidates, int k, vector<vector<int>> correct) {
 }
 
 void run_tests() {
-
   test({1,2,2, 3, 4}, 4, {
                       {1, 3},
                       {2,2},
                       {4},
                   });
+  test({1,2,3}, 7, {{}});
+  test({}, 0, {{}});
+  test({5}, 5, {{5}});
 
   if (_wrong) {
     cout << "[FAIL]\n";

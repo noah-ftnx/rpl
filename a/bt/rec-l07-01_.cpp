@@ -1,3 +1,4 @@
+#include <algorithm>
 #include <vector>
 using namespace std;
 
@@ -24,6 +25,8 @@ void solve (
 vector<vector<int>> enumerate_subsequences(vector<int> input, int K) {
   vector<vector<int>> res; vector<int> cur;
   solve(input, res, cur, K, 0);
+  sort(res.begin(), res.end());
+  res.erase(unique(res.begin(), res.end()), res.end());
   return res;
 }
 

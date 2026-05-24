@@ -1,7 +1,15 @@
 #ifndef RPL_A_BT_TEST_LTCD78_BASE_H_
 #define RPL_A_BT_TEST_LTCD78_BASE_H_
 
+#include <algorithm>
 #include <iostream>
+
+void normalize(vector<vector<int>> &powerset) {
+  for (auto &subset: powerset) {
+    sort(subset.begin(), subset.end());
+  }
+  sort(powerset.begin(), powerset.end());
+}
 
 void run_tests() {
   vector<int> nums {1, 2, 3};
@@ -17,6 +25,9 @@ void run_tests() {
   };
 
   auto powerset = subsets(nums);
+  normalize(powerset);
+  normalize(correct);
+
   cout << "Powerset:\n";
   for (auto subset: powerset) {
     cout << "{ ";

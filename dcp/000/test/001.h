@@ -1,11 +1,8 @@
 #ifndef REPL_DCP_INPUT_1_E_H_
 #define REPL_DCP_INPUT_1_E_H_
 
-#include <iostream>
-#include <iomanip>
-#include <string>
-#include <sstream>
 #include <vector>
+#include "../../../.inc/check.h"
 
 using namespace std;
 
@@ -29,16 +26,10 @@ vector<int> v12 {5, 0, -5};
 vector<int> v13 {1, 2, -5};
 vector<int> v14 {1, 0, -5};
 
-string res(bool r, bool correct_r) {
-  stringstream ss;
-  ss << boolalpha << r << ((r==correct_r)?"":" [FAIL]");
-  return ss.str();
-}
-
 bool sol(vector<int> vec, const int sum);
 
 void test(int k, vector<int> v, std::string sv, bool result) {
-  cout << setw(2)<< k << ": "<<sv<<": " << res(sol(v, k), result) << endl;
+  check_bool(sv, sol(v, k), result);
 }
 
 void run_tests() {

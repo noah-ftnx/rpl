@@ -1,42 +1,43 @@
 #include <string>
+#include <vector>
 using namespace std;
 
-int BF(string str, int i) {
+int BF(const string& str, int i) {
   const int N = (int) str.size();
-  if (N==0 && i>N) return 0;
-  else if(i==N-1) return 1; // normal case
+  if (N == 0) return 0;
+  if (i == N) return 1;
+  if (i > N || str[i] == '0') return 0;
 
-  const char cc = str[i]; // current char
-  if (cc != '0') {
-    if (i+1 < N) { // next char in bounds
-      const char nc = str[i+1]; // next char
-      if (nc != '0' && // '10', '20' ignored..
-          cc == '1' || (cc =='2' && (nc >='1' && nc <='6'))
-          ) {
-        return 1+BF(str, i+1);
-      }
-    }
+  int res = BF(str, i+1);
+  if (i+1 < N) {
+    const int pair = (str[i]-'0')*10 + (str[i+1]-'0');
+    if (pair >= 10 && pair <= 26) res += BF(str, i+2);
   }
-
-  return BF(str, i+1);
+  return res;
 }
 
 int decodings(string str) {
   if (str.empty()) return 0;
 
-  int res = 1;
   const int N = (int) str.size();
-  for (int i=N-2; i>=0; i--) {
-    const char cc = str[i];
-    const char nc = str[i+1];
-    if ((cc=='1' && nc != '0') ||
-        (cc=='2' && nc >= '1' && nc <='6')) res ++;
+  vector<int> dp(N+1, 0);
+  dp[N] = 1;
+
+  for (int i=N-1; i>=0; i--) {
+    if (str[i] == '0') {
+      dp[i] = 0;
+      continue;
+    }
+
+    dp[i] = dp[i+1];
+    if (i+1 < N) {
+      const int pair = (str[i]-'0')*10 + (str[i+1]-'0');
+      if (pair >= 10 && pair <= 26) dp[i] += dp[i+2];
+    }
   }
 
-  return res;
+  return dp[0];
 }
-
-
 
 #include "test/007.h"
 int main() { run_tests(); return 0; }

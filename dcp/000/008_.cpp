@@ -5,7 +5,7 @@ struct Node {
   int value;
   Node* left;
   Node* right;
-  Node(int v) : value{v} {}
+  Node(int v) : value{v}, left{nullptr}, right{nullptr} {}
 };
 
 pair<int, bool> recv(Node* node) {
@@ -36,14 +36,8 @@ int count_unival(Node* node) {
   return res.first;
 }
 
-
-
 #include "test/008.h"
 int main() { run_tests(); }
-
-
-
-
 // ALT, more complex
 int complex_count_unival(Node* node) {
   if (node == nullptr) return 0;

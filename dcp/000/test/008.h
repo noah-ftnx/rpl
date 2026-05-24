@@ -1,8 +1,7 @@
 #ifndef RPL_DCP_TEST_008_H_
 #define RPL_DCP_TEST_008_H_
 
-#include <string>
-#include <iostream>
+#include "../../../.inc/check.h"
 
 Node* tree0() {
   return nullptr;
@@ -43,9 +42,22 @@ Node* tree4() {
   return root;
 }
 
+Node* tree5() {
+  Node* root = new Node(1);
+  root->left = new Node(1);
+  root->left->left = new Node(1);
+  return root;
+}
+
+Node* tree6() {
+  Node* root = new Node(1);
+  root->left = new Node(2);
+  root->left->left = new Node(2);
+  return root;
+}
+
 void check(string msg, Node* root, int correct) {
-  int res = count_unival(root);
-  cout << (res!=correct ? "[FAIL] " : "[PASS] ") << "unival:"  << msg << ": " << res  << endl;
+  check_result(msg, count_unival(root), correct);
 }
 
 void run_tests() {
@@ -54,6 +66,8 @@ void run_tests() {
   check("t2", tree2(), 3);
   check("t3", tree3(), 2);
   check("t4", tree4(), 5);
+  check("t5", tree5(), 3);
+  check("t6", tree6(), 2);
 }
 
 #endif  // RPL_DCP_TEST_008_H_

@@ -1,48 +1,29 @@
-#ifndef REPL_DCP_TEST_TEST_001_H_
-#define REPL_DCP_TEST_TEST_001_H_
+#ifndef RPL_DCP_TEST_002_H_
+#define RPL_DCP_TEST_002_H_
 
-#include <string>
-#include <sstream>
-#include <iostream>
 #include <vector>
-using namespace std;
+#include "../../../.inc/check.h"
 
 vector<int> sol1(vector<int>& vec);
 vector<int> sol2(vector<int>& vec);
 
-vector<string> correct_output {
-    "120 60 40 30 24 ",
-    "2 3 6 ",
-    "180 600 360 300 900 ",
-};
-
-void print_result(string msg, int input_id, const vector<int>& result) {
-  stringstream ss;
-  for (auto v: result) ss << v << " ";
-
-  string out = ss.str();
-
-  cout << (out.compare(correct_output[input_id-1])!=0 ? "[FAIL] " : "[PASS] ") << msg  << ":v" << input_id << ": " << out
-        << endl;
+void check(string msg, vector<int> input, vector<int> correct) {
+  vector<int> v1 = input;
+  vector<int> v2 = input;
+  check_result("div " + msg, sol1(v1), correct);
+  check_result("no-div " + msg, sol2(v2), correct);
 }
 
 void run_tests() {
-  vector<int> v1 {1, 2, 3, 4, 5};
-  vector<int> v2 {3, 2, 1};
-  vector<int> v3 {10, 3, 5, 6, 2};
-
-  vector<int> result;
-
-  cout << "WITH DIVISION:\n";
-  result=sol1(v1); print_result("div", 1, result);
-  result=sol1(v2); print_result("div", 2, result);
-  result=sol1(v3); print_result("div", 3, result);
-
-  cout << "\nWITHOUT DIVISION:\n";
-  result=sol2(v1); print_result("no-div", 1, result);
-  result=sol2(v2); print_result("no-div", 2, result);
-  result=sol2(v3); print_result("no-div", 3, result);
-  cout << endl;
+  check("v1", {1, 2, 3, 4, 5}, {120, 60, 40, 30, 24});
+  check("v2", {3, 2, 1}, {2, 3, 6});
+  check("v3", {10, 3, 5, 6, 2}, {180, 600, 360, 300, 900});
+  check("v4", {4, 5}, {5, 4});
+  check("v5", {7}, {7});
+  check("v6", {}, {});
+  check("v7", {1, 0, 3}, {0, 3, 0});
+  check("v8", {0, 0, 3}, {0, 0, 0});
+  check("v9", {-1, 2, -3}, {-6, 3, -2});
 }
 
-#endif //REPL_DCP_TEST_TEST_001_H_
+#endif  // RPL_DCP_TEST_002_H_

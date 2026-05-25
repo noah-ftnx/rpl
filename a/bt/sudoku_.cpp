@@ -1,4 +1,5 @@
 #include <vector>
+#include <functional>
 using namespace std;
 
 bool solve_sudoku(vector<vector<int>>& grid) {
@@ -21,20 +22,37 @@ bool solve_sudoku(vector<vector<int>>& grid) {
 
   for (int r=0; r<N; r++) {
     for (int c=0; c<N; c++) {
-      if (grid[r][c] != 0) continue;
-
-      for (int val=1; val<=9; val++) {
-        if (!is_valid(r, c, val)) continue;
+      if (grid[r][c] == 0) continue;
+      int val = grid[r][c];
+      grid[r][c] = 0;
+      if (!is_valid(r, c, val)) {
         grid[r][c] = val;
-        if (solve_sudoku(grid)) return true;
-        grid[r][c] = 0;
+        return false;
       }
-
-      return false;
+      grid[r][c] = val;
     }
   }
 
-  return true;
+  function<bool()> solve = [&]() {
+    for (int r=0; r<N; r++) {
+      for (int c=0; c<N; c++) {
+        if (grid[r][c] != 0) continue;
+
+        for (int val=1; val<=9; val++) {
+          if (!is_valid(r, c, val)) continue;
+          grid[r][c] = val;
+          if (solve()) return true;
+          grid[r][c] = 0;
+        }
+
+        return false;
+      }
+    }
+
+    return true;
+  };
+
+  return solve();
 }
 
 #include "test/sudoku.h"

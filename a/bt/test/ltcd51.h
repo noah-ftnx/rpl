@@ -4,7 +4,7 @@
 #include <iostream>
 
 bool _dbg_prt_vector=false;
-bool _print_board=true;
+bool _print_board=false;
 
 bool _wrong = false;
 
@@ -38,17 +38,19 @@ void print_board(const int N, vector<vector<int>> solutions) {
 
 void test(fptr function, int N, bool print, vector<vector<int>> correct) {
   auto solutions = function(N);
-  cout << N << " Queens. Solutions: " << solutions.size() << endl;
 
-  bool dbg=false;
   if(_dbg_prt_vector) print_vector(solutions);
 
-  if (_print_board) print_board(N, solutions);
+  if (print) print_board(N, solutions);
 
   if (correct != solutions) {
     _wrong=true;
-    cout << "[FAIL]\n";
+    cout << "[FAIL] ";
+  } else {
+    cout << "[PASS] ";
   }
+  cout << N << " Queens. Solutions: " << solutions.size()
+       << " Expected: " << correct.size() << "\n";
 }
 
 
@@ -80,6 +82,8 @@ void run_tests(string msg, fptr function) {
 
   if (_wrong) {
     cout << "[FAIL] wrong results found.\n";
+  } else {
+    cout << "[PASS]: ALL results.\n";
   }
 }
 

@@ -35,6 +35,26 @@ void run_tests(string msg, fptr function) {
   test(function, vec2, 2, false);
   test(function, vec2, 1, true);
   test(function, vec2, 23, true);
+  test(function, vec2, 60, true);
+  test(function, vec2, 61, false);
+
+  vector<vector<int>> one {{5}};
+  test(function, one, 5, true);
+  test(function, one, 4, false);
+
+  vector<vector<int>> one_row {{1, 3, 5, 7}};
+  test(function, one_row, 7, true);
+  test(function, one_row, 6, false);
+
+  vector<vector<int>> one_col {{1}, {3}, {5}, {7}};
+  test(function, one_col, 7, true);
+  test(function, one_col, 2, false);
+
+  vector<vector<int>> empty;
+  test(function, empty, 1, false);
+
+  vector<vector<int>> empty_row {{}};
+  test(function, empty_row, 1, false);
 
 
   cout << endl;

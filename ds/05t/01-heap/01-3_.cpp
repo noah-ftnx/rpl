@@ -34,9 +34,9 @@ void heapify(vector<int> &vec) {
 void heapsort(vector<int> &vec) {
   heapify(vec);
 
-  for (int size = (int) vec.size(); size > 1; size--) {
-    swap(vec[0], vec[size - 1]);
-    percolate_down(vec, 0, size - 1);
+  for (int i = (int) vec.size(); i > 1; i--) {
+    swap(vec[0], vec[i - 1]);
+    percolate_down(vec, 0, i - 1);
   }
 }
 

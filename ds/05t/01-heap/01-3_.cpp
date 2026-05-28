@@ -32,8 +32,10 @@ void heapify(vector<int> &vec) {
 }
 
 void heapsort(vector<int> &vec) {
+  // Build a max heap in the same array.
   heapify(vec);
 
+  // Move each max to the end; the remaining prefix stays a heap.
   for (int i = (int) vec.size(); i > 1; i--) {
     swap(vec[0], vec[i - 1]);
     percolate_down(vec, 0, i - 1);

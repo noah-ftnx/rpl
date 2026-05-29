@@ -27,12 +27,12 @@ void percolate_down(vector<int> &vec, int idx, int size) {
 }
 
 void heapify(vector<int> &vec) {
+  // Floyd heapify: build the max heap bottom-up in O(n).
   for (int i = (int) vec.size()/2 - 1; i >= 0; i--)
     percolate_down(vec, i, vec.size());
 }
 
 void heapsort(vector<int> &vec) {
-  // Build a max heap in the same array.
   heapify(vec);
 
   // Move each max to the end; the remaining prefix stays a heap.

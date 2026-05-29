@@ -1,7 +1,7 @@
 #include <vector>
 using namespace std;
 
-// IMPLEMENT: heapsort
+// IMPLEMENT: ascending heapsort
 void heapsort(vector<int> &vec);
 
 #include "test/01-3.h"

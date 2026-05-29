@@ -1,4 +1,3 @@
-// status: failing
 #include <vector>
 #include <climits>
 
@@ -6,8 +5,6 @@ using namespace std;
 
 int majorityElement(vector<int>& nums) {
   const int N = (int) nums.size();
-
-  int limit = N/2;
   int cnt=0;
   int num=INT_MIN;
 
@@ -20,4 +17,11 @@ int majorityElement(vector<int>& nums) {
     else cnt--;
   }
   return num;
+}
+
+#include "test/03.h"
+int main() {
+  run_tests(majorityElement, "majorityElement");
+  print_report();
+  return 0;
 }

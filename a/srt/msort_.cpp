@@ -19,19 +19,18 @@ void merge_lists(vector<int>& vec, int l, int m, int h) {
 }
 
 void DNQ(vector<int>& vec, int l, int h) {
-  if (l < h) {
-    int mid = (l + h) / 2;
-    DNQ(vec, l, mid);     // left subarray
-    DNQ(vec, mid + 1, h); // right subarray
-    merge_lists(vec, l, mid, h);
-  }
+  if (l >= h) return;
+  int mid = (l + h) / 2;
+  DNQ(vec, l, mid);     // left subarray
+  DNQ(vec, mid + 1, h); // right subarray
+  merge_lists(vec, l, mid, h);
 }
 
 void merge_sort(vector<int>& vec) {
+  if (vec.size() < 2) return;
   DNQ(vec, 0, vec.size()-1);
 }
 
 
 #include "test/msort.h"
 int main() { run_tests(); return 0; }
-

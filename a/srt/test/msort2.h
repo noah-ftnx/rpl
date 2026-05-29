@@ -1,5 +1,5 @@
-#ifndef RPL_A_SRT_TEST_MSORT_H_
-#define RPL_A_SRT_TEST_MSORT_H_
+#ifndef RPL_A_SRT_TEST_MSORT2_H_
+#define RPL_A_SRT_TEST_MSORT2_H_
 
 #include <vector>
 #include <iostream>
@@ -31,4 +31,4 @@ void run_tests() {
   test(input3, sorted3);
 }
 
-#endif  // RPL_A_SRT_TEST_MSORT_H_
+#endif  // RPL_A_SRT_TEST_MSORT2_H_

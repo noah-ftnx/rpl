@@ -1,16 +1,15 @@
-// status: failing
 #include <vector>
 #include <unordered_map>
-#include <map>
 #include <algorithm>
 
 using namespace std;
 
-int maxLenBF(vector<int>&A, int n) {
+int maxLenBF(vector<int>&A) {
+  const int n = A.size();
   int mx {};
   for (int i=0; i<n; i++) {
-    int sum=A[i];
-    for (int j=i+1; j<n; j++) {
+    int sum {};
+    for (int j=i; j<n; j++) {
       sum+=A[j];
       if (sum==0) mx=max(mx, j-i+1);
     }
@@ -19,7 +18,8 @@ int maxLenBF(vector<int>&A, int n) {
 }
 
 
-int maxLen(vector<int>&A, int n) {
+int maxLen(vector<int>&A) {
+  const int n = A.size();
   unordered_map<int, int> mp;
   int mx=0;
 
@@ -41,4 +41,12 @@ int maxLen(vector<int>&A, int n) {
   }
 
   return mx;
+}
+
+#include "test/04.h"
+int main() {
+  run_tests(maxLenBF, "maxLenBF");
+  run_tests(maxLen, "maxLen");
+  print_report();
+  return 0;
 }

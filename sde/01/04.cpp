@@ -1,3 +1,6 @@
+#include <climits>
+#include <vector>
+using namespace std;
 
 // IMPLEMENT: maxSubArray
 int maxSubArray(vector<int>& nums);
@@ -9,4 +12,3 @@ int main() {
   print_report();
   return 0;
 }
-

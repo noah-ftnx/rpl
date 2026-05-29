@@ -1,7 +1,5 @@
-// status: failing
 #include <vector>
 #include <unordered_map>
-#include <map>
 
 using namespace std;
 
@@ -19,32 +17,27 @@ int subarraysXorBF(vector<int> &arr, int x) {
 }
 
 
-int subarraysXor(vector<int> &arr, int x) {
-  // 4, 2, 2, 6, 4 x:6
-  // 4,2
-  // 4,2,2,6
-  // 6
-  // 4,2,2,6,4
-  // answer: 4
+int subarraysXor(vector<int> &arr, int k) {
   const int N = (int) arr.size();
   int cnt=0;
   int xpr=0; // prefix xor
   unordered_map<int, int> mp;
+  mp[0]=1;
 
   for (int i=0; i<N; i++) {
     xpr=xpr^arr[i];
-    // elements so far match x
-    if (xpr==x) cnt++;
 
-    // there might be more subarrays:
-
-    int y = xpr^x;
-    if (mp.count(y)) {
-      cnt+=mp[y];
-      mp[y]=mp[y]+1; // increment
-    } else {
-      mp.insert({y, 1}); // init
-    }
+    int y = xpr^k;
+    if (mp.count(y)) cnt+=mp[y];
+    mp[xpr]++;
   }
   return cnt;
+}
+
+#include "test/05.h"
+int main() {
+  run_tests(subarraysXorBF, "subarraysXorBF");
+  run_tests(subarraysXor, "subarraysXor");
+  print_report();
+  return 0;
 }

@@ -1,14 +1,22 @@
-// status: failing
-int uniquePaths(int m, int n) {
-  const int P = m+n-2; // all the moves we have to do
+#include <algorithm>
+using namespace std;
 
-  // we can either pick m-1, or n-1
-  int r=m-1;
-  double res=1;
-  for (int i=1; i<=r; i++) {
-    // P-r+i= 5-3+1 = 3
-    // 5-3+2=4
-    res=(res*(P-r+i))/(double) i;
+int uniquePaths(int m, int n) {
+  if (m <= 0 || n <= 0) return 0;
+
+  int totalMoves = m+n-2;
+  int choose = min(m-1, n-1);
+
+  long long res=1;
+  for (int i=1; i<=choose; i++) {
+    res=res*(totalMoves-choose+i)/i;
   }
   return res;
+}
+
+#include "test/05.h"
+int main() {
+  run_tests("Sol", uniquePaths);
+  print_report();
+  return 0;
 }

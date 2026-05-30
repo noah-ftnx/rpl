@@ -71,3 +71,6 @@ int getMedian(vector<vector<int>> &matrix) {
   }
   return low;
 }
+
+#include "test/02.h"
+int main() { run_tests("Matrix Median", getMedian); return 0; }

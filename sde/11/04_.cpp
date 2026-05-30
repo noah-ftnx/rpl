@@ -33,3 +33,6 @@ int search(vector<int>& nums, int target) {
   }
   return -1;
 }
+
+#include "test/04.h"
+int main() { run_tests("Search in Rotated Sorted Array", search); return 0; }

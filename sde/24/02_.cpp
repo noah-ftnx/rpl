@@ -73,3 +73,6 @@ class SolutionOPT {
     return dist;
   }
 };
+
+#include "test/02.h"
+int main() { run_tests(); return 0; }

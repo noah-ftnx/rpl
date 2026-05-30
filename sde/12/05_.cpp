@@ -16,7 +16,7 @@ vector<int> mergeKSortedArrays(vector<vector<int>>&kArrays, int k) {
 
   // init queue
   for(int i=0; i<k; i++) {
-    if (!kArrays.empty()) {
+    if (!kArrays[i].empty()) {
       pq.push({i, 0, kArrays[i][0]});
     }
   }
@@ -34,3 +34,6 @@ vector<int> mergeKSortedArrays(vector<vector<int>>&kArrays, int k) {
   }
   return res;
 }
+
+#include "test/05.h"
+int main() { run_tests(); return 0; }

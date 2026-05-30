@@ -1,9 +1,8 @@
-#include <vector>
 #include <string>
-
+#include <vector>
 using namespace std;
 
-class SolutionSol1 {
+class Solution {
  public:
   bool isAnagram(string s, string t) {
     const int S = s.size();
@@ -12,10 +11,11 @@ class SolutionSol1 {
 
     vector<int> st(26, 0);
     for (auto c: s) st[c-'a']++;
-
     for (auto c: t) st[c-'a']--;
-
     for (int n: st) if (n != 0) return false;
     return true;
   }
 };
+
+#include "test/04.h"
+int main() { run_tests(); return 0; }

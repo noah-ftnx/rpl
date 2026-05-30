@@ -45,3 +45,6 @@ public:
         return order; // no it's not rev anymore!
     }
 };
+
+#include "test/08.h"
+int main() { run_tests(); return 0; }

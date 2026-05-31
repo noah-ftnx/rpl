@@ -11,4 +11,3 @@ int main() {
   print_report();
   return 0;
 }
-

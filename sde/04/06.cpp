@@ -2,9 +2,7 @@
 using namespace std;
 
 // IMPLEMENT: longest substring without repeating characters
-int lengthOfLongestSubstring(string s) {
-  return 0;
-}
+int lengthOfLongestSubstring(string s);
 
 #include "test/06.h"
 int main() {

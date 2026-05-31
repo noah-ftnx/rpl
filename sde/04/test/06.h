@@ -19,12 +19,19 @@ void test(fptr function, string input, int correct) {
 void run_tests(fptr function, string msg) {
   cout << msg << ":\n";
   test(function, "", 0);
+  test(function, "a", 1);
+  test(function, "au", 2);
   test(function, "abcabcbb", 3);
   test(function, "bbbbb", 1);
   test(function, "pwwkew", 3);
   test(function, "dvdf", 3);
   test(function, "abba", 2);
   test(function, "tmmzuxt", 5);
+  test(function, "anviaj", 5);
+  test(function, "ohvhjdml", 6);
+  test(function, "abcdefghijklmnopqrstuvwxyz", 26);
+  test(function, "aab", 2);
+  test(function, "abcaefgh", 7);
   cout << endl;
 }
 

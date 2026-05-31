@@ -3,9 +3,7 @@
 #include <vector>
 using namespace std;
 
-long long getInversions(vector<int> arr) {
-  return 0;
-}
+long long getInversions(vector<int> arr);
 
 
 

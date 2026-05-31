@@ -1,6 +1,10 @@
 
+#include <vector>
+using namespace std;
+
 // IMPLEMENT: sortColors
-void sortColors(vector<int>& nums);
+void sortColors(vector<int>& nums) {
+}
 
 
 
@@ -11,4 +15,3 @@ int main() {
   print_report();
   return 0;
 }
-

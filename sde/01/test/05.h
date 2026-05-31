@@ -3,6 +3,10 @@
 
 #include <iostream>
 #include <iomanip>
+#include <string>
+#include <vector>
+
+using namespace std;
 
 bool _wrong=false;
 
@@ -37,6 +41,14 @@ void run_tests(string msg, fptr function) {
   cout << msg  << ":\n";
 
   test(function, {1, 2, 0, 0, 0, 1, 2, 1, 1}, {0, 0, 0, 1, 1, 1, 1, 2, 2});
+  test(function, {}, {});
+  test(function, {0}, {0});
+  test(function, {1}, {1});
+  test(function, {2}, {2});
+  test(function, {2, 2, 2}, {2, 2, 2});
+  test(function, {0, 0, 0}, {0, 0, 0});
+  test(function, {2, 1, 0}, {0, 1, 2});
+  test(function, {2, 0, 1, 2, 1, 0}, {0, 0, 1, 1, 2, 2});
 
   cout << endl;
 }

@@ -55,3 +55,11 @@ int lengthOfLongestSubstring(string s) {
   }
   return mx;
 }
+
+#include "test/06.h"
+int main() {
+  run_tests(lengthOfLongestSubstringBF, "lengthOfLongestSubstringBF");
+  run_tests(lengthOfLongestSubstring, "lengthOfLongestSubstring");
+  print_report();
+  return 0;
+}

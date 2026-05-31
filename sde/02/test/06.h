@@ -4,11 +4,11 @@
 #include "../../../.inc/base.h"
 #include "../../../.inc/to_string.h"
 
-long long prototype(vector<int> arr, int n);
+long long prototype(vector<int> arr);
 using fptr = decltype(prototype);
 
 void test(fptr function, vector<int> v1, int correct) {
-  auto res = function(v1, v1.size());
+  auto res = function(v1);
   bool wrong = res!=correct;
   _wrong|=wrong;
   cout << (wrong ? "[FAIL] " : "[PASS] ");

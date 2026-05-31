@@ -37,12 +37,13 @@ int mergeSort(vector<int> &arr, int l, int r) {
   return inv;
 }
 
-long long getInversions2(vector<int> arr, int n) {
-  return mergeSort(arr, 0, n-1);
+long long getInversions2(vector<int> arr) {
+  return mergeSort(arr, 0, arr.size()-1);
 }
 
 
-long long getInversions(vector<int> arr, int n) {
+long long getInversions(vector<int> arr) {
+  int n = arr.size();
   int sum{};
   for (int i=0; i<n; i++) {
     for (int j=i+1; j<n; j++) {

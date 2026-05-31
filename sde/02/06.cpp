@@ -1,6 +1,11 @@
 
 // IMPLEMENT: getInversions
-long long getInversions(vector<int> arr, int n);
+#include <vector>
+using namespace std;
+
+long long getInversions(vector<int> arr) {
+  return 0;
+}
 
 
 

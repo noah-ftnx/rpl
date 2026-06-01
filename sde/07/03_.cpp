@@ -1,65 +1,9 @@
-// status: failing
+// status: passing
 #include <vector>
-#include <string>
-#include <unordered_map>
-#include <unordered_set>
-#include <set>
-#include <map>
 #include <algorithm>
+#include <iostream>
 
 using namespace std;
-
-vector<vector<int>> threeSumBad(vector<int>& nums) {
-  auto getUniqueKey = [] (int a, int b, int c) {
-    vector<int> v {a, b, c};
-    sort(v.begin(), v.end());
-    string key;
-    for (int i: v) key+=to_string(i);
-    return key;
-  };
-
-  unordered_map<int, int> mp; // num, occurences
-  unordered_set<string> unq;
-
-  // keep count of nums and occurences
-  const int N = nums.size();
-  for (int i=0; i<N; i++) {
-    if (mp.count(nums[i])) {
-      mp[nums[i]]=mp[nums[i]]+1;
-    } else {
-      mp.insert({nums[i], 1});
-    }
-  }
-
-  vector<vector<int>> res;
-  for (int i=0; i<N; i++) {
-    mp[nums[i]]--; // allocate usage of i num
-    for (int j=i+1; j<N; j++) {
-      if (mp[nums[j]] >0) {
-
-        mp[nums[j]]--; // allocate usage j num
-
-        int tgt = -(nums[i]+nums[j]);
-        // @i + @j + remainder = 0
-        // remainder = -@i + -@j = -sum
-
-        if (mp.count(tgt) && mp[tgt] >0) {
-          // must add them sorted in a set, to avoid duplicates
-          auto key = getUniqueKey(nums[i], nums[j], tgt);
-          // if second is true, means added, else skipped (not unique)
-          if (unq.insert(key).second) res.push_back({nums[i], nums[j], tgt});
-        }
-
-        mp[nums[j]]++; // de-allocate usage i num
-      }
-    }
-    mp[nums[i]]++; // de-allocate usage i num
-  }
-
-  return res;
-}
-
-
 
 vector<vector<int>> threeSum(vector<int>& nums) {
   const int N = (int) nums.size();
@@ -106,10 +50,9 @@ vector<vector<int>> threeSum(vector<int>& nums) {
   return res;
 }
 
-/*
-
-
-N
-
-
- */
+#include "test/03.h"
+int main() {
+  run_tests(threeSum, "threeSum");
+  print_report();
+  return 0;
+}

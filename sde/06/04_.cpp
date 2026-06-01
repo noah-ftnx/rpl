@@ -1,14 +1,11 @@
 // status: failing
-/**
- * Definition for singly-linked list.
- * struct ListNode {
- *     int val;
- *     ListNode *next;
- *     ListNode() : val(0), next(nullptr) {}
- *     ListNode(int x) : val(x), next(nullptr) {}
- *     ListNode(int x, ListNode *next) : val(x), next(next) {}
- * };
- */
+struct ListNode {
+  int val;
+  ListNode *next;
+  ListNode() : val(0), next(nullptr) {}
+  ListNode(int x) : val(x), next(nullptr) {}
+  ListNode(int x, ListNode *next) : val(x), next(next) {}
+};
 
 
 ListNode* reverseList(ListNode* head) {
@@ -42,8 +39,12 @@ bool isPalindrome(ListNode* head) {
 
   // use cur (avoids odd/even size issues: rev can have 1 extra el)
   auto cur=head, rev=revList;
-  while (cur!=nullptr) {
-    if (cur->val != rev->val) return false;
+  while (cur!=nullptr && rev!=nullptr) {
+    if (cur->val != rev->val) {
+      ListNode* revRevList = reverseList(revList);
+      prevSlow->next = revRevList;
+      return false;
+    }
     cur=cur->next;
     rev=rev->next;
   }
@@ -57,4 +58,11 @@ bool isPalindrome(ListNode* head) {
   prevSlow->next = revRevList;
 
   return true;
+}
+
+#include "test/04.h"
+int main() {
+  run_tests(isPalindrome, "isPalindrome");
+  print_report();
+  return 0;
 }
